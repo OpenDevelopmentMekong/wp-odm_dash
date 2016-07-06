@@ -1,4 +1,4 @@
-wp-ckan
+wpdash
 =======
 
 Wordpress plugin for exposing widgets with data visualizations
