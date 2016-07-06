@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: wpdash
+ * Plugin Name: wp-odm_dash
  * Plugin URI: http://github.com/OpenDevelopmentMekong/wpdash
- * Description: wpdash is a wordpress plugin for exposing widgets with data visualizations.
+ * Description: Internal wordpress plugin for exposing widgets with data visualizations.
  * Version: 0.9.0
  * Author: Alex Corbi (mail@lifeformapps.com)
  * Author URI: http://www.lifeformapps.com
@@ -12,8 +12,8 @@
  include_once plugin_dir_path(__FILE__).'widgets/query-resources-widget.php';
  include_once plugin_dir_path(__FILE__).'utils/wpdash-utils.php';
 
-if (!class_exists('wpdash')) {
-    class wpdash
+if (!class_exists('Odm_Wpdash_Plugin')) {
+    class Odm_Wpdash_Plugin
     {
         /**
          * Construct the plugin object.
