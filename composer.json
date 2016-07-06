@@ -1,0 +1,9 @@
+{
+  "name": "wpdash",
+  "version": "0.9.0",
+  "description": "wpdash is a wordpress plugin for exposing widgets with data visualizations",
+  "repositories": [
+  ],
+  "require": {
+  }
+}
