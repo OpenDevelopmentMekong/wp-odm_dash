@@ -5,7 +5,7 @@
         <?php @do_settings_fields('wpdash-group'); ?>
 
         <?php
-          $setting_1 = $GLOBALS['options']->get_option('wpdash_setting_1');
+          $setting_1 = $GLOBALS['wpdash_options']->get_option('wpdash_setting_1');
         ?>
 
         <table class="form-table">

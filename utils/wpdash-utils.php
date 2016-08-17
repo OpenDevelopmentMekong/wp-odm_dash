@@ -1,7 +1,8 @@
 <?php
 
-  function dosomething(){
+  function check_requirements_dashboards()
+  {
     return true;
   }
-  
+
 ?>

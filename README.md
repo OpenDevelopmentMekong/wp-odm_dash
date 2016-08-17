@@ -12,14 +12,14 @@ Wordpress plugin for exposing widgets with data visualizations
 # Installation
 
 1. Either download the files as zip or clone <code>git clone https://github.com/OpenDevelopmentMekong/wpdash.git</code> into the Wordpress plugins folder.
-2. Install dependencies with composer (http://getcomposer.org) <code>composer install</code>
+2. Install dependencies with bower (http://bower.io) <code>bower install</code>
 3. Activate the plugin through the 'Plugins' menu in WordPress
 
 # Development
 
-1. Install composer http://getcomposer.org/
-2. Edit composer.json for adding/modifying dependencies versions
-3. Install dependencies <code>composer install</code>
+1. Install bower http://bower.io/
+2. Edit bower.json for adding/modifying dev dependencies versions
+3. Install dependencies with <code>bower install</code>
 
 # Requirements
 
