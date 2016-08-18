@@ -1,3 +1,4 @@
+
 <?php get_header(); ?>
 
 <?php	if (have_posts()) : ?>
@@ -211,23 +212,24 @@
 
 <?php
 
-	wp_register_script('wpdash-leaflet', plugin_dir_url(__FILE__).'bower_components/leaflet/dist/leaflet.js', array('jquery'));
+	wp_register_script('wpdash-leaflet', plugins_url().'/wp-odm_dash/bower_components/leaflet/dist/leaflet.js', array('jquery'));
 	wp_enqueue_script('wpdash-leaflet');
-	wp_register_script('wpdash-leaflet-search', plugin_dir_url(__FILE__).'bower_components/leaflet-search/dist/leaflet-search.min.js', array('jquery'));
+	wp_register_script('wpdash-leaflet-search', plugins_url().'/wp-odm_dash/bower_components/leaflet-search/dist/leaflet-search.min.js', array('jquery'));
 	wp_enqueue_script('wpdash-leaflet-search');
-	wp_register_script('wpdash-loading-overlay', plugin_dir_url(__FILE__).'bower_components/jquery-loading-overlay/src/loadingoverlay.min.js', array('jquery'));
+	wp_register_script('wpdash-loading-overlay', plugins_url().'/wp-odm_dash/bower_components/jquery-loading-overlay/src/loadingoverlay.min.js', array('jquery'));
 	wp_enqueue_script('wpdash-loading-overlay');
 
-	wp_register_script('wpdash-app', plugin_dir_url(__FILE__).'js/app.js', array('jquery'));
+	wp_register_script('wpdash-app', plugins_url().'/wp-odm_dash/js/app.js', array('jquery'));
 	wp_enqueue_script('wpdash-app');
-	wp_register_script('wpdash-chart-config', plugin_dir_url(__FILE__).'js/chart-config.js', array('jquery'));
+	wp_register_script('wpdash-chart-config', plugins_url().'/wp-odm_dash/js/chart-config.js', array('jquery'));
 	wp_enqueue_script('wpdash-chart-config');
-	wp_register_script('wpdash-chart-class', plugin_dir_url(__FILE__).'js/chartClass.js', array('jquery'));
+	wp_register_script('wpdash-chart-class', plugins_url().'/wp-odm_dash/js/chartClass.js', array('jquery'));
 	wp_enqueue_script('wpdash-chart-class');
-	wp_register_script('wpdash-util', plugin_dir_url(__FILE__).'js/util.js', array('jquery'));
+	wp_register_script('wpdash-util', plugins_url().'/wp-odm_dash/js/util.js', array('jquery'));
 	wp_enqueue_script('wpdash-util');
 
 ?>
+
 <!-- JS -->
 <script src="https://d3js.org/topojson.v1.min.js"></script>
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBWFsA9Qk3_-_FiwWT3d38WHbXkIZ9EkE&callback=initMap"></script>
