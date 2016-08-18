@@ -210,7 +210,7 @@
 </div> <!-- END OF HOUSEHOLD & LIVING -->
 
 <!-- JS -->
-<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBWFsA9Qk3_-_FiwWT3d38WHbXkIZ9EkE&callback=initMap"></script>
 <script src="leaflet-google.js"></script> -->
 
