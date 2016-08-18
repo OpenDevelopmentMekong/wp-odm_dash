@@ -160,7 +160,10 @@ var charts = {
       container_id : 'school_chart',
       chart_type : 'column',
       chart_options : {
-        title : 'Number of Schools'
+        title : 'Number of Schools',
+        legend: { 
+          position: "none" 
+        }
       },
       columns : {
         'School' : 'string',
@@ -181,7 +184,10 @@ var charts = {
       container_id : 'student_chart',
       chart_type : 'column',
       chart_options : {
-        title : 'Number of Students'
+        title : 'Number of Students',
+        legend: { 
+          position: "none" 
+        }
       },
       columns : {
         'Students' : 'string',
@@ -202,7 +208,10 @@ var charts = {
       container_id : 'teacher_chart',
       chart_type : 'column',
       chart_options : {
-        title : 'Number of Teachers'
+        title : 'Number of Teachers',
+        legend: { 
+          position: "none" 
+        }
       },
       columns : {
         'Teachers' : 'string',
