@@ -314,6 +314,9 @@ jQuery( document ).ready(function() {
 
       e.layer.setStyle({fillColor: '#000', fillOpacity: 0.3, color: '#000'});
       actionOnTSLayer(e.layer);
+
+      resetClickStyles();
+      
       assignLastClickLayer(e.layer, 'TS');
       /*if(e.layer._popup)
         e.layer.openPopup();*/
