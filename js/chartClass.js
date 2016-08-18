@@ -338,7 +338,9 @@ var googleChart = {
         position : 'bottom'
       }
     },
-    table : {},
+    table : {
+      width: '100%'
+    },
     treemap : {
       textStyle : {
         fontSize : 15
