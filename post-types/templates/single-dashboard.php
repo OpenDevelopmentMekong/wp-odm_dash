@@ -23,7 +23,10 @@
 		</div>
 		<div class="ten columns" id="overviewInfo">
 			<h1 id="region_name">Myanmar</h1>
-			<p id="pcode_wrapper">PCode - <span id="region_pcode"></span></p>
+			<p class="pcode_wrapper">
+				ST PCODE : <span id="st_pcode">MMR</span> 
+				<span class="ts_chart" style="margin-left:30px;">TS PCODE : <span id="ts_pcode"></span></span>
+			</p>
 			<h5>Total Population : <span id="total_population"></span></h5>
 			<h5>Area : <span id="region_area"></span> km<sup>2</sup></h5>
 			<h5>Number of Wards : <span id="wards_num"></span></h5>
