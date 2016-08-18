@@ -39,6 +39,18 @@
 	display: none;
 }
 
+.general_info {
+	background: #dcdcdc;
+    padding: 15px 20px;
+    display: inline-block;
+}
+
+.general_info h5 {
+	font-size: 18px;
+    font-weight: normal;
+    line-height: 2;
+}
+
 #viz_nav_wrapper {
 	background: #F0F0F0;
 	margin-top: 0px !important;

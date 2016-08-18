@@ -27,11 +27,13 @@
 				ST PCODE : <span id="st_pcode">MMR</span> 
 				<span class="ts_chart" style="margin-left:30px;">TS PCODE : <span id="ts_pcode"></span></span>
 			</p>
-			<h5>Total Population : <span id="total_population"></span></h5>
-			<h5>Area : <span id="region_area"></span> km<sup>2</sup></h5>
-			<h5>Number of Wards : <span id="wards_num"></span></h5>
-			<h5>Number of Village Tracts : <span id="village_tracts_num"></span></h5>
-			<h5>Number of Villages : <span id="villages_num"></span></h5>
+			<div class="general_info">
+				<h5>Total Population : <span id="total_population"></span></h5>
+				<h5>Area : <span id="region_area"></span> km<sup>2</sup></h5>
+				<h5>Number of Wards : <span id="wards_num"></span></h5>
+				<h5>Number of Village Tracts : <span id="village_tracts_num"></span></h5>
+				<h5>Number of Villages : <span id="villages_num"></span></h5>	
+			</div>
 		</div>
 	</div>
 </section>
@@ -186,8 +188,8 @@
 	<div class="container">
 		<h4>Households & Living</h4>
 		<div class="row chart_wrapper">
-			<div id="household_size_chart" class="normal_chart"></div>
 			<h5>Mean Household Size : <span id="mean_household_size"></span></h5>
+			<div id="household_size_chart" class="normal_chart"></div>
 		</div>
 		<div class="row chart_wrapper">
 			<div class="eight columns">
