@@ -39,6 +39,18 @@
 	display: none;
 }
 
+.general_info {
+	background: #dcdcdc;
+    padding: 15px 20px;
+    display: inline-block;
+}
+
+.general_info h5 {
+	font-size: 18px;
+    font-weight: normal;
+    line-height: 2;
+}
+
 #viz_nav_wrapper {
 	background: #F0F0F0;
 	margin-top: 0px !important;
@@ -175,4 +187,17 @@
 /* custom styles */
 #hospital_healthcenter thead {
 	display: none;
+}
+
+/* Google Visualization Table */
+.google-visualization-table-tr-even {
+	background: #dcdcdc !important;
+}
+
+.google-visualization-table-table {
+	border:0px;
+}
+
+.google-visualization-table-td {
+	padding: 8px !important;
 }

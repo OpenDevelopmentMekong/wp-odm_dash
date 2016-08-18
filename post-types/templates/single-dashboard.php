@@ -23,12 +23,17 @@
 		</div>
 		<div class="ten columns" id="overviewInfo">
 			<h1 id="region_name">Myanmar</h1>
-			<p id="pcode_wrapper">PCode - <span id="region_pcode"></span></p>
-			<h5>Total Population : <span id="total_population"></span></h5>
-			<h5>Area : <span id="region_area"></span> km<sup>2</sup></h5>
-			<h5>Number of Wards : <span id="wards_num"></span></h5>
-			<h5>Number of Village Tracts : <span id="village_tracts_num"></span></h5>
-			<h5>Number of Villages : <span id="villages_num"></span></h5>
+			<p class="pcode_wrapper">
+				ST PCODE : <span id="st_pcode">MMR</span> 
+				<span class="ts_chart" style="margin-left:30px;">TS PCODE : <span id="ts_pcode"></span></span>
+			</p>
+			<div class="general_info">
+				<h5>Total Population : <span id="total_population"></span></h5>
+				<h5>Area : <span id="region_area"></span> km<sup>2</sup></h5>
+				<h5>Number of Wards : <span id="wards_num"></span></h5>
+				<h5>Number of Village Tracts : <span id="village_tracts_num"></span></h5>
+				<h5>Number of Villages : <span id="villages_num"></span></h5>	
+			</div>
 		</div>
 	</div>
 </section>
@@ -127,12 +132,7 @@
 	<div class="container">
 		<h4>Education</h4>
 		<div class="row chart_wrapper">
-			<div class="eight columns">
-				<div id="lit_gender_ratio" class="normal_chart"></div>
-			</div>
-			<div class="eight columns">
-				<div id="illit_gender_ratio" class="normal_chart"></div>
-			</div>
+			<div id="lit_rate" style="height:500px;"></div>
 		</div>
 		<div class="row chart_wrapper">
 			<div class="eight columns">
@@ -188,8 +188,8 @@
 	<div class="container">
 		<h4>Households & Living</h4>
 		<div class="row chart_wrapper">
-			<div id="household_size_chart" class="normal_chart"></div>
 			<h5>Mean Household Size : <span id="mean_household_size"></span></h5>
+			<div id="household_size_chart" class="normal_chart"></div>
 		</div>
 		<div class="row chart_wrapper">
 			<div class="eight columns">

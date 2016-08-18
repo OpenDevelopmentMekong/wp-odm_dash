@@ -118,6 +118,8 @@ function ODChart(config) {
 
         if(value.chart_type == 'treemap') {
           var c_data = self.prepareDataForTreeMap(value);
+        } else if (value.fixed_structure == true) {
+          var c_data = self.prepareDataFromFixStructure(value);
         } else {
           var c_data = self.prepareData(value);  
         }
@@ -143,6 +145,28 @@ function ODChart(config) {
         row_data.push(chart.colors[index]);
       }
       result.push(row_data);
+    });
+
+    return result;
+
+  };
+
+  this.prepareDataFromFixStructure = function(chart) {
+
+    var result = [];
+    
+    $.map(chart.fields, function(value, index){
+
+      var res = $.map(value, function(value, index){
+        if (index == 0) {
+          return value;
+        } else {
+          return parseInt(self.data[value]);
+        }
+      });
+
+      result.push(res);
+
     });
 
     return result;
@@ -338,7 +362,9 @@ var googleChart = {
         position : 'bottom'
       }
     },
-    table : {},
+    table : {
+      width: '100%'
+    },
     treemap : {
       textStyle : {
         fontSize : 15
@@ -375,7 +401,7 @@ var googleChart = {
 
     return new google.visualization.ColumnChart(object);
 
-  },
+  },  
 
   table : function(object) {
 

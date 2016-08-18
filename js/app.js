@@ -15,7 +15,9 @@ jQuery( document ).ready(function() {
 
   var regionNameArea = jQuery('#region_name');
 
-  var pcodeArea = jQuery('#region_pcode');
+  var stpcodeArea = jQuery('#st_pcode');
+
+  var tspcodeArea = jQuery('#ts_pcode');
 
   var totalPopulation = jQuery('#total_population')
 
@@ -165,15 +167,18 @@ jQuery( document ).ready(function() {
 
       jQuery('.ts_chart').hide();
       jQuery('.st_chart').show();
+
       resetClickStyles();
       this.setStyle({weight:3});
+
       var regionName = this.feature.properties.ST;
-      console.log(regionName);
       regionNameArea.text(regionName);
       var ST_PCODE = this.feature.properties.ST_PCODE;
       mymap.addLayer(tsLayer);
-      pcodeArea.text(ST_PCODE);
+      stpcodeArea.text(ST_PCODE);
+
       jQuery('#pcode_wrapper').show();
+
       assignLastClickLayer(e.target, 'ST');
 
       setTimeout(function(){
@@ -197,14 +202,19 @@ jQuery( document ).ready(function() {
   }
 
   function actionOnTSLayer(obj) {
+
     jQuery('.st_chart').hide();
     jQuery('.ts_chart').show();
+
     obj.setStyle({fillColor: '#000', fillOpacity: 0.3, color: '#000'});
-    var districtName = obj.feature.properties.TS;
-    console.log(districtName);
-    regionNameArea.text(districtName).append(" - " + obj.feature.properties.ST + "(" + obj.feature.properties.ST_PCODE + ")");
+
+    var TSName = obj.feature.properties.TS;
+    regionNameArea.text(TSName).append(" (" + obj.feature.properties.ST + ")");
+
+    
     var ts_pcode = obj.feature.properties.TS_PCODE;
-    pcodeArea.text(ts_pcode);
+    tspcodeArea.text(ts_pcode);
+    stpcodeArea.text(obj.feature.properties.ST_PCODE);
     jQuery('#pcode_wrapper').show();
     tsLevelCharts(ts_pcode);
   }
