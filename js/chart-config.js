@@ -5,35 +5,6 @@ var data_resources = {
     states_regions : '/wp-content/plugins/wp-odm_dash/data/states_regions.topojson',
     township : '/wp-content/plugins/wp-odm_dash/data/township.topojson'
   },
-  religion : {
-    id : '1edc5ad5-9e50-4a24-8fbe-fa35c3645e74',
-    exclude_fields : ['_id', 'pcode', 'total', 'region'],
-    download_link : 'https://data.opendevelopmentmekong.net/dataset/be760472-6224-4d73-b309-335d732cab93/resource/1edc5ad5-9e50-4a24-8fbe-fa35c3645e74/download/census2014stateregionreligion.csv'
-  },
-  ts_demographic : {
-    id : '632d9011-2894-446f-a591-c5ab61cf0bc7',
-    download_link : 'https://data.opendevelopmentmekong.net/dataset/be760472-6224-4d73-b309-335d732cab93/resource/632d9011-2894-446f-a591-c5ab61cf0bc7/download/HouseholdPopulationbaseddatasetMIMUTownshipsDemographics.csv'
-  },
-  ts_household : {
-    id : 'bc278a05-1ea9-4348-9352-9e14cd5ed8a3',
-    download_link : 'https://data.opendevelopmentmekong.net/dataset/be760472-6224-4d73-b309-335d732cab93/resource/bc278a05-1ea9-4348-9352-9e14cd5ed8a3/download/HouseholdPopulationbaseddatasetMIMUTownshipsHouseholdAmenities.csv'
-  },
-  ts_labour : {
-    id : '9ceb7b18-4798-4f5b-b004-d8b3a0392661',
-    download_link : 'https://data.opendevelopmentmekong.net/dataset/be760472-6224-4d73-b309-335d732cab93/resource/9ceb7b18-4798-4f5b-b004-d8b3a0392661/download/HouseholdPopulationbaseddatasetMIMUTownshipsLabour.csv'
-  },
-  election_result_lower_2010 : {
-    id : '1d1859d8-5413-4c63-a89b-46a5787d7593',
-    download_link : 'https://data.opendevelopmentmekong.net/dataset/7ab77f5e-778c-488a-b7fe-5dbce90ec6b7/resource/1d1859d8-5413-4c63-a89b-46a5787d7593/download/2010electionresultspyithu.csv'
-  },
-  election_result_lower_2012 : {
-    id : 'cfc49c33-8a78-4e7c-bfa9-35ade242e160',
-    download_link : 'https://data.opendevelopmentmekong.net/dataset/4d1e3e8d-4a62-4812-8e8b-5f5293aea320/resource/cfc49c33-8a78-4e7c-bfa9-35ade242e160/download/2012electionresultspyithu.csv'
-  },
-  election_result_lower_2015 : {
-    id : '43fd641a-35a9-4d6d-bfd0-8eabc52ca316',
-    download_link : 'https://data.opendevelopmentmekong.net/dataset/ffc908b5-f13b-4085-8e77-3d0598ba6856/resource/43fd641a-35a9-4d6d-bfd0-8eabc52ca316/download/2015electionresultspyithu.csv'
-  },
   state_region_pop_age_gp : {
     id : '1da6917a-fdfc-4e61-a581-99f713f36394',
     download_link : 'https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5/download/HouseholdspopulationBasedDatasetSRUnion.csv'
