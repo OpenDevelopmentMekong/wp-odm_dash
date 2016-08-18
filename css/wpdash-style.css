@@ -115,7 +115,7 @@
   position: fixed;
   width: 100%;
   left: 0;
-  top: 0;
+  top: 37px;
   z-index: 100;
   border-top: 0;
 }

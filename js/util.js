@@ -18,7 +18,9 @@ jQuery(function() {
   var viz_nav = jQuery('#viz_nav_wrapper');
   var stickyNavTop = viz_nav.offset().top;
   var stickyNav = function(){
-    var scrollTop = jQuery(window).scrollTop();
+    var scrollTop = jQuery(window).scrollTop() + jQuery('#od-selector').height();
+    console.log("stickynavtop" + stickyNavTop);
+    console.log("scrolltop" + scrollTop);
     if (scrollTop > stickyNavTop) {
         viz_nav.addClass('sticky');
     } else {
