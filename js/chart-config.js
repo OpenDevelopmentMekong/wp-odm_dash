@@ -452,35 +452,24 @@ var charts = {
     // END OF DEMOGRAPHIC
 
     // EDUCATION
-    lit_gender_ratio : {
-      container_id : 'lit_gender_ratio',
+    lit_rate : {
+      container_id : 'lit_rate',
       chart_options : {
-        title : '15 year and Above Literate Gender Ratio'
+        title : 'Literate Population M/F Urban/Rural breakdown'
       },
-      chart_type : 'donut',
+      chart_type : 'column',
+      is_group : true,
+      fixed_structure : true,
       columns : {
-        'Gender' : 'string',
-        'Population' : 'number'
+        'Area' : 'string',
+        'Male' : 'number',
+        'Female' : 'number'
       },
-      fields : {
-        'lit_15ab_m' : 'Male',
-        'lit_15ab_f' : 'Female'
-      }
-    },
-    illit_gender_ratio : {
-      container_id : 'illit_gender_ratio',
-      chart_options : {
-        title : '15 year and Above Illiterate Gender Ratio'
-      },
-      chart_type : 'donut',
-      columns : {
-        'Gender' : 'string',
-        'Population' : 'number'
-      },
-      fields : {
-        'illit_15ab_m' : 'Male',
-        'illit_15ab_f' : 'Female'
-      }
+      fields : [
+        ['Total', 'lit_15ab_m', 'lit_15ab_f'],
+        ['Urban', 'lit_15ab_m_u', 'lit_15ab_f_u'],
+        ['Rural', 'lit_15ab_m_r', 'lit_15ab_f_r']
+      ]
     }
   },
   // ================ END OF HOUSEHOLD & DEMOGRAPHIC ================== //

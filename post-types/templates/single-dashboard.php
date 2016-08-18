@@ -126,12 +126,7 @@
 	<div class="container">
 		<h4>Education</h4>
 		<div class="row chart_wrapper">
-			<div class="eight columns">
-				<div id="lit_gender_ratio" class="normal_chart"></div>
-			</div>
-			<div class="eight columns">
-				<div id="illit_gender_ratio" class="normal_chart"></div>
-			</div>
+			<div id="lit_rate" style="height:500px;"></div>
 		</div>
 		<div class="row chart_wrapper">
 			<div class="eight columns">
