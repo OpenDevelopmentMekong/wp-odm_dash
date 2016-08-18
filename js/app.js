@@ -389,8 +389,8 @@ jQuery( document ).ready(function() {
   var PopulationPyramidData;
 
   var PopulationPyramid = {
-    init : function(pcode = "MMR") {
-
+    init : function(pcode) {
+      pcode = pcode || "MMR"
       PopulationPyramidData = prepareDataTable(charts.st_population.columns);
 
       PopulationPyramid.getData(pcode).done(function(data){
