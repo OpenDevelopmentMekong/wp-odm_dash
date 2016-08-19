@@ -16,84 +16,6 @@ var ckan_api_key = '';
 
 var charts = {
   // ================== Labour Tree Map ===================== //
-  labour : {
-    usual_activity_10ab : {
-      chart_options : {
-        title : '10 Years and over by Usual Activity Status',
-        maxDepth: 2,
-        maxPostDepth: 1,
-        minColor: '#c42a2a',
-        maxColor: '#2a84c4',
-        headerHeight: 20,
-        height: 500,
-        useWeightedAverageForAggregation: true
-      },
-      chart_type : 'treemap',
-      container_id : 'labour_usual_activity_10ab',
-      fields : {
-        'usuact_10ab_govemp_t' : {
-          parent : 'Employed',
-          data_dictionary : 'Goverment Employee'
-        },
-        'usuact_10ab_priemp_t' : {
-          parent : 'Employed',
-          data_dictionary : 'Private Employee'
-        },
-        'usuact_10ab_empyr_t' : {
-          parent : 'Employed',
-          data_dictionary : 'Employer'
-        },
-        'usuact_10ab_ownacc_t' : {
-          parent : 'Employed',
-          data_dictionary : 'Own Account Worker'
-        },
-        'usuact_10ab_unpfam_t' : {
-          parent : 'Employed',
-          data_dictionary : 'Unpaid Family Worker'
-        },
-        'usuact_10ab_seekw_t' : {
-          parent : 'UnEmployed',
-          data_dictionary : 'Sought Work'
-        },
-        'usuact_10ab_nseekw_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Did not Seek Work'
-        },
-        'usuact_10ab_stu_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Full Time Student'
-        },
-        'usuact_10ab_hhwork_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Household Worker'
-        },
-        'usuact_10ab_retir_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Pensioner Retired Elderly'
-        },
-        'usuact_10ab_ill_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Ill Disabled'
-        },
-        'usuact_10ab_oth_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Other'
-        }
-      },
-      columns : {
-        'Activity Status' : 'string',
-        'Parent' : 'string',
-        'Population' : 'number'
-      },
-      parents : [
-        ['Economy', null, 0],
-        ['Economically Active', 'Economy', 0],
-        ['Economically Inactive', 'Economy', 0],
-        ['Employed', 'Economically Active', 0],
-        ['UnEmployed', 'Economically Active', 0]
-      ]
-    }
-  },
   st_population : {
     chart_options : {
       title : 'Population Pyramid of Myanmar',
@@ -455,6 +377,84 @@ var charts = {
         ['Urban', 'lit_rate_15ab_t_u', 'lit_rate_15ab_m_u', 'lit_rate_15ab_f_u'],
         ['Rural', 'lit_rate_15ab_t_r', 'lit_rate_15ab_m_r', 'lit_rate_15ab_f_r']
       ]
+    },
+
+    // Labour TreeMap
+    usual_activity_10ab : {
+      chart_options : {
+        title : '10 Years and over by Usual Activity Status',
+        maxDepth: 2,
+        maxPostDepth: 1,
+        minColor: '#c42a2a',
+        maxColor: '#2a84c4',
+        headerHeight: 20,
+        height: 500,
+        useWeightedAverageForAggregation: true
+      },
+      chart_type : 'treemap',
+      container_id : 'labour_usual_activity_10ab',
+      fields : {
+        'usuact_10ab_govemp_t' : {
+          parent : 'Employed',
+          data_dictionary : 'Goverment Employee'
+        },
+        'usuact_10ab_priemp_t' : {
+          parent : 'Employed',
+          data_dictionary : 'Private Employee'
+        },
+        'usuact_10ab_empyr_t' : {
+          parent : 'Employed',
+          data_dictionary : 'Employer'
+        },
+        'usuact_10ab_ownacc_t' : {
+          parent : 'Employed',
+          data_dictionary : 'Own Account Worker'
+        },
+        'usuact_10ab_unpfam_t' : {
+          parent : 'Employed',
+          data_dictionary : 'Unpaid Family Worker'
+        },
+        'usuact_10ab_seekw_t' : {
+          parent : 'UnEmployed',
+          data_dictionary : 'Sought Work'
+        },
+        'usuact_10ab_nseekw_t' : {
+          parent : 'Economically Inactive',
+          data_dictionary : 'Did not Seek Work'
+        },
+        'usuact_10ab_stu_t' : {
+          parent : 'Economically Inactive',
+          data_dictionary : 'Full Time Student'
+        },
+        'usuact_10ab_hhwork_t' : {
+          parent : 'Economically Inactive',
+          data_dictionary : 'Household Worker'
+        },
+        'usuact_10ab_retir_t' : {
+          parent : 'Economically Inactive',
+          data_dictionary : 'Pensioner Retired Elderly'
+        },
+        'usuact_10ab_ill_t' : {
+          parent : 'Economically Inactive',
+          data_dictionary : 'Ill Disabled'
+        },
+        'usuact_10ab_oth_t' : {
+          parent : 'Economically Inactive',
+          data_dictionary : 'Other'
+        }
+      },
+      columns : {
+        'Activity Status' : 'string',
+        'Parent' : 'string',
+        'Population' : 'number'
+      },
+      parents : [
+        ['Economy', null, 0],
+        ['Economically Active', 'Economy', 0],
+        ['Economically Inactive', 'Economy', 0],
+        ['Employed', 'Economically Active', 0],
+        ['UnEmployed', 'Economically Active', 0]
+      ]
     }
   },
   // ================ END OF HOUSEHOLD & DEMOGRAPHIC ================== //
@@ -632,17 +632,6 @@ var chartconfig = {
         }
       }
     }
-  },
-  ts_labour : {
-    resource : {
-      id : '9ceb7b18-4798-4f5b-b004-d8b3a0392661',
-      download_link : 'https://data.opendevelopmentmekong.net/dataset/be760472-6224-4d73-b309-335d732cab93/resource/9ceb7b18-4798-4f5b-b004-d8b3a0392661/download/HouseholdPopulationbaseddatasetMIMUTownshipsLabour.csv',
-      singlerow : true,
-      filters : {
-        pcode : 'pcode_ts'
-      }
-    },
-    charts : charts.labour
   },
   election_result_lower_2010 : {
     resource : {

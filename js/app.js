@@ -382,7 +382,6 @@ jQuery( document ).ready(function() {
   function tsLevelCharts(PCODE) {
 
     TSHouseHoldChart.init(PCODE);
-    LabourTreeMap.init(PCODE);
     ElectionTSLevel2010.init(PCODE);
     ElectionTSLevel2012.init(PCODE);
     ElectionTSLevel2015.init(PCODE);
@@ -403,8 +402,6 @@ jQuery( document ).ready(function() {
   var ReligionChart = new ODChart(chartconfig.st_religion);
 
   var PopulationOverYear = new ODChart(chartconfig.population_over_year);
-
-  var LabourTreeMap = new ODChart(chartconfig.ts_labour);
 
   var ElectionTSLevel2010 = new ElectionPartyChart(chartconfig.election_result_lower_2010);
 
