@@ -435,20 +435,25 @@ var charts = {
     lit_rate : {
       container_id : 'lit_rate',
       chart_options : {
-        title : 'Literate Population M/F Urban/Rural breakdown'
+        title : 'Literacy rate M/F Urban/Rural breakdown',
+        vAxis : {
+          minValue : 0,
+          title : "Percentage (%)"
+        }
       },
       chart_type : 'column',
       is_group : true,
       fixed_structure : true,
       columns : {
         'Area' : 'string',
+        'Both sex' : 'number',
         'Male' : 'number',
         'Female' : 'number'
       },
       fields : [
-        ['Total', 'lit_15ab_m', 'lit_15ab_f'],
-        ['Urban', 'lit_15ab_m_u', 'lit_15ab_f_u'],
-        ['Rural', 'lit_15ab_m_r', 'lit_15ab_f_r']
+        ['Total', 'lit_rate_15ab_t', 'lit_rate_15ab_m', 'lit_rate_15ab_f'],
+        ['Urban', 'lit_rate_15ab_t_u', 'lit_rate_15ab_m_u', 'lit_rate_15ab_f_u'],
+        ['Rural', 'lit_rate_15ab_t_r', 'lit_rate_15ab_m_r', 'lit_rate_15ab_f_r']
       ]
     }
   },
