@@ -704,5 +704,107 @@ var chartconfig = {
       }
     },
     charts : charts.revenue_expenditure
+  },
+  tree_cover : {
+    resource : {
+      id : '74c7dea8-e8ee-49ad-b946-b4dda2d6e20f',
+      download_link : 'https://data.opendevelopmentmekong.net/dataset/95dec5d5-a328-47b6-a5e1-0a3d798f5650/resource/74c7dea8-e8ee-49ad-b946-b4dda2d6e20f/download/tree-cover-combined.csv',
+      resource_link : 'https://data.opendevelopmentmekong.net/dataset/tree-cover-data-from-global-forest-watch/resource/74c7dea8-e8ee-49ad-b946-b4dda2d6e20f',
+      singlerow : true,
+      filters : {
+        pcode : 'pcode_st'
+      }
+    },
+    charts : {
+      tree_cover_percent : {
+        container_id : 'tree_cover_percent',
+        chart_type : 'text',
+        field : 'percent_cover'
+      },
+      tree_cover_area : {
+        container_id : 'tree_cover_area',
+        chart_type : 'text',
+        field : 'tce_hectares'
+      },
+      tree_cover_gain_2001_2012 : { 
+        container_id : 'tree_cover_gain_2001_2012',
+        chart_type : 'text',
+        field : 'tcg_hectares'
+      },
+      tree_cover_loss : {
+        container_id : 'tree_cover_loss',
+        chart_options : {
+          title : 'Tree Cover Loss (2001 - 2014)',
+          vAxis : {
+            title : '(Ha)'
+          }
+        },
+        chart_type : 'line',
+        columns : {
+          'Year' : 'string',
+          'Tree Cover Loss (Ha)' : 'number'
+        },
+        fields : {
+          'tcl_2001' : '2001',
+          'tcl_2002' : '2002',
+          'tcl_2003' : '2003',
+          'tcl_2004' : '2004',
+          'tcl_2005' : '2005',
+          'tcl_2006' : '2006',
+          'tcl_2007' : '2007',
+          'tcl_2008' : '2008',
+          'tcl_2009' : '2009',
+          'tcl_2010' : '2010',
+          'tcl_2011' : '2011',
+          'tcl_2012' : '2012',
+          'tcl_2013' : '2013',
+          'tcl_2014' : '2014',
+        }
+      }
+    }
+  },
+  health_life_expectancy : {
+    resource : {
+      id : '01f16e66-0280-44cc-b728-90d362b450cc',
+      download_link : 'https://data.opendevelopmentmekong.net/dataset/493e50f6-de0d-46aa-89ce-975e6a964af7/resource/01f16e66-0280-44cc-b728-90d362b450cc/download/2014-Census-Health.xlsx',
+      resource_link : 'https://data.opendevelopmentmekong.net/dataset/the-levels-of-cbr-tfr-and-total-marital-fertility-rates-tmfr-by-state-region-and-childhood-mortalit/resource/01f16e66-0280-44cc-b728-90d362b450cc',
+      singlerow : true,
+      filters : {
+        pcode : 'pcode_st'
+      }
+    },
+    charts : {
+      cbr : {
+        container_id : 'health_cbr',
+        chart_type : 'text',
+        field : 'cbr'
+      },
+      life_expectancy : {
+        container_id : 'health_life_expectancy',
+        chart_type : 'text',
+        field : 'life_expentancy_at_birth'
+      },
+      mortality_rate : {
+        container_id : 'health_mortality_rate',
+        chart_options : {
+          title : 'Mortality Rate',
+          vAxis : {
+            minValue : 0,
+            title : 'Number of death per 1,000 live births'
+          }
+        },
+        chart_type : 'column',
+        is_group : true,
+        fixed_structure : true,
+        columns : {
+          'Mortality Rate' : 'string',
+          'Infant' : 'number',
+          'Under 5' : 'number'
+        },
+        fields : [
+          ['Mortality Rate', 'imr', 'u5mr']
+        ]
+      }
+    }
   }
 };

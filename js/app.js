@@ -392,6 +392,8 @@ jQuery( document ).ready(function() {
     STHouseHoldChart.init(pcode);
     PopulationOverYear.init(pcode);
     RevenueExpenditure.init(pcode);
+    LifeExpectancy.init(pcode);
+    TreeCover.init(pcode);
 
   }
 
@@ -426,6 +428,10 @@ jQuery( document ).ready(function() {
   var ElectionTSLevel2015 = new ElectionPartyChart(chartconfig.election_result_lower_2015);
 
   var RevenueExpenditure = new ODChart(chartconfig.revenue_expenditure);
+
+  var TreeCover = new ODChart(chartconfig.tree_cover);
+
+  var LifeExpectancy = new ODChart(chartconfig.health_life_expectancy);
 
 
   // ================ Population Pyramid ================== //

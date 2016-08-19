@@ -348,7 +348,11 @@ var googleChart = {
       },
       pieHole: 0.4
     },
-    line : {},
+    line : {
+      backgroundColor : {
+        fill : 'transparent'
+      }
+    },
     column : {
       backgroundColor : {
         fill : 'transparent'

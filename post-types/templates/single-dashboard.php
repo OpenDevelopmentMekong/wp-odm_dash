@@ -169,11 +169,26 @@
 	<div class="container">
 		<h4 class="section_title">Health</h4>
 		<div class="row chart_wrapper">
+			<div class="four columns">
+				<div class="text_container">
+					<h5 class="label">Crude Birth Rate</h5>
+					<div class="value"><span id="health_cbr"></span> </div>	
+				</div>
+				<div class="text_container">
+					<h5 class="label">Life Expectancy At Birth</h5>	
+					<div class="value"><span id="life_expectancy"></span> years</div>
+				</div>
+			</div>
+			<div class="twelve columns">
+				<div id="health_mortality_rate" style="height:400px;"></div>
+			</div>
+		</div>
+		<div class="row chart_wrapper">
 			<div class="eight columns">
 				<div id="medical_worker" class="normal_chart"></div>
 			</div>
 			<div class="eight columns">
-				<div id="hospital_healthcenter" class="normal_chart"></div>
+				<div id="hospital_healthcenter" class="normal_chart" style="padding-top: 47px;height: 300px;"></div>
 			</div>
 		</div>
 	</div>
@@ -183,6 +198,25 @@
 <div class="row viz-section even" id="environment">
 	<div class="container">
 		<h4 class="section_title">Environment</h4>
+		<div class="row chart_wrapper">
+			<div class="four columns">
+				<div class="text_container">
+					<h5 class="label">Percent Tree Cover</h5>	
+					<div class="value" style="color:#4CAF50;"><span id="tree_cover_percent"></span> %</div>
+				</div>
+				<div class="text_container">
+					<h5 class="label">Tree Cover (2000)</h5>
+					<div class="value" style="color:#4CAF50;"><span id="tree_cover_area"></span> Ha</div>
+				</div>
+				<div class="text_container">
+					<h5 class="label">Tree Cover Gain (2001 - 2012)</h5>
+					<div class="value" style="color:#2196F3;"><span id="tree_cover_gain_2001_2012"></span> Ha</div>
+				</div>
+			</div>
+			<div class="twelve columns">
+				<div id="tree_cover_loss" style="height:300px;"></div>
+			</div>
+		</div>
 	</div>
 </div> <!-- END OF ENVIRONMENT SECTION -->
 
