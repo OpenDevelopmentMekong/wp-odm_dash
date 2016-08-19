@@ -362,21 +362,25 @@ jQuery( document ).ready(function() {
 
   function unionLevelCharts() {
 
-    ReligionChart.init("MMR");
-    PopulationPyramid.init();
-    STHealthEducation.init("MMR");
-    STHouseHoldChart.init("MMR");
-    PopulationOverYear.init("MMR");
+    unionSTCharts("MMR");
 
   }
 
   function stLevelCharts(pcode) {
+
+    unionSTCharts(pcode);
+
+  }
+
+  function unionSTCharts(pcode) {
 
     ReligionChart.init(pcode);
     PopulationPyramid.init(pcode);
     STHealthEducation.init(pcode);
     STHouseHoldChart.init(pcode);
     PopulationOverYear.init(pcode);
+    RevenueExpenditure.init(pcode);
+    
   }
 
   function tsLevelCharts(PCODE) {
@@ -408,6 +412,8 @@ jQuery( document ).ready(function() {
   var ElectionTSLevel2012 = new ElectionPartyChart(chartconfig.election_result_lower_2012);
 
   var ElectionTSLevel2015 = new ElectionPartyChart(chartconfig.election_result_lower_2015);
+
+  var RevenueExpenditure = new ODChart(chartconfig.revenue_expenditure);
 
 
   // ================ Population Pyramid ================== //

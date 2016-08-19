@@ -154,6 +154,9 @@
 <div class="row viz-section even" id="economy">
 	<div class="container">
 		<h4>Economy & Industries</h4>
+		<div class="row chart_wrapper st_chart">
+			<div id="revenue_expenditure" class="normal_chart"></div>
+		</div>
 		<div class="row chart_wrapper">
 			<div id="labour_usual_activity_10ab" class="normal_chart" style="height:auto;"></div>
 			<div class="note-text">* Left click on parent section to go up one level.</div>

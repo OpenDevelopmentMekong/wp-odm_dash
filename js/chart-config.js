@@ -518,8 +518,35 @@ var charts = {
       }
     }
   },
-
   // ================= END OF ELECTION RESULT =================== //
+  
+  // ================= REVENUE & EXPENDITURE ================== //
+  
+  revenue_expenditure : {
+    revenue_expenditure : {
+      chart_options : {
+        title : '2013-14 Expenditure and Revenue '
+      },
+      chart_type : 'column',
+      container_id : 'revenue_expenditure',
+      is_group : true,
+      fixed_structure : true,
+      columns : {
+        'Revenue / Expenditure' : 'string',
+        'Governance and Administration High Court Advocate General Auditor General' : 'number',
+        'Departments and DAOs28 Ministries Administrative Departments and Municipalities' : 'number',
+        'State Owned Enterprises' : 'number',
+        'Total' : 'number'
+      },
+      fields : [
+        ['Expenditure', 'exp_adm', 'exp_min_dept', 'exp_state_ent', 'exp_total'],
+        ['Revenue', 'rev_adm', 'rev_min_dept', 'rev_state_ent', 'rev_total']
+      ]
+    }    
+  }
+
+  // ================= END OF REVENUE & EXPENDITURE ================ //
+  
 };
 
 
@@ -666,4 +693,16 @@ var chartconfig = {
     },
     charts : charts.ts_election_lower_2015
   },
+  revenue_expenditure : {
+    resource : {
+      id : '7dcb30ad-75cf-4339-af6c-290683d904f5',
+      download_link : 'https://data.opendevelopmentmekong.net/dataset/c6778dfe-836f-48ad-9812-d1d27acce3cc/resource/7dcb30ad-75cf-4339-af6c-290683d904f5/download/stateregionsexprev.csv',
+      resource_link : 'https://data.opendevelopmentmekong.net/dataset/myanmar-state-and-region-expenditure-and-revenue/resource/7dcb30ad-75cf-4339-af6c-290683d904f5',
+      singlerow : true,
+      filters : {
+        pcode : 'pcode_st'
+      }
+    },
+    charts : charts.revenue_expenditure
+  }
 };
