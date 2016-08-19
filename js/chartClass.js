@@ -328,8 +328,8 @@ var googleChart = {
 
     var chart = eval("googleChart." + type + "(object)");
     var opts = eval("this.options." + type);
-    $.extend(opts, options);
-    chart.draw(data, opts);
+    jQuery.extend(options, opts);
+    chart.draw(data, options);
   },
 
   options : {
