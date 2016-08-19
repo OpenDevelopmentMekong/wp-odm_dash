@@ -171,6 +171,10 @@ jQuery( document ).ready(function() {
     jQuery('.ts_chart').hide();
     jQuery('.st_chart').show();
 
+    jQuery('#environment_nav').show();
+    jQuery('#environment').show();
+    jQuery('#living').removeClass('even');
+
     regionNameArea.text("Myanmar");
     stpcodeArea.text("MMR");
     assignLastClickLayer("{}", '');
@@ -183,6 +187,10 @@ jQuery( document ).ready(function() {
 
       jQuery('.ts_chart').hide();
       jQuery('.st_chart').show();
+
+      jQuery('#environment_nav').show();
+      jQuery('#environment').show();
+      jQuery('#living').removeClass('even');
 
       resetClickStyles();
       this.setStyle({weight:3});
@@ -221,6 +229,10 @@ jQuery( document ).ready(function() {
 
     jQuery('.st_chart').hide();
     jQuery('.ts_chart').show();
+
+    jQuery('#environment_nav').hide();
+    jQuery('#environment').hide();
+    jQuery('#living').addClass('even');
 
     obj.setStyle({fillColor: '#000', fillOpacity: 0.3, color: '#000'});
 
@@ -380,7 +392,7 @@ jQuery( document ).ready(function() {
     STHouseHoldChart.init(pcode);
     PopulationOverYear.init(pcode);
     RevenueExpenditure.init(pcode);
-    
+
   }
 
   function tsLevelCharts(PCODE) {

@@ -71,7 +71,7 @@
 				<span class="sec_title">Health</span>
 				</a>
 			</li>
-			<li>
+			<li id="environment_nav">
 				<a href="#environment">
 				<i class="fa fa-tree"></i>
 				<span class="sec_title">Environment</span>
