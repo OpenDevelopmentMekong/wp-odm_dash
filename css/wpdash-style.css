@@ -7,6 +7,11 @@
   color: #008000;
 }
 
+.section_title {
+	font-size : 24px;
+	font-weight : normal;
+}
+
 #mapwrapper {
 	float: left;
 	position: relative;

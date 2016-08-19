@@ -89,7 +89,7 @@
 
 <section class="row viz-section" id="demographic">
 	<div class="container">
-		<h4>Demographic</h4>
+		<h4 class="section_title">Demographic</h4>
 		<div class="row char_wrapper st_chart">
 			<div id="st_population_pyramid" style="height:600px;"></div>
 		</div>
@@ -118,7 +118,7 @@
 <!-- GOVERMENT -->
 <section class="row viz-section even" id="goverment">
 	<div class="container">
-		<h4>Goverment</h4>
+		<h4 class="section_title">Goverment</h4>
 		<div class="row chart_wrapper ts_chart">
 			<div id="election_lower_2010"></div>
 			<div id="election_lower_2012"></div>
@@ -130,7 +130,7 @@
 <!-- EDUCATION -->
 <div class="row viz-section" id="education">
 	<div class="container">
-		<h4>Education</h4>
+		<h4 class="section_title">Education</h4>
 		<div class="row chart_wrapper">
 			<div id="lit_rate" style="height:500px;"></div>
 		</div>
@@ -153,7 +153,7 @@
 <!-- ECONOMY AND INDUSTRIES -->
 <div class="row viz-section even" id="economy">
 	<div class="container">
-		<h4>Economy & Industries</h4>
+		<h4 class="section_title">Economy & Industries</h4>
 		<div class="row chart_wrapper st_chart">
 			<div id="revenue_expenditure" class="normal_chart"></div>
 		</div>
@@ -167,7 +167,7 @@
 <!-- HEALTH -->
 <div class="row viz-section" id="health">
 	<div class="container">
-		<h4>Health</h4>
+		<h4 class="section_title">Health</h4>
 		<div class="row chart_wrapper">
 			<div class="eight columns">
 				<div id="medical_worker" class="normal_chart"></div>
@@ -182,14 +182,14 @@
 <!-- ENVIRONMENT -->
 <div class="row viz-section even" id="environment">
 	<div class="container">
-		<h4>Environment</h4>
+		<h4 class="section_title">Environment</h4>
 	</div>
 </div> <!-- END OF ENVIRONMENT SECTION -->
 
 <!-- HOUSEHOLD AND LIVING -->
 <div class="row viz-section" id="living">
 	<div class="container">
-		<h4>Households & Living</h4>
+		<h4 class="section_title">Households & Living</h4>
 		<div class="row chart_wrapper">
 			<h5>Mean Household Size : <span id="mean_household_size"></span></h5>
 			<div id="household_size_chart" class="normal_chart"></div>
