@@ -168,7 +168,7 @@
 <div class="row viz-section" id="health">
 	<div class="container">
 		<h4 class="section_title">Health</h4>
-		<div class="row chart_wrapper">
+		<div class="row chart_wrapper st_chart">
 			<div class="four columns">
 				<div class="text_container">
 					<h5 class="label">Crude Birth Rate</h5>
@@ -198,7 +198,7 @@
 <div class="row viz-section even" id="environment">
 	<div class="container">
 		<h4 class="section_title">Environment</h4>
-		<div class="row chart_wrapper">
+		<div class="row chart_wrapper st_chart">
 			<div class="four columns">
 				<div class="text_container">
 					<h5 class="label">Percent Tree Cover</h5>	
