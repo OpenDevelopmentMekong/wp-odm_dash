@@ -60,6 +60,7 @@ jQuery( document ).ready(function() {
       //container.innerHTML('<i class="fa fa-map-maker"></i>');
       container.onclick = function(){
         mymap.setView(config.init_map_view, config.init_zoom_view);
+        MapReset();
       }
       return container;
     }
@@ -162,6 +163,21 @@ jQuery( document ).ready(function() {
   /* =============================== Map Action Callbacks =========================== */
 
   /* ======= Click ========= */
+
+  function MapReset() {
+
+    resetClickStyles();
+
+    jQuery('.ts_chart').hide();
+    jQuery('.st_chart').show();
+
+    regionNameArea.text("Myanmar");
+    stpcodeArea.text("MMR");
+    assignLastClickLayer("{}", '');
+
+    unionLevelCharts();
+
+  }
 
   function onStateRegionClick(e) {
 
