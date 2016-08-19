@@ -60,6 +60,7 @@ jQuery( document ).ready(function() {
       //container.innerHTML('<i class="fa fa-map-maker"></i>');
       container.onclick = function(){
         mymap.setView(config.init_map_view, config.init_zoom_view);
+        MapReset();
       }
       return container;
     }
@@ -163,10 +164,33 @@ jQuery( document ).ready(function() {
 
   /* ======= Click ========= */
 
+  function MapReset() {
+
+    resetClickStyles();
+
+    jQuery('.ts_chart').hide();
+    jQuery('.st_chart').show();
+
+    jQuery('#environment_nav').show();
+    jQuery('#environment').show();
+    jQuery('#living').removeClass('even');
+
+    regionNameArea.text("Myanmar");
+    stpcodeArea.text("MMR");
+    assignLastClickLayer("{}", '');
+
+    unionLevelCharts();
+
+  }
+
   function onStateRegionClick(e) {
 
       jQuery('.ts_chart').hide();
       jQuery('.st_chart').show();
+
+      jQuery('#environment_nav').show();
+      jQuery('#environment').show();
+      jQuery('#living').removeClass('even');
 
       resetClickStyles();
       this.setStyle({weight:3});
@@ -205,6 +229,10 @@ jQuery( document ).ready(function() {
 
     jQuery('.st_chart').hide();
     jQuery('.ts_chart').show();
+
+    jQuery('#environment_nav').hide();
+    jQuery('#environment').hide();
+    jQuery('#living').addClass('even');
 
     obj.setStyle({fillColor: '#000', fillOpacity: 0.3, color: '#000'});
 
@@ -346,27 +374,32 @@ jQuery( document ).ready(function() {
 
   function unionLevelCharts() {
 
-    ReligionChart.init("MMR");
-    PopulationPyramid.init();
-    STHealthEducation.init("MMR");
-    STHouseHoldChart.init("MMR");
-    PopulationOverYear.init("MMR");
+    unionSTCharts("MMR");
 
   }
 
   function stLevelCharts(pcode) {
+
+    unionSTCharts(pcode);
+
+  }
+
+  function unionSTCharts(pcode) {
 
     ReligionChart.init(pcode);
     PopulationPyramid.init(pcode);
     STHealthEducation.init(pcode);
     STHouseHoldChart.init(pcode);
     PopulationOverYear.init(pcode);
+    RevenueExpenditure.init(pcode);
+    LifeExpectancy.init(pcode);
+    TreeCover.init(pcode);
+
   }
 
   function tsLevelCharts(PCODE) {
 
     TSHouseHoldChart.init(PCODE);
-    LabourTreeMap.init(PCODE);
     ElectionTSLevel2010.init(PCODE);
     ElectionTSLevel2012.init(PCODE);
     ElectionTSLevel2015.init(PCODE);
@@ -388,13 +421,17 @@ jQuery( document ).ready(function() {
 
   var PopulationOverYear = new ODChart(chartconfig.population_over_year);
 
-  var LabourTreeMap = new ODChart(chartconfig.ts_labour);
-
   var ElectionTSLevel2010 = new ElectionPartyChart(chartconfig.election_result_lower_2010);
 
   var ElectionTSLevel2012 = new ElectionPartyChart(chartconfig.election_result_lower_2012);
 
   var ElectionTSLevel2015 = new ElectionPartyChart(chartconfig.election_result_lower_2015);
+
+  var RevenueExpenditure = new ODChart(chartconfig.revenue_expenditure);
+
+  var TreeCover = new ODChart(chartconfig.tree_cover);
+
+  var LifeExpectancy = new ODChart(chartconfig.health_life_expectancy);
 
 
   // ================ Population Pyramid ================== //

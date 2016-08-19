@@ -71,7 +71,7 @@
 				<span class="sec_title">Health</span>
 				</a>
 			</li>
-			<li>
+			<li id="environment_nav">
 				<a href="#environment">
 				<i class="fa fa-tree"></i>
 				<span class="sec_title">Environment</span>
@@ -89,7 +89,7 @@
 
 <section class="row viz-section" id="demographic">
 	<div class="container">
-		<h4>Demographic</h4>
+		<h4 class="section_title">Demographic</h4>
 		<div class="row char_wrapper st_chart">
 			<div id="st_population_pyramid" style="height:600px;"></div>
 		</div>
@@ -118,7 +118,7 @@
 <!-- GOVERMENT -->
 <section class="row viz-section even" id="goverment">
 	<div class="container">
-		<h4>Goverment</h4>
+		<h4 class="section_title">Goverment</h4>
 		<div class="row chart_wrapper ts_chart">
 			<div id="election_lower_2010"></div>
 			<div id="election_lower_2012"></div>
@@ -130,7 +130,7 @@
 <!-- EDUCATION -->
 <div class="row viz-section" id="education">
 	<div class="container">
-		<h4>Education</h4>
+		<h4 class="section_title">Education</h4>
 		<div class="row chart_wrapper">
 			<div id="lit_rate" style="height:500px;"></div>
 		</div>
@@ -153,8 +153,11 @@
 <!-- ECONOMY AND INDUSTRIES -->
 <div class="row viz-section even" id="economy">
 	<div class="container">
-		<h4>Economy & Industries</h4>
-		<div class="row chart_wrapper ts_chart">
+		<h4 class="section_title">Economy & Industries</h4>
+		<div class="row chart_wrapper st_chart">
+			<div id="revenue_expenditure" class="normal_chart"></div>
+		</div>
+		<div class="row chart_wrapper">
 			<div id="labour_usual_activity_10ab" class="normal_chart" style="height:auto;"></div>
 			<div class="note-text">* Left click on parent section to go up one level.</div>
 		</div>
@@ -164,13 +167,28 @@
 <!-- HEALTH -->
 <div class="row viz-section" id="health">
 	<div class="container">
-		<h4>Health</h4>
+		<h4 class="section_title">Health</h4>
+		<div class="row chart_wrapper st_chart">
+			<div class="four columns">
+				<div class="text_container">
+					<h5 class="label">Crude Birth Rate</h5>
+					<div class="value"><span id="health_cbr"></span> </div>	
+				</div>
+				<div class="text_container">
+					<h5 class="label">Life Expectancy At Birth</h5>	
+					<div class="value"><span id="life_expectancy"></span> years</div>
+				</div>
+			</div>
+			<div class="twelve columns">
+				<div id="health_mortality_rate" style="height:400px;"></div>
+			</div>
+		</div>
 		<div class="row chart_wrapper">
 			<div class="eight columns">
 				<div id="medical_worker" class="normal_chart"></div>
 			</div>
 			<div class="eight columns">
-				<div id="hospital_healthcenter" class="normal_chart"></div>
+				<div id="hospital_healthcenter" class="normal_chart" style="padding-top: 47px;height: 300px;"></div>
 			</div>
 		</div>
 	</div>
@@ -179,14 +197,33 @@
 <!-- ENVIRONMENT -->
 <div class="row viz-section even" id="environment">
 	<div class="container">
-		<h4>Environment</h4>
+		<h4 class="section_title">Environment</h4>
+		<div class="row chart_wrapper st_chart">
+			<div class="four columns">
+				<div class="text_container">
+					<h5 class="label">Percent Tree Cover</h5>	
+					<div class="value" style="color:#4CAF50;"><span id="tree_cover_percent"></span> %</div>
+				</div>
+				<div class="text_container">
+					<h5 class="label">Tree Cover (2000)</h5>
+					<div class="value" style="color:#4CAF50;"><span id="tree_cover_area"></span> Ha</div>
+				</div>
+				<div class="text_container">
+					<h5 class="label">Tree Cover Gain (2001 - 2012)</h5>
+					<div class="value" style="color:#2196F3;"><span id="tree_cover_gain_2001_2012"></span> Ha</div>
+				</div>
+			</div>
+			<div class="twelve columns">
+				<div id="tree_cover_loss" style="height:300px;"></div>
+			</div>
+		</div>
 	</div>
 </div> <!-- END OF ENVIRONMENT SECTION -->
 
 <!-- HOUSEHOLD AND LIVING -->
 <div class="row viz-section" id="living">
 	<div class="container">
-		<h4>Households & Living</h4>
+		<h4 class="section_title">Households & Living</h4>
 		<div class="row chart_wrapper">
 			<h5>Mean Household Size : <span id="mean_household_size"></span></h5>
 			<div id="household_size_chart" class="normal_chart"></div>

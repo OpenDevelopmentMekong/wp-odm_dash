@@ -7,6 +7,11 @@
   color: #008000;
 }
 
+.section_title {
+	font-size : 24px;
+	font-weight : normal;
+}
+
 #mapwrapper {
 	float: left;
 	position: relative;
@@ -99,12 +104,30 @@
 	height: 400px;
 }
 
+.chart_wrapper {
+	margin-bottom: 30px !important;
+}
+
 .chart_wrapper .data_resource {
 	text-align: right;
 }
 
 .chart_wrapper .data_resource .button {
 	margin-left: 10px;
+}
+
+.text_container {
+	margin: 20px;
+	text-align: center;
+}
+
+.text_container .label {
+	font-size: 16px;
+}
+
+.text_container .value {
+	font-size: 30px;
+	margin-top: 15px;
 }
 
 .ts_chart {

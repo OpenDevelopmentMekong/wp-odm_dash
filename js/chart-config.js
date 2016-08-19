@@ -16,84 +16,6 @@ var ckan_api_key = '';
 
 var charts = {
   // ================== Labour Tree Map ===================== //
-  labour : {
-    usual_activity_10ab : {
-      chart_options : {
-        title : '10 Years and over by Usual Activity Status',
-        maxDepth: 2,
-        maxPostDepth: 1,
-        minColor: '#c42a2a',
-        maxColor: '#2a84c4',
-        headerHeight: 20,
-        height: 500,
-        useWeightedAverageForAggregation: true
-      },
-      chart_type : 'treemap',
-      container_id : 'labour_usual_activity_10ab',
-      fields : {
-        'usuact_10ab_govemp_t' : {
-          parent : 'Employed',
-          data_dictionary : 'Goverment Employee'
-        },
-        'usuact_10ab_priemp_t' : {
-          parent : 'Employed',
-          data_dictionary : 'Private Employee'
-        },
-        'usuact_10ab_empyr_t' : {
-          parent : 'Employed',
-          data_dictionary : 'Employer'
-        },
-        'usuact_10ab_ownacc_t' : {
-          parent : 'Employed',
-          data_dictionary : 'Own Account Worker'
-        },
-        'usuact_10ab_unpfam_t' : {
-          parent : 'Employed',
-          data_dictionary : 'Unpaid Family Worker'
-        },
-        'usuact_10ab_seekw_t' : {
-          parent : 'UnEmployed',
-          data_dictionary : 'Sought Work'
-        },
-        'usuact_10ab_nseekw_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Did not Seek Work'
-        },
-        'usuact_10ab_stu_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Full Time Student'
-        },
-        'usuact_10ab_hhwork_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Household Worker'
-        },
-        'usuact_10ab_retir_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Pensioner Retired Elderly'
-        },
-        'usuact_10ab_ill_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Ill Disabled'
-        },
-        'usuact_10ab_oth_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Other'
-        }
-      },
-      columns : {
-        'Activity Status' : 'string',
-        'Parent' : 'string',
-        'Population' : 'number'
-      },
-      parents : [
-        ['Economy', null, 0],
-        ['Economically Active', 'Economy', 0],
-        ['Economically Inactive', 'Economy', 0],
-        ['Employed', 'Economically Active', 0],
-        ['UnEmployed', 'Economically Active', 0]
-      ]
-    }
-  },
   st_population : {
     chart_options : {
       title : 'Population Pyramid of Myanmar',
@@ -435,20 +357,103 @@ var charts = {
     lit_rate : {
       container_id : 'lit_rate',
       chart_options : {
-        title : 'Literate Population M/F Urban/Rural breakdown'
+        title : 'Literacy rate M/F Urban/Rural breakdown',
+        vAxis : {
+          minValue : 0,
+          title : "Percentage (%)"
+        }
       },
       chart_type : 'column',
       is_group : true,
       fixed_structure : true,
       columns : {
         'Area' : 'string',
+        'Both sex' : 'number',
         'Male' : 'number',
         'Female' : 'number'
       },
       fields : [
-        ['Total', 'lit_15ab_m', 'lit_15ab_f'],
-        ['Urban', 'lit_15ab_m_u', 'lit_15ab_f_u'],
-        ['Rural', 'lit_15ab_m_r', 'lit_15ab_f_r']
+        ['Total', 'lit_rate_15ab_t', 'lit_rate_15ab_m', 'lit_rate_15ab_f'],
+        ['Urban', 'lit_rate_15ab_t_u', 'lit_rate_15ab_m_u', 'lit_rate_15ab_f_u'],
+        ['Rural', 'lit_rate_15ab_t_r', 'lit_rate_15ab_m_r', 'lit_rate_15ab_f_r']
+      ]
+    },
+
+    // Labour TreeMap
+    usual_activity_10ab : {
+      chart_options : {
+        title : '10 Years and over by Usual Activity Status',
+        maxDepth: 2,
+        maxPostDepth: 1,
+        minColor: '#c42a2a',
+        maxColor: '#2a84c4',
+        headerHeight: 20,
+        height: 500,
+        useWeightedAverageForAggregation: true
+      },
+      chart_type : 'treemap',
+      container_id : 'labour_usual_activity_10ab',
+      fields : {
+        'usuact_10ab_govemp_t' : {
+          parent : 'Employed',
+          data_dictionary : 'Goverment Employee'
+        },
+        'usuact_10ab_priemp_t' : {
+          parent : 'Employed',
+          data_dictionary : 'Private Employee'
+        },
+        'usuact_10ab_empyr_t' : {
+          parent : 'Employed',
+          data_dictionary : 'Employer'
+        },
+        'usuact_10ab_ownacc_t' : {
+          parent : 'Employed',
+          data_dictionary : 'Own Account Worker'
+        },
+        'usuact_10ab_unpfam_t' : {
+          parent : 'Employed',
+          data_dictionary : 'Unpaid Family Worker'
+        },
+        'usuact_10ab_seekw_t' : {
+          parent : 'UnEmployed',
+          data_dictionary : 'Sought Work'
+        },
+        'usuact_10ab_nseekw_t' : {
+          parent : 'Economically Inactive',
+          data_dictionary : 'Did not Seek Work'
+        },
+        'usuact_10ab_stu_t' : {
+          parent : 'Economically Inactive',
+          data_dictionary : 'Full Time Student'
+        },
+        'usuact_10ab_hhwork_t' : {
+          parent : 'Economically Inactive',
+          data_dictionary : 'Household Worker'
+        },
+        'usuact_10ab_retir_t' : {
+          parent : 'Economically Inactive',
+          data_dictionary : 'Pensioner Retired Elderly'
+        },
+        'usuact_10ab_ill_t' : {
+          parent : 'Economically Inactive',
+          data_dictionary : 'Ill Disabled'
+        },
+        'usuact_10ab_oth_t' : {
+          parent : 'Economically Inactive',
+          data_dictionary : 'Other'
+        }
+      },
+      columns : {
+        'Activity Status' : 'string',
+        'Parent' : 'string',
+        'Population' : 'number'
+      },
+      parents : [
+        ['Economy', null, 0],
+        ['Economically Active', 'Economy', 0],
+        ['Economically Inactive', 'Economy', 0],
+        ['Employed', 'Economically Active', 0],
+        ['UnEmployed', 'Economically Active', 0]
       ]
     }
   },
@@ -513,8 +518,35 @@ var charts = {
       }
     }
   },
-
   // ================= END OF ELECTION RESULT =================== //
+  
+  // ================= REVENUE & EXPENDITURE ================== //
+  
+  revenue_expenditure : {
+    revenue_expenditure : {
+      chart_options : {
+        title : '2013-14 Expenditure and Revenue '
+      },
+      chart_type : 'column',
+      container_id : 'revenue_expenditure',
+      is_group : true,
+      fixed_structure : true,
+      columns : {
+        'Revenue / Expenditure' : 'string',
+        'Governance and Administration High Court Advocate General Auditor General' : 'number',
+        'Departments and DAOs28 Ministries Administrative Departments and Municipalities' : 'number',
+        'State Owned Enterprises' : 'number',
+        'Total' : 'number'
+      },
+      fields : [
+        ['Expenditure', 'exp_adm', 'exp_min_dept', 'exp_state_ent', 'exp_total'],
+        ['Revenue', 'rev_adm', 'rev_min_dept', 'rev_state_ent', 'rev_total']
+      ]
+    }    
+  }
+
+  // ================= END OF REVENUE & EXPENDITURE ================ //
+  
 };
 
 
@@ -628,17 +660,6 @@ var chartconfig = {
       }
     }
   },
-  ts_labour : {
-    resource : {
-      id : '9ceb7b18-4798-4f5b-b004-d8b3a0392661',
-      download_link : 'https://data.opendevelopmentmekong.net/dataset/be760472-6224-4d73-b309-335d732cab93/resource/9ceb7b18-4798-4f5b-b004-d8b3a0392661/download/HouseholdPopulationbaseddatasetMIMUTownshipsLabour.csv',
-      singlerow : true,
-      filters : {
-        pcode : 'pcode_ts'
-      }
-    },
-    charts : charts.labour
-  },
   election_result_lower_2010 : {
     resource : {
       id : '1d1859d8-5413-4c63-a89b-46a5787d7593',
@@ -672,4 +693,118 @@ var chartconfig = {
     },
     charts : charts.ts_election_lower_2015
   },
+  revenue_expenditure : {
+    resource : {
+      id : '7dcb30ad-75cf-4339-af6c-290683d904f5',
+      download_link : 'https://data.opendevelopmentmekong.net/dataset/c6778dfe-836f-48ad-9812-d1d27acce3cc/resource/7dcb30ad-75cf-4339-af6c-290683d904f5/download/stateregionsexprev.csv',
+      resource_link : 'https://data.opendevelopmentmekong.net/dataset/myanmar-state-and-region-expenditure-and-revenue/resource/7dcb30ad-75cf-4339-af6c-290683d904f5',
+      singlerow : true,
+      filters : {
+        pcode : 'pcode_st'
+      }
+    },
+    charts : charts.revenue_expenditure
+  },
+  tree_cover : {
+    resource : {
+      id : '74c7dea8-e8ee-49ad-b946-b4dda2d6e20f',
+      download_link : 'https://data.opendevelopmentmekong.net/dataset/95dec5d5-a328-47b6-a5e1-0a3d798f5650/resource/74c7dea8-e8ee-49ad-b946-b4dda2d6e20f/download/tree-cover-combined.csv',
+      resource_link : 'https://data.opendevelopmentmekong.net/dataset/tree-cover-data-from-global-forest-watch/resource/74c7dea8-e8ee-49ad-b946-b4dda2d6e20f',
+      singlerow : true,
+      filters : {
+        pcode : 'pcode_st'
+      }
+    },
+    charts : {
+      tree_cover_percent : {
+        container_id : 'tree_cover_percent',
+        chart_type : 'text',
+        field : 'percent_cover'
+      },
+      tree_cover_area : {
+        container_id : 'tree_cover_area',
+        chart_type : 'text',
+        field : 'tce_hectares'
+      },
+      tree_cover_gain_2001_2012 : { 
+        container_id : 'tree_cover_gain_2001_2012',
+        chart_type : 'text',
+        field : 'tcg_hectares'
+      },
+      tree_cover_loss : {
+        container_id : 'tree_cover_loss',
+        chart_options : {
+          title : 'Tree Cover Loss (2001 - 2014)',
+          vAxis : {
+            title : '(Ha)'
+          }
+        },
+        chart_type : 'line',
+        columns : {
+          'Year' : 'string',
+          'Tree Cover Loss (Ha)' : 'number'
+        },
+        fields : {
+          'tcl_2001' : '2001',
+          'tcl_2002' : '2002',
+          'tcl_2003' : '2003',
+          'tcl_2004' : '2004',
+          'tcl_2005' : '2005',
+          'tcl_2006' : '2006',
+          'tcl_2007' : '2007',
+          'tcl_2008' : '2008',
+          'tcl_2009' : '2009',
+          'tcl_2010' : '2010',
+          'tcl_2011' : '2011',
+          'tcl_2012' : '2012',
+          'tcl_2013' : '2013',
+          'tcl_2014' : '2014',
+        }
+      }
+    }
+  },
+  health_life_expectancy : {
+    resource : {
+      id : '01f16e66-0280-44cc-b728-90d362b450cc',
+      download_link : 'https://data.opendevelopmentmekong.net/dataset/493e50f6-de0d-46aa-89ce-975e6a964af7/resource/01f16e66-0280-44cc-b728-90d362b450cc/download/2014-Census-Health.xlsx',
+      resource_link : 'https://data.opendevelopmentmekong.net/dataset/the-levels-of-cbr-tfr-and-total-marital-fertility-rates-tmfr-by-state-region-and-childhood-mortalit/resource/01f16e66-0280-44cc-b728-90d362b450cc',
+      singlerow : true,
+      filters : {
+        pcode : 'pcode_st'
+      }
+    },
+    charts : {
+      cbr : {
+        container_id : 'health_cbr',
+        chart_type : 'text',
+        field : 'cbr'
+      },
+      life_expectancy : {
+        container_id : 'health_life_expectancy',
+        chart_type : 'text',
+        field : 'life_expentancy_at_birth'
+      },
+      mortality_rate : {
+        container_id : 'health_mortality_rate',
+        chart_options : {
+          title : 'Mortality Rate',
+          vAxis : {
+            minValue : 0,
+            title : 'Number of death per 1,000 live births'
+          }
+        },
+        chart_type : 'column',
+        is_group : true,
+        fixed_structure : true,
+        columns : {
+          'Mortality Rate' : 'string',
+          'Infant' : 'number',
+          'Under 5' : 'number'
+        },
+        fields : [
+          ['Mortality Rate', 'imr', 'u5mr']
+        ]
+      }
+    }
+  }
 };
