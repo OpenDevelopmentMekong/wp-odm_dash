@@ -560,6 +560,9 @@ var chartconfig = {
       private : true,
       singlerow : true,
       download_link : 'https://data.opendevelopmentmekong.net/dataset/1b8b8832-0b56-4a93-8d6e-4293edff2ad5/resource/bc5b9344-10de-45eb-8e15-af4aa33c1255/download/Demo-Health-Edu-MIMUBLUnionStateRegion.csv',
+      resource_link : 'https://data.opendevelopmentmekong.net/dataset/1b8b8832-0b56-4a93-8d6e-4293edff2ad5/resource/bc5b9344-10de-45eb-8e15-af4aa33c1255',
+      dataset_id : '1b8b8832-0b56-4a93-8d6e-4293edff2ad5',
+      filename : 'Demo-Health-Edu-MIMUBLUnionStateRegion.csv',
       filters : {
         pcode : 'pcode_st'
       }
@@ -572,6 +575,9 @@ var chartconfig = {
       private : true,
       singlerow : true,
       download_link : 'https://data.opendevelopmentmekong.net/dataset/2f4131fa-04f3-4c25-a471-b8ebf53d92d3/resource/27a9753e-8453-4097-bec3-6e4929134e61/download/Demo-Health-Edu-DataMIMU-BL.csv',
+      resource_link : 'https://data.opendevelopmentmekong.net/dataset/2f4131fa-04f3-4c25-a471-b8ebf53d92d3/resource/27a9753e-8453-4097-bec3-6e4929134e61',
+      dataset_id : '2f4131fa-04f3-4c25-a471-b8ebf53d92d3',
+      filename : 'Demo-Health-Edu-DataMIMU-BL.csv',
       filters : {
         pcode : 'pcode_ts'
       }
@@ -583,6 +589,9 @@ var chartconfig = {
       id : 'd646bd1e-f377-4152-a4a7-8785e2b39fc5',
       singlerow : true,
       download_link : 'https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5/download/HouseholdspopulationBasedDatasetSRUnion.csv',
+      resource_link : 'https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5',
+      dataset_id : '7bc0cabc-3c01-44fe-ba30-943a360c56fb',
+      filename : 'HouseholdspopulationBasedDatasetSRUnion.csv',
       filters : {
         pcode : 'pcode_st'
       }
@@ -594,6 +603,9 @@ var chartconfig = {
       id : '702f8d11-8301-4661-b7b8-030501a90626',
       singlerow : true,
       download_link : 'https://data.opendevelopmentmekong.net/dataset/be760472-6224-4d73-b309-335d732cab93/resource/bc278a05-1ea9-4348-9352-9e14cd5ed8a3/download/HouseholdPopulationbaseddatasetMIMUTownshipsHouseholdAmenities.csv',
+      resource_link : 'https://data.opendevelopmentmekong.net/dataset/be760472-6224-4d73-b309-335d732cab93/resource/bc278a05-1ea9-4348-9352-9e14cd5ed8a3',
+      dataset_id : 'be760472-6224-4d73-b309-335d732cab93',
+      filename : 'HouseholdPopulationbaseddatasetMIMUTownshipsHouseholdAmenities.csv',
       filters : {
         pcode : 'pcode_ts'
       }
@@ -605,6 +617,9 @@ var chartconfig = {
       id : '1edc5ad5-9e50-4a24-8fbe-fa35c3645e74',
       singlerow : true,
       download_link : 'https://data.opendevelopmentmekong.net/dataset/be760472-6224-4d73-b309-335d732cab93/resource/1edc5ad5-9e50-4a24-8fbe-fa35c3645e74/download/census2014stateregionreligion.csv',
+      resource_link : 'https://data.opendevelopmentmekong.net/dataset/be760472-6224-4d73-b309-335d732cab93/resource/1edc5ad5-9e50-4a24-8fbe-fa35c3645e74',
+      dataset_id : 'be760472-6224-4d73-b309-335d732cab93',
+      filename : 'census2014stateregionreligion.csv',
       filters : {
         pcode : 'pcode'
       }
@@ -636,6 +651,9 @@ var chartconfig = {
     resource : {
       id : '4b96995f-7b24-4b6f-b423-d149f9f2ab21',
       download_link : 'https://data.opendevelopmentmekong.net/dataset/4046d3a9-0705-43af-b753-04b7b9af6e2f/resource/4b96995f-7b24-4b6f-b423-d149f9f2ab21/download/Area-and-Populatin-density-by-State-and-Region.csv',
+      resource_link : 'https://data.opendevelopmentmekong.net/dataset/4046d3a9-0705-43af-b753-04b7b9af6e2f/resource/4b96995f-7b24-4b6f-b423-d149f9f2ab21',
+      dataset_id : '4046d3a9-0705-43af-b753-04b7b9af6e2f',
+      filename : 'Area-and-Populatin-density-by-State-and-Region.csv',
       singlerow : true,
       private : true,
       filters : {
@@ -665,6 +683,9 @@ var chartconfig = {
     resource : {
       id : '1d1859d8-5413-4c63-a89b-46a5787d7593',
       download_link : 'https://data.opendevelopmentmekong.net/dataset/7ab77f5e-778c-488a-b7fe-5dbce90ec6b7/resource/1d1859d8-5413-4c63-a89b-46a5787d7593/download/2010electionresultspyithu.csv',
+      resource_link : 'https://data.opendevelopmentmekong.net/dataset/7ab77f5e-778c-488a-b7fe-5dbce90ec6b7/resource/1d1859d8-5413-4c63-a89b-46a5787d7593',
+      dataset_id : '7ab77f5e-778c-488a-b7fe-5dbce90ec6b7',
+      filename : '2010electionresultspyithu.csv',
       singlerow : false,
       filters : {
         pcode : 'pcode_ts'
@@ -676,6 +697,9 @@ var chartconfig = {
     resource : {
       id : 'cfc49c33-8a78-4e7c-bfa9-35ade242e160',
       download_link : 'https://data.opendevelopmentmekong.net/dataset/4d1e3e8d-4a62-4812-8e8b-5f5293aea320/resource/cfc49c33-8a78-4e7c-bfa9-35ade242e160/download/2012electionresultspyithu.csv',
+      resource_link : 'https://data.opendevelopmentmekong.net/dataset/4d1e3e8d-4a62-4812-8e8b-5f5293aea320/resource/cfc49c33-8a78-4e7c-bfa9-35ade242e160',
+      dataset_id : '4d1e3e8d-4a62-4812-8e8b-5f5293aea320',
+      filename : '2012electionresultspyithu.csv',
       singlerow : false,
       filters : {
         pcode : 'pcode_ts'
@@ -687,6 +711,9 @@ var chartconfig = {
     resource : {
       id : '43fd641a-35a9-4d6d-bfd0-8eabc52ca316',
       download_link : 'https://data.opendevelopmentmekong.net/dataset/ffc908b5-f13b-4085-8e77-3d0598ba6856/resource/43fd641a-35a9-4d6d-bfd0-8eabc52ca316/download/2015electionresultspyithu.csv',
+      resource_link : 'https://data.opendevelopmentmekong.net/dataset/ffc908b5-f13b-4085-8e77-3d0598ba6856/resource/43fd641a-35a9-4d6d-bfd0-8eabc52ca316',
+      dataset_id : 'ffc908b5-f13b-4085-8e77-3d0598ba6856',
+      filename : '2015electionresultspyithu.csv',
       singlerow : false,
       filters : {
         pcode : 'pcode_ts'
@@ -699,6 +726,8 @@ var chartconfig = {
       id : '7dcb30ad-75cf-4339-af6c-290683d904f5',
       download_link : 'https://data.opendevelopmentmekong.net/dataset/c6778dfe-836f-48ad-9812-d1d27acce3cc/resource/7dcb30ad-75cf-4339-af6c-290683d904f5/download/stateregionsexprev.csv',
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/myanmar-state-and-region-expenditure-and-revenue/resource/7dcb30ad-75cf-4339-af6c-290683d904f5',
+      dataset_id : 'c6778dfe-836f-48ad-9812-d1d27acce3cc',
+      filename : 'stateregionsexprev.csv',
       singlerow : true,
       filters : {
         pcode : 'pcode_st'
@@ -711,6 +740,8 @@ var chartconfig = {
       id : '74c7dea8-e8ee-49ad-b946-b4dda2d6e20f',
       download_link : 'https://data.opendevelopmentmekong.net/dataset/95dec5d5-a328-47b6-a5e1-0a3d798f5650/resource/74c7dea8-e8ee-49ad-b946-b4dda2d6e20f/download/tree-cover-combined.csv',
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/tree-cover-data-from-global-forest-watch/resource/74c7dea8-e8ee-49ad-b946-b4dda2d6e20f',
+      dataset_id : '95dec5d5-a328-47b6-a5e1-0a3d798f5650',
+      filename : 'tree-cover-combined.csv',
       singlerow : true,
       filters : {
         pcode : 'pcode_st'
@@ -769,6 +800,8 @@ var chartconfig = {
       id : '01f16e66-0280-44cc-b728-90d362b450cc',
       download_link : 'https://data.opendevelopmentmekong.net/dataset/493e50f6-de0d-46aa-89ce-975e6a964af7/resource/01f16e66-0280-44cc-b728-90d362b450cc/download/2014-Census-Health.xlsx',
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/the-levels-of-cbr-tfr-and-total-marital-fertility-rates-tmfr-by-state-region-and-childhood-mortalit/resource/01f16e66-0280-44cc-b728-90d362b450cc',
+      dataset_id : '493e50f6-de0d-46aa-89ce-975e6a964af7',
+      filename : '2014-Census-Health.xlsx',
       singlerow : true,
       filters : {
         pcode : 'pcode_st'

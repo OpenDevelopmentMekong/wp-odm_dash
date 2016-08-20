@@ -159,6 +159,10 @@
     border-radius: 3px;
 }
 
+.full-width-charts .resource_link {
+	right: 0px;
+}
+
 .resource_link:hover, .resource_link:visited {
 	color: #fff;
 }
