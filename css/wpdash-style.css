@@ -105,7 +105,7 @@
 }
 
 .chart_wrapper {
-	margin-bottom: 30px !important;
+	margin-top: 50px !important;
 }
 
 .chart_wrapper .data_resource {
@@ -146,6 +146,21 @@
 .note-text {
 	font-size: 13px;
 	color: red;
+}
+
+.resource_link {
+	float:right;
+	position: relative;
+    top: -15px;
+    right: 110px;
+    background: #03A9F4;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.resource_link:hover, .resource_link:visited {
+	color: #fff;
 }
 
 #viz_nav_wrapper.sticky {
