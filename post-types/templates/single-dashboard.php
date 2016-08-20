@@ -176,7 +176,7 @@
 				</div>
 				<div class="text_container">
 					<h5 class="label">Life Expectancy At Birth</h5>	
-					<div class="value"><span id="life_expectancy"></span> years</div>
+					<div class="value"><span id="health_life_expectancy"></span> years</div>
 				</div>
 			</div>
 			<div class="twelve columns">
