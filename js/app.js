@@ -493,6 +493,11 @@ jQuery( document ).ready(function() {
         }
       });
 
+      var row_count = PopulationPyramidData.getNumberOfRows();
+      if (row_count > 0) {
+        PopulationPyramidData.removeRows(0, row_count);
+      }
+
       $.map(charts.st_population.fields, function(value, index){
         PopulationPyramidData.addRow([value, -parseInt(MaleData[value]), parseInt(FemaleData[value])]);
         //results.push([value, -parseInt(MaleData[value]), parseInt(FemaleData[value])]);
