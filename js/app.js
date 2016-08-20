@@ -499,7 +499,7 @@ jQuery( document ).ready(function() {
       }
 
       $.map(charts.st_population.fields, function(value, index){
-        PopulationPyramidData.addRow([value, -parseInt(MaleData[value]), parseInt(FemaleData[value])]);
+        PopulationPyramidData.addRow([value, -parseInt(MaleData[index]), parseInt(FemaleData[index])]);
         //results.push([value, -parseInt(MaleData[value]), parseInt(FemaleData[value])]);
       });
 

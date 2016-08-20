@@ -21,7 +21,8 @@ var charts = {
       title : 'Population Pyramid of Myanmar',
       isStacked: true,        // stacks the bars
       vAxis: {
-        direction: -1       // reverses the chart upside down
+        direction: -1, // reverses the chart upside down
+        title : 'Age Groups'
       },
       hAxis: {
         format: ';'
@@ -29,27 +30,27 @@ var charts = {
     },
     chart_type : 'bar',
     container_id : 'st_population_pyramid',
-    fields : [
-      '0_4',
-      '5_9',
-      '10_14',
-      '15_19',
-      '20_24',
-      '25_29',
-      '30_34',
-      '35_39',
-      '40_44',
-      '45_49',
-      '50_54',
-      '55_59',
-      '60_64',
-      '65_69',
-      '70_74',
-      '75_79',
-      '80_84',
-      '85_89',
-      '90ab'
-    ],
+    fields : {
+      '0_4' : '0-4',
+      '5_9' : '5-9',
+      '10_14' : '10-14',
+      '15_19' : '15-19',
+      '20_24' : '20-24',
+      '25_29' : '25-29',
+      '30_34' : '30-34',
+      '35_39' : '35-39',
+      '40_44' : '40-44',
+      '45_49' : '45-49',
+      '50_54' : '50-54',
+      '55_59' : '55-59',
+      '60_64' : '60-64',
+      '65_69' : '65-69',
+      '70_74' : '70-74',
+      '75_79' : '75-79',
+      '80_84' : '80-84',
+      '85_89' : '85-89',
+      '90ab' : '90 yrs and Above'
+    },
     columns : {
       "Age" : 'string',
       "Male" : 'number',
