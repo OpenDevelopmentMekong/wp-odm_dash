@@ -231,6 +231,24 @@
 	display: none;
 }
 
+/* Temporty Paliment Seating Plan */
+.seating_legend {
+	margin-top: 25px;
+}
+
+.seating_legend .circle {
+	background: #DFCFE6;
+    width: 15px;
+    height: 15px;
+    float: left;
+    border-radius: 999px;
+    margin-right: 10px;
+}
+
+.single_legend {
+	margin-bottom: 10px;
+}
+
 /* Google Visualization Table */
 .google-visualization-table-tr-even {
 	background: #dcdcdc !important;
