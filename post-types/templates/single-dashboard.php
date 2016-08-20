@@ -158,7 +158,7 @@
 			<div id="revenue_expenditure" class="normal_chart"></div>
 		</div>
 		<div class="row chart_wrapper">
-			<div id="labour_usual_activity_10ab" class="normal_chart" style="height:auto;"></div>
+			<div id="labour_usual_activity_10ab" class="normal_chart full-width-charts" style="height:auto;"></div>
 			<div class="note-text">* Left click on parent section to go up one level.</div>
 		</div>
 	</div>
@@ -176,7 +176,7 @@
 				</div>
 				<div class="text_container">
 					<h5 class="label">Life Expectancy At Birth</h5>	
-					<div class="value"><span id="life_expectancy"></span> years</div>
+					<div class="value"><span id="health_life_expectancy"></span> years</div>
 				</div>
 			</div>
 			<div class="twelve columns">
@@ -188,7 +188,7 @@
 				<div id="medical_worker" class="normal_chart"></div>
 			</div>
 			<div class="eight columns">
-				<div id="hospital_healthcenter" class="normal_chart" style="padding-top: 47px;height: 300px;"></div>
+				<div id="hospital_healthcenter" class="normal_chart full-width-charts" style="padding-top: 47px;height: 300px;"></div>
 			</div>
 		</div>
 	</div>

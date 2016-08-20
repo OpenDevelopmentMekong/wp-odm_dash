@@ -125,6 +125,10 @@ function ODChart(config) {
         }
         value.ChartData.addRows(c_data);
         googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
+
+        if (self.resource.resource_link != undefined) {
+          jQuery('#'+value.container_id).prepend('<a href="'+ self.resource.resource_link +'" class="resource_link" target="_blank">Data Source</a>');
+        }
       }
 
     });
