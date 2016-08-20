@@ -130,7 +130,7 @@
 	margin-top: 15px;
 }
 
-.ts_chart {
+.ts_chart, .only_st {
 	display:none;
 }
 

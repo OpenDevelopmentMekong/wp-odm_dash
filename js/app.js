@@ -169,7 +169,8 @@ jQuery( document ).ready(function() {
     resetClickStyles();
 
     jQuery('.ts_chart').hide();
-    jQuery('.st_chart').show();
+    jQuery('.only_st').hide();
+    jQuery('.union_chart').show();
 
     jQuery('#environment_nav').show();
     jQuery('#environment').show();
@@ -187,6 +188,7 @@ jQuery( document ).ready(function() {
 
       jQuery('.ts_chart').hide();
       jQuery('.st_chart').show();
+      jQuery('.only_union').hide();
 
       jQuery('#environment_nav').show();
       jQuery('#environment').show();
@@ -382,6 +384,8 @@ jQuery( document ).ready(function() {
 
     unionSTCharts(pcode);
 
+    ElectionST2015.init(pcode);
+
   }
 
   function unionSTCharts(pcode) {
@@ -426,6 +430,8 @@ jQuery( document ).ready(function() {
   var ElectionTSLevel2012 = new ElectionPartyChart(chartconfig.election_result_lower_2012);
 
   var ElectionTSLevel2015 = new ElectionPartyChart(chartconfig.election_result_lower_2015);
+
+  var ElectionST2015 = new ElectionPartyChart(chartconfig.state_region_election_2015);
 
   var RevenueExpenditure = new ODChart(chartconfig.revenue_expenditure);
 

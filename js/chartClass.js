@@ -221,7 +221,7 @@ function ElectionPartyChart(config) {
       data: {
         resource_id : this.resource.id,
         filters : '{"'+ this.resource.filters.pcode +'":"'+ pcode +'"}',
-        sort : 'votes'
+        sort : this.resource.sort_by
       },
       dataType: 'json'
     };
@@ -243,7 +243,9 @@ function ElectionPartyChart(config) {
 
         if (data.result.records.length > 0) {
 
-          var sorted = self.sortResults(data.result.records, 'votes');
+          $('#'+value.container_id).show();
+
+          var sorted = self.sortResults(data.result.records, self.resource.sort_by);
 
           self.prepareChart(sorted, value);
 
@@ -264,12 +266,14 @@ function ElectionPartyChart(config) {
     var colors = [];
 
     $.map(data, function(value, index){
-      columns.push(value.party_name);
-      values.push(parseInt(value.votes));
-      colors.push(self.getPartyColor(value.party_name));
+      columns.push(value[chart_conf.fields.party]);
+      values.push(parseInt(value[chart_conf.fields.value]));
+      colors.push(self.getPartyColor(value[chart_conf.fields.party]));
     });
 
     var f_data = [columns, values];
+
+    console.log(f_data);
 
     chart_conf.chart_options.colors = colors;
     

@@ -466,13 +466,16 @@ var charts = {
     party_result : {
       chart_options : {
         title : '2010 General Election Results for Pyithu Hluttaw',
-        isStacked: 'percent'
+        isStacked: 'percent',
+        hAxis : {
+          title : 'Votes'
+        }
       },
       chart_type : 'bar',
       container_id : 'election_lower_2010',
       fields : {
-        'party_name' : 'Party Name',
-        'votes' : 'Votes'
+        'party' : 'party_name',
+        'value' : 'votes'
       },
       prepare_data_from_array : true,
       columns : {
@@ -485,13 +488,16 @@ var charts = {
     party_result : {
       chart_options : {
         title : 'Results for Pyithu Hluttaw, Myanmar by-elections, 2012',
-        isStacked: 'percent'
+        isStacked: 'percent',
+        hAxis : {
+          title : 'Votes'
+        }
       },
       chart_type : 'bar',
       container_id : 'election_lower_2012',
       fields : {
-        'party_name' : 'Party Name',
-        'votes' : 'Votes'
+        'party' : 'party_name',
+        'value' : 'votes'
       },
       prepare_data_from_array : true,
       columns : {
@@ -504,13 +510,16 @@ var charts = {
     party_result : {
       chart_options : {
         title : 'Results for Pyithu Hluttaw, Myanmar General Election, 2015',
-        isStacked: 'percent'
+        isStacked: 'percent',
+        hAxis : {
+          title : 'Votes'
+        }
       },
       chart_type : 'bar',
       container_id : 'election_lower_2015',
       fields : {
-        'party_name' : 'Party Name',
-        'votes' : 'Votes'
+        'party' : 'party_name',
+        'value' : 'votes'
       },
       prepare_data_from_array : true,
       columns : {
@@ -518,6 +527,28 @@ var charts = {
         'Y-value' : '2015'
       }
     }
+  },
+  st_election_2015 : {
+    party_result : {
+      chart_options : {
+        title : 'Result for State/Region Paliament, Myanmar General Election, 2015',
+        isStacked : 'percent',
+        hAxis : {
+          title : 'Seats'
+        }
+      },
+      chart_type : 'bar',
+      container_id : 'st_election_2015',
+      fields : {
+        party : 'party',
+        value : 'seats'
+      },
+      prepare_data_from_array : true,
+      columns : {
+        'Y-axis' : 'Year',
+        'Y-value' : '2015'
+      }
+    }  
   },
   // ================= END OF ELECTION RESULT =================== //
   
@@ -689,7 +720,8 @@ var chartconfig = {
       singlerow : false,
       filters : {
         pcode : 'pcode_ts'
-      }
+      },
+      sort_by : 'votes'
     },
     charts : charts.ts_election_lower_2010
   },
@@ -703,7 +735,8 @@ var chartconfig = {
       singlerow : false,
       filters : {
         pcode : 'pcode_ts'
-      }
+      },
+      sort_by : 'votes'
     },
     charts : charts.ts_election_lower_2012
   },
@@ -717,9 +750,25 @@ var chartconfig = {
       singlerow : false,
       filters : {
         pcode : 'pcode_ts'
-      }
+      },
+      sort_by : 'votes'
     },
     charts : charts.ts_election_lower_2015
+  },
+  state_region_election_2015 : {
+    resource : {
+      id : '617724b4-351c-4d9c-b6dd-88fcc0495869',
+      download_link : 'https://data.opendevelopmentmekong.net/dataset/4bbcff3a-b480-406a-8882-86d82655bcf1/resource/617724b4-351c-4d9c-b6dd-88fcc0495869/download/Election-Results-for-State-and-Region-Seats.csv',
+      resource_link : 'https://data.opendevelopmentmekong.net/dataset/4bbcff3a-b480-406a-8882-86d82655bcf1/resource/617724b4-351c-4d9c-b6dd-88fcc0495869',
+      dataset_id : '4bbcff3a-b480-406a-8882-86d82655bcf1',
+      filename : 'Election-Results-for-State-and-Region-Seats.csv',
+      singlerow : false,
+      filters : {
+        pcode : 'pcode_st'
+      },
+      sort_by : 'seats'
+    },
+    charts : charts.st_election_2015
   },
   revenue_expenditure : {
     resource : {

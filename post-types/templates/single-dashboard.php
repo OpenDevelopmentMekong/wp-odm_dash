@@ -90,10 +90,10 @@
 <section class="row viz-section" id="demographic">
 	<div class="container">
 		<h4 class="section_title">Demographic</h4>
-		<div class="row char_wrapper st_chart">
+		<div class="row char_wrapper st_chart union_chart">
 			<div id="st_population_pyramid" style="height:600px;"></div>
 		</div>
-		<div class="row chart_wrapper st_chart">
+		<div class="row chart_wrapper st_chart union_chart">
 			<div id="pop_over_year" class="normal_chart"></div>
 		</div>
 		<div class="row chart_wrapper">
@@ -108,7 +108,7 @@
 			<div class="eight columns">
 				<div id="m_f_headed_household" class="normal_chart"></div>
 			</div>
-			<div class="eight columns st_chart">
+			<div class="eight columns st_chart union_chart">
 				<div id="religion_chart" class="normal_chart"></div>
 			</div>
 		</div>
@@ -119,6 +119,15 @@
 <section class="row viz-section even" id="goverment">
 	<div class="container">
 		<h4 class="section_title">Goverment</h4>
+
+		<div class="row chart_wrapper st_chart only_st">
+			<div id="st_election_2015"></div>
+		</div>
+
+		<div class="row chart_wrapper union_chart only_union">
+			Paliment seat coming soon .... 
+		</div>
+
 		<div class="row chart_wrapper ts_chart">
 			<div id="election_lower_2010"></div>
 			<div id="election_lower_2012"></div>
@@ -154,7 +163,7 @@
 <div class="row viz-section even" id="economy">
 	<div class="container">
 		<h4 class="section_title">Economy & Industries</h4>
-		<div class="row chart_wrapper st_chart">
+		<div class="row chart_wrapper st_chart union_chart">
 			<div id="revenue_expenditure" class="normal_chart"></div>
 		</div>
 		<div class="row chart_wrapper">
@@ -168,7 +177,7 @@
 <div class="row viz-section" id="health">
 	<div class="container">
 		<h4 class="section_title">Health</h4>
-		<div class="row chart_wrapper st_chart">
+		<div class="row chart_wrapper st_chart union_chart">
 			<div class="four columns">
 				<div class="text_container">
 					<h5 class="label">Crude Birth Rate</h5>
@@ -198,7 +207,7 @@
 <div class="row viz-section even" id="environment">
 	<div class="container">
 		<h4 class="section_title">Environment</h4>
-		<div class="row chart_wrapper st_chart">
+		<div class="row chart_wrapper st_chart union_chart">
 			<div class="four columns">
 				<div class="text_container">
 					<h5 class="label">Percent Tree Cover</h5>	
