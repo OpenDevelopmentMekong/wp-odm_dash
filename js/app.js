@@ -178,7 +178,7 @@ jQuery( document ).ready(function() {
 
     regionNameArea.text("Myanmar");
     stpcodeArea.text("MMR");
-    assignLastClickLayer("{}", '');
+    assignLastClickLayer('', '');
 
     unionLevelCharts();
 
