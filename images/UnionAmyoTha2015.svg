@@ -4,7 +4,7 @@ xmlns="http://www.w3.org/2000/svg" version="1.1"
 width="360" height="185">
 <!-- Created with the Wikimedia parliament diagram creator (http://tools.wmflabs.org/parliamentdiagram/parliamentinputform.html) -->
 <g>
-<text x="175" y="175" style="font-size:36px;font-weight:bold;text-align:center;text-anchor:middle;font-family:Sans">233</text>
+<text x="175" y="175" style="font-size:36px;font-weight:bold;text-align:center;text-anchor:middle;font-family:Sans">224</text>
   <g style="fill:#E6E6E6" id="Military">
     <circle cx="11.32" cy="175.00" r="5.00"/>
     <circle cx="23.83" cy="175.00" r="5.00"/>
@@ -14,249 +14,240 @@ width="360" height="185">
     <circle cx="73.87" cy="175.00" r="5.00"/>
     <circle cx="86.38" cy="175.00" r="5.00"/>
     <circle cx="98.90" cy="175.01" r="5.00"/>
-    <circle cx="12.37" cy="160.60" r="5.00"/>
-    <circle cx="24.83" cy="161.69" r="5.00"/>
-    <circle cx="37.42" cy="161.67" r="5.00"/>
-    <circle cx="50.04" cy="161.65" r="5.00"/>
-    <circle cx="62.68" cy="161.63" r="5.00"/>
-    <circle cx="75.35" cy="161.60" r="5.00"/>
-    <circle cx="88.08" cy="161.57" r="5.00"/>
-    <circle cx="14.64" cy="146.33" r="5.00"/>
-    <circle cx="26.96" cy="148.50" r="5.00"/>
-    <circle cx="39.74" cy="148.49" r="5.00"/>
-    <circle cx="100.87" cy="161.54" r="5.00"/>
-    <circle cx="52.59" cy="148.49" r="5.00"/>
-    <circle cx="65.51" cy="148.49" r="5.00"/>
-    <circle cx="18.13" cy="132.31" r="5.00"/>
-    <circle cx="30.21" cy="135.55" r="5.00"/>
-    <circle cx="78.53" cy="148.50" r="5.00"/>
-    <circle cx="43.28" cy="135.59" r="5.00"/>
-    <circle cx="91.69" cy="148.53" r="5.00"/>
-    <circle cx="56.47" cy="135.66" r="5.00"/>
-    <circle cx="22.80" cy="118.65" r="5.00"/>
-    <circle cx="34.55" cy="122.92" r="5.00"/>
-    <circle cx="69.80" cy="135.75" r="5.00"/>
-    <circle cx="105.07" cy="148.59" r="5.00"/>
-    <circle cx="48.00" cy="123.08" r="5.00"/>
-    <circle cx="83.33" cy="135.90" r="5.00"/>
-    <circle cx="61.63" cy="123.29" r="5.00"/>
-    <circle cx="28.62" cy="105.43" r="5.00"/>
-    <circle cx="39.95" cy="110.71" r="5.00"/>
-    <circle cx="97.14" cy="136.14" r="5.00"/>
-    <circle cx="75.51" cy="123.59" r="5.00"/>
-    <circle cx="53.86" cy="111.05" r="5.00"/>
-    <circle cx="35.55" cy="92.76" r="5.00"/>
-    <circle cx="46.38" cy="99.01" r="5.00"/>
-    <circle cx="68.04" cy="111.51" r="5.00"/>
-    <circle cx="89.70" cy="124.02" r="5.00"/>
-    <circle cx="111.36" cy="136.53" r="5.00"/>
-    <circle cx="60.82" cy="99.63" r="5.00"/>
-    <circle cx="82.55" cy="112.14" r="5.00"/>
-    <circle cx="43.54" cy="80.72" r="5.00"/>
-    <circle cx="53.78" cy="87.89" r="5.00"/>
-    <circle cx="104.32" cy="124.66" r="5.00"/>
-    <circle cx="75.61" cy="100.45" r="5.00"/>
-    <circle cx="97.51" cy="113.03" r="5.00"/>
-    <circle cx="68.81" cy="88.90" r="5.00"/>
-    <circle cx="52.53" cy="69.42" r="5.00"/>
-    <circle cx="62.11" cy="77.45" r="5.00"/>
-    <circle cx="90.84" cy="101.56" r="5.00"/>
-    <circle cx="119.58" cy="125.68" r="5.00"/>
+    <circle cx="12.32" cy="160.98" r="5.00"/>
+    <circle cx="24.92" cy="160.91" r="5.00"/>
+    <circle cx="37.54" cy="160.81" r="5.00"/>
+    <circle cx="50.18" cy="160.70" r="5.00"/>
+    <circle cx="62.76" cy="161.12" r="5.00"/>
+    <circle cx="75.46" cy="161.03" r="5.00"/>
+    <circle cx="14.49" cy="147.10" r="5.00"/>
+    <circle cx="88.21" cy="160.91" r="5.00"/>
+    <circle cx="27.28" cy="146.97" r="5.00"/>
+    <circle cx="40.13" cy="146.81" r="5.00"/>
+    <circle cx="101.06" cy="160.76" r="5.00"/>
+    <circle cx="53.06" cy="146.63" r="5.00"/>
+    <circle cx="65.79" cy="147.49" r="5.00"/>
+    <circle cx="17.80" cy="133.44" r="5.00"/>
+    <circle cx="30.89" cy="133.30" r="5.00"/>
+    <circle cx="78.88" cy="147.38" r="5.00"/>
+    <circle cx="44.10" cy="133.14" r="5.00"/>
+    <circle cx="92.15" cy="147.25" r="5.00"/>
+    <circle cx="22.24" cy="120.10" r="5.00"/>
+    <circle cx="57.47" cy="132.96" r="5.00"/>
+    <circle cx="35.73" cy="120.01" r="5.00"/>
+    <circle cx="70.39" cy="134.32" r="5.00"/>
+    <circle cx="105.70" cy="147.12" r="5.00"/>
+    <circle cx="49.41" cy="119.92" r="5.00"/>
+    <circle cx="84.08" cy="134.31" r="5.00"/>
+    <circle cx="27.77" cy="107.18" r="5.00"/>
+    <circle cx="63.34" cy="119.86" r="5.00"/>
+    <circle cx="41.74" cy="107.21" r="5.00"/>
+    <circle cx="98.11" cy="134.35" r="5.00"/>
+    <circle cx="76.50" cy="121.77" r="5.00"/>
+    <circle cx="34.36" cy="94.77" r="5.00"/>
+    <circle cx="55.99" cy="107.30" r="5.00"/>
+    <circle cx="48.88" cy="95.01" r="5.00"/>
+    <circle cx="90.95" cy="122.04" r="5.00"/>
+    <circle cx="70.61" cy="107.47" r="5.00"/>
+    <circle cx="112.68" cy="134.51" r="5.00"/>
+    <circle cx="41.95" cy="82.95" r="5.00"/>
+    <circle cx="63.79" cy="95.38" r="5.00"/>
+    <circle cx="84.05" cy="110.03" r="5.00"/>
+    <circle cx="105.96" cy="122.50" r="5.00"/>
+    <circle cx="57.10" cy="83.51" r="5.00"/>
+    <circle cx="79.19" cy="95.95" r="5.00"/>
+    <circle cx="50.51" cy="71.80" r="5.00"/>
+    <circle cx="99.39" cy="110.78" r="5.00"/>
+    <circle cx="72.73" cy="84.30" r="5.00"/>
+    <circle cx="92.92" cy="99.26" r="5.00"/>
+    <circle cx="66.33" cy="72.79" r="5.00"/>
+    <circle cx="121.77" cy="123.34" r="5.00"/>
   </g>
-  <g style="fill:#CA0A0A" id="NLD">
-    <circle cx="84.27" cy="90.21" r="5.00"/>
-    <circle cx="113.08" cy="114.34" r="5.00"/>
-    <circle cx="77.76" cy="78.95" r="5.00"/>
-    <circle cx="62.46" cy="58.92" r="5.00"/>
-    <circle cx="71.30" cy="67.76" r="5.00"/>
-    <circle cx="106.66" cy="103.12" r="5.00"/>
-    <circle cx="100.28" cy="91.99" r="5.00"/>
-    <circle cx="93.92" cy="80.92" r="5.00"/>
-    <circle cx="87.59" cy="69.89" r="5.00"/>
-    <circle cx="73.24" cy="49.31" r="5.00"/>
-    <circle cx="81.28" cy="58.89" r="5.00"/>
-    <circle cx="129.49" cy="116.35" r="5.00"/>
-    <circle cx="123.24" cy="105.39" r="5.00"/>
-    <circle cx="116.98" cy="94.45" r="5.00"/>
-    <circle cx="110.73" cy="83.55" r="5.00"/>
-    <circle cx="104.48" cy="72.65" r="5.00"/>
-    <circle cx="98.23" cy="61.77" r="5.00"/>
-    <circle cx="84.81" cy="40.66" r="5.00"/>
-    <circle cx="91.98" cy="50.90" r="5.00"/>
-    <circle cx="97.07" cy="33.03" r="5.00"/>
-    <circle cx="103.32" cy="43.86" r="5.00"/>
-    <circle cx="109.57" cy="54.68" r="5.00"/>
-    <circle cx="115.82" cy="65.51" r="5.00"/>
-    <circle cx="122.07" cy="76.34" r="5.00"/>
-    <circle cx="128.32" cy="87.16" r="5.00"/>
-    <circle cx="134.58" cy="97.99" r="5.00"/>
-    <circle cx="140.83" cy="108.82" r="5.00"/>
-    <circle cx="109.94" cy="26.48" r="5.00"/>
-    <circle cx="115.23" cy="37.81" r="5.00"/>
-    <circle cx="121.53" cy="48.68" r="5.00"/>
-    <circle cx="127.84" cy="59.56" r="5.00"/>
-    <circle cx="134.16" cy="70.46" r="5.00"/>
-    <circle cx="140.50" cy="81.37" r="5.00"/>
-    <circle cx="146.86" cy="92.30" r="5.00"/>
-    <circle cx="123.33" cy="21.05" r="5.00"/>
-    <circle cx="127.60" cy="32.80" r="5.00"/>
-    <circle cx="153.26" cy="103.28" r="5.00"/>
-    <circle cx="133.99" cy="43.81" r="5.00"/>
-    <circle cx="140.39" cy="54.87" r="5.00"/>
-    <circle cx="146.83" cy="65.98" r="5.00"/>
-    <circle cx="137.13" cy="16.79" r="5.00"/>
-    <circle cx="140.36" cy="28.86" r="5.00"/>
-    <circle cx="153.31" cy="77.16" r="5.00"/>
-    <circle cx="146.85" cy="40.13" r="5.00"/>
-    <circle cx="159.84" cy="88.44" r="5.00"/>
-    <circle cx="153.36" cy="51.48" r="5.00"/>
-    <circle cx="151.24" cy="13.72" r="5.00"/>
-    <circle cx="153.41" cy="26.03" r="5.00"/>
-    <circle cx="159.93" cy="62.96" r="5.00"/>
-    <circle cx="166.44" cy="99.89" r="5.00"/>
-    <circle cx="159.99" cy="37.65" r="5.00"/>
-    <circle cx="166.54" cy="74.61" r="5.00"/>
-    <circle cx="166.61" cy="49.43" r="5.00"/>
-    <circle cx="165.57" cy="11.87" r="5.00"/>
-    <circle cx="166.66" cy="24.32" r="5.00"/>
-    <circle cx="173.23" cy="86.49" r="5.00"/>
-    <circle cx="173.28" cy="61.44" r="5.00"/>
-    <circle cx="173.31" cy="36.41" r="5.00"/>
-    <circle cx="180.00" cy="48.75" r="5.00"/>
-    <circle cx="180.00" cy="11.25" r="5.00"/>
+  <g style="fill:#CA0A0A" id="NationalLeagueforDemocracy">
+    <circle cx="59.96" cy="61.40" r="5.00"/>
+    <circle cx="88.98" cy="85.44" r="5.00"/>
+    <circle cx="115.50" cy="111.97" r="5.00"/>
+    <circle cx="82.73" cy="74.16" r="5.00"/>
+    <circle cx="109.24" cy="100.74" r="5.00"/>
+    <circle cx="76.49" cy="62.96" r="5.00"/>
+    <circle cx="70.25" cy="51.82" r="5.00"/>
+    <circle cx="103.00" cy="89.60" r="5.00"/>
+    <circle cx="99.85" cy="76.06" r="5.00"/>
+    <circle cx="93.68" cy="65.05" r="5.00"/>
+    <circle cx="87.49" cy="54.08" r="5.00"/>
+    <circle cx="81.29" cy="43.13" r="5.00"/>
+    <circle cx="132.69" cy="113.94" r="5.00"/>
+    <circle cx="126.52" cy="103.00" r="5.00"/>
+    <circle cx="120.34" cy="92.08" r="5.00"/>
+    <circle cx="114.13" cy="81.19" r="5.00"/>
+    <circle cx="111.69" cy="67.93" r="5.00"/>
+    <circle cx="105.47" cy="57.08" r="5.00"/>
+    <circle cx="99.25" cy="46.23" r="5.00"/>
+    <circle cx="93.02" cy="35.39" r="5.00"/>
+    <circle cx="126.18" cy="74.15" r="5.00"/>
+    <circle cx="132.47" cy="84.97" r="5.00"/>
+    <circle cx="105.36" cy="28.66" r="5.00"/>
+    <circle cx="138.78" cy="95.80" r="5.00"/>
+    <circle cx="111.67" cy="39.48" r="5.00"/>
+    <circle cx="118.00" cy="50.31" r="5.00"/>
+    <circle cx="145.11" cy="106.62" r="5.00"/>
+    <circle cx="124.34" cy="61.14" r="5.00"/>
+    <circle cx="118.21" cy="22.97" r="5.00"/>
+    <circle cx="124.65" cy="33.88" r="5.00"/>
+    <circle cx="138.97" cy="68.56" r="5.00"/>
+    <circle cx="131.13" cy="44.81" r="5.00"/>
+    <circle cx="145.44" cy="79.53" r="5.00"/>
+    <circle cx="137.66" cy="55.77" r="5.00"/>
+    <circle cx="151.98" cy="90.53" r="5.00"/>
+    <circle cx="131.49" cy="18.37" r="5.00"/>
+    <circle cx="138.09" cy="29.48" r="5.00"/>
+    <circle cx="158.61" cy="101.61" r="5.00"/>
+    <circle cx="144.75" cy="40.64" r="5.00"/>
+    <circle cx="152.33" cy="64.52" r="5.00"/>
+    <circle cx="151.49" cy="51.88" r="5.00"/>
+    <circle cx="145.11" cy="14.90" r="5.00"/>
+    <circle cx="159.02" cy="75.84" r="5.00"/>
+    <circle cx="151.87" cy="26.30" r="5.00"/>
+    <circle cx="165.83" cy="87.33" r="5.00"/>
+    <circle cx="158.71" cy="37.84" r="5.00"/>
+    <circle cx="158.97" cy="12.57" r="5.00"/>
+    <circle cx="166.07" cy="62.07" r="5.00"/>
+    <circle cx="165.66" cy="49.54" r="5.00"/>
+    <circle cx="165.88" cy="24.39" r="5.00"/>
+    <circle cx="172.80" cy="99.07" r="5.00"/>
+    <circle cx="172.97" cy="73.98" r="5.00"/>
+    <circle cx="172.88" cy="36.43" r="5.00"/>
+    <circle cx="172.97" cy="11.40" r="5.00"/>
     <circle cx="180.00" cy="23.75" r="5.00"/>
-    <circle cx="180.00" cy="73.75" r="5.00"/>
-    <circle cx="180.00" cy="98.75" r="5.00"/>
-    <circle cx="186.69" cy="36.41" r="5.00"/>
-    <circle cx="186.72" cy="61.44" r="5.00"/>
-    <circle cx="186.77" cy="86.49" r="5.00"/>
-    <circle cx="193.34" cy="24.32" r="5.00"/>
-    <circle cx="194.43" cy="11.87" r="5.00"/>
-    <circle cx="193.39" cy="49.43" r="5.00"/>
-    <circle cx="193.46" cy="74.61" r="5.00"/>
-    <circle cx="200.01" cy="37.65" r="5.00"/>
-    <circle cx="193.56" cy="99.89" r="5.00"/>
-    <circle cx="200.07" cy="62.96" r="5.00"/>
-    <circle cx="206.59" cy="26.03" r="5.00"/>
-    <circle cx="208.76" cy="13.72" r="5.00"/>
-    <circle cx="206.64" cy="51.48" r="5.00"/>
-    <circle cx="200.16" cy="88.44" r="5.00"/>
-    <circle cx="213.15" cy="40.13" r="5.00"/>
-    <circle cx="206.69" cy="77.16" r="5.00"/>
-    <circle cx="219.64" cy="28.86" r="5.00"/>
-    <circle cx="222.87" cy="16.79" r="5.00"/>
-    <circle cx="213.17" cy="65.98" r="5.00"/>
-    <circle cx="219.61" cy="54.87" r="5.00"/>
-    <circle cx="226.01" cy="43.81" r="5.00"/>
-    <circle cx="206.74" cy="103.28" r="5.00"/>
-    <circle cx="232.40" cy="32.80" r="5.00"/>
-    <circle cx="236.67" cy="21.05" r="5.00"/>
-    <circle cx="213.14" cy="92.30" r="5.00"/>
-    <circle cx="219.50" cy="81.37" r="5.00"/>
-    <circle cx="225.84" cy="70.46" r="5.00"/>
-    <circle cx="232.16" cy="59.56" r="5.00"/>
-    <circle cx="238.47" cy="48.68" r="5.00"/>
-    <circle cx="244.77" cy="37.81" r="5.00"/>
-    <circle cx="250.06" cy="26.48" r="5.00"/>
-    <circle cx="219.17" cy="108.82" r="5.00"/>
-    <circle cx="225.42" cy="97.99" r="5.00"/>
-    <circle cx="231.68" cy="87.16" r="5.00"/>
-    <circle cx="237.93" cy="76.34" r="5.00"/>
-    <circle cx="244.18" cy="65.51" r="5.00"/>
-    <circle cx="250.43" cy="54.68" r="5.00"/>
-    <circle cx="256.68" cy="43.86" r="5.00"/>
-    <circle cx="262.93" cy="33.03" r="5.00"/>
-    <circle cx="268.02" cy="50.90" r="5.00"/>
-    <circle cx="275.19" cy="40.66" r="5.00"/>
-    <circle cx="261.77" cy="61.77" r="5.00"/>
-    <circle cx="255.52" cy="72.65" r="5.00"/>
-    <circle cx="249.27" cy="83.55" r="5.00"/>
-    <circle cx="243.02" cy="94.45" r="5.00"/>
-    <circle cx="236.76" cy="105.39" r="5.00"/>
-    <circle cx="230.51" cy="116.35" r="5.00"/>
-    <circle cx="278.72" cy="58.89" r="5.00"/>
-    <circle cx="286.76" cy="49.31" r="5.00"/>
-    <circle cx="272.41" cy="69.89" r="5.00"/>
-    <circle cx="266.08" cy="80.92" r="5.00"/>
-    <circle cx="259.72" cy="91.99" r="5.00"/>
-    <circle cx="253.34" cy="103.12" r="5.00"/>
-    <circle cx="288.70" cy="67.76" r="5.00"/>
-    <circle cx="297.54" cy="58.92" r="5.00"/>
-    <circle cx="282.24" cy="78.95" r="5.00"/>
-    <circle cx="246.92" cy="114.34" r="5.00"/>
-    <circle cx="275.73" cy="90.21" r="5.00"/>
-    <circle cx="240.42" cy="125.68" r="5.00"/>
-    <circle cx="269.16" cy="101.56" r="5.00"/>
-    <circle cx="297.89" cy="77.45" r="5.00"/>
-    <circle cx="307.47" cy="69.42" r="5.00"/>
-    <circle cx="291.19" cy="88.90" r="5.00"/>
-    <circle cx="262.49" cy="113.03" r="5.00"/>
-    <circle cx="284.39" cy="100.45" r="5.00"/>
-    <circle cx="255.68" cy="124.66" r="5.00"/>
-    <circle cx="306.22" cy="87.89" r="5.00"/>
-    <circle cx="316.46" cy="80.72" r="5.00"/>
-    <circle cx="277.45" cy="112.14" r="5.00"/>
-    <circle cx="299.18" cy="99.63" r="5.00"/>
-    <circle cx="248.64" cy="136.53" r="5.00"/>
-    <circle cx="270.30" cy="124.02" r="5.00"/>
+    <circle cx="180.00" cy="48.75" r="5.00"/>
+    <circle cx="180.00" cy="61.25" r="5.00"/>
+    <circle cx="180.00" cy="86.25" r="5.00"/>
+    <circle cx="187.03" cy="11.40" r="5.00"/>
+    <circle cx="187.12" cy="36.43" r="5.00"/>
+    <circle cx="187.03" cy="73.98" r="5.00"/>
+    <circle cx="187.20" cy="99.07" r="5.00"/>
+    <circle cx="194.12" cy="24.39" r="5.00"/>
+    <circle cx="194.34" cy="49.54" r="5.00"/>
+    <circle cx="193.93" cy="62.07" r="5.00"/>
+    <circle cx="201.03" cy="12.57" r="5.00"/>
+    <circle cx="201.29" cy="37.84" r="5.00"/>
+    <circle cx="194.17" cy="87.33" r="5.00"/>
+    <circle cx="208.13" cy="26.30" r="5.00"/>
+    <circle cx="200.98" cy="75.84" r="5.00"/>
+    <circle cx="214.89" cy="14.90" r="5.00"/>
+    <circle cx="208.51" cy="51.88" r="5.00"/>
+    <circle cx="207.67" cy="64.52" r="5.00"/>
+    <circle cx="215.25" cy="40.64" r="5.00"/>
+    <circle cx="201.39" cy="101.61" r="5.00"/>
+    <circle cx="221.91" cy="29.48" r="5.00"/>
+    <circle cx="228.51" cy="18.37" r="5.00"/>
+    <circle cx="208.02" cy="90.53" r="5.00"/>
+    <circle cx="222.34" cy="55.77" r="5.00"/>
+    <circle cx="214.56" cy="79.53" r="5.00"/>
+    <circle cx="228.87" cy="44.81" r="5.00"/>
+    <circle cx="221.03" cy="68.56" r="5.00"/>
+    <circle cx="235.35" cy="33.88" r="5.00"/>
+    <circle cx="241.79" cy="22.97" r="5.00"/>
+    <circle cx="235.66" cy="61.14" r="5.00"/>
+    <circle cx="214.89" cy="106.62" r="5.00"/>
+    <circle cx="242.00" cy="50.31" r="5.00"/>
+    <circle cx="248.33" cy="39.48" r="5.00"/>
+    <circle cx="221.22" cy="95.80" r="5.00"/>
+    <circle cx="254.64" cy="28.66" r="5.00"/>
+    <circle cx="227.53" cy="84.97" r="5.00"/>
+    <circle cx="233.82" cy="74.15" r="5.00"/>
+    <circle cx="266.98" cy="35.39" r="5.00"/>
+    <circle cx="260.75" cy="46.23" r="5.00"/>
+    <circle cx="254.53" cy="57.08" r="5.00"/>
+    <circle cx="248.31" cy="67.93" r="5.00"/>
+    <circle cx="245.87" cy="81.19" r="5.00"/>
+    <circle cx="239.66" cy="92.08" r="5.00"/>
+    <circle cx="233.48" cy="103.00" r="5.00"/>
+    <circle cx="227.31" cy="113.94" r="5.00"/>
+    <circle cx="278.71" cy="43.13" r="5.00"/>
+    <circle cx="272.51" cy="54.08" r="5.00"/>
+    <circle cx="266.32" cy="65.05" r="5.00"/>
+    <circle cx="260.15" cy="76.06" r="5.00"/>
+    <circle cx="257.00" cy="89.60" r="5.00"/>
+    <circle cx="289.75" cy="51.82" r="5.00"/>
+    <circle cx="283.51" cy="62.96" r="5.00"/>
+    <circle cx="250.76" cy="100.74" r="5.00"/>
+    <circle cx="277.27" cy="74.16" r="5.00"/>
+    <circle cx="244.50" cy="111.97" r="5.00"/>
+    <circle cx="271.02" cy="85.44" r="5.00"/>
+    <circle cx="300.04" cy="61.40" r="5.00"/>
+    <circle cx="238.23" cy="123.34" r="5.00"/>
+    <circle cx="293.67" cy="72.79" r="5.00"/>
+    <circle cx="267.08" cy="99.26" r="5.00"/>
+    <circle cx="287.27" cy="84.30" r="5.00"/>
+    <circle cx="260.61" cy="110.78" r="5.00"/>
+    <circle cx="309.49" cy="71.80" r="5.00"/>
+    <circle cx="280.81" cy="95.95" r="5.00"/>
+    <circle cx="302.90" cy="83.51" r="5.00"/>
+    <circle cx="254.04" cy="122.50" r="5.00"/>
+    <circle cx="275.95" cy="110.03" r="5.00"/>
+    <circle cx="296.21" cy="95.38" r="5.00"/>
+    <circle cx="318.05" cy="82.95" r="5.00"/>
+    <circle cx="247.32" cy="134.51" r="5.00"/>
+    <circle cx="289.39" cy="107.47" r="5.00"/>
+    <circle cx="269.05" cy="122.04" r="5.00"/>
+    <circle cx="311.12" cy="95.01" r="5.00"/>
+    <circle cx="304.01" cy="107.30" r="5.00"/>
+    <circle cx="325.64" cy="94.77" r="5.00"/>
+    <circle cx="283.50" cy="121.77" r="5.00"/>
+    <circle cx="261.89" cy="134.35" r="5.00"/>
+    <circle cx="318.26" cy="107.21" r="5.00"/>
+    <circle cx="296.66" cy="119.86" r="5.00"/>
+    <circle cx="332.23" cy="107.18" r="5.00"/>
   </g>
   <g style="fill:#119134" id="UnionSolidatoryandDevelopmentParty">
-    <circle cx="291.96" cy="111.51" r="5.00"/>
-    <circle cx="313.62" cy="99.01" r="5.00"/>
-    <circle cx="324.45" cy="92.76" r="5.00"/>
-    <circle cx="306.14" cy="111.05" r="5.00"/>
-    <circle cx="284.49" cy="123.59" r="5.00"/>
-    <circle cx="262.86" cy="136.14" r="5.00"/>
-    <circle cx="320.05" cy="110.71" r="5.00"/>
-    <circle cx="331.38" cy="105.43" r="5.00"/>
-    <circle cx="298.37" cy="123.29" r="5.00"/>
-    <circle cx="276.67" cy="135.90" r="5.00"/>
-    <circle cx="312.00" cy="123.08" r="5.00"/>
-    <circle cx="254.93" cy="148.59" r="5.00"/>
+    <circle cx="275.92" cy="134.31" r="5.00"/>
+    <circle cx="310.59" cy="119.92" r="5.00"/>
+    <circle cx="254.30" cy="147.12" r="5.00"/>
+    <circle cx="289.61" cy="134.32" r="5.00"/>
+    <circle cx="324.27" cy="120.01" r="5.00"/>
+    <circle cx="302.53" cy="132.96" r="5.00"/>
+    <circle cx="337.76" cy="120.10" r="5.00"/>
+    <circle cx="267.85" cy="147.25" r="5.00"/>
+    <circle cx="315.90" cy="133.14" r="5.00"/>
+    <circle cx="281.12" cy="147.38" r="5.00"/>
+    <circle cx="329.11" cy="133.30" r="5.00"/>
+    <circle cx="342.20" cy="133.44" r="5.00"/>
   </g>
   <g style="fill:#48F000" id="ShanNationalitiesLeagueforDemocracy">
-    <circle cx="290.20" cy="135.75" r="5.00"/>
-    <circle cx="325.45" cy="122.92" r="5.00"/>
-    <circle cx="337.20" cy="118.65" r="5.00"/>
+    <circle cx="294.21" cy="147.49" r="5.00"/>
+    <circle cx="306.94" cy="146.63" r="5.00"/>
+    <circle cx="258.94" cy="160.76" r="5.00"/>
   </g>
-  <g style="fill:#179AFF" id="ArakanNationalParty">
-    <circle cx="303.53" cy="135.66" r="5.00"/>
-    <circle cx="268.31" cy="148.53" r="5.00"/>
-    <circle cx="316.72" cy="135.59" r="5.00"/>
-    <circle cx="281.47" cy="148.50" r="5.00"/>
-    <circle cx="329.79" cy="135.55" r="5.00"/>
-    <circle cx="341.87" cy="132.31" r="5.00"/>
-    <circle cx="294.49" cy="148.49" r="5.00"/>
-    <circle cx="307.41" cy="148.49" r="5.00"/>
-    <circle cx="259.13" cy="161.54" r="5.00"/>
-    <circle cx="320.26" cy="148.49" r="5.00"/>
+  <g style="fill:#179AFF" id="Party5">
+    <circle cx="319.87" cy="146.81" r="5.00"/>
+    <circle cx="332.72" cy="146.97" r="5.00"/>
+    <circle cx="271.79" cy="160.91" r="5.00"/>
+    <circle cx="345.51" cy="147.10" r="5.00"/>
+    <circle cx="284.54" cy="161.03" r="5.00"/>
+    <circle cx="297.24" cy="161.12" r="5.00"/>
+    <circle cx="309.82" cy="160.70" r="5.00"/>
+    <circle cx="322.46" cy="160.81" r="5.00"/>
+    <circle cx="335.08" cy="160.91" r="5.00"/>
+    <circle cx="347.68" cy="160.98" r="5.00"/>
   </g>
-  <g style="fill:#EE7137" id="Ta'Arng(Palaung)NationalParty">
-    <circle cx="333.04" cy="148.50" r="5.00"/>
-  </g>
-  <g style="fill:#801CE6" id="PaoNationalOrganization">
-    <circle cx="345.36" cy="146.33" r="5.00"/>
-  </g>
-  <g style="fill:#CD42CD" id="ZomiCongressforDemocracy">
-    <circle cx="271.92" cy="161.57" r="5.00"/>
-    <circle cx="284.65" cy="161.60" r="5.00"/>
-  </g>
-  <g style="fill:#D1C680" id="MonNationalParty">
-    <circle cx="297.32" cy="161.63" r="5.00"/>
-  </g>
-  <g style="fill:#DFBB8E" id="NationalUnityParty">
-    <circle cx="309.96" cy="161.65" r="5.00"/>
-  </g>
-  <g style="fill:#F5B1F6" id="Independent">
-    <circle cx="322.58" cy="161.67" r="5.00"/>
-    <circle cx="335.17" cy="161.69" r="5.00"/>
-    <circle cx="347.63" cy="160.60" r="5.00"/>
+  <g style="fill:#EE7137" id="Party6">
     <circle cx="261.10" cy="175.01" r="5.00"/>
+  </g>
+  <g style="fill:#801CE6" id="Party7">
     <circle cx="273.62" cy="175.00" r="5.00"/>
+  </g>
+  <g style="fill:#CD42CD" id="Party8">
     <circle cx="286.13" cy="175.00" r="5.00"/>
     <circle cx="298.64" cy="175.00" r="5.00"/>
+  </g>
+  <g style="fill:#D1C680" id="Party9">
     <circle cx="311.15" cy="175.00" r="5.00"/>
+  </g>
+  <g style="fill:#DFBB8E" id="Party10">
     <circle cx="323.66" cy="175.00" r="5.00"/>
+  </g>
+  <g style="fill:#F5B1F6" id="Party11">
     <circle cx="336.17" cy="175.00" r="5.00"/>
     <circle cx="348.68" cy="175.00" r="5.00"/>
   </g>

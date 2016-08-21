@@ -127,7 +127,7 @@
 		<div class="row chart_wrapper union_chart only_union">
 			<div class="row chart_wrapper">
 				<div class="eight columns">
-					<h3>Upper House, 2015 Election</h3>
+					<h3>Amyotha Hluttaw (Upper House), 2015 Election</h3>
 					<img src="<?php echo plugins_url(); ?>/wp-odm_dash/images/UnionAmyoTha2015.svg" alt="2015 AmyoTha Hluttaw" style="width:80%">
 					<div class="seating_legend">
 						<div class="single_legend">
@@ -172,7 +172,7 @@
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#F5B1F6"></span>
-							Independent: 11 seats
+							Independent: 2 seats
 						</div>
 					</div>
 					<div class="resource_link">
@@ -180,7 +180,7 @@
 					</div>
 				</div>
 				<div class="eight columns">
-					<h3>Lower House, 2015 Election</h3>
+					<h3>Pyithu Hluttaw (Lower House), 2015 Election</h3>
 					<img src="<?php echo plugins_url(); ?>/wp-odm_dash/images/UnionPyiThu2015.svg" alt="2015 PyiThu Hluttaw" style="width:80%">
 					<div class="seating_legend">
 						<div class="single_legend">
@@ -247,7 +247,7 @@
 		<div class="row chart_wrapper union_chart st_chart">
 			<h5 style="font-size:20px;margin:20px 0px;text-align:center;">Adminstration</h5>
 			<div id="adminstration_list"></div>
-			<div class="resource_link">
+			<div class="resource_link" style="clear:both;">
 				Data Source : 
 				<a href="https://data.opendevelopmentmekong.net/dataset/ministers-in-myanmar/resource/fe0a5815-b58d-423b-816a-8347ec85b2bb" target="_blank">Myanmar President Office website, Open Myanmar Initiative</a>
 			</div>
