@@ -48,6 +48,10 @@
 	background: #dcdcdc;
     padding: 15px 20px;
     display: inline-block;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    box-shadow: 0px 0px 5px;
 }
 
 .general_info h5 {

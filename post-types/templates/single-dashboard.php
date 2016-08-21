@@ -15,25 +15,21 @@
 	<div class="row">
 		<h1>Overview of Myanmar</h1>
 	</div>
-	<div>
-		<div class="six columns" id="mapwrapper">
-			<div id="dash_search_box"></div>
-			<div id="mymap"></div>
-			<span id="overlayregion"></span>
-		</div>
-		<div class="ten columns" id="overviewInfo">
-			<h1 id="region_name">Myanmar</h1>
-			<p class="pcode_wrapper">
-				ST PCODE : <span id="st_pcode">MMR</span> 
-				<span class="ts_chart" style="margin-left:30px;">TS PCODE : <span id="ts_pcode"></span></span>
-			</p>
-			<div class="general_info">
-				<h5>Total Population : <span id="total_population"></span></h5>
-				<h5>Area : <span id="region_area"></span> km<sup>2</sup></h5>
-				<h5>Number of Wards : <span id="wards_num"></span></h5>
-				<h5>Number of Village Tracts : <span id="village_tracts_num"></span></h5>
-				<h5>Number of Villages : <span id="villages_num"></span></h5>	
-			</div>
+	<div class="row">
+		<h1 id="region_name">Myanmar</h1>
+		<p class="pcode_wrapper">
+			ST PCODE : <span id="st_pcode">MMR</span> 
+			<span class="ts_chart" style="margin-left:30px;">TS PCODE : <span id="ts_pcode"></span></span>
+		</p>
+		<div id="dash_search_box"></div>
+		<div id="mymap"></div>
+		<span id="overlayregion"></span>
+		<div class="general_info">
+			<h5>Total Population : <span id="total_population"></span></h5>
+			<h5>Area : <span id="region_area"></span> km<sup>2</sup></h5>
+			<h5>Number of Wards : <span id="wards_num"></span></h5>
+			<h5>Number of Village Tracts : <span id="village_tracts_num"></span></h5>
+			<h5>Number of Villages : <span id="villages_num"></span></h5>	
 		</div>
 	</div>
 </section>
