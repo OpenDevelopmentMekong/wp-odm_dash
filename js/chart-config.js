@@ -8,6 +8,9 @@ var data_resources = {
   state_region_pop_age_gp : {
     id : '1da6917a-fdfc-4e61-a581-99f713f36394',
     download_link : 'https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5/download/HouseholdspopulationBasedDatasetSRUnion.csv'
+  },
+  adminstration_list : {
+    id : 'fe0a5815-b58d-423b-816a-8347ec85b2bb'
   }
 }
 
@@ -25,7 +28,7 @@ var charts = {
         title : 'Age Groups'
       },
       hAxis: {
-        format: ';'
+        format: "#,###;#,###"
       }
     },
     chart_type : 'bar',
@@ -62,22 +65,26 @@ var charts = {
     region_area : {
       container_id : 'region_area',
       chart_type : 'text',
-      field : 'area_km2'
+      field : 'area_km2',
+      numberformat : true
     },
     village_tracts_num : {
       container_id : 'village_tracts_num',
       chart_type : 'text',
-      field : 'number_vt'
+      field : 'number_vt',
+      numberformat : true
     },
     wards_num : {
       container_id : 'wards_num',
       chart_type : 'text',
-      field : 'number_w'
+      field : 'number_w',
+      numberformat : true
     },
     villages_num : {
       container_id : 'villages_num',
       chart_type : 'text',
-      field : 'number_v'
+      field : 'number_v',
+      numberformat : true
     },
     school : {
       container_id : 'school_chart',
@@ -278,7 +285,8 @@ var charts = {
     total_population : {
       container_id : 'total_population',
       chart_type : 'text',
-      field : 'pop_t'
+      field : 'pop_t',
+      numberformat : true
     },
     mean_household_size : {
       container_id : 'mean_household_size',
@@ -465,7 +473,7 @@ var charts = {
   ts_election_lower_2010 : {
     party_result : {
       chart_options : {
-        title : '2010 General Election Results for Pyithu Hluttaw',
+        title : 'Votes Obtained by Party for Pyitthu Hluttaw, Myanmar General Election ,2010',
         isStacked: 'percent',
         hAxis : {
           title : 'Votes'
@@ -487,7 +495,7 @@ var charts = {
   ts_election_lower_2012 : {
     party_result : {
       chart_options : {
-        title : 'Results for Pyithu Hluttaw, Myanmar by-elections, 2012',
+        title : 'Votes Obtained by Party for Pyitthu Hluttaw, Myanmar by-elections, 2012',
         isStacked: 'percent',
         hAxis : {
           title : 'Votes'
@@ -509,7 +517,7 @@ var charts = {
   ts_election_lower_2015 : {
     party_result : {
       chart_options : {
-        title : 'Results for Pyithu Hluttaw, Myanmar General Election, 2015',
+        title : 'Votes Obtained by Party for Pyitthu Hluttaw, Myanmar General Election, 2015',
         isStacked: 'percent',
         hAxis : {
           title : 'Votes'
@@ -531,7 +539,7 @@ var charts = {
   st_election_2015 : {
     party_result : {
       chart_options : {
-        title : 'Result for State/Region Paliament, Myanmar General Election, 2015',
+        title : 'Votes Obtained by Party for State/Region Parliament, Myanmar General Election, 2015',
         isStacked : 'percent',
         hAxis : {
           title : 'Seats'
@@ -557,7 +565,7 @@ var charts = {
   revenue_expenditure : {
     revenue_expenditure : {
       chart_options : {
-        title : '2013-14 Expenditure and Revenue '
+        title : '2013-14 Expenditure and Revenue (in millions of Kyats)'
       },
       chart_type : 'column',
       container_id : 'revenue_expenditure',
@@ -594,6 +602,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/1b8b8832-0b56-4a93-8d6e-4293edff2ad5/resource/bc5b9344-10de-45eb-8e15-af4aa33c1255',
       dataset_id : '1b8b8832-0b56-4a93-8d6e-4293edff2ad5',
       filename : 'Demo-Health-Edu-MIMUBLUnionStateRegion.csv',
+      resource_title : 'MIMU Baseline Data',
       filters : {
         pcode : 'pcode_st'
       }
@@ -609,6 +618,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/2f4131fa-04f3-4c25-a471-b8ebf53d92d3/resource/27a9753e-8453-4097-bec3-6e4929134e61',
       dataset_id : '2f4131fa-04f3-4c25-a471-b8ebf53d92d3',
       filename : 'Demo-Health-Edu-DataMIMU-BL.csv',
+      resource_title : 'MIMU Baseline Data',
       filters : {
         pcode : 'pcode_ts'
       }
@@ -623,6 +633,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5',
       dataset_id : '7bc0cabc-3c01-44fe-ba30-943a360c56fb',
       filename : 'HouseholdspopulationBasedDatasetSRUnion.csv',
+      resource_title : '2014 Myanmar Population and Housing Census',
       filters : {
         pcode : 'pcode_st'
       }
@@ -637,6 +648,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/be760472-6224-4d73-b309-335d732cab93/resource/bc278a05-1ea9-4348-9352-9e14cd5ed8a3',
       dataset_id : 'be760472-6224-4d73-b309-335d732cab93',
       filename : 'HouseholdPopulationbaseddatasetMIMUTownshipsHouseholdAmenities.csv',
+      resource_title : '2014 Myanmar Population and Housing Census',
       filters : {
         pcode : 'pcode_ts'
       }
@@ -651,6 +663,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/be760472-6224-4d73-b309-335d732cab93/resource/1edc5ad5-9e50-4a24-8fbe-fa35c3645e74',
       dataset_id : 'be760472-6224-4d73-b309-335d732cab93',
       filename : 'census2014stateregionreligion.csv',
+      resource_title : '2014 Myanmar Population and Housing Census: Report on religion',
       filters : {
         pcode : 'pcode'
       }
@@ -685,6 +698,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/4046d3a9-0705-43af-b753-04b7b9af6e2f/resource/4b96995f-7b24-4b6f-b423-d149f9f2ab21',
       dataset_id : '4046d3a9-0705-43af-b753-04b7b9af6e2f',
       filename : 'Area-and-Populatin-density-by-State-and-Region.csv',
+      resource_title : '2014 Myanmar Population and Housing Census Main Report',
       singlerow : true,
       private : true,
       filters : {
@@ -717,6 +731,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/7ab77f5e-778c-488a-b7fe-5dbce90ec6b7/resource/1d1859d8-5413-4c63-a89b-46a5787d7593',
       dataset_id : '7ab77f5e-778c-488a-b7fe-5dbce90ec6b7',
       filename : '2010electionresultspyithu.csv',
+      resource_title : 'Union Election Commission',
       singlerow : false,
       filters : {
         pcode : 'pcode_ts'
@@ -732,6 +747,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/4d1e3e8d-4a62-4812-8e8b-5f5293aea320/resource/cfc49c33-8a78-4e7c-bfa9-35ade242e160',
       dataset_id : '4d1e3e8d-4a62-4812-8e8b-5f5293aea320',
       filename : '2012electionresultspyithu.csv',
+      resource_title : 'Union Election Commission',
       singlerow : false,
       filters : {
         pcode : 'pcode_ts'
@@ -747,6 +763,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/ffc908b5-f13b-4085-8e77-3d0598ba6856/resource/43fd641a-35a9-4d6d-bfd0-8eabc52ca316',
       dataset_id : 'ffc908b5-f13b-4085-8e77-3d0598ba6856',
       filename : '2015electionresultspyithu.csv',
+      resource_title : 'Union Election Commission',
       singlerow : false,
       filters : {
         pcode : 'pcode_ts'
@@ -762,6 +779,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/4bbcff3a-b480-406a-8882-86d82655bcf1/resource/617724b4-351c-4d9c-b6dd-88fcc0495869',
       dataset_id : '4bbcff3a-b480-406a-8882-86d82655bcf1',
       filename : 'Election-Results-for-State-and-Region-Seats.csv',
+      resource_title : 'Union Election Commission',
       singlerow : false,
       filters : {
         pcode : 'pcode_st'
@@ -777,6 +795,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/myanmar-state-and-region-expenditure-and-revenue/resource/7dcb30ad-75cf-4339-af6c-290683d904f5',
       dataset_id : 'c6778dfe-836f-48ad-9812-d1d27acce3cc',
       filename : 'stateregionsexprev.csv',
+      resource_title : 'Open Myanmar Initiative',
       singlerow : true,
       filters : {
         pcode : 'pcode_st'
@@ -791,6 +810,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/tree-cover-data-from-global-forest-watch/resource/74c7dea8-e8ee-49ad-b946-b4dda2d6e20f',
       dataset_id : '95dec5d5-a328-47b6-a5e1-0a3d798f5650',
       filename : 'tree-cover-combined.csv',
+      resource_title : 'Global Forest Watch',
       singlerow : true,
       filters : {
         pcode : 'pcode_st'
@@ -805,12 +825,14 @@ var chartconfig = {
       tree_cover_area : {
         container_id : 'tree_cover_area',
         chart_type : 'text',
-        field : 'tce_hectares'
+        field : 'tce_hectares',
+        numberformat : true
       },
       tree_cover_gain_2001_2012 : { 
         container_id : 'tree_cover_gain_2001_2012',
         chart_type : 'text',
-        field : 'tcg_hectares'
+        field : 'tcg_hectares',
+        numberformat : true
       },
       tree_cover_loss : {
         container_id : 'tree_cover_loss',
@@ -851,6 +873,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/the-levels-of-cbr-tfr-and-total-marital-fertility-rates-tmfr-by-state-region-and-childhood-mortalit/resource/01f16e66-0280-44cc-b728-90d362b450cc',
       dataset_id : '493e50f6-de0d-46aa-89ce-975e6a964af7',
       filename : '2014-Census-Health.xlsx',
+      resource_title : '2014 Myanmar Population and Housing Census Main Report',
       singlerow : true,
       filters : {
         pcode : 'pcode_st'

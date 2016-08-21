@@ -108,7 +108,12 @@ function ODChart(config) {
     $.map(self.charts, function(value, index){
 
       if(value.chart_type == 'text') {
-        $('#'+value.container_id).text(self.data[value.field]);
+        if (value.numberformat == true) {
+          var f_val = self.formatNumber(self.data[value.field]);
+        } else {
+          var f_val = self.data[value.field];
+        }
+        $('#'+value.container_id).text(f_val);
       } else {
     
         var row_count = value.ChartData.getNumberOfRows();
@@ -127,7 +132,7 @@ function ODChart(config) {
         googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
 
         if (self.resource.resource_link != undefined) {
-          jQuery('#'+value.container_id).prepend('<a href="'+ self.resource.resource_link +'" class="resource_link" target="_blank">Data Source</a>');
+          jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ self.resource.resource_link +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
         }
       }
 
@@ -194,6 +199,10 @@ function ODChart(config) {
     return results;
 
   };
+
+  this.formatNumber = function(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  }
 }
 
 // ============================== Election Class ==================== //
@@ -249,6 +258,10 @@ function ElectionPartyChart(config) {
 
           self.prepareChart(sorted, value);
 
+          if (self.resource.resource_link != undefined) {
+            jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ self.resource.resource_link +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
+          }
+
         } else {
 
           $('#'+value.container_id).hide();
@@ -266,20 +279,22 @@ function ElectionPartyChart(config) {
     var colors = [];
 
     $.map(data, function(value, index){
-      columns.push(value[chart_conf.fields.party]);
-      values.push(parseInt(value[chart_conf.fields.value]));
-      colors.push(self.getPartyColor(value[chart_conf.fields.party]));
+      if (value[chart_conf.fields.value] > 0) {
+        columns.push(value[chart_conf.fields.party]);
+        values.push(parseInt(value[chart_conf.fields.value]));
+        colors.push(self.getPartyColor(value[chart_conf.fields.party]));  
+      }
     });
 
-    var f_data = [columns, values];
+    if (columns.length > 1) {
+      var f_data = [columns, values];
 
-    console.log(f_data);
+      chart_conf.chart_options.colors = colors;
+      
+      chart_conf.ChartData = new google.visualization.arrayToDataTable(f_data);
 
-    chart_conf.chart_options.colors = colors;
-    
-    chart_conf.ChartData = new google.visualization.arrayToDataTable(f_data);
-
-    googleChart.draw(chart_conf.chart_type, document.getElementById(chart_conf.container_id), chart_conf.ChartData, chart_conf.chart_options);
+      googleChart.draw(chart_conf.chart_type, document.getElementById(chart_conf.container_id), chart_conf.ChartData, chart_conf.chart_options);
+    }
 
   };
 

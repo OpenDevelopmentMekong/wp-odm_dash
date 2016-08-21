@@ -15,25 +15,21 @@
 	<div class="row">
 		<h1>Overview of Myanmar</h1>
 	</div>
-	<div>
-		<div class="six columns" id="mapwrapper">
-			<div id="dash_search_box"></div>
-			<div id="mymap"></div>
-			<span id="overlayregion"></span>
-		</div>
-		<div class="ten columns" id="overviewInfo">
-			<h1 id="region_name">Myanmar</h1>
-			<p class="pcode_wrapper">
-				ST PCODE : <span id="st_pcode">MMR</span> 
-				<span class="ts_chart" style="margin-left:30px;">TS PCODE : <span id="ts_pcode"></span></span>
-			</p>
-			<div class="general_info">
-				<h5>Total Population : <span id="total_population"></span></h5>
-				<h5>Area : <span id="region_area"></span> km<sup>2</sup></h5>
-				<h5>Number of Wards : <span id="wards_num"></span></h5>
-				<h5>Number of Village Tracts : <span id="village_tracts_num"></span></h5>
-				<h5>Number of Villages : <span id="villages_num"></span></h5>	
-			</div>
+	<div class="row">
+		<h1 id="region_name">Myanmar</h1>
+		<p class="pcode_wrapper">
+			ST PCODE : <span id="st_pcode">MMR</span> 
+			<span class="ts_chart" style="margin-left:30px;">TS PCODE : <span id="ts_pcode"></span></span>
+		</p>
+		<div id="dash_search_box"></div>
+		<div id="mymap"></div>
+		<span id="overlayregion"></span>
+		<div class="general_info">
+			<h5>Total Population : <span id="total_population"></span></h5>
+			<h5>Area : <span id="region_area"></span> km<sup>2</sup></h5>
+			<h5>Number of Wards : <span id="wards_num"></span></h5>
+			<h5>Number of Village Tracts : <span id="village_tracts_num"></span></h5>
+			<h5>Number of Villages : <span id="villages_num"></span></h5>	
 		</div>
 	</div>
 </section>
@@ -44,13 +40,13 @@
 			<li>
 				<a href="#demographic">
 				<i class="fa fa-globe"></i>
-				<span class="sec_title">Demographic</span>
+				<span class="sec_title">Demographics</span>
 				</a>
 			</li>
 			<li>
 				<a href="#goverment">
 				<i class="fa fa-institution"></i>
-				<span class="sec_title">Goverment</span>
+				<span class="sec_title">Government</span>
 				</a>
 			</li>
 			<li>
@@ -89,7 +85,7 @@
 
 <section class="row viz-section" id="demographic">
 	<div class="container">
-		<h4 class="section_title">Demographic</h4>
+		<h4 class="section_title">Demographics</h4>
 		<div class="row char_wrapper st_chart union_chart">
 			<div id="st_population_pyramid" style="height:600px;"></div>
 		</div>
@@ -118,7 +114,7 @@
 <!-- GOVERMENT -->
 <section class="row viz-section even" id="goverment">
 	<div class="container">
-		<h4 class="section_title">Goverment</h4>
+		<h4 class="section_title">Government</h4>
 
 		<div class="row chart_wrapper st_chart only_st">
 			<div id="st_election_2015"></div>
@@ -127,8 +123,7 @@
 		<div class="row chart_wrapper union_chart only_union">
 			<div class="row chart_wrapper">
 				<div class="eight columns">
-					<h3>Upper House, 2015 Election</h3>
-					<a href="https://data.opendevelopmentmekong.net/dataset/election-results-at-union-level/resource/93e74eb4-c999-4a16-94ea-fca144f9defd" class="resource_link" target="_blank">Data Source</a>
+					<h3>Amyotha Hluttaw (Upper House), 2015 Election</h3>
 					<img src="<?php echo plugins_url(); ?>/wp-odm_dash/images/UnionAmyoTha2015.svg" alt="2015 AmyoTha Hluttaw" style="width:80%">
 					<div class="seating_legend">
 						<div class="single_legend">
@@ -173,13 +168,15 @@
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#F5B1F6"></span>
-							Independent: 11 seats
+							Independent: 2 seats
 						</div>
+					</div>
+					<div class="resource_link">
+						Data Source : <a href="https://data.opendevelopmentmekong.net/dataset/election-results-at-union-level/resource/93e74eb4-c999-4a16-94ea-fca144f9defd" target="_blank">Union Election Commission</a>
 					</div>
 				</div>
 				<div class="eight columns">
-					<h3>Lower House, 2015 Election</h3>
-					<a href="https://data.opendevelopmentmekong.net/dataset/election-results-at-union-level/resource/10a9cc34-bf89-4a26-9196-f32c3d08d565" class="resource_link" target="_blank">Data Source</a>
+					<h3>Pyithu Hluttaw (Lower House), 2015 Election</h3>
 					<img src="<?php echo plugins_url(); ?>/wp-odm_dash/images/UnionPyiThu2015.svg" alt="2015 PyiThu Hluttaw" style="width:80%">
 					<div class="seating_legend">
 						<div class="single_legend">
@@ -235,7 +232,20 @@
 							Cancelled: 7 seats
 						</div>
 					</div>
+					<div class="resource_link">
+						Data Source : 
+						<a href="https://data.opendevelopmentmekong.net/dataset/election-results-at-union-level/resource/10a9cc34-bf89-4a26-9196-f32c3d08d565" target="_blank">Union Election Commission</a>
+					</div>
 				</div>
+			</div>
+		</div>
+
+		<div class="row chart_wrapper union_chart st_chart">
+			<h5 style="font-size:20px;margin:20px 0px;text-align:center;">Adminstration</h5>
+			<div id="adminstration_list"></div>
+			<div class="resource_link" style="clear:both;">
+				Data Source : 
+				<a href="https://data.opendevelopmentmekong.net/dataset/ministers-in-myanmar/resource/fe0a5815-b58d-423b-816a-8347ec85b2bb" target="_blank">Myanmar President Office website, Open Myanmar Initiative</a>
 			</div>
 		</div>
 
@@ -278,7 +288,7 @@
 			<div id="revenue_expenditure" class="normal_chart"></div>
 		</div>
 		<div class="row chart_wrapper">
-			<div id="labour_usual_activity_10ab" class="normal_chart full-width-charts" style="height:auto;"></div>
+			<div id="labour_usual_activity_10ab" class="normal_chart full-width-charts" style="height:auto;margin-top: 50px;"></div>
 			<div class="note-text">* Left click on parent section to go up one level.</div>
 		</div>
 	</div>
@@ -293,6 +303,7 @@
 				<div class="text_container">
 					<h5 class="label">Crude Birth Rate</h5>
 					<div class="value"><span id="health_cbr"></span> </div>	
+					<span>per 1,000 population</span>
 				</div>
 				<div class="text_container">
 					<h5 class="label">Life Expectancy At Birth</h5>	

@@ -230,6 +230,7 @@ jQuery( document ).ready(function() {
   function actionOnTSLayer(obj) {
 
     jQuery('.st_chart').hide();
+    jQuery('.union_chart').hide();
     jQuery('.ts_chart').show();
 
     jQuery('#environment_nav').hide();
@@ -398,6 +399,7 @@ jQuery( document ).ready(function() {
     RevenueExpenditure.init(pcode);
     LifeExpectancy.init(pcode);
     TreeCover.init(pcode);
+    MinisterList.init(pcode);
 
   }
 
@@ -482,6 +484,12 @@ jQuery( document ).ready(function() {
 
       googleChart.draw(p_config.chart_type, document.getElementById(p_config.container_id), PopulationPyramidData, p_config.chart_options);
 
+      var resource_link = 'https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5';
+
+      var resource_title = '2014 Myanmar Population and Housing Census';
+
+      jQuery('#'+p_config.container_id).append('<div class="resource_link">Data Source : <a href="'+ resource_link +'" target="_blank">'+ resource_title +'</a></div>');
+
     },
     processData : function(data) {
 
@@ -523,6 +531,51 @@ jQuery( document ).ready(function() {
 
     return dataTable;
 
+  }
+
+  var MinisterList = {
+    init: function(pcode) {
+
+      $.ajax({
+        url : data_resources.base_url,
+        data : {
+          resource_id : data_resources.adminstration_list.id,
+          filters : '{"pcode_st" : "'+ pcode +'"}',
+          sort : 'order'
+        },
+        dataType : 'json'
+      }).done(function(data){
+
+        var container = jQuery('#adminstration_list');
+
+        var list = jQuery('<ul>');
+
+        jQuery.map(data.result.records, function(value, index){
+
+          var minister_info = '<div class="ministry_val">'+ value.ministry +'</div>' +
+                              '<div class="minister_name">'+ value.name +'</div>' + 
+                              '<div class="minister_pos">'+ value.position +'</div>'; 
+
+          if (value['More Info'].length > 0) {
+            var f_info = jQuery('<a>').attr('href', value['More Info'])
+                          .append(minister_info);
+
+          } else {
+            var f_info = minister_info;
+          }
+
+          var minister_item = jQuery('<li>')
+                  .addClass('four columns')
+                  .append(f_info);
+
+          list.append(minister_item);
+
+        });
+
+        container.html(list);
+      });
+
+    }
   }
 
 

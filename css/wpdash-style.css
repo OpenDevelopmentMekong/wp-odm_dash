@@ -48,6 +48,10 @@
 	background: #dcdcdc;
     padding: 15px 20px;
     display: inline-block;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    box-shadow: 0px 0px 5px;
 }
 
 .general_info h5 {
@@ -148,25 +152,6 @@
 	color: red;
 }
 
-.resource_link {
-	float:right;
-	position: relative;
-    top: -15px;
-    right: 110px;
-    background: #03A9F4;
-    color: #fff;
-    padding: 5px;
-    border-radius: 3px;
-}
-
-.full-width-charts .resource_link {
-	right: 0px;
-}
-
-.resource_link:hover, .resource_link:visited {
-	color: #fff;
-}
-
 #viz_nav_wrapper.sticky {
 	box-shadow: 0 0 5px 0 rgba(0,0,0,0.15);
 }
@@ -260,4 +245,19 @@
 
 .google-visualization-table-td {
 	padding: 8px !important;
+}
+
+#adminstration_list {
+	margin-top : 30px;
+}
+
+#adminstration_list li {
+	text-align: center;
+	height: 150px;	
+	line-height: 2em;
+}
+
+.ministry_val {
+	font-size: 16px;
+	font-weight: bold;
 }
