@@ -230,6 +230,7 @@ jQuery( document ).ready(function() {
   function actionOnTSLayer(obj) {
 
     jQuery('.st_chart').hide();
+    jQuery('.union_chart').hide();
     jQuery('.ts_chart').show();
 
     jQuery('#environment_nav').hide();

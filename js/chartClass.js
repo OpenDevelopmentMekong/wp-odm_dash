@@ -275,21 +275,23 @@ function ElectionPartyChart(config) {
     var colors = [];
 
     $.map(data, function(value, index){
-      columns.push(value[chart_conf.fields.party]);
-      values.push(parseInt(value[chart_conf.fields.value]));
-      colors.push(self.getPartyColor(value[chart_conf.fields.party]));
+      if (value[chart_conf.fields.value] > 0) {
+        columns.push(value[chart_conf.fields.party]);
+        values.push(parseInt(value[chart_conf.fields.value]));
+        colors.push(self.getPartyColor(value[chart_conf.fields.party]));  
+      }
     });
 
-    var f_data = [columns, values];
+    if (columns.length > 1) {
+      var f_data = [columns, values];
 
-    console.log(f_data);
+      chart_conf.chart_options.colors = colors;
+      
+      chart_conf.ChartData = new google.visualization.arrayToDataTable(f_data);
 
-    chart_conf.chart_options.colors = colors;
+      googleChart.draw(chart_conf.chart_type, document.getElementById(chart_conf.container_id), chart_conf.ChartData, chart_conf.chart_options);
+    }
     
-    chart_conf.ChartData = new google.visualization.arrayToDataTable(f_data);
-
-    googleChart.draw(chart_conf.chart_type, document.getElementById(chart_conf.container_id), chart_conf.ChartData, chart_conf.chart_options);
-
   };
 
   this.sortResults = function(data, prop, asc) {
