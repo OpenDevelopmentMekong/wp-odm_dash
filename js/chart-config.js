@@ -470,7 +470,7 @@ var charts = {
   ts_election_lower_2010 : {
     party_result : {
       chart_options : {
-        title : '2010 General Election Results for Pyithu Hluttaw',
+        title : 'Votes Obtained by Party for Pyitthu Hluttaw, Myanmar General Election ,2010',
         isStacked: 'percent',
         hAxis : {
           title : 'Votes'
@@ -492,7 +492,7 @@ var charts = {
   ts_election_lower_2012 : {
     party_result : {
       chart_options : {
-        title : 'Results for Pyithu Hluttaw, Myanmar by-elections, 2012',
+        title : 'Votes Obtained by Party for Pyitthu Hluttaw, Myanmar by-elections, 2012',
         isStacked: 'percent',
         hAxis : {
           title : 'Votes'
@@ -514,7 +514,7 @@ var charts = {
   ts_election_lower_2015 : {
     party_result : {
       chart_options : {
-        title : 'Results for Pyithu Hluttaw, Myanmar General Election, 2015',
+        title : 'Votes Obtained by Party for Pyitthu Hluttaw, Myanmar General Election, 2015',
         isStacked: 'percent',
         hAxis : {
           title : 'Votes'
@@ -536,7 +536,7 @@ var charts = {
   st_election_2015 : {
     party_result : {
       chart_options : {
-        title : 'Result for State/Region Paliament, Myanmar General Election, 2015',
+        title : 'Votes Obtained by Party for State/Region Parliament, Myanmar General Election, 2015',
         isStacked : 'percent',
         hAxis : {
           title : 'Seats'
