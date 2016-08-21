@@ -90,10 +90,10 @@
 <section class="row viz-section" id="demographic">
 	<div class="container">
 		<h4 class="section_title">Demographic</h4>
-		<div class="row char_wrapper st_chart">
+		<div class="row char_wrapper st_chart union_chart">
 			<div id="st_population_pyramid" style="height:600px;"></div>
 		</div>
-		<div class="row chart_wrapper st_chart">
+		<div class="row chart_wrapper st_chart union_chart">
 			<div id="pop_over_year" class="normal_chart"></div>
 		</div>
 		<div class="row chart_wrapper">
@@ -108,7 +108,7 @@
 			<div class="eight columns">
 				<div id="m_f_headed_household" class="normal_chart"></div>
 			</div>
-			<div class="eight columns st_chart">
+			<div class="eight columns st_chart union_chart">
 				<div id="religion_chart" class="normal_chart"></div>
 			</div>
 		</div>
@@ -119,6 +119,126 @@
 <section class="row viz-section even" id="goverment">
 	<div class="container">
 		<h4 class="section_title">Goverment</h4>
+
+		<div class="row chart_wrapper st_chart only_st">
+			<div id="st_election_2015"></div>
+		</div>
+
+		<div class="row chart_wrapper union_chart only_union">
+			<div class="row chart_wrapper">
+				<div class="eight columns">
+					<h3>Upper House, 2015 Election</h3>
+					<a href="https://data.opendevelopmentmekong.net/dataset/election-results-at-union-level/resource/93e74eb4-c999-4a16-94ea-fca144f9defd" class="resource_link" target="_blank">Data Source</a>
+					<img src="<?php echo plugins_url(); ?>/wp-odm_dash/images/UnionAmyoTha2015.svg" alt="2015 AmyoTha Hluttaw" style="width:80%">
+					<div class="seating_legend">
+						<div class="single_legend">
+							<span class="circle" style="background:#E6E6E6;"></span>
+							Military : 56 seats
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#CA0A0A;"></span>
+							National League for Democracy : 135 seats
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#119134"></span>
+							Union Solidatory and Development Party: 12 seats
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#48F000"></span>
+							Shan Nationalities League for Democracy: 3 seats
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#179AFF"></span>
+							Arakan National Party: 10 seats
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#EE7137"></span>
+							Ta'Arng (Palaung) National Party: 1 seat
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#801CE6"></span>
+							Pao National Organization: 1 seat
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#CD42CD"></span>
+							Zomi Congress for Democracy: 2 seats
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#D1C680"></span>
+							Mon National Party: 1 seat
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#DFBB8E"></span>
+							National Unity Party: 1 seat
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#F5B1F6"></span>
+							Independent: 11 seats
+						</div>
+					</div>
+				</div>
+				<div class="eight columns">
+					<h3>Lower House, 2015 Election</h3>
+					<a href="https://data.opendevelopmentmekong.net/dataset/election-results-at-union-level/resource/10a9cc34-bf89-4a26-9196-f32c3d08d565" class="resource_link" target="_blank">Data Source</a>
+					<img src="<?php echo plugins_url(); ?>/wp-odm_dash/images/UnionPyiThu2015.svg" alt="2015 PyiThu Hluttaw" style="width:80%">
+					<div class="seating_legend">
+						<div class="single_legend">
+							<span class="circle" style="background:#E6E6E6;"></span>
+							Military : 110 seats
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#CA0A0A;"></span>
+							National League for Democracy : 255 seats
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#119134"></span>
+							Union Solidatory and Development Party: 30 seats
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#48F000"></span>
+							Shan Nationalities League for Democracy: 12 seats
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#179AFF"></span>
+							Arakan National Party: 12 seats
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#EE7137"></span>
+							Ta'Arng (Palaung) National Party: 3 seat
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#801CE6"></span>
+							Pao National Organization: 3 seat
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#CD42CD"></span>
+							Zomi Congress for Democracy: 2 seats
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#171EBA"></span>
+							Lisu National Development Party: 2 seats
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#D0E483"></span>
+							Kachin State Democracy Party: 1 seat
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#46AE94"></span>
+							Wa Democratic Party: 1 seat
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#B79F8E"></span>
+							Independent: 1 seat
+						</div>
+						<div class="single_legend">
+							<span class="circle" style="background:#84C666"></span>
+							Cancelled: 7 seats
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="row chart_wrapper ts_chart">
 			<div id="election_lower_2010"></div>
 			<div id="election_lower_2012"></div>
@@ -154,7 +274,7 @@
 <div class="row viz-section even" id="economy">
 	<div class="container">
 		<h4 class="section_title">Economy & Industries</h4>
-		<div class="row chart_wrapper st_chart">
+		<div class="row chart_wrapper st_chart union_chart">
 			<div id="revenue_expenditure" class="normal_chart"></div>
 		</div>
 		<div class="row chart_wrapper">
@@ -168,7 +288,7 @@
 <div class="row viz-section" id="health">
 	<div class="container">
 		<h4 class="section_title">Health</h4>
-		<div class="row chart_wrapper st_chart">
+		<div class="row chart_wrapper st_chart union_chart">
 			<div class="four columns">
 				<div class="text_container">
 					<h5 class="label">Crude Birth Rate</h5>
@@ -198,7 +318,7 @@
 <div class="row viz-section even" id="environment">
 	<div class="container">
 		<h4 class="section_title">Environment</h4>
-		<div class="row chart_wrapper st_chart">
+		<div class="row chart_wrapper st_chart union_chart">
 			<div class="four columns">
 				<div class="text_container">
 					<h5 class="label">Percent Tree Cover</h5>	

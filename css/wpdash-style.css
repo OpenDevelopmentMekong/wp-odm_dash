@@ -130,7 +130,7 @@
 	margin-top: 15px;
 }
 
-.ts_chart {
+.ts_chart, .only_st {
 	display:none;
 }
 
@@ -229,6 +229,24 @@
 /* custom styles */
 #hospital_healthcenter thead {
 	display: none;
+}
+
+/* Temporty Paliment Seating Plan */
+.seating_legend {
+	margin-top: 25px;
+}
+
+.seating_legend .circle {
+	background: #DFCFE6;
+    width: 15px;
+    height: 15px;
+    float: left;
+    border-radius: 999px;
+    margin-right: 10px;
+}
+
+.single_legend {
+	margin-bottom: 10px;
 }
 
 /* Google Visualization Table */
