@@ -483,6 +483,12 @@ jQuery( document ).ready(function() {
 
       googleChart.draw(p_config.chart_type, document.getElementById(p_config.container_id), PopulationPyramidData, p_config.chart_options);
 
+      var resource_link = 'https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5';
+
+      var resource_title = '2014 Myanmar Population and Housing Census';
+
+      jQuery('#'+p_config.container_id).append('<div class="resource_link">Data Source : <a href="'+ resource_link +'" target="_blank">'+ resource_title +'</a></div>');
+
     },
     processData : function(data) {
 

@@ -258,6 +258,10 @@ function ElectionPartyChart(config) {
 
           self.prepareChart(sorted, value);
 
+          if (self.resource.resource_link != undefined) {
+            jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ self.resource.resource_link +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
+          }
+
         } else {
 
           $('#'+value.container_id).hide();
