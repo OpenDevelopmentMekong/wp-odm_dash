@@ -244,6 +244,15 @@
 			</div>
 		</div>
 
+		<div class="row chart_wrapper union_chart st_chart">
+			<h5 style="font-size:20px;margin:20px 0px;text-align:center;">Adminstration</h5>
+			<div id="adminstration_list"></div>
+			<div class="resource_link">
+				Data Source : 
+				<a href="https://data.opendevelopmentmekong.net/dataset/ministers-in-myanmar/resource/fe0a5815-b58d-423b-816a-8347ec85b2bb" target="_blank">Myanmar President Office website, Open Myanmar Initiative</a>
+			</div>
+		</div>
+
 		<div class="row chart_wrapper ts_chart">
 			<div id="election_lower_2010"></div>
 			<div id="election_lower_2012"></div>

@@ -399,6 +399,7 @@ jQuery( document ).ready(function() {
     RevenueExpenditure.init(pcode);
     LifeExpectancy.init(pcode);
     TreeCover.init(pcode);
+    MinisterList.init(pcode);
 
   }
 
@@ -530,6 +531,51 @@ jQuery( document ).ready(function() {
 
     return dataTable;
 
+  }
+
+  var MinisterList = {
+    init: function(pcode) {
+
+      $.ajax({
+        url : data_resources.base_url,
+        data : {
+          resource_id : data_resources.adminstration_list.id,
+          filters : '{"pcode_st" : "'+ pcode +'"}',
+          sort : 'ministry'
+        },
+        dataType : 'json'
+      }).done(function(data){
+
+        var container = jQuery('#adminstration_list');
+
+        var list = jQuery('<ul>');
+
+        jQuery.map(data.result.records, function(value, index){
+
+          var minister_info = '<div class="ministry_val">'+ value.ministry +'</div>' +
+                              '<div class="minister_name">'+ value.name +'</div>' + 
+                              '<div class="minister_pos">'+ value.position +'</div>'; 
+
+          if (value['More Info'].length > 0) {
+            var f_info = jQuery('<a>').attr('href', value['More Info'])
+                          .append(minister_info);
+
+          } else {
+            var f_info = minister_info;
+          }
+
+          var minister_item = jQuery('<li>')
+                  .addClass('four columns')
+                  .append(f_info);
+
+          list.append(minister_item);
+
+        });
+
+        container.html(list);
+      });
+
+    }
   }
 
 
