@@ -108,7 +108,12 @@ function ODChart(config) {
     $.map(self.charts, function(value, index){
 
       if(value.chart_type == 'text') {
-        $('#'+value.container_id).text(self.data[value.field]);
+        if (value.numberformat == true) {
+          var f_val = self.formatNumber(self.data[value.field]);
+        } else {
+          var f_val = self.data[value.field];
+        }
+        $('#'+value.container_id).text(f_val);
       } else {
     
         var row_count = value.ChartData.getNumberOfRows();
@@ -194,6 +199,10 @@ function ODChart(config) {
     return results;
 
   };
+
+  this.formatNumber = function(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  }
 }
 
 // ============================== Election Class ==================== //

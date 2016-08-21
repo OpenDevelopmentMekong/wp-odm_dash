@@ -25,7 +25,7 @@ var charts = {
         title : 'Age Groups'
       },
       hAxis: {
-        format: ';'
+        format: "#,###;#,###"
       }
     },
     chart_type : 'bar',
@@ -62,22 +62,26 @@ var charts = {
     region_area : {
       container_id : 'region_area',
       chart_type : 'text',
-      field : 'area_km2'
+      field : 'area_km2',
+      numberformat : true
     },
     village_tracts_num : {
       container_id : 'village_tracts_num',
       chart_type : 'text',
-      field : 'number_vt'
+      field : 'number_vt',
+      numberformat : true
     },
     wards_num : {
       container_id : 'wards_num',
       chart_type : 'text',
-      field : 'number_w'
+      field : 'number_w',
+      numberformat : true
     },
     villages_num : {
       container_id : 'villages_num',
       chart_type : 'text',
-      field : 'number_v'
+      field : 'number_v',
+      numberformat : true
     },
     school : {
       container_id : 'school_chart',
@@ -278,7 +282,8 @@ var charts = {
     total_population : {
       container_id : 'total_population',
       chart_type : 'text',
-      field : 'pop_t'
+      field : 'pop_t',
+      numberformat : true
     },
     mean_household_size : {
       container_id : 'mean_household_size',
@@ -557,7 +562,7 @@ var charts = {
   revenue_expenditure : {
     revenue_expenditure : {
       chart_options : {
-        title : '2013-14 Expenditure and Revenue '
+        title : '2013-14 Expenditure and Revenue (in millions of Kyats)'
       },
       chart_type : 'column',
       container_id : 'revenue_expenditure',
@@ -805,12 +810,14 @@ var chartconfig = {
       tree_cover_area : {
         container_id : 'tree_cover_area',
         chart_type : 'text',
-        field : 'tce_hectares'
+        field : 'tce_hectares',
+        numberformat : true
       },
       tree_cover_gain_2001_2012 : { 
         container_id : 'tree_cover_gain_2001_2012',
         chart_type : 'text',
-        field : 'tcg_hectares'
+        field : 'tcg_hectares',
+        numberformat : true
       },
       tree_cover_loss : {
         container_id : 'tree_cover_loss',

@@ -44,13 +44,13 @@
 			<li>
 				<a href="#demographic">
 				<i class="fa fa-globe"></i>
-				<span class="sec_title">Demographic</span>
+				<span class="sec_title">Demographics</span>
 				</a>
 			</li>
 			<li>
 				<a href="#goverment">
 				<i class="fa fa-institution"></i>
-				<span class="sec_title">Goverment</span>
+				<span class="sec_title">Government</span>
 				</a>
 			</li>
 			<li>
@@ -89,7 +89,7 @@
 
 <section class="row viz-section" id="demographic">
 	<div class="container">
-		<h4 class="section_title">Demographic</h4>
+		<h4 class="section_title">Demographics</h4>
 		<div class="row char_wrapper st_chart union_chart">
 			<div id="st_population_pyramid" style="height:600px;"></div>
 		</div>
@@ -118,7 +118,7 @@
 <!-- GOVERMENT -->
 <section class="row viz-section even" id="goverment">
 	<div class="container">
-		<h4 class="section_title">Goverment</h4>
+		<h4 class="section_title">Government</h4>
 
 		<div class="row chart_wrapper st_chart only_st">
 			<div id="st_election_2015"></div>
@@ -292,7 +292,7 @@
 			<div class="four columns">
 				<div class="text_container">
 					<h5 class="label">Crude Birth Rate</h5>
-					<div class="value"><span id="health_cbr"></span> </div>	
+					<div class="value"><span id="health_cbr"></span> per 1,000 population</div>	
 				</div>
 				<div class="text_container">
 					<h5 class="label">Life Expectancy At Birth</h5>	
