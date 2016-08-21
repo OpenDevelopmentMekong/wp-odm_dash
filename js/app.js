@@ -541,7 +541,7 @@ jQuery( document ).ready(function() {
         data : {
           resource_id : data_resources.adminstration_list.id,
           filters : '{"pcode_st" : "'+ pcode +'"}',
-          sort : 'ministry'
+          sort : 'order'
         },
         dataType : 'json'
       }).done(function(data){
