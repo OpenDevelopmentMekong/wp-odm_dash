@@ -132,7 +132,7 @@ function ODChart(config) {
         googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
 
         if (self.resource.resource_link != undefined) {
-          jQuery('#'+value.container_id).prepend('<a href="'+ self.resource.resource_link +'" class="resource_link" target="_blank">Data Source</a>');
+          jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ self.resource.resource_link +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
         }
       }
 
@@ -291,7 +291,7 @@ function ElectionPartyChart(config) {
 
       googleChart.draw(chart_conf.chart_type, document.getElementById(chart_conf.container_id), chart_conf.ChartData, chart_conf.chart_options);
     }
-    
+
   };
 
   this.sortResults = function(data, prop, asc) {

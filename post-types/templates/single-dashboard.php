@@ -128,7 +128,6 @@
 			<div class="row chart_wrapper">
 				<div class="eight columns">
 					<h3>Upper House, 2015 Election</h3>
-					<a href="https://data.opendevelopmentmekong.net/dataset/election-results-at-union-level/resource/93e74eb4-c999-4a16-94ea-fca144f9defd" class="resource_link" target="_blank">Data Source</a>
 					<img src="<?php echo plugins_url(); ?>/wp-odm_dash/images/UnionAmyoTha2015.svg" alt="2015 AmyoTha Hluttaw" style="width:80%">
 					<div class="seating_legend">
 						<div class="single_legend">
@@ -176,10 +175,12 @@
 							Independent: 11 seats
 						</div>
 					</div>
+					<div class="resource_link">
+						Data Source : <a href="https://data.opendevelopmentmekong.net/dataset/election-results-at-union-level/resource/93e74eb4-c999-4a16-94ea-fca144f9defd" target="_blank">Union Election Commission</a>
+					</div>
 				</div>
 				<div class="eight columns">
 					<h3>Lower House, 2015 Election</h3>
-					<a href="https://data.opendevelopmentmekong.net/dataset/election-results-at-union-level/resource/10a9cc34-bf89-4a26-9196-f32c3d08d565" class="resource_link" target="_blank">Data Source</a>
 					<img src="<?php echo plugins_url(); ?>/wp-odm_dash/images/UnionPyiThu2015.svg" alt="2015 PyiThu Hluttaw" style="width:80%">
 					<div class="seating_legend">
 						<div class="single_legend">
@@ -235,6 +236,10 @@
 							Cancelled: 7 seats
 						</div>
 					</div>
+					<div class="resource_link">
+						Data Source : 
+						<a href="https://data.opendevelopmentmekong.net/dataset/election-results-at-union-level/resource/10a9cc34-bf89-4a26-9196-f32c3d08d565" target="_blank">Union Election Commission</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -278,7 +283,7 @@
 			<div id="revenue_expenditure" class="normal_chart"></div>
 		</div>
 		<div class="row chart_wrapper">
-			<div id="labour_usual_activity_10ab" class="normal_chart full-width-charts" style="height:auto;"></div>
+			<div id="labour_usual_activity_10ab" class="normal_chart full-width-charts" style="height:auto;margin-top: 50px;"></div>
 			<div class="note-text">* Left click on parent section to go up one level.</div>
 		</div>
 	</div>
@@ -292,7 +297,8 @@
 			<div class="four columns">
 				<div class="text_container">
 					<h5 class="label">Crude Birth Rate</h5>
-					<div class="value"><span id="health_cbr"></span> per 1,000 population</div>	
+					<div class="value"><span id="health_cbr"></span> </div>	
+					<span>per 1,000 population</span>
 				</div>
 				<div class="text_container">
 					<h5 class="label">Life Expectancy At Birth</h5>	
