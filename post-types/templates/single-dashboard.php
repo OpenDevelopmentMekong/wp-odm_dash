@@ -31,6 +31,7 @@
 			<h5>Number of Village Tracts : <span id="village_tracts_num"></span></h5>
 			<h5>Number of Villages : <span id="villages_num"></span></h5>	
 		</div>
+		<div class="map_instruction">Double click to zoom in to township level and Click on <i class="fa fa-map-maker"></i> to go back to union level.</div>
 	</div>
 </section>
 <!-- Navigation -->

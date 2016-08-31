@@ -110,7 +110,7 @@ jQuery( document ).ready(function() {
   function styleStageRegionLayer(layer) {
     layer.setStyle({
       fillColor: getStateColors(layer.feature.properties.ST_PCODE),
-      fillOpacity: 1,
+      fillOpacity: 0.3,
       color:'#505050',
       weight:1
     });
@@ -254,7 +254,8 @@ jQuery( document ).ready(function() {
     if (lastClickLayer) {
       if (lastClickLayerType == 'ST') {
         lastClickLayer.setStyle({
-          weight:1
+          weight:1,
+          fillOpacity: 0.3
         });
       } else {
         lastClickLayer.setStyle(config.ts_default_style);
@@ -284,7 +285,7 @@ jQuery( document ).ready(function() {
     $tooltip.text(regionName).show();
 
     this.setStyle({
-      fillOpacity:0.6
+      fillOpacity: 0.7
     });
 
     /*this.bringToFront();
@@ -294,7 +295,7 @@ jQuery( document ).ready(function() {
   function leaveSTLayer(e){
     leaveLayer();
     this.setStyle({
-      fillOpacity:1
+      fillOpacity: 0.3
     });
   }
 
