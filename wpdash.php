@@ -51,6 +51,7 @@ if (!class_exists('Odm_Dashboards_Plugin')) {
 
         public function register_styles()
         {
+            wp_enqueue_style('leaflet-search', plugin_dir_url(__FILE__).'bower_components/leaflet-search/dist/leaflet-search.min.css');
             wp_enqueue_style('wpdash-style',  plugin_dir_url(__FILE__).'css/wpdash-style.css');
         }
 

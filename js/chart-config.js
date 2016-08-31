@@ -90,9 +90,13 @@ var charts = {
       container_id : 'school_chart',
       chart_type : 'column',
       chart_options : {
-        title : 'Number of Schools',
-        legend: { 
-          position: "none" 
+        title : 'Number of schools per school level',
+        legend: { position: "none" },
+        vAxis : {
+          title : 'Number of schools'
+        },
+        hAxis : {
+          title : 'School level'
         }
       },
       columns : {
@@ -114,9 +118,13 @@ var charts = {
       container_id : 'student_chart',
       chart_type : 'column',
       chart_options : {
-        title : 'Number of Students',
-        legend: { 
-          position: "none" 
+        title : 'Number of students enrolled in each school level',
+        legend: { position: "none" },
+        vAxis : {
+          title : 'Number of students'
+        },
+        hAxis : {
+          title : 'School level'
         }
       },
       columns : {
@@ -139,8 +147,12 @@ var charts = {
       chart_type : 'column',
       chart_options : {
         title : 'Number of Teachers',
-        legend: { 
-          position: "none" 
+        legend: { position: "none" },
+        vAxis : {
+          title : 'Number of teachers'
+        },
+        hAxis : {
+          title : 'School level'
         }
       },
       columns : {
@@ -182,7 +194,13 @@ var charts = {
       container_id : 'medical_worker',
       chart_type : 'column',
       chart_options : {
-        title : 'Number of Medical Workers'
+        title : 'Breakdown of Medical Workers',
+        vAxis : {
+          title : 'Number of Medical Workers'
+        },
+        hAxis : {
+          title : 'Type of Medical Workers'
+        }
       },
       columns : {
         'Medical Workers' : 'string',
@@ -243,7 +261,13 @@ var charts = {
     communication : {
       container_id : 'household_com',
       chart_options : {
-        title : 'Avaliability of communication and related amenities'
+        title : 'Avaliability of communication and related amenities',
+        hAxis : {
+          title : 'Communication and amenities type'
+        },
+        vAxis : {
+          title : 'Number of households with access'
+        }
       },
       chart_type : 'column',
       columns : {
@@ -262,7 +286,13 @@ var charts = {
     transportation : {
       container_id : 'household_trans',
       chart_options : {
-        title : 'Avaliability of Transportation'
+        title : 'Access to available transportation',
+        hAxis : {
+          title : 'Transportation Type'
+        },
+        vAxis : {
+          title : 'Number of households with access'
+        }
       },
       chart_type : 'column',
       columns : {
@@ -296,7 +326,13 @@ var charts = {
     household_size : {
       container_id : 'household_size_chart',
       chart_options : {
-        title : 'HouseHold Size'
+        title : 'Number of persons per household',
+        hAxis : {
+          title : 'Number of Persons'
+        },
+        vAxis : {
+          title : 'Number of households'
+        }
       },
       chart_type : 'column',
       columns : {
@@ -304,15 +340,15 @@ var charts = {
         'Number of Household'  : 'number'
       },
       fields : {
-        'hh_1' : '1 person',
-        'hh_2' : '2 persons',
-        'hh_3' : '3 persons',
-        'hh_4' : '4 persons',
-        'hh_5' : '5 persons',
-        'hh_6' : '6 persons',
-        'hh_7' : '7 persons',
-        'hh_8' : '8 persons',
-        'hh_9' : '9 persons and more'
+        'hh_1' : '1',
+        'hh_2' : '2',
+        'hh_3' : '3',
+        'hh_4' : '4',
+        'hh_5' : '5',
+        'hh_6' : '6',
+        'hh_7' : '7',
+        'hh_8' : '8',
+        'hh_9' : '>9'
       }
     },
     population_gender : {
@@ -366,7 +402,7 @@ var charts = {
     lit_rate : {
       container_id : 'lit_rate',
       chart_options : {
-        title : 'Literacy rate M/F Urban/Rural breakdown',
+        title : 'Literacy rate Male/Female Urban/Rural breakdown',
         vAxis : {
           minValue : 0,
           title : "Percentage (%)"
