@@ -251,9 +251,9 @@
 		</div>
 
 		<div class="row chart_wrapper ts_chart">
-			<div id="election_lower_2010"></div>
-			<div id="election_lower_2012"></div>
 			<div id="election_lower_2015"></div>
+			<div id="election_lower_2012"></div>
+			<div id="election_lower_2010"></div>
 		</div>
 	</div>
 </section> <!-- END OF GOVERMENT SECTION -->
@@ -357,8 +357,15 @@
 	<div class="container">
 		<h4 class="section_title">Households & Living</h4>
 		<div class="row chart_wrapper">
-			<h5>Mean Household Size : <span id="mean_household_size"></span></h5>
-			<div id="household_size_chart" class="normal_chart"></div>
+			<div class="four columns">
+				<div class="text_container">
+					<h5 class="label">Mean Household Size</h5>
+					<div class="value"><span id="mean_household_size"></span></div>
+				</div>
+			</div>
+			<div class="twelve columns">
+				<div id="household_size_chart" class="normal_chart"></div>
+			</div>
 		</div>
 		<div class="row chart_wrapper">
 			<div class="eight columns">
