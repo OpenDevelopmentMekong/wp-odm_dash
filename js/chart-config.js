@@ -200,6 +200,9 @@ var charts = {
         },
         hAxis : {
           title : 'Type of Medical Workers'
+        },
+        legend : {
+          position: 'none'
         }
       },
       columns : {
@@ -263,10 +266,15 @@ var charts = {
       chart_options : {
         title : 'Avaliability of communication and related amenities',
         hAxis : {
-          title : 'Communication and amenities type'
+          title : 'Communication and amenities type',
+          slantedText : true,
+          slantedTextAngle: 45
         },
         vAxis : {
           title : 'Number of households with access'
+        },
+        legend : {
+          position: 'none'
         }
       },
       chart_type : 'column',
@@ -292,6 +300,9 @@ var charts = {
         },
         vAxis : {
           title : 'Number of households with access'
+        },
+        legend : {
+          position: 'none'
         }
       },
       chart_type : 'column',
@@ -332,6 +343,9 @@ var charts = {
         },
         vAxis : {
           title : 'Number of households'
+        },
+        legend : {
+          position: 'none'
         }
       },
       chart_type : 'column',
