@@ -78,7 +78,7 @@ if (!class_exists('Odm_Dashboards_Plugin')) {
         public function check_requirements()
         {
             if (!check_requirements_dashboards()):
-              echo '<div class="error"><p>ODM Dashboards is missconfigured. Please check.</p></div>';
+              echo '<div class="error"><p>ODM Dashboard: WPCKAN plugin is missing, deactivated or missconfigured. Please check.</p></div>';
             endif;
         }
 
