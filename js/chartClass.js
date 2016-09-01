@@ -350,8 +350,8 @@ var googleChart = {
   draw : function(type, object, data, options) {
 
     var chart = eval("googleChart." + type + "(object)");
-    var opts = Object.create(eval("this.options." + type));
-    jQuery.extend(opts, options);
+    var opts = jQuery.extend(true, {}, eval("this.options." + type))
+    jQuery.extend(true, opts, options);
     chart.draw(data, opts);
   },
 
@@ -384,7 +384,10 @@ var googleChart = {
         duration: 1000,
         easing: 'linear',
         startup : true
-      }
+      },
+      legend : {
+        position : 'bottom'
+      },
     },
     table : {
       width: '100%'
