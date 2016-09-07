@@ -16,6 +16,7 @@ var data_resources = {
 
 var ckan_api_url = 'https://data.opendevelopmentmekong.net/api/action/datastore_search';
 var ckan_api_key = '';
+var data_source_url = 'https://myanmar.opendevelopmentmekong.net/dataset';
 
 var charts = {
   // ================== Labour Tree Map ===================== //

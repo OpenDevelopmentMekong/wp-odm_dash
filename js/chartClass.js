@@ -131,14 +131,19 @@ function ODChart(config) {
         value.ChartData.addRows(c_data);
         googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
 
-        if (self.resource.resource_link != undefined) {
-          jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ self.resource.resource_link +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
-        }
+        self.addDataSourceLink(value);
       }
 
     });
 
   };
+
+  this.addDataSourceLink = function(value) {
+    if (self.resource.dataset_id != undefined) {
+      var dataset_url = data_source_url + '?id=' + self.resource.dataset_id;
+      jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ dataset_url +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
+    }
+  }
 
   this.prepareData = function(chart) {
 
@@ -258,9 +263,7 @@ function ElectionPartyChart(config) {
 
           self.prepareChart(sorted, value);
 
-          if (self.resource.resource_link != undefined) {
-            jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ self.resource.resource_link +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
-          }
+          self.addDataSourceLink(value);
 
         } else {
 
@@ -270,6 +273,13 @@ function ElectionPartyChart(config) {
 
       }); 
 
+  }
+
+  this.addDataSourceLink = function(value) {
+    if (self.resource.dataset_id != undefined) {
+      var dataset_url = data_source_url + '?id=' + self.resource.dataset_id;
+      jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ dataset_url +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
+    }
   }
 
   this.prepareChart = function(data, chart_conf) {

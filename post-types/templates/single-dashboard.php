@@ -173,7 +173,7 @@
 						</div>
 					</div>
 					<div class="resource_link">
-						Data Source : <a href="https://data.opendevelopmentmekong.net/dataset/election-results-at-union-level/resource/93e74eb4-c999-4a16-94ea-fca144f9defd" target="_blank">Union Election Commission</a>
+						Data Source : <a href="https://myanmar.opendevelopmentmekong.net/dataset/?id=election-results-at-union-level" target="_blank">Union Election Commission</a>
 					</div>
 				</div>
 				<div class="eight columns">
@@ -235,7 +235,7 @@
 					</div>
 					<div class="resource_link">
 						Data Source : 
-						<a href="https://data.opendevelopmentmekong.net/dataset/election-results-at-union-level/resource/10a9cc34-bf89-4a26-9196-f32c3d08d565" target="_blank">Union Election Commission</a>
+						<a href="https://myanmar.opendevelopmentmekong.net/dataset/?id=election-results-at-union-level" target="_blank">Union Election Commission</a>
 					</div>
 				</div>
 			</div>
@@ -246,7 +246,7 @@
 			<div id="adminstration_list"></div>
 			<div class="resource_link" style="clear:both;">
 				Data Source : 
-				<a href="https://data.opendevelopmentmekong.net/dataset/ministers-in-myanmar/resource/fe0a5815-b58d-423b-816a-8347ec85b2bb" target="_blank">Myanmar President Office website, Open Myanmar Initiative</a>
+				<a href="https://myanmar.opendevelopmentmekong.net/dataset/?id=ministers-in-myanmar" target="_blank">Myanmar President Office website, Open Myanmar Initiative</a>
 			</div>
 		</div>
 
