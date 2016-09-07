@@ -31,4 +31,13 @@ jQuery(function() {
   jQuery(window).scroll(function() {
     stickyNav();
   });
+
+  jQuery('#dash_map_wrapper').click(function () {
+      jQuery('#mymap').css("pointer-events", "auto");
+  });
+
+  jQuery( "#dash_map_wrapper" ).mouseleave(function() {
+    jQuery('#mymap').css("pointer-events", "none"); 
+  });
+
 });

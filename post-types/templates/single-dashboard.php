@@ -22,7 +22,9 @@
 			<span class="ts_chart" style="margin-left:30px;">TS PCODE : <span id="ts_pcode"></span></span>
 		</p>
 		<div id="dash_search_box"></div>
-		<div id="mymap"></div>
+		<div id="dash_map_wrapper">
+			<div id="mymap"></div>	
+		</div>
 		<span id="overlayregion"></span>
 		<div class="general_info">
 			<h5>Total Population : <span id="total_population"></span></h5>

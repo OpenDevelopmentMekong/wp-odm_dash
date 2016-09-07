@@ -21,10 +21,15 @@
 	position: relative;
 }
 
+#dash_map_wrapper {
+	overflow: hidden;
+}
+
 #mymap {
 	width: 100%;
 	height: 600px;
 	float: left;
+	pointer-events: none;
 }
 
 #overviewInfo {
