@@ -108,12 +108,14 @@ function ODChart(config) {
     $.map(self.charts, function(value, index){
 
       if(value.chart_type == 'text') {
+
         if (value.numberformat == true) {
           var f_val = self.formatNumber(self.data[value.field]);
         } else {
           var f_val = self.data[value.field];
         }
         $('#'+value.container_id).text(f_val);
+
       } else {
     
         var row_count = value.ChartData.getNumberOfRows();
@@ -128,7 +130,9 @@ function ODChart(config) {
         } else {
           var c_data = self.prepareData(value);  
         }
+
         value.ChartData.addRows(c_data);
+
         googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
 
         self.addDataSourceLink(value);
@@ -153,6 +157,9 @@ function ODChart(config) {
       var num_value = self.data[index];
       if (num_value && num_value.match(/,/g)) {
         num_value = num_value.replace(/,/g, '');
+      }
+      if (num_value == null) {
+        num_value = 0;
       }
       var row_data = [value, parseInt(num_value, 10)];
       if(chart.colors != undefined) {
