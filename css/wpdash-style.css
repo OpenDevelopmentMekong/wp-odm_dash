@@ -165,6 +165,10 @@
   border-top: 0;
 }
 
+.admin-bar .sticky {
+	top: 69px;
+}
+
 .note-text {
 	font-size: 13px;
 	color: red;
