@@ -50,7 +50,7 @@ function ODChart(config) {
     $.map(this.charts, function(value, index){
       if (value.chart_type != 'text' || (value.prepare_data_from_array != undefined && value.prepare_data_from_array == true)) {
         self.charts[index]['ChartData'] = self.makeDataTable(value.columns);
-        if (value.chart_type == 'column' && value.colors != undefined) {
+        if (value.colors != undefined) {
           value.ChartData.addColumn({type: 'string', role: 'style' });
         }
       }

@@ -264,8 +264,36 @@
 <div class="row viz-section" id="education">
 	<div class="container">
 		<h4 class="section_title">Education</h4>
-		<div class="row chart_wrapper">
+		<!-- <div class="row chart_wrapper">
 			<div id="lit_rate" style="height:500px;"></div>
+		</div> -->
+		<h2>Literacy rate</h2>
+		<div class="row chart_wrapper">
+			<h4>Overall</h4>
+			<div class="eight columns">
+				<div id="lit_rate_overall_pie" class="normal_chart"></div>
+			</div>
+			<div class="eight columns">
+				<div id="lit_rate_overall_gender" class="normal_chart"></div>
+			</div>
+		</div>
+		<div class="row chart_wrapper">
+			<h4>Urban</h4>
+			<div class="eight columns">
+				<div id="lit_rate_urban_pie" class="normal_chart"></div>
+			</div>
+			<div class="eight columns">
+				<div id="lit_rate_urban_gender" class="normal_chart"></div>
+			</div>
+		</div>
+		<div class="row chart_wrapper">
+			<h4>Rural</h4>
+			<div class="eight columns">
+				<div id="lit_rate_rural_pie" class="normal_chart"></div>
+			</div>
+			<div class="eight columns">
+				<div id="lit_rate_rural_gender" class="normal_chart"></div>
+			</div>
 		</div>
 		<div class="row chart_wrapper">
 			<div class="eight columns">

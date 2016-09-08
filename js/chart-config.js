@@ -414,7 +414,7 @@ var charts = {
     // END OF DEMOGRAPHIC
 
     // EDUCATION
-    lit_rate : {
+    /*lit_rate : {
       container_id : 'lit_rate',
       chart_options : {
         title : 'Literacy rate Male/Female Urban/Rural breakdown',
@@ -437,6 +437,130 @@ var charts = {
         ['Urban', 'lit_rate_15ab_t_u', 'lit_rate_15ab_m_u', 'lit_rate_15ab_f_u'],
         ['Rural', 'lit_rate_15ab_t_r', 'lit_rate_15ab_m_r', 'lit_rate_15ab_f_r']
       ]
+    },*/
+    lit_rate_overall_pie : {
+      container_id : 'lit_rate_overall_pie',
+      chart_options : {
+        title : ''
+      },
+      chart_type : 'donut',
+      columns : {
+        'Literate or Illiterate' : 'string',  
+        'Percentage' : 'number'
+      },
+      fields : {
+        'lit_15ab_t' : 'Literate',
+        'illit_15ab_t' : 'Illiterate'
+      }
+    },
+    lit_rate_overall_gender : {
+      container_id : 'lit_rate_overall_gender',
+      chart_options : {
+        title : '',
+        legend : {
+          position : 'none',
+        },
+        hAxis : {
+          minValue : 0,
+          title : 'Percentage (%)'
+        }
+      },
+      chart_type : 'bar',
+      columns : {
+        'Gender' : 'string',
+        'Percentage' : 'number'
+      },
+      fields : {
+        'lit_rate_15ab_m' : 'Male',
+        'lit_rate_15ab_f' : 'Female'
+      },
+      colors : {
+        'lit_rate_15ab_m' : '#3F51B5',
+        'lit_rate_15ab_f' : '#F44336'
+      }
+    },
+    lit_rate_urban_pie : {
+      container_id : 'lit_rate_urban_pie',
+      chart_options : {
+        title : ''
+      },
+      chart_type : 'donut',
+      columns : {
+        'Literate or Illiterate' : 'string',  
+        'Percentage' : 'number'
+      },
+      fields : {
+        'lit_15ab_t_u' : 'Literate',
+        'illit_15ab_t_u' : 'Illiterate'
+      }
+    },
+    lit_rate_urban_gender : {
+      container_id : 'lit_rate_urban_gender',
+      chart_options : {
+        title : '',
+        legend : {
+          position : 'none',
+        },
+        hAxis : {
+          minValue : 0,
+          title : 'Percentage (%)'
+        }
+      },
+      chart_type : 'bar',
+      columns : {
+        'Gender' : 'string',
+        'Percentage' : 'number'
+      },
+      fields : {
+        'lit_rate_15ab_m_u' : 'Male',
+        'lit_rate_15ab_f_u' : 'Female'
+      },
+      colors : {
+        'lit_rate_15ab_m_u' : '#3F51B5',
+        'lit_rate_15ab_f_u' : '#F44336'
+      }
+    },
+
+    lit_rate_rural_pie : {
+      container_id : 'lit_rate_rural_pie',
+      chart_options : {
+        title : ''
+      },
+      chart_type : 'donut',
+      columns : {
+        'Literate or Illiterate' : 'string',  
+        'Percentage' : 'number'
+      },
+      fields : {
+        'lit_15ab_t_r' : 'Literate',
+        'illit_15ab_t_r' : 'Illiterate'
+      }
+    },
+    lit_rate_rural_gender : {
+      container_id : 'lit_rate_rural_gender',
+      chart_options : {
+        title : '',
+        legend : {
+          position : 'none',
+        },
+        hAxis : {
+          minValue : 0,
+          title : 'Percentage (%)'
+        }
+      },
+      chart_type : 'bar',
+      columns : {
+        'Gender' : 'string',
+        'Percentage' : 'number'
+      },
+      fields : {
+        'lit_rate_15ab_m_r' : 'Male',
+        'lit_rate_15ab_f_r' : 'Female'
+      },
+      colors : {
+        'lit_rate_15ab_m_r' : '#3F51B5',
+        'lit_rate_15ab_f_r' : '#F44336'
+      }
     },
 
     // Labour TreeMap
