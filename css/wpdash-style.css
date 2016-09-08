@@ -72,6 +72,14 @@
     padding: 3px 7px;
 }
 
+#region_name_wrapper {
+	background: #fff;
+}
+
+#region_name {
+	margin-bottom: 0px;
+}
+
 .general_info h5 {
 	font-size: 18px;
     font-weight: normal;
@@ -159,13 +167,29 @@
 .sticky {
   position: fixed;
   width: 100%;
-  left: 0;
-  top: 37px;
   z-index: 100;
   border-top: 0;
 }
 
-.admin-bar .sticky {
+#back_to_map {
+	text-align: right;
+	margin-top: 8px;
+	display: none;
+}
+
+#viz_nav_wrapper.sticky {
+	top: 87px;
+}
+
+.admin-bar #viz_nav_wrapper.sticky {
+	top: 119px;
+}
+
+#region_name_wrapper.sticky {
+	top: 37px;
+}
+
+.admin-bar #region_name_wrapper.sticky {
 	top: 69px;
 }
 

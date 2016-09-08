@@ -15,8 +15,21 @@
 	<div class="row">
 		<h1>Overview of Myanmar</h1>
 	</div>
+</section>
+<div id="region_name_wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="ten columns">
+				<h1 id="region_name">Myanmar</h1>			
+			</div>
+			<div class="six columns" id="back_to_map">
+				<a href="#mymap"><i class="fa fa-angle-up"></i> back to map</a>
+			</div>
+		</div>
+	</div>
+</div>
+<section class="container">
 	<div class="row">
-		<h1 id="region_name">Myanmar</h1>
 		<p class="pcode_wrapper">
 			ST PCODE : <span id="st_pcode">MMR</span> 
 			<span class="ts_chart" style="margin-left:30px;">TS PCODE : <span id="ts_pcode"></span></span>
