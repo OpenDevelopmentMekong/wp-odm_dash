@@ -50,7 +50,7 @@ function ODChart(config) {
     $.map(this.charts, function(value, index){
       if (value.chart_type != 'text' || (value.prepare_data_from_array != undefined && value.prepare_data_from_array == true)) {
         self.charts[index]['ChartData'] = self.makeDataTable(value.columns);
-        if (value.chart_type == 'column' && value.colors != undefined) {
+        if (value.colors != undefined) {
           value.ChartData.addColumn({type: 'string', role: 'style' });
         }
       }
@@ -108,12 +108,14 @@ function ODChart(config) {
     $.map(self.charts, function(value, index){
 
       if(value.chart_type == 'text') {
+
         if (value.numberformat == true) {
           var f_val = self.formatNumber(self.data[value.field]);
         } else {
           var f_val = self.data[value.field];
         }
         $('#'+value.container_id).text(f_val);
+
       } else {
     
         var row_count = value.ChartData.getNumberOfRows();
@@ -128,17 +130,24 @@ function ODChart(config) {
         } else {
           var c_data = self.prepareData(value);  
         }
+
         value.ChartData.addRows(c_data);
+
         googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
 
-        if (self.resource.resource_link != undefined) {
-          jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ self.resource.resource_link +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
-        }
+        self.addDataSourceLink(value);
       }
 
     });
 
   };
+
+  this.addDataSourceLink = function(value) {
+    if (self.resource.dataset_id != undefined) {
+      var dataset_url = data_source_url + '?id=' + self.resource.dataset_id;
+      jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ dataset_url +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
+    }
+  }
 
   this.prepareData = function(chart) {
 
@@ -148,6 +157,9 @@ function ODChart(config) {
       var num_value = self.data[index];
       if (num_value && num_value.match(/,/g)) {
         num_value = num_value.replace(/,/g, '');
+      }
+      if (num_value == null) {
+        num_value = 0;
       }
       var row_data = [value, parseInt(num_value, 10)];
       if(chart.colors != undefined) {
@@ -258,9 +270,7 @@ function ElectionPartyChart(config) {
 
           self.prepareChart(sorted, value);
 
-          if (self.resource.resource_link != undefined) {
-            jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ self.resource.resource_link +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
-          }
+          self.addDataSourceLink(value);
 
         } else {
 
@@ -270,6 +280,13 @@ function ElectionPartyChart(config) {
 
       }); 
 
+  }
+
+  this.addDataSourceLink = function(value) {
+    if (self.resource.dataset_id != undefined) {
+      var dataset_url = data_source_url + '?id=' + self.resource.dataset_id;
+      jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ dataset_url +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
+    }
   }
 
   this.prepareChart = function(data, chart_conf) {

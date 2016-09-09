@@ -21,10 +21,15 @@
 	position: relative;
 }
 
+#dash_map_wrapper {
+	overflow: hidden;
+}
+
 #mymap {
 	width: 100%;
 	height: 600px;
 	float: left;
+	pointer-events: none;
 }
 
 #overviewInfo {
@@ -65,6 +70,14 @@
     background: rgba(0,0,0,0.6);
     color: #fff;
     padding: 3px 7px;
+}
+
+#region_name_wrapper {
+	background: #fff;
+}
+
+#region_name {
+	margin-bottom: 0px;
 }
 
 .general_info h5 {
@@ -154,10 +167,30 @@
 .sticky {
   position: fixed;
   width: 100%;
-  left: 0;
-  top: 37px;
   z-index: 100;
   border-top: 0;
+}
+
+#back_to_map {
+	text-align: right;
+	margin-top: 8px;
+	display: none;
+}
+
+#viz_nav_wrapper.sticky {
+	top: 87px;
+}
+
+.admin-bar #viz_nav_wrapper.sticky {
+	top: 119px;
+}
+
+#region_name_wrapper.sticky {
+	top: 37px;
+}
+
+.admin-bar #region_name_wrapper.sticky {
+	top: 69px;
 }
 
 .note-text {
@@ -213,14 +246,14 @@
 	z-index:1000;
 	box-shadow: 0 1px 7px rgba(0,0,0,0.65);
 	cursor: pointer;
-	padding: 0px 8px;
+	padding: 8px 15px;
 }
 
 .leaflet-setview-control::before {
 	content: '\f041';
 	font-family: FontAwesome;
     font-style: normal;
-    font-size: 20px;
+    font-size: 28px;
     color: #505050;
 }
 
