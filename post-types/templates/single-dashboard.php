@@ -333,7 +333,7 @@
 		</div>
 		<div class="row chart_wrapper">
 			<div id="labour_usual_activity_10ab" class="normal_chart full-width-charts" style="height:auto;margin-top: 50px;"></div>
-			<div class="note-text">* Left click on parent section to go up one level.</div>
+			<div class="note-text">* Right click to go up one level.</div>
 		</div>
 	</div>
 </div> <!-- END OF ECONOMY AND INDUSTRIES -->

@@ -281,6 +281,11 @@
 }
 
 /* Google Visualization Table */
+.google-visualization-table-th {
+	background-image: none !important;
+	padding: 8px !important;
+	color: #fff;
+}
 .google-visualization-table-tr-even {
 	background: #dcdcdc !important;
 }
@@ -306,4 +311,73 @@
 .ministry_val {
 	font-size: 16px;
 	font-weight: bold;
+}
+
+.resource_link {
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+
+.resource_download {
+	float: right;
+    padding: 10px;
+    background: #d2d2d2;
+}
+
+.data_source_bar {
+	overflow: hidden;
+}
+
+.data_source_btn {
+	float: right;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+
+.data_source_btn:hover {
+	background: #2e2e2e;
+	color: #fff;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.data_table_wrapper {
+	margin: 20px;
 }

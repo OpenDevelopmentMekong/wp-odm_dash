@@ -53,4 +53,28 @@ jQuery(function() {
     jQuery('#mymap').css("pointer-events", "none"); 
   });
 
+  //Modal Box
+  var modalbox = $('.modal');
+  var activeModal;
+
+  jQuery(document).on('click', '.data_source_btn', function(e){
+    e.preventDefault();
+    var target = jQuery(this).data('target');
+    //modalbox.find('modal-content').html(jQuery('#'+target).clone().css('display', 'block'));
+    activeModal = jQuery('#'+target);
+    jQuery('#'+target).css('display', 'block');
+  });
+
+  jQuery(document).on('click', '.modal-close', function(){
+    console.log(activeModal);
+    activeModal.css('display', 'none');
+  });
+
+  jQuery(window).click(function(e){
+    if (e.target.className == 'modal') {
+      console.log(activeModal);
+      activeModal.css('display', 'none');
+    }
+  });
+  
 });
