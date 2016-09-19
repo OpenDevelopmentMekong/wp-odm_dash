@@ -21,10 +21,15 @@
 	position: relative;
 }
 
+#dash_map_wrapper {
+	overflow: hidden;
+}
+
 #mymap {
 	width: 100%;
 	height: 600px;
 	float: left;
+	pointer-events: none;
 }
 
 #overviewInfo {
@@ -65,6 +70,14 @@
     background: rgba(0,0,0,0.6);
     color: #fff;
     padding: 3px 7px;
+}
+
+#region_name_wrapper {
+	background: #fff;
+}
+
+#region_name {
+	margin-bottom: 0px;
 }
 
 .general_info h5 {
@@ -154,10 +167,30 @@
 .sticky {
   position: fixed;
   width: 100%;
-  left: 0;
-  top: 37px;
   z-index: 100;
   border-top: 0;
+}
+
+#back_to_map {
+	text-align: right;
+	margin-top: 8px;
+	display: none;
+}
+
+#viz_nav_wrapper.sticky {
+	top: 87px;
+}
+
+.admin-bar #viz_nav_wrapper.sticky {
+	top: 119px;
+}
+
+#region_name_wrapper.sticky {
+	top: 37px;
+}
+
+.admin-bar #region_name_wrapper.sticky {
+	top: 69px;
 }
 
 .note-text {
@@ -213,14 +246,14 @@
 	z-index:1000;
 	box-shadow: 0 1px 7px rgba(0,0,0,0.65);
 	cursor: pointer;
-	padding: 0px 8px;
+	padding: 8px 15px;
 }
 
 .leaflet-setview-control::before {
 	content: '\f041';
 	font-family: FontAwesome;
     font-style: normal;
-    font-size: 20px;
+    font-size: 28px;
     color: #505050;
 }
 
@@ -248,6 +281,11 @@
 }
 
 /* Google Visualization Table */
+.google-visualization-table-th {
+	background-image: none !important;
+	padding: 8px !important;
+	color: #fff;
+}
 .google-visualization-table-tr-even {
 	background: #dcdcdc !important;
 }
@@ -273,4 +311,73 @@
 .ministry_val {
 	font-size: 16px;
 	font-weight: bold;
+}
+
+.resource_link {
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+
+.resource_download {
+	float: right;
+    padding: 10px;
+    background: #d2d2d2;
+}
+
+.data_source_bar {
+	overflow: hidden;
+}
+
+.data_source_btn {
+	float: right;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+
+.data_source_btn:hover {
+	background: #2e2e2e;
+	color: #fff;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.data_table_wrapper {
+	margin: 20px;
 }

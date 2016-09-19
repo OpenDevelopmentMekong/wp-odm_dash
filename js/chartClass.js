@@ -50,7 +50,7 @@ function ODChart(config) {
     $.map(this.charts, function(value, index){
       if (value.chart_type != 'text' || (value.prepare_data_from_array != undefined && value.prepare_data_from_array == true)) {
         self.charts[index]['ChartData'] = self.makeDataTable(value.columns);
-        if (value.chart_type == 'column' && value.colors != undefined) {
+        if (value.colors != undefined) {
           value.ChartData.addColumn({type: 'string', role: 'style' });
         }
       }
@@ -108,12 +108,14 @@ function ODChart(config) {
     $.map(self.charts, function(value, index){
 
       if(value.chart_type == 'text') {
+
         if (value.numberformat == true) {
           var f_val = self.formatNumber(self.data[value.field]);
         } else {
           var f_val = self.data[value.field];
         }
         $('#'+value.container_id).text(f_val);
+
       } else {
     
         var row_count = value.ChartData.getNumberOfRows();
@@ -128,15 +130,97 @@ function ODChart(config) {
         } else {
           var c_data = self.prepareData(value);  
         }
+
         value.ChartData.addRows(c_data);
+
+        self.prepareDataSourceModal(value);
+
         googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
 
-        if (self.resource.resource_link != undefined) {
-          jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ self.resource.resource_link +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
-        }
+        googleChart.draw('table', document.getElementById(value.container_id + '_table_wrapper'), value.ChartData);
+
+        jQuery('#' + value.container_id + '_table_wrapper').prepend(self.getDataSourceLinkTemplate(value));
+
       }
 
     });
+
+  };
+
+  this.prepareDataSourceModal = function(value) {
+
+    var container = jQuery('#'+value.container_id);
+
+    //Remove previous DOM
+    container.siblings('.data_source_bar').remove();
+    container.siblings('.modal').remove();
+
+    container.before(self.getDataSourceButtonTemplate(value));
+
+    container.after(self.getTableContainerTemplate(value));
+
+  }
+
+  this.getDataSourceLinkTemplate = function(value) {
+
+    var resource_container = jQuery('<div>').addClass('resource_link');
+
+    if (self.resource.dataset_id != undefined) {
+
+      var dataset_url = data_source_url + '?id=' + self.resource.dataset_id;
+
+      resource_container.append(
+        jQuery('<a>').attr('href', dataset_url)
+          .attr('target', '_blank')
+          .text('Data Source : ' + self.resource.resource_title)
+      );
+    }
+
+    if (self.resource.download_link != undefined) {
+
+      resource_container.append(
+        jQuery('<a>').attr('href', self.resource.download_link)
+          .addClass('resource_download')
+          .attr('target', '_blank')
+          .text(' Download')
+          .prepend(jQuery('<i>').addClass('fa fa-download'))
+      );
+
+    }
+
+    return resource_container;
+
+
+  };
+
+  this.getDataSourceButtonTemplate = function(value) {
+
+    return jQuery('<div>').addClass('data_source_bar')
+              .append(
+                jQuery('<a>').addClass('data_source_btn')
+                  .attr('data-target', value.container_id + "_table")
+                  .text(' Data')
+                  .prepend(
+                    jQuery('<i>').addClass('fa fa-gear')
+                  )
+              );
+
+  }
+
+  this.getTableContainerTemplate = function(value) {
+
+    return jQuery('<div>').addClass('modal')
+            .attr('id', value.container_id +"_table")
+            .append(
+              jQuery('<div>').addClass('modal-content')
+                .append(
+                  jQuery('<span>').addClass('modal-close').text('x')
+                )
+                .append (
+                  jQuery('<div>').addClass('data_table_wrapper')
+                    .attr('id', value.container_id + '_table_wrapper')
+                )
+            );
 
   };
 
@@ -148,6 +232,9 @@ function ODChart(config) {
       var num_value = self.data[index];
       if (num_value && num_value.match(/,/g)) {
         num_value = num_value.replace(/,/g, '');
+      }
+      if (num_value == null) {
+        num_value = 0;
       }
       var row_data = [value, parseInt(num_value, 10)];
       if(chart.colors != undefined) {
@@ -258,9 +345,7 @@ function ElectionPartyChart(config) {
 
           self.prepareChart(sorted, value);
 
-          if (self.resource.resource_link != undefined) {
-            jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ self.resource.resource_link +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
-          }
+          self.addDataSourceLink(value);
 
         } else {
 
@@ -270,6 +355,13 @@ function ElectionPartyChart(config) {
 
       }); 
 
+  }
+
+  this.addDataSourceLink = function(value) {
+    if (self.resource.dataset_id != undefined) {
+      var dataset_url = data_source_url + '?id=' + self.resource.dataset_id;
+      jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ dataset_url +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
+    }
   }
 
   this.prepareChart = function(data, chart_conf) {
@@ -350,8 +442,8 @@ var googleChart = {
   draw : function(type, object, data, options) {
 
     var chart = eval("googleChart." + type + "(object)");
-    var opts = Object.create(eval("this.options." + type));
-    jQuery.extend(opts, options);
+    var opts = jQuery.extend(true, {}, eval("this.options." + type))
+    jQuery.extend(true, opts, options);
     chart.draw(data, opts);
   },
 
@@ -384,7 +476,10 @@ var googleChart = {
         duration: 1000,
         easing: 'linear',
         startup : true
-      }
+      },
+      legend : {
+        position : 'bottom'
+      },
     },
     table : {
       width: '100%'
