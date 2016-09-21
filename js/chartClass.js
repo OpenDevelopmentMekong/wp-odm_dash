@@ -109,18 +109,35 @@ function ODChart(config) {
 
       if(value.chart_type == 'text') {
 
-        if (value.numberformat == true) {
-          var f_val = self.formatNumber(self.data[value.field]);
-        } else {
-          var f_val = self.data[value.field];
-        }
-        
-        if (value.title != undefined && value.title != '') {
-          $('#'+value.container_id).text(value.title + ' : ' + f_val);
-        } else {
-          $('#'+value.container_id).text(f_val);
-        }
+        console.log(self.data[value.field]);
 
+        if ((self.data[value.field] == undefined || self.data[value.field] == null) || (self.data[value.field] == 0 && value.ignore_zero == true)) {
+
+          $('#'+value.container_id).hide();
+
+        } else {
+
+          // Format Number
+          if (value.numberformat == true) {
+            var f_val = self.formatNumber(self.data[value.field]);
+          } else {
+            var f_val = self.data[value.field];
+          }
+
+          // Check if there *title* field option
+          if (value.title != undefined && value.title != '') {
+            f_val = value.title + ' : ' + f_val;
+          }
+
+          if (value.unit != undefined && value.unit != '') {
+            f_val += ' ' + value.unit;
+          }
+
+          $('#'+value.container_id).html(f_val);
+          $('#'+value.container_id).show();
+
+        }
+  
       } else {
     
         var row_count = value.ChartData.getNumberOfRows();
