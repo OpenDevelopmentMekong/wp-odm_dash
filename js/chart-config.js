@@ -64,28 +64,36 @@ var charts = {
   // ====================== HEALTH EDUCATION CHART ========================= //
   health_education : {
     region_area : {
+      title : 'Area',
       container_id : 'region_area',
       chart_type : 'text',
       field : 'area_km2',
+      unit : 'km<sup>2</sup>',
       numberformat : true
     },
     village_tracts_num : {
+      title : 'Number of Village Tracts',
       container_id : 'village_tracts_num',
       chart_type : 'text',
       field : 'number_vt',
-      numberformat : true
+      numberformat : true,
+      ignore_zero : true
     },
     wards_num : {
+      title : 'Number of Wards',
       container_id : 'wards_num',
       chart_type : 'text',
       field : 'number_w',
-      numberformat : true
+      numberformat : true,
+      ignore_zero : true
     },
     villages_num : {
+      title : 'Number of Villages',
       container_id : 'villages_num',
       chart_type : 'text',
       field : 'number_v',
-      numberformat : true
+      numberformat : true,
+      ignore_zero : true
     },
     school : {
       container_id : 'school_chart',
@@ -325,10 +333,20 @@ var charts = {
 
     // DEMOGRAPHIC
     total_population : {
+      title : 'Total Population (Enumerated)',
       container_id : 'total_population',
       chart_type : 'text',
       field : 'pop_t',
-      numberformat : true
+      numberformat : true,
+      ignore_zero : true
+    },
+    total_population_non_enumerated : {
+      title : 'Total Population (Non-Enumerated)',
+      container_id : 'total_population_non_enumerated',
+      chart_type : 'text',
+      field : 'pop_t_ne',
+      numberformat : true,
+      ignore_zero : true
     },
     mean_household_size : {
       container_id : 'mean_household_size',

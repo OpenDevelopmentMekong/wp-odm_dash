@@ -40,11 +40,12 @@
 		</div>
 		<span id="overlayregion"></span>
 		<div class="general_info">
-			<h5>Total Population : <span id="total_population"></span></h5>
-			<h5>Area : <span id="region_area"></span> km<sup>2</sup></h5>
-			<h5>Number of Wards : <span id="wards_num"></span></h5>
-			<h5>Number of Village Tracts : <span id="village_tracts_num"></span></h5>
-			<h5>Number of Villages : <span id="villages_num"></span></h5>	
+			<h5 id="total_population"></h5>
+			<h5 id="total_population_non_enumerated"></h5>
+			<h5 id="region_area"></h5>
+			<h5 id="wards_num"></h5>
+			<h5 id="village_tracts_num"></h5>
+			<h5 id="villages_num"></h5>	
 		</div>
 		<div class="map_instruction">Double click to zoom in to township level and Click on <i class="fa fa-map-marker"></i> to go back to union level.</div>
 	</div>
@@ -273,8 +274,22 @@
 	</div>
 </section> <!-- END OF GOVERMENT SECTION -->
 
+<!-- ECONOMY AND INDUSTRIES -->
+<div class="row" id="economy">
+	<div class="container">
+		<h4 class="section_title">Economy & Industries</h4>
+		<div class="row chart_wrapper st_chart union_chart">
+			<div id="revenue_expenditure" class="normal_chart"></div>
+		</div>
+		<div class="row chart_wrapper">
+			<div id="labour_usual_activity_10ab" class="normal_chart full-width-charts" style="height:auto;margin-top: 50px;"></div>
+			<div class="note-text">* Right click to go up one level.</div>
+		</div>
+	</div>
+</div> <!-- END OF ECONOMY AND INDUSTRIES -->
+
 <!-- EDUCATION -->
-<div class="row viz-section" id="education">
+<div class="row viz-section even" id="education">
 	<div class="container">
 		<h4 class="section_title">Education</h4>
 		<!-- <div class="row chart_wrapper">
@@ -323,20 +338,6 @@
 		</div>
 	</div>
 </div> <!-- END OF EDUCTAION SECTION -->
-
-<!-- ECONOMY AND INDUSTRIES -->
-<div class="row viz-section even" id="economy">
-	<div class="container">
-		<h4 class="section_title">Economy & Industries</h4>
-		<div class="row chart_wrapper st_chart union_chart">
-			<div id="revenue_expenditure" class="normal_chart"></div>
-		</div>
-		<div class="row chart_wrapper">
-			<div id="labour_usual_activity_10ab" class="normal_chart full-width-charts" style="height:auto;margin-top: 50px;"></div>
-			<div class="note-text">* Right click to go up one level.</div>
-		</div>
-	</div>
-</div> <!-- END OF ECONOMY AND INDUSTRIES -->
 
 <!-- HEALTH -->
 <div class="row viz-section" id="health">
