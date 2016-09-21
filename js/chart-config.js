@@ -325,10 +325,18 @@ var charts = {
 
     // DEMOGRAPHIC
     total_population : {
+      title : 'Total Population (Enumerated)',
       container_id : 'total_population',
       chart_type : 'text',
       field : 'pop_t',
       numberformat : true
+    },
+    total_population_non_enumerated : {
+      title : 'Total Population (Non-Enumerated)',
+      container_id : 'total_population_non_enumerated',
+      chart_type : 'text',
+      field : 'pop_t_ne',
+      numberformat : true 
     },
     mean_household_size : {
       container_id : 'mean_household_size',

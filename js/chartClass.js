@@ -114,7 +114,12 @@ function ODChart(config) {
         } else {
           var f_val = self.data[value.field];
         }
-        $('#'+value.container_id).text(f_val);
+        
+        if (value.title != undefined && value.title != '') {
+          $('#'+value.container_id).text(value.title + ' : ' + f_val);
+        } else {
+          $('#'+value.container_id).text(f_val);
+        }
 
       } else {
     
