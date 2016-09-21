@@ -274,8 +274,22 @@
 	</div>
 </section> <!-- END OF GOVERMENT SECTION -->
 
+<!-- ECONOMY AND INDUSTRIES -->
+<div class="row" id="economy">
+	<div class="container">
+		<h4 class="section_title">Economy & Industries</h4>
+		<div class="row chart_wrapper st_chart union_chart">
+			<div id="revenue_expenditure" class="normal_chart"></div>
+		</div>
+		<div class="row chart_wrapper">
+			<div id="labour_usual_activity_10ab" class="normal_chart full-width-charts" style="height:auto;margin-top: 50px;"></div>
+			<div class="note-text">* Right click to go up one level.</div>
+		</div>
+	</div>
+</div> <!-- END OF ECONOMY AND INDUSTRIES -->
+
 <!-- EDUCATION -->
-<div class="row viz-section" id="education">
+<div class="row viz-section even" id="education">
 	<div class="container">
 		<h4 class="section_title">Education</h4>
 		<!-- <div class="row chart_wrapper">
@@ -324,20 +338,6 @@
 		</div>
 	</div>
 </div> <!-- END OF EDUCTAION SECTION -->
-
-<!-- ECONOMY AND INDUSTRIES -->
-<div class="row viz-section even" id="economy">
-	<div class="container">
-		<h4 class="section_title">Economy & Industries</h4>
-		<div class="row chart_wrapper st_chart union_chart">
-			<div id="revenue_expenditure" class="normal_chart"></div>
-		</div>
-		<div class="row chart_wrapper">
-			<div id="labour_usual_activity_10ab" class="normal_chart full-width-charts" style="height:auto;margin-top: 50px;"></div>
-			<div class="note-text">* Right click to go up one level.</div>
-		</div>
-	</div>
-</div> <!-- END OF ECONOMY AND INDUSTRIES -->
 
 <!-- HEALTH -->
 <div class="row viz-section" id="health">
