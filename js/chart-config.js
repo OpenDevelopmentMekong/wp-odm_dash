@@ -768,12 +768,11 @@ var charts = {
         'Revenue / Expenditure' : 'string',
         'Governance and Administration High Court Advocate General Auditor General' : 'number',
         'Departments and DAOs28 Ministries Administrative Departments and Municipalities' : 'number',
-        'State Owned Enterprises' : 'number',
-        'Total' : 'number'
+        'State Owned Enterprises' : 'number'
       },
       fields : [
-        ['Expenditure', 'exp_adm', 'exp_min_dept', 'exp_state_ent', 'exp_total'],
-        ['Revenue', 'rev_adm', 'rev_min_dept', 'rev_state_ent', 'rev_total']
+        ['Expenditure', 'exp_adm', 'exp_min_dept', 'exp_state_ent'],
+        ['Revenue', 'rev_adm', 'rev_min_dept', 'rev_state_ent']
       ]
     }    
   }
