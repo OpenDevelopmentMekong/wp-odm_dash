@@ -19,10 +19,13 @@
 <div id="region_name_wrapper">
 	<div class="container">
 		<div class="row">
-			<div class="ten columns">
+			<div class="four columns" style="margin-left: 0px;">
 				<h1 id="region_name">Myanmar</h1>			
 			</div>
-			<div class="six columns" id="back_to_map">
+			<div class="ten columns">
+				<div id="dash_search_box"></div>
+			</div>
+			<div class="two columns" id="back_to_map">
 				<a href="#mymap"><i class="fa fa-angle-up"></i> back to map</a>
 			</div>
 		</div>
@@ -34,7 +37,6 @@
 			ST PCODE : <span id="st_pcode">MMR</span> 
 			<span class="ts_chart" style="margin-left:30px;">TS PCODE : <span id="ts_pcode"></span></span>
 		</p>
-		<div id="dash_search_box"></div>
 		<div id="dash_map_wrapper">
 			<div id="mymap"></div>	
 		</div>

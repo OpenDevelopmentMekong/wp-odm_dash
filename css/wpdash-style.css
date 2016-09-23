@@ -89,10 +89,11 @@
 #viz_nav_wrapper {
 	background: #F0F0F0;
 	margin-top: 0px !important;
+	z-index: 1;
 }
 
 #viz_nav {
-	margin-bottom: -7px;
+	margin-bottom: -4px;
 	text-align: center;
 }
 
@@ -206,7 +207,6 @@
 #dash_search_box {
 	border: 1px solid #C8C8C8;
 	height: 26px;
-	margin-bottom: 10px;
 	padding: 3px 0px;
 }
 
@@ -224,6 +224,7 @@
 	border: 0px 1px 1px 1px;
 	background: #fff;
 	border-color: #C8C8C8;
+	z-index: 2;
 }
 
 #dash_search_box .search-tooltip .search-tip {
