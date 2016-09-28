@@ -299,7 +299,6 @@
 		</div> -->
 		<h2>Literacy rate</h2>
 		<div class="row chart_wrapper">
-			<h4>Overall</h4>
 			<div class="eight columns">
 				<div id="lit_rate_overall_pie" class="normal_chart"></div>
 			</div>
@@ -308,7 +307,6 @@
 			</div>
 		</div>
 		<div class="row chart_wrapper">
-			<h4>Urban</h4>
 			<div class="eight columns">
 				<div id="lit_rate_urban_pie" class="normal_chart"></div>
 			</div>
@@ -317,7 +315,6 @@
 			</div>
 		</div>
 		<div class="row chart_wrapper">
-			<h4>Rural</h4>
 			<div class="eight columns">
 				<div id="lit_rate_rural_pie" class="normal_chart"></div>
 			</div>

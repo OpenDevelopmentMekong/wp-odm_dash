@@ -459,7 +459,7 @@ var charts = {
     lit_rate_overall_pie : {
       container_id : 'lit_rate_overall_pie',
       chart_options : {
-        title : ''
+        title : 'Overall'
       },
       chart_type : 'donut',
       columns : {
@@ -500,7 +500,7 @@ var charts = {
     lit_rate_urban_pie : {
       container_id : 'lit_rate_urban_pie',
       chart_options : {
-        title : ''
+        title : 'Urban'
       },
       chart_type : 'donut',
       columns : {
@@ -542,7 +542,7 @@ var charts = {
     lit_rate_rural_pie : {
       container_id : 'lit_rate_rural_pie',
       chart_options : {
-        title : ''
+        title : 'Rural'
       },
       chart_type : 'donut',
       columns : {
