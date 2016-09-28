@@ -109,8 +109,6 @@ function ODChart(config) {
 
       if(value.chart_type == 'text') {
 
-        console.log(self.data[value.field]);
-
         if ((self.data[value.field] == undefined || self.data[value.field] == null) || (self.data[value.field] == 0 && value.ignore_zero == true)) {
 
           $('#'+value.container_id).hide();
@@ -155,7 +153,7 @@ function ODChart(config) {
 
         value.ChartData.addRows(c_data);
 
-        self.prepareDataSourceModal(value);
+        self.prepareDataSourceModal(value);  
 
         googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
 
@@ -175,7 +173,7 @@ function ODChart(config) {
 
     //Remove previous DOM
     container.siblings('.data_source_bar').remove();
-    container.siblings('.modal').remove();
+    container.siblings('.source-table-wrapper').remove();
 
     container.before(self.getDataSourceButtonTemplate(value));
 
@@ -221,7 +219,7 @@ function ODChart(config) {
               .append(
                 jQuery('<a>').addClass('data_source_btn')
                   .attr('data-target', value.container_id + "_table")
-                  .text(' Data')
+                  .text(' Show Data')
                   .prepend(
                     jQuery('<i>').addClass('fa fa-gear')
                   )
@@ -231,13 +229,10 @@ function ODChart(config) {
 
   this.getTableContainerTemplate = function(value) {
 
-    return jQuery('<div>').addClass('modal')
+    return jQuery('<div>').addClass('source-table-wrapper hide')
             .attr('id', value.container_id +"_table")
             .append(
               jQuery('<div>').addClass('modal-content')
-                .append(
-                  jQuery('<span>').addClass('modal-close').text('x')
-                )
                 .append (
                   jQuery('<div>').addClass('data_table_wrapper')
                     .attr('id', value.container_id + '_table_wrapper')
