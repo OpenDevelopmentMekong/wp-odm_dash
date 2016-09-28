@@ -151,15 +151,23 @@ function ODChart(config) {
           var c_data = self.prepareData(value);  
         }
 
-        value.ChartData.addRows(c_data);
+        if (c_data == false) {
 
-        self.prepareDataSourceModal(value);  
+          $("#"+value.container_id).parent('div').hide();
 
-        googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
+        } else {
 
-        googleChart.draw('table', document.getElementById(value.container_id + '_table_wrapper'), value.ChartData);
+          value.ChartData.addRows(c_data);
 
-        jQuery('#' + value.container_id + '_table_wrapper').prepend(self.getDataSourceLinkTemplate(value));
+          self.prepareDataSourceModal(value);
+
+          googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
+
+          googleChart.draw('table', document.getElementById(value.container_id + '_table_wrapper'), value.ChartData);
+
+          jQuery('#' + value.container_id + '_table_wrapper').prepend(self.getDataSourceLinkTemplate(value));
+
+        }
 
       }
 
@@ -245,20 +253,32 @@ function ODChart(config) {
 
     var result = [];
 
+    var zero_count = 0;
+
     $.map(chart.fields, function(value, index){
       var num_value = self.data[index];
       if (num_value && num_value.match(/,/g)) {
         num_value = num_value.replace(/,/g, '');
       }
-      if (num_value == null) {
+
+      if (num_value == null || num_value == '') {
         num_value = 0;
       }
+
+      if (num_value == 0) {
+        zero_count++;
+      }
+
       var row_data = [value, parseInt(num_value, 10)];
       if(chart.colors != undefined) {
         row_data.push(chart.colors[index]);
       }
       result.push(row_data);
     });
+
+    if (result.length == zero_count) {
+      return false;
+    }
 
     return result;
 
