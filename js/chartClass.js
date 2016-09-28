@@ -181,7 +181,7 @@ function ODChart(config) {
 
     //Remove previous DOM
     container.siblings('.data_source_bar').remove();
-    container.siblings('.modal').remove();
+    container.siblings('.source-table-wrapper').remove();
 
     container.before(self.getDataSourceButtonTemplate(value));
 
@@ -227,7 +227,7 @@ function ODChart(config) {
               .append(
                 jQuery('<a>').addClass('data_source_btn')
                   .attr('data-target', value.container_id + "_table")
-                  .text(' Data')
+                  .text(' Show Data')
                   .prepend(
                     jQuery('<i>').addClass('fa fa-gear')
                   )
@@ -237,13 +237,10 @@ function ODChart(config) {
 
   this.getTableContainerTemplate = function(value) {
 
-    return jQuery('<div>').addClass('modal')
+    return jQuery('<div>').addClass('source-table-wrapper hide')
             .attr('id', value.container_id +"_table")
             .append(
               jQuery('<div>').addClass('modal-content')
-                .append(
-                  jQuery('<span>').addClass('modal-close').text('x')
-                )
                 .append (
                   jQuery('<div>').addClass('data_table_wrapper')
                     .attr('id', value.container_id + '_table_wrapper')
