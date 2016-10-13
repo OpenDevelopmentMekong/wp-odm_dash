@@ -19,10 +19,13 @@
 <div id="region_name_wrapper">
 	<div class="container">
 		<div class="row">
-			<div class="ten columns">
+			<div class="four columns" style="margin-left: 0px;">
 				<h1 id="region_name">Myanmar</h1>			
 			</div>
-			<div class="six columns" id="back_to_map">
+			<div class="ten columns">
+				<div id="dash_search_box"></div>
+			</div>
+			<div class="two columns" id="back_to_map">
 				<a href="#mymap"><i class="fa fa-angle-up"></i> back to map</a>
 			</div>
 		</div>
@@ -34,17 +37,17 @@
 			ST PCODE : <span id="st_pcode">MMR</span> 
 			<span class="ts_chart" style="margin-left:30px;">TS PCODE : <span id="ts_pcode"></span></span>
 		</p>
-		<div id="dash_search_box"></div>
 		<div id="dash_map_wrapper">
 			<div id="mymap"></div>	
 		</div>
 		<span id="overlayregion"></span>
 		<div class="general_info">
-			<h5>Total Population : <span id="total_population"></span></h5>
-			<h5>Area : <span id="region_area"></span> km<sup>2</sup></h5>
-			<h5>Number of Wards : <span id="wards_num"></span></h5>
-			<h5>Number of Village Tracts : <span id="village_tracts_num"></span></h5>
-			<h5>Number of Villages : <span id="villages_num"></span></h5>	
+			<h5 id="total_population"></h5>
+			<h5 id="total_population_non_enumerated"></h5>
+			<h5 id="region_area"></h5>
+			<h5 id="wards_num"></h5>
+			<h5 id="village_tracts_num"></h5>
+			<h5 id="villages_num"></h5>	
 		</div>
 		<div class="map_instruction">Double click to zoom in to township level and Click on <i class="fa fa-map-marker"></i> to go back to union level.</div>
 	</div>
@@ -273,8 +276,22 @@
 	</div>
 </section> <!-- END OF GOVERMENT SECTION -->
 
+<!-- ECONOMY AND INDUSTRIES -->
+<div class="row" id="economy">
+	<div class="container">
+		<h4 class="section_title">Economy & Industries</h4>
+		<div class="row chart_wrapper st_chart union_chart">
+			<div id="revenue_expenditure" class="normal_chart"></div>
+		</div>
+		<div class="row chart_wrapper">
+			<div id="labour_usual_activity_10ab" class="normal_chart full-width-charts" style="height:auto;margin-top: 50px;"></div>
+			<div class="note-text">* Right click to go up one level.</div>
+		</div>
+	</div>
+</div> <!-- END OF ECONOMY AND INDUSTRIES -->
+
 <!-- EDUCATION -->
-<div class="row viz-section" id="education">
+<div class="row viz-section even" id="education">
 	<div class="container">
 		<h4 class="section_title">Education</h4>
 		<!-- <div class="row chart_wrapper">
@@ -282,7 +299,6 @@
 		</div> -->
 		<h2>Literacy rate</h2>
 		<div class="row chart_wrapper">
-			<h4>Overall</h4>
 			<div class="eight columns">
 				<div id="lit_rate_overall_pie" class="normal_chart"></div>
 			</div>
@@ -291,7 +307,6 @@
 			</div>
 		</div>
 		<div class="row chart_wrapper">
-			<h4>Urban</h4>
 			<div class="eight columns">
 				<div id="lit_rate_urban_pie" class="normal_chart"></div>
 			</div>
@@ -300,7 +315,6 @@
 			</div>
 		</div>
 		<div class="row chart_wrapper">
-			<h4>Rural</h4>
 			<div class="eight columns">
 				<div id="lit_rate_rural_pie" class="normal_chart"></div>
 			</div>
@@ -323,20 +337,6 @@
 		</div>
 	</div>
 </div> <!-- END OF EDUCTAION SECTION -->
-
-<!-- ECONOMY AND INDUSTRIES -->
-<div class="row viz-section even" id="economy">
-	<div class="container">
-		<h4 class="section_title">Economy & Industries</h4>
-		<div class="row chart_wrapper st_chart union_chart">
-			<div id="revenue_expenditure" class="normal_chart"></div>
-		</div>
-		<div class="row chart_wrapper">
-			<div id="labour_usual_activity_10ab" class="normal_chart full-width-charts" style="height:auto;margin-top: 50px;"></div>
-			<div class="note-text">* Right click to go up one level.</div>
-		</div>
-	</div>
-</div> <!-- END OF ECONOMY AND INDUSTRIES -->
 
 <!-- HEALTH -->
 <div class="row viz-section" id="health">

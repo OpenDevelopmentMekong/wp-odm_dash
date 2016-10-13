@@ -64,28 +64,36 @@ var charts = {
   // ====================== HEALTH EDUCATION CHART ========================= //
   health_education : {
     region_area : {
+      title : 'Area',
       container_id : 'region_area',
       chart_type : 'text',
       field : 'area_km2',
+      unit : 'km<sup>2</sup>',
       numberformat : true
     },
     village_tracts_num : {
+      title : 'Number of Village Tracts',
       container_id : 'village_tracts_num',
       chart_type : 'text',
       field : 'number_vt',
-      numberformat : true
+      numberformat : true,
+      ignore_zero : true
     },
     wards_num : {
+      title : 'Number of Wards',
       container_id : 'wards_num',
       chart_type : 'text',
       field : 'number_w',
-      numberformat : true
+      numberformat : true,
+      ignore_zero : true
     },
     villages_num : {
+      title : 'Number of Villages',
       container_id : 'villages_num',
       chart_type : 'text',
       field : 'number_v',
-      numberformat : true
+      numberformat : true,
+      ignore_zero : true
     },
     school : {
       container_id : 'school_chart',
@@ -325,10 +333,20 @@ var charts = {
 
     // DEMOGRAPHIC
     total_population : {
+      title : 'Total Population (Enumerated)',
       container_id : 'total_population',
       chart_type : 'text',
       field : 'pop_t',
-      numberformat : true
+      numberformat : true,
+      ignore_zero : true
+    },
+    total_population_non_enumerated : {
+      title : 'Total Population (Non-Enumerated)',
+      container_id : 'total_population_non_enumerated',
+      chart_type : 'text',
+      field : 'pop_t_ne',
+      numberformat : true,
+      ignore_zero : true
     },
     mean_household_size : {
       container_id : 'mean_household_size',
@@ -441,7 +459,7 @@ var charts = {
     lit_rate_overall_pie : {
       container_id : 'lit_rate_overall_pie',
       chart_options : {
-        title : ''
+        title : 'Overall'
       },
       chart_type : 'donut',
       columns : {
@@ -482,7 +500,7 @@ var charts = {
     lit_rate_urban_pie : {
       container_id : 'lit_rate_urban_pie',
       chart_options : {
-        title : ''
+        title : 'Urban'
       },
       chart_type : 'donut',
       columns : {
@@ -524,7 +542,7 @@ var charts = {
     lit_rate_rural_pie : {
       container_id : 'lit_rate_rural_pie',
       chart_options : {
-        title : ''
+        title : 'Rural'
       },
       chart_type : 'donut',
       columns : {
@@ -750,12 +768,11 @@ var charts = {
         'Revenue / Expenditure' : 'string',
         'Governance and Administration High Court Advocate General Auditor General' : 'number',
         'Departments and DAOs28 Ministries Administrative Departments and Municipalities' : 'number',
-        'State Owned Enterprises' : 'number',
-        'Total' : 'number'
+        'State Owned Enterprises' : 'number'
       },
       fields : [
-        ['Expenditure', 'exp_adm', 'exp_min_dept', 'exp_state_ent', 'exp_total'],
-        ['Revenue', 'rev_adm', 'rev_min_dept', 'rev_state_ent', 'rev_total']
+        ['Expenditure', 'exp_adm', 'exp_min_dept', 'exp_state_ent'],
+        ['Revenue', 'rev_adm', 'rev_min_dept', 'rev_state_ent']
       ]
     }    
   }

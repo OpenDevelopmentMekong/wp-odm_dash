@@ -109,13 +109,33 @@ function ODChart(config) {
 
       if(value.chart_type == 'text') {
 
-        if (value.numberformat == true) {
-          var f_val = self.formatNumber(self.data[value.field]);
-        } else {
-          var f_val = self.data[value.field];
-        }
-        $('#'+value.container_id).text(f_val);
+        if ((self.data[value.field] == undefined || self.data[value.field] == null) || (self.data[value.field] == 0 && value.ignore_zero == true)) {
 
+          $('#'+value.container_id).hide();
+
+        } else {
+
+          // Format Number
+          if (value.numberformat == true) {
+            var f_val = self.formatNumber(self.data[value.field]);
+          } else {
+            var f_val = self.data[value.field];
+          }
+
+          // Check if there *title* field option
+          if (value.title != undefined && value.title != '') {
+            f_val = value.title + ' : ' + f_val;
+          }
+
+          if (value.unit != undefined && value.unit != '') {
+            f_val += ' ' + value.unit;
+          }
+
+          $('#'+value.container_id).html(f_val);
+          $('#'+value.container_id).show();
+
+        }
+  
       } else {
     
         var row_count = value.ChartData.getNumberOfRows();
@@ -131,15 +151,23 @@ function ODChart(config) {
           var c_data = self.prepareData(value);  
         }
 
-        value.ChartData.addRows(c_data);
+        if (c_data == false) {
 
-        self.prepareDataSourceModal(value);
+          $("#"+value.container_id).parent('div').hide();
 
-        googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
+        } else {
 
-        googleChart.draw('table', document.getElementById(value.container_id + '_table_wrapper'), value.ChartData);
+          value.ChartData.addRows(c_data);
 
-        jQuery('#' + value.container_id + '_table_wrapper').prepend(self.getDataSourceLinkTemplate(value));
+          self.prepareDataSourceModal(value);
+
+          googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
+
+          googleChart.draw('table', document.getElementById(value.container_id + '_table_wrapper'), value.ChartData);
+
+          jQuery('#' + value.container_id + '_table_wrapper').prepend(self.getDataSourceLinkTemplate(value));
+
+        }
 
       }
 
@@ -153,7 +181,7 @@ function ODChart(config) {
 
     //Remove previous DOM
     container.siblings('.data_source_bar').remove();
-    container.siblings('.modal').remove();
+    container.siblings('.source-table-wrapper').remove();
 
     container.before(self.getDataSourceButtonTemplate(value));
 
@@ -199,7 +227,7 @@ function ODChart(config) {
               .append(
                 jQuery('<a>').addClass('data_source_btn')
                   .attr('data-target', value.container_id + "_table")
-                  .text(' Data')
+                  .text(' Show Data')
                   .prepend(
                     jQuery('<i>').addClass('fa fa-gear')
                   )
@@ -209,13 +237,10 @@ function ODChart(config) {
 
   this.getTableContainerTemplate = function(value) {
 
-    return jQuery('<div>').addClass('modal')
+    return jQuery('<div>').addClass('source-table-wrapper hide')
             .attr('id', value.container_id +"_table")
             .append(
               jQuery('<div>').addClass('modal-content')
-                .append(
-                  jQuery('<span>').addClass('modal-close').text('x')
-                )
                 .append (
                   jQuery('<div>').addClass('data_table_wrapper')
                     .attr('id', value.container_id + '_table_wrapper')
@@ -228,20 +253,32 @@ function ODChart(config) {
 
     var result = [];
 
+    var zero_count = 0;
+
     $.map(chart.fields, function(value, index){
       var num_value = self.data[index];
       if (num_value && num_value.match(/,/g)) {
         num_value = num_value.replace(/,/g, '');
       }
-      if (num_value == null) {
+
+      if (num_value == null || num_value == '') {
         num_value = 0;
       }
+
+      if (num_value == 0) {
+        zero_count++;
+      }
+
       var row_data = [value, parseInt(num_value, 10)];
       if(chart.colors != undefined) {
         row_data.push(chart.colors[index]);
       }
       result.push(row_data);
     });
+
+    if (result.length == zero_count) {
+      return false;
+    }
 
     return result;
 
