@@ -16,7 +16,11 @@ if (!class_exists('Odm_Dashboards_Post_Type')) {
             global $post;
 
             if ($post->post_type == 'dashboard') {
-                $single_template = plugin_dir_path(__FILE__).'templates/single-dashboard.php';
+                if (file_exists(plugin_dir_path(__FILE__).'templates/single-dashboard-'.$post->post_name.'.php')) {
+                  $single_template = plugin_dir_path(__FILE__).'templates/single-dashboard-'.$post->post_name.'.php';
+                } else {
+                  $single_template = plugin_dir_path(__FILE__).'templates/single-dashboard.php';  
+                }
             }
 
             return $single_template;
@@ -47,7 +51,7 @@ if (!class_exists('Odm_Dashboards_Post_Type')) {
               'publicly_queryable' => true,
               'show_ui'            => true,
               'show_in_menu'       => true,
-  			      'menu_icon'          => '',
+  			      'menu_icon'          => 'dashicons-chart-pie',
               'query_var'          => true,
               'rewrite'            => array( 'slug' => 'dashboard' ),
               'capability_type'    => 'page',
