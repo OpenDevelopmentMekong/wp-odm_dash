@@ -10,10 +10,9 @@
 	  </div>
 	</div>
 </section>
-
 <section class="container">
 	<div class="row">
-		<h1>Overview of Myanmar</h1>
+		<h1><?php the_title(); ?></h1>
 	</div>
 </section>
 <div id="region_name_wrapper">
@@ -445,7 +444,12 @@
 	wp_register_script('wpdash-chart-class', plugins_url().'/wp-odm_dash/js/chartClass.js', array('jquery'));
 	wp_enqueue_script('wpdash-chart-class');
 	wp_register_script('wpdash-util', plugins_url().'/wp-odm_dash/js/util.js', array('jquery'));
+	wp_localize_script('wpdash-util','dashboard', array(
+		'ajax_url' => admin_url('admin-ajax.php')
+	));
 	wp_enqueue_script('wpdash-util');
+
+
 
 ?>
 
