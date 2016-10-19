@@ -8,19 +8,15 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
         {
           add_action('init', array($this, 'register_post_type'));
           add_action('save_post', array($this, 'save_post_data'));
-          add_filter('single_template', array($this, 'get_dashboards_template'));
+          add_filter('single_template', array($this, 'get_dataviz_template'));
         }
 
-        public function get_dashboards_template($single_template)
+        public function get_dataviz_template($single_template)
         {
             global $post;
 
             if ($post->post_type == 'dataviz') {
-                if (file_exists(plugin_dir_path(__FILE__).'templates/single-dataviz-'.$post->post_name.'.php')) {
-                  $single_template = plugin_dir_path(__FILE__).'templates/single-dataviz-'.$post->post_name.'.php';
-                } else {
-                  $single_template = plugin_dir_path(__FILE__).'templates/single-dataviz.php';  
-                }
+                $single_template = plugin_dir_path(__FILE__).'templates/single-dataviz.php';  
             }
 
             return $single_template;
