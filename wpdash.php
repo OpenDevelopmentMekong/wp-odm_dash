@@ -15,6 +15,7 @@ require_once plugin_dir_path(__FILE__).'utils/wpdash-utils.php';
 
 // Require post types
 require_once plugin_dir_path(__FILE__).'post-types/dashboards.php';
+require_once plugin_dir_path(__FILE__).'post-types/datavizs.php';
 
 include_once plugin_dir_path(__FILE__).'utils/wpdash-options.php';
 $GLOBALS['wpdash_options'] = new Wpdash_Options();
@@ -35,6 +36,7 @@ if (!class_exists('Odm_Dashboards_Plugin')) {
 
             if (null == self::$post_type) {
               self::$post_type = new Odm_Dashboards_Post_Type();
+              self::$post_type = new Odm_DataViz_Post_Type();
             }
 
             return self::$instance;
@@ -78,7 +80,7 @@ if (!class_exists('Odm_Dashboards_Plugin')) {
         public function check_requirements()
         {
             if (!check_requirements_dashboards()):
-              echo '<div class="error"><p>ODM Dashboards is missconfigured. Please check.</p></div>';
+              echo '<div class="error"><p>ODM Dashboard: WPCKAN plugin is missing, deactivated or missconfigured. Please check.</p></div>';
             endif;
         }
 
