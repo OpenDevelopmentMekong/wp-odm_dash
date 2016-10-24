@@ -16,10 +16,10 @@ if (!class_exists('Odm_Dashboards_Post_Type')) {
             global $post;
 
             if ($post->post_type == 'dashboard') {
-                if (file_exists(plugin_dir_path(__FILE__).'templates/single-dashboard-'.$post->post_name.'.php')) {
-                  $single_template = plugin_dir_path(__FILE__).'templates/single-dashboard-'.$post->post_name.'.php';
+                if (file_exists(plugin_dir_path(__FILE__).'templates/dashboard/single-dashboard-'.$post->post_name.'.php')) {
+                  $single_template = plugin_dir_path(__FILE__).'templates/dashboard/single-dashboard-'.$post->post_name.'.php';
                 } else {
-                  $single_template = plugin_dir_path(__FILE__).'templates/single-dashboard.php';  
+                  $single_template = plugin_dir_path(__FILE__).'templates/dashboard/single-dashboard.php';  
                 }
             }
 
@@ -58,7 +58,7 @@ if (!class_exists('Odm_Dashboards_Post_Type')) {
               'has_archive'        => true,
               'hierarchical'       => true,
               'menu_position'      => 5,
-              //'taxonomies'         => array('category', 'language', 'post_tag'),
+              'taxonomies'         => array('category', 'language', 'post_tag'),
               'supports' => array('title', 'editor', 'page-attributes', 'revisions', 'author', 'thumbnail')
             );
 
