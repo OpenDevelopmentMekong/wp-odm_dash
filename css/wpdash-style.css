@@ -40,13 +40,11 @@
 #overlayregion {
 	position: absolute;
     z-index:6;
-    right: 40px;
-    top: 240px;
     background:rgba(0,0,0,.75);
     color:white;
     padding:.5em .75em;
     font-size:1em;
-    display:none;
+    display: none;
 }
 
 #pcode_wrapper {

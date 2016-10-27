@@ -282,7 +282,7 @@ jQuery( document ).ready(function() {
 
   function enterSTLayer(e){
     var regionName = this.feature.properties.ST;
-    $tooltip.text(regionName).show();
+    showTooltip(regionName);
 
     this.setStyle({
       fillOpacity: 0.7
@@ -290,6 +290,13 @@ jQuery( document ).ready(function() {
 
     /*this.bringToFront();
     */
+  }
+
+  function showTooltip(regionName) {
+    $tooltip.text(regionName).show();
+    $tooltip.css('left', event.pageX - 150);      // <<< use pageX and pageY
+    $tooltip.css('top', event.pageY - 400);
+    $tooltip.css('display','inline');     
   }
 
   function leaveSTLayer(e){
@@ -301,7 +308,7 @@ jQuery( document ).ready(function() {
 
   function enterTSLayer(e){
     var regionName = this.feature.properties.TS;
-    $tooltip.text(regionName).show();
+    showTooltip(regionName);
 
     this.setStyle({
       fillOpacity:0
