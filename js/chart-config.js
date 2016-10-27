@@ -22,11 +22,11 @@ var charts = {
   // ================== Labour Tree Map ===================== //
   st_population : {
     chart_options : {
-      title : 'Population Pyramid of Myanmar',
+      title : 'Population pyramid of Myanmar',
       isStacked: true,        // stacks the bars
       vAxis: {
         direction: -1, // reverses the chart upside down
-        title : 'Age Groups'
+        title : 'Age groups'
       },
       hAxis: {
         format: "#,###;#,###"
@@ -53,7 +53,7 @@ var charts = {
       '75_79' : '75-79',
       '80_84' : '80-84',
       '85_89' : '85-89',
-      '90ab' : '90 yrs and Above'
+      '90ab' : '>90'
     },
     columns : {
       "Age" : 'string',
@@ -72,7 +72,7 @@ var charts = {
       numberformat : true
     },
     village_tracts_num : {
-      title : 'Number of Village Tracts',
+      title : 'Number of village tracts',
       container_id : 'village_tracts_num',
       chart_type : 'text',
       field : 'number_vt',
@@ -80,7 +80,7 @@ var charts = {
       ignore_zero : true
     },
     wards_num : {
-      title : 'Number of Wards',
+      title : 'Number of wards',
       container_id : 'wards_num',
       chart_type : 'text',
       field : 'number_w',
@@ -88,7 +88,7 @@ var charts = {
       ignore_zero : true
     },
     villages_num : {
-      title : 'Number of Villages',
+      title : 'Number of villages',
       container_id : 'villages_num',
       chart_type : 'text',
       field : 'number_v',
@@ -113,9 +113,9 @@ var charts = {
         'Number of School' : 'number'
       },
       fields : {
-        'pri_school' : 'Primary School',
-        'mid_school' : 'Middle School',
-        'high_school' : 'High School'
+        'pri_school' : 'Primary school',
+        'mid_school' : 'Middle school',
+        'high_school' : 'High school'
       },
       colors : {
         'pri_school' : 'green',
@@ -138,12 +138,12 @@ var charts = {
       },
       columns : {
         'Students' : 'string',
-        'Number of Students' : 'number'
+        'Number of students' : 'number'
       },
       fields : {
-        'pri_students' : 'Primary School Students',
-        'mid_students' : 'Middle School Students',
-        'high_students' : 'High School Students'
+        'pri_students' : 'Primary school students',
+        'mid_students' : 'Middle school students',
+        'high_students' : 'High school students'
       },
       colors : {
         'pri_students' : 'green',
@@ -155,7 +155,7 @@ var charts = {
       container_id : 'teacher_chart',
       chart_type : 'column',
       chart_options : {
-        title : 'Number of Teachers',
+        title : 'Number of teachers',
         legend: { position: "none" },
         vAxis : {
           title : 'Number of teachers'
@@ -166,12 +166,12 @@ var charts = {
       },
       columns : {
         'Teachers' : 'string',
-        'Number of Teachers' : 'number'
+        'Number of teachers' : 'number'
       },
       fields : {
-        'pri_teacher' : 'Primary School Teachers',
-        'mid_teacher' : 'Middle School Teachers',
-        'high_teacher' : 'High School Teachers'
+        'pri_teacher' : 'Primary school teachers',
+        'mid_teacher' : 'Middle school teachers',
+        'high_teacher' : 'High school teachers'
       },
       colors : {
         'pri_teacher' : 'green',
@@ -183,32 +183,29 @@ var charts = {
       container_id : 'hospital_healthcenter',
       chart_type : 'table',
       chart_options : {
-        title : 'Number of Hospitals and Health Centers'
+        title : 'Breakdown of medical facilities by type'
       },
       columns : {
         'Type' : 'string',
         'Number' : 'number'
       },
       fields : {
-        'gen_hos' : 'General Hospitals',
-        'dis_hos' : 'District Hospitals',
-        'town_hos' : 'Township Hospitals',
-        'station_hos' : 'Station Hospitals',
-        'mch_center' : 'Maternal and Child Health Centers',
-        'rhc' : 'Rural Health Centers',
-        'srhc' : 'Sub rural Health Centers'
+        'gen_hos' : 'General hospitals',
+        'dis_hos' : 'District hospitals',
+        'town_hos' : 'Township hospitals',
+        'station_hos' : 'Station hospitals',
+        'mch_center' : 'Maternal and child health centers',
+        'rhc' : 'Rural health centers',
+        'srhc' : 'Sub rural health centers'
       }
     },
     medical_worker : {
       container_id : 'medical_worker',
       chart_type : 'column',
       chart_options : {
-        title : 'Breakdown of Medical Workers',
+        title : 'Breakdown of medical workers by type',
         vAxis : {
-          title : 'Number of Medical Workers'
-        },
-        hAxis : {
-          title : 'Type of Medical Workers'
+          title : 'Number of medical workers'
         },
         legend : {
           position: 'none'
@@ -233,30 +230,30 @@ var charts = {
     ownership : {
       container_id : 'household_ownership',
       chart_options : {
-        title : 'Ownership of Housing Unit'
+        title : 'Ownership of housing unit'
       },
       chart_type : 'donut',
       columns : {
-        'Type of Ownership' : 'string',
-        'Number of Household' : 'number'
+        'Type of ownership' : 'string',
+        'Number of household' : 'number'
       },
       fields : {
         'ownshp_own' : 'Owner',
         'ownshp_rent' : 'Renter',
-        'ownshp_free' : 'Provided Free Individually',
-        'ownshp_gov' : 'Goverment Quarters',
-        'ownshp_com' : 'Private Company Quarters',
+        'ownshp_free' : 'Provided free individually',
+        'ownshp_gov' : 'Goverment quarters',
+        'ownshp_com' : 'Private company quarters',
         'ownshp_oth' : 'Other'
       }
     },
     light_source : {
       container_id : 'household_light',
       chart_options : {
-        title : 'Source of Light'
+        title : 'Source of light'
       },
       chart_type : 'donut',
       columns : {
-        'Source of Light' : 'string',
+        'Source of light' : 'string',
         'Number of household' : 'number'
       },
       fields : {
@@ -265,17 +262,16 @@ var charts = {
         'light_cand' : 'Candle',
         'light_batt' : 'Battery',
         'light_gen' : 'Generator',
-        'light_wat' : 'Water Mill',
-        'light_sol' : 'Solar System Energy',
+        'light_wat' : 'Water mill',
+        'light_sol' : 'Solar system energy',
         'light_oth' : 'Other'
       }
     },
     communication : {
       container_id : 'household_com',
       chart_options : {
-        title : 'Avaliability of communication and related amenities',
+        title : 'Access to communications and related amenities by type',
         hAxis : {
-          title : 'Communication and amenities type',
           slantedText : true,
           slantedTextAngle: 45
         },
@@ -288,25 +284,22 @@ var charts = {
       },
       chart_type : 'column',
       columns : {
-        'Type of Communication' : 'string',
-        'Number of HouseHold' : 'number'
+        'Type of communication' : 'string',
+        'Number of houseHold' : 'number'
       },
       fields : {
         'com_radio' : 'Radio',
         'com_tv' : 'Television',
-        'com_lline' : 'Land Line Phone',
-        'com_mob' : 'Mobile Phone',
+        'com_lline' : 'Land line phone',
+        'com_mob' : 'Mobile phone',
         'com_comp' : 'Computer',
-        'com_int' : 'Internet at Home'
+        'com_int' : 'Internet at home'
       }
     },
     transportation : {
       container_id : 'household_trans',
       chart_options : {
-        title : 'Access to available transportation',
-        hAxis : {
-          title : 'Transportation Type'
-        },
+        title : 'Access to transportation by type',
         vAxis : {
           title : 'Number of households with access'
         },
@@ -316,24 +309,24 @@ var charts = {
       },
       chart_type : 'column',
       columns : {
-        'Type of Transportation' : 'string',
+        'Type of transportation' : 'string',
         'Number of household' : 'number'
       },
       fields : {
         'trans_car' : 'Car / Truck / Van',
-        'trans_mcyc' : 'Motorcycle Moped',
+        'trans_mcyc' : 'Motorcycle moped',
         'trans_bicyc' : 'Bicycle',
-        'trans_4wheel' : '4 Wheel Tractor',
-        'trans_canoe' : 'Canoe Boat',
-        'trans_mboat' : 'Motor Boat',
-        'trans_cart' : 'Bullock Cart'
+        'trans_4wheel' : '4 Wheel tractor',
+        'trans_canoe' : 'Canoe boat',
+        'trans_mboat' : 'Motor boat',
+        'trans_cart' : 'Bullock cart'
       }
     },
     // END OF HOUSEHOLD
 
     // DEMOGRAPHIC
     total_population : {
-      title : 'Total Population (Enumerated)',
+      title : 'Total population (enumerated)',
       container_id : 'total_population',
       chart_type : 'text',
       field : 'pop_t',
@@ -341,7 +334,7 @@ var charts = {
       ignore_zero : true
     },
     total_population_non_enumerated : {
-      title : 'Total Population (Non-Enumerated)',
+      title : 'Total population (non-enumerated)',
       container_id : 'total_population_non_enumerated',
       chart_type : 'text',
       field : 'pop_t_ne',
@@ -358,7 +351,7 @@ var charts = {
       chart_options : {
         title : 'Number of persons per household',
         hAxis : {
-          title : 'Number of Persons'
+          title : 'Number of persons'
         },
         vAxis : {
           title : 'Number of households'
@@ -369,8 +362,8 @@ var charts = {
       },
       chart_type : 'column',
       columns : {
-        'Household Size' : 'string',
-        'Number of Household'  : 'number'
+        'Household size' : 'string',
+        'Number of household'  : 'number'
       },
       fields : {
         'hh_1' : '1',
@@ -387,7 +380,7 @@ var charts = {
     population_gender : {
       container_id : 'population_gender',
       chart_options : {
-        title : 'Population by Gender Ratio'
+        title : 'Population composition by gender'
       },
       chart_type : 'donut',
       columns : {
@@ -402,31 +395,31 @@ var charts = {
     population_u_r : {
       container_id : 'population_u_r',
       chart_options : {
-        title : 'Population in Rural/Urban'
+        title : 'Population distribution in rural vs urban areas'
       },
       chart_type : 'donut',
       columns : {
-        'Area Type' : 'string',
+        'Area type' : 'string',
         'Population' : 'number'
       },
       fields : {
-        'pop_u' : 'Urban Area',
-        'pop_r' : 'Rural Area'
+        'pop_u' : 'Urban area',
+        'pop_r' : 'Rural area'
       }
     },
     m_f_headed_household : {
       container_id : 'm_f_headed_household',
       chart_options : {
-        title : 'Male or Female Headed Conventional Households'
+        title : 'Male vs Female headed conventional households'
       },
       chart_type : 'donut',
       columns : {
         'Male/Female' : 'string',
-        'Number of Household' : 'number'
+        'Number of household' : 'number'
       },
       fields : {
-        'hh_m' : 'Male Headed Households',
-        'hh_f' : 'Female Headed Households'
+        'hh_m' : 'Male headed households',
+        'hh_f' : 'Female headed households'
       }
     },
     // END OF DEMOGRAPHIC
@@ -459,7 +452,7 @@ var charts = {
     lit_rate_overall_pie : {
       container_id : 'lit_rate_overall_pie',
       chart_options : {
-        title : 'Overall'
+        title : 'Overall literacy rate'
       },
       chart_type : 'donut',
       columns : {
@@ -474,7 +467,7 @@ var charts = {
     lit_rate_overall_gender : {
       container_id : 'lit_rate_overall_gender',
       chart_options : {
-        title : '',
+        title : 'Overall literacy rates by gender',
         legend : {
           position : 'none',
         },
@@ -500,11 +493,11 @@ var charts = {
     lit_rate_urban_pie : {
       container_id : 'lit_rate_urban_pie',
       chart_options : {
-        title : 'Urban'
+        title : 'Urban literacy rate'
       },
       chart_type : 'donut',
       columns : {
-        'Literate or Illiterate' : 'string',  
+        'Literate or illiterate' : 'string',  
         'Percentage' : 'number'
       },
       fields : {
@@ -515,7 +508,7 @@ var charts = {
     lit_rate_urban_gender : {
       container_id : 'lit_rate_urban_gender',
       chart_options : {
-        title : '',
+        title : 'Urban literacy rates by gender',
         legend : {
           position : 'none',
         },
@@ -542,11 +535,11 @@ var charts = {
     lit_rate_rural_pie : {
       container_id : 'lit_rate_rural_pie',
       chart_options : {
-        title : 'Rural'
+        title : 'Rural literacy rate'
       },
       chart_type : 'donut',
       columns : {
-        'Literate or Illiterate' : 'string',  
+        'Literate or illiterate' : 'string',  
         'Percentage' : 'number'
       },
       fields : {
@@ -557,7 +550,7 @@ var charts = {
     lit_rate_rural_gender : {
       container_id : 'lit_rate_rural_gender',
       chart_options : {
-        title : '',
+        title : 'Rural literacy rates by gender',
         legend : {
           position : 'none',
         },
@@ -598,11 +591,11 @@ var charts = {
       fields : {
         'usuact_10ab_govemp_t' : {
           parent : 'Employed',
-          data_dictionary : 'Goverment Employee'
+          data_dictionary : 'Goverment employee'
         },
         'usuact_10ab_priemp_t' : {
           parent : 'Employed',
-          data_dictionary : 'Private Employee'
+          data_dictionary : 'Private employee'
         },
         'usuact_10ab_empyr_t' : {
           parent : 'Employed',
@@ -610,38 +603,38 @@ var charts = {
         },
         'usuact_10ab_ownacc_t' : {
           parent : 'Employed',
-          data_dictionary : 'Own Account Worker'
+          data_dictionary : 'Own account worker'
         },
         'usuact_10ab_unpfam_t' : {
           parent : 'Employed',
-          data_dictionary : 'Unpaid Family Worker'
+          data_dictionary : 'Unpaid family worker'
         },
         'usuact_10ab_seekw_t' : {
           parent : 'UnEmployed',
-          data_dictionary : 'Sought Work'
+          data_dictionary : 'Sought work'
         },
         'usuact_10ab_nseekw_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Did not Seek Work'
+          parent : 'Economically inactive',
+          data_dictionary : 'Did not seek work'
         },
         'usuact_10ab_stu_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Full Time Student'
+          parent : 'Economically inactive',
+          data_dictionary : 'Full time student'
         },
         'usuact_10ab_hhwork_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Household Worker'
+          parent : 'Economically inactive',
+          data_dictionary : 'Household worker'
         },
         'usuact_10ab_retir_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Pensioner Retired Elderly'
+          parent : 'Economically inactive',
+          data_dictionary : 'Pensioner retired elderly'
         },
         'usuact_10ab_ill_t' : {
-          parent : 'Economically Inactive',
-          data_dictionary : 'Ill Disabled'
+          parent : 'Economically inactive',
+          data_dictionary : 'Ill disabled'
         },
         'usuact_10ab_oth_t' : {
-          parent : 'Economically Inactive',
+          parent : 'Economically inactive',
           data_dictionary : 'Other'
         }
       },
@@ -652,10 +645,10 @@ var charts = {
       },
       parents : [
         ['Economy', null, 0],
-        ['Economically Active', 'Economy', 0],
-        ['Economically Inactive', 'Economy', 0],
-        ['Employed', 'Economically Active', 0],
-        ['UnEmployed', 'Economically Active', 0]
+        ['Economically active', 'Economy', 0],
+        ['Economically inactive', 'Economy', 0],
+        ['Employed', 'Economically active', 0],
+        ['UnEmployed', 'Economically active', 0]
       ]
     }
   },
@@ -666,7 +659,7 @@ var charts = {
   ts_election_lower_2010 : {
     party_result : {
       chart_options : {
-        title : 'Votes Obtained by Party for Pyitthu Hluttaw, Myanmar General Election ,2010',
+        title : 'Votes obtained by party for Pyitthu Hluttaw, Myanmar General Election ,2010',
         isStacked: 'percent',
         hAxis : {
           title : 'Votes'
@@ -688,7 +681,7 @@ var charts = {
   ts_election_lower_2012 : {
     party_result : {
       chart_options : {
-        title : 'Votes Obtained by Party for Pyitthu Hluttaw, Myanmar by-elections, 2012',
+        title : 'Votes obtained by party for Pyitthu Hluttaw, Myanmar by-elections, 2012',
         isStacked: 'percent',
         hAxis : {
           title : 'Votes'
@@ -710,7 +703,7 @@ var charts = {
   ts_election_lower_2015 : {
     party_result : {
       chart_options : {
-        title : 'Votes Obtained by Party for Pyitthu Hluttaw, Myanmar General Election, 2015',
+        title : 'Votes obtained by party for Pyitthu Hluttaw, Myanmar General Election, 2015',
         isStacked: 'percent',
         hAxis : {
           title : 'Votes'
@@ -732,7 +725,7 @@ var charts = {
   st_election_2015 : {
     party_result : {
       chart_options : {
-        title : 'Votes Obtained by Party for State/Region Parliament, Myanmar General Election, 2015',
+        title : 'Votes obtained by party for State/Region Parliament, Myanmar General Election, 2015',
         isStacked : 'percent',
         hAxis : {
           title : 'Seats'
@@ -758,7 +751,7 @@ var charts = {
   revenue_expenditure : {
     revenue_expenditure : {
       chart_options : {
-        title : '2013-14 Expenditure and Revenue (in millions of Kyats)'
+        title : '2013-14 expenditure and revenue (in millions of Kyats)'
       },
       chart_type : 'column',
       container_id : 'revenue_expenditure',
@@ -766,9 +759,9 @@ var charts = {
       fixed_structure : true,
       columns : {
         'Revenue / Expenditure' : 'string',
-        'Governance and Administration High Court Advocate General Auditor General' : 'number',
-        'Departments and DAOs28 Ministries Administrative Departments and Municipalities' : 'number',
-        'State Owned Enterprises' : 'number'
+        'Governance and administration high court advocate general auditor general' : 'number',
+        'Departments and DAOs28 ministries administrative departments and municipalities' : 'number',
+        'State owned enterprises' : 'number'
       },
       fields : [
         ['Expenditure', 'exp_adm', 'exp_min_dept', 'exp_state_ent'],
@@ -794,7 +787,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/1b8b8832-0b56-4a93-8d6e-4293edff2ad5/resource/bc5b9344-10de-45eb-8e15-af4aa33c1255',
       dataset_id : '1b8b8832-0b56-4a93-8d6e-4293edff2ad5',
       filename : 'Demo-Health-Edu-MIMUBLUnionStateRegion.csv',
-      resource_title : 'MIMU Baseline Data',
+      resource_title : 'MIMU baseline data',
       filters : {
         pcode : 'pcode_st'
       }
@@ -810,7 +803,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/2f4131fa-04f3-4c25-a471-b8ebf53d92d3/resource/27a9753e-8453-4097-bec3-6e4929134e61',
       dataset_id : '2f4131fa-04f3-4c25-a471-b8ebf53d92d3',
       filename : 'Demo-Health-Edu-DataMIMU-BL.csv',
-      resource_title : 'MIMU Baseline Data',
+      resource_title : 'MIMU baseline data',
       filters : {
         pcode : 'pcode_ts'
       }
@@ -825,7 +818,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5',
       dataset_id : '7bc0cabc-3c01-44fe-ba30-943a360c56fb',
       filename : 'HouseholdspopulationBasedDatasetSRUnion.csv',
-      resource_title : '2014 Myanmar Population and Housing Census',
+      resource_title : '2014 Myanmar population and housing census',
       filters : {
         pcode : 'pcode_st'
       }
@@ -840,7 +833,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/be760472-6224-4d73-b309-335d732cab93/resource/bc278a05-1ea9-4348-9352-9e14cd5ed8a3',
       dataset_id : 'be760472-6224-4d73-b309-335d732cab93',
       filename : 'HouseholdPopulationbaseddatasetMIMUTownshipsHouseholdAmenities.csv',
-      resource_title : '2014 Myanmar Population and Housing Census',
+      resource_title : '2014 Myanmar population and housing census',
       filters : {
         pcode : 'pcode_ts'
       }
@@ -855,7 +848,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/be760472-6224-4d73-b309-335d732cab93/resource/1edc5ad5-9e50-4a24-8fbe-fa35c3645e74',
       dataset_id : 'be760472-6224-4d73-b309-335d732cab93',
       filename : 'census2014stateregionreligion.csv',
-      resource_title : '2014 Myanmar Population and Housing Census: Report on religion',
+      resource_title : '2014 Myanmar population and housing census: Report on religion',
       filters : {
         pcode : 'pcode'
       }
@@ -864,7 +857,7 @@ var chartconfig = {
       religion : {
         container_id : 'religion_chart',
         chart_options : {
-          title : 'Religion'
+          title : 'Religions'
         },
         chart_type : 'donut',
         columns : {
@@ -877,8 +870,8 @@ var chartconfig = {
           'islam' : 'Islam',
           'hindu' : 'Hindu',
           'animist' : 'Animist',
-          'other_religion' : 'Other Religion',
-          'non_enumerated_pop' : 'Non Enumerated Population'
+          'other_religion' : 'Other religion',
+          'non_enumerated_pop' : 'Non enumerated population'
         }
       }
     }
@@ -890,7 +883,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/4046d3a9-0705-43af-b753-04b7b9af6e2f/resource/4b96995f-7b24-4b6f-b423-d149f9f2ab21',
       dataset_id : '4046d3a9-0705-43af-b753-04b7b9af6e2f',
       filename : 'Area-and-Populatin-density-by-State-and-Region.csv',
-      resource_title : '2014 Myanmar Population and Housing Census Main Report',
+      resource_title : '2014 Myanmar population and housing census main report',
       singlerow : true,
       private : true,
       filters : {
@@ -901,7 +894,7 @@ var chartconfig = {
       pop_over_year : {
         container_id : 'pop_over_year',
         chart_options : {
-          title : 'Population in 1973, 1983 and 2014'
+          title : 'Population growth 1973-2014'
         },
         chart_type : 'line',
         columns : {
@@ -923,7 +916,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/7ab77f5e-778c-488a-b7fe-5dbce90ec6b7/resource/1d1859d8-5413-4c63-a89b-46a5787d7593',
       dataset_id : '7ab77f5e-778c-488a-b7fe-5dbce90ec6b7',
       filename : '2010electionresultspyithu.csv',
-      resource_title : 'Union Election Commission',
+      resource_title : 'Union election commission',
       singlerow : false,
       filters : {
         pcode : 'pcode_ts'
@@ -939,7 +932,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/4d1e3e8d-4a62-4812-8e8b-5f5293aea320/resource/cfc49c33-8a78-4e7c-bfa9-35ade242e160',
       dataset_id : '4d1e3e8d-4a62-4812-8e8b-5f5293aea320',
       filename : '2012electionresultspyithu.csv',
-      resource_title : 'Union Election Commission',
+      resource_title : 'Union election commission',
       singlerow : false,
       filters : {
         pcode : 'pcode_ts'
@@ -955,7 +948,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/ffc908b5-f13b-4085-8e77-3d0598ba6856/resource/43fd641a-35a9-4d6d-bfd0-8eabc52ca316',
       dataset_id : 'ffc908b5-f13b-4085-8e77-3d0598ba6856',
       filename : '2015electionresultspyithu.csv',
-      resource_title : 'Union Election Commission',
+      resource_title : 'Union election commission',
       singlerow : false,
       filters : {
         pcode : 'pcode_ts'
@@ -971,7 +964,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/4bbcff3a-b480-406a-8882-86d82655bcf1/resource/617724b4-351c-4d9c-b6dd-88fcc0495869',
       dataset_id : '4bbcff3a-b480-406a-8882-86d82655bcf1',
       filename : 'Election-Results-for-State-and-Region-Seats.csv',
-      resource_title : 'Union Election Commission',
+      resource_title : 'Union election commission',
       singlerow : false,
       filters : {
         pcode : 'pcode_st'
@@ -1029,7 +1022,7 @@ var chartconfig = {
       tree_cover_loss : {
         container_id : 'tree_cover_loss',
         chart_options : {
-          title : 'Tree Cover Loss (2001 - 2014)',
+          title : 'Tree cover loss (2001 - 2014)',
           vAxis : {
             title : '(Ha)'
           }
@@ -1037,7 +1030,7 @@ var chartconfig = {
         chart_type : 'line',
         columns : {
           'Year' : 'string',
-          'Tree Cover Loss (Ha)' : 'number'
+          'Tree cover loss (Ha)' : 'number'
         },
         fields : {
           'tcl_2001' : '2001',
@@ -1065,7 +1058,7 @@ var chartconfig = {
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/the-levels-of-cbr-tfr-and-total-marital-fertility-rates-tmfr-by-state-region-and-childhood-mortalit/resource/01f16e66-0280-44cc-b728-90d362b450cc',
       dataset_id : '493e50f6-de0d-46aa-89ce-975e6a964af7',
       filename : '2014-Census-Health.xlsx',
-      resource_title : '2014 Myanmar Population and Housing Census Main Report',
+      resource_title : '2014 Myanmar population and housing census main report',
       singlerow : true,
       filters : {
         pcode : 'pcode_st'
@@ -1085,7 +1078,7 @@ var chartconfig = {
       mortality_rate : {
         container_id : 'health_mortality_rate',
         chart_options : {
-          title : 'Mortality Rate',
+          title : 'Mortality rate of infants vs. children under five years old',
           vAxis : {
             minValue : 0,
             title : 'Number of death per 1,000 live births'
@@ -1095,12 +1088,12 @@ var chartconfig = {
         is_group : true,
         fixed_structure : true,
         columns : {
-          'Mortality Rate' : 'string',
+          'Mortality rate' : 'string',
           'Infant' : 'number',
           'Under 5' : 'number'
         },
         fields : [
-          ['Mortality Rate', 'imr', 'u5mr']
+          ['Mortality rate', 'imr', 'u5mr']
         ]
       }
     }
