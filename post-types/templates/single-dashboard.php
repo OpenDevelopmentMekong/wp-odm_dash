@@ -13,7 +13,7 @@
 
 <section class="container">
 	<div class="row">
-		<h1>Overview of Myanmar</h1>
+		<h1>Myanmar in Figures</h1>
 	</div>
 </section>
 <div id="region_name_wrapper">
@@ -71,7 +71,7 @@
 			<li>
 				<a href="#economy">
 				<i class="fa fa-briefcase"></i>
-				<span class="sec_title">Economy & Industries</span>
+				<span class="sec_title">Economy and industry</span>
 				</a>
 			</li>
 			<li>
@@ -95,7 +95,7 @@
 			<li>
 				<a href="#living">
 				<i class="fa fa-home"></i>
-				<span class="sec_title">Households & Living</span>
+				<span class="sec_title">Households and living</span>
 				</a>
 			</li>
 		</ul>
@@ -263,8 +263,8 @@
 			<h5 style="font-size:20px;margin:20px 0px;text-align:center;">Adminstration</h5>
 			<div id="adminstration_list"></div>
 			<div class="resource_link" style="clear:both;">
-				Data Source : 
-				<a href="https://myanmar.opendevelopmentmekong.net/dataset/?id=ministers-in-myanmar" target="_blank">Myanmar President Office website, Open Myanmar Initiative</a>
+				Data source : 
+				<a href="https://myanmar.opendevelopmentmekong.net/dataset/?id=ministers-in-myanmar" target="_blank">Myanmar president office website, Open Myanmar Initiative</a>
 			</div>
 		</div>
 
@@ -279,7 +279,7 @@
 <!-- ECONOMY AND INDUSTRIES -->
 <div class="row" id="economy">
 	<div class="container">
-		<h4 class="section_title">Economy & Industries</h4>
+		<h4 class="section_title">Economy and industry</h4>
 		<div class="row chart_wrapper st_chart union_chart">
 			<div id="revenue_expenditure" class="normal_chart"></div>
 		</div>
@@ -345,12 +345,12 @@
 		<div class="row chart_wrapper st_chart union_chart">
 			<div class="four columns">
 				<div class="text_container">
-					<h5 class="label">Crude Birth Rate</h5>
+					<h5 class="label">Crude birth rate</h5>
 					<div class="value"><span id="health_cbr"></span> </div>	
 					<span>per 1,000 population</span>
 				</div>
 				<div class="text_container">
-					<h5 class="label">Life Expectancy At Birth</h5>	
+					<h5 class="label">Life expectancy at birth</h5>	
 					<div class="value"><span id="health_life_expectancy"></span> years</div>
 				</div>
 			</div>
@@ -376,7 +376,7 @@
 		<div class="row chart_wrapper st_chart union_chart">
 			<div class="four columns">
 				<div class="text_container">
-					<h5 class="label">Percent Tree Cover</h5>	
+					<h5 class="label">Percent tree cover</h5>	
 					<div class="value" style="color:#4CAF50;"><span id="tree_cover_percent"></span> %</div>
 				</div>
 				<div class="text_container">
@@ -384,7 +384,7 @@
 					<div class="value" style="color:#4CAF50;"><span id="tree_cover_area"></span> Ha</div>
 				</div>
 				<div class="text_container">
-					<h5 class="label">Tree Cover Gain (2001 - 2012)</h5>
+					<h5 class="label">Tree cover gain (2001 - 2012)</h5>
 					<div class="value" style="color:#2196F3;"><span id="tree_cover_gain_2001_2012"></span> Ha</div>
 				</div>
 			</div>
@@ -398,11 +398,11 @@
 <!-- HOUSEHOLD AND LIVING -->
 <div class="row viz-section" id="living">
 	<div class="container">
-		<h4 class="section_title">Households & Living</h4>
+		<h4 class="section_title">Households and living</h4>
 		<div class="row chart_wrapper">
 			<div class="four columns">
 				<div class="text_container">
-					<h5 class="label">Mean Household Size</h5>
+					<h5 class="label">Mean household size</h5>
 					<div class="value"><span id="mean_household_size"></span></div>
 				</div>
 			</div>

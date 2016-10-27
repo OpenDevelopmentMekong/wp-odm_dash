@@ -183,7 +183,7 @@ var charts = {
       container_id : 'hospital_healthcenter',
       chart_type : 'table',
       chart_options : {
-        title : 'Number of hospitals and health centers'
+        title : 'Breakdown of medical facilities by type'
       },
       columns : {
         'Type' : 'string',
@@ -203,12 +203,9 @@ var charts = {
       container_id : 'medical_worker',
       chart_type : 'column',
       chart_options : {
-        title : 'Breakdown of medical workers',
+        title : 'Breakdown of medical workers by type',
         vAxis : {
           title : 'Number of medical workers'
-        },
-        hAxis : {
-          title : 'Type of medical workers'
         },
         legend : {
           position: 'none'
@@ -273,9 +270,8 @@ var charts = {
     communication : {
       container_id : 'household_com',
       chart_options : {
-        title : 'Avaliability of communication and related amenities',
+        title : 'Access to communications and related amenities by type',
         hAxis : {
-          title : 'Communication and amenities type',
           slantedText : true,
           slantedTextAngle: 45
         },
@@ -303,10 +299,7 @@ var charts = {
     transportation : {
       container_id : 'household_trans',
       chart_options : {
-        title : 'Access to available transportation',
-        hAxis : {
-          title : 'Transportation type'
-        },
+        title : 'Access to transportation by type',
         vAxis : {
           title : 'Number of households with access'
         },
@@ -387,7 +380,7 @@ var charts = {
     population_gender : {
       container_id : 'population_gender',
       chart_options : {
-        title : 'Population by gender ratio'
+        title : 'Population composition by gender'
       },
       chart_type : 'donut',
       columns : {
@@ -402,7 +395,7 @@ var charts = {
     population_u_r : {
       container_id : 'population_u_r',
       chart_options : {
-        title : 'Population in rural/urban'
+        title : 'Population distribution in rural vs urban areas'
       },
       chart_type : 'donut',
       columns : {
@@ -417,7 +410,7 @@ var charts = {
     m_f_headed_household : {
       container_id : 'm_f_headed_household',
       chart_options : {
-        title : 'Male or female headed conventional households'
+        title : 'Male vs Female headed conventional households'
       },
       chart_type : 'donut',
       columns : {
@@ -459,7 +452,7 @@ var charts = {
     lit_rate_overall_pie : {
       container_id : 'lit_rate_overall_pie',
       chart_options : {
-        title : 'Overall'
+        title : 'Overall literacy rate'
       },
       chart_type : 'donut',
       columns : {
@@ -474,7 +467,7 @@ var charts = {
     lit_rate_overall_gender : {
       container_id : 'lit_rate_overall_gender',
       chart_options : {
-        title : '',
+        title : 'Overall literacy rates by gender',
         legend : {
           position : 'none',
         },
@@ -500,7 +493,7 @@ var charts = {
     lit_rate_urban_pie : {
       container_id : 'lit_rate_urban_pie',
       chart_options : {
-        title : 'Urban'
+        title : 'Urban literacy rate'
       },
       chart_type : 'donut',
       columns : {
@@ -515,7 +508,7 @@ var charts = {
     lit_rate_urban_gender : {
       container_id : 'lit_rate_urban_gender',
       chart_options : {
-        title : '',
+        title : 'Urban literacy rates by gender',
         legend : {
           position : 'none',
         },
@@ -542,7 +535,7 @@ var charts = {
     lit_rate_rural_pie : {
       container_id : 'lit_rate_rural_pie',
       chart_options : {
-        title : 'Rural'
+        title : 'Rural literacy rate'
       },
       chart_type : 'donut',
       columns : {
@@ -557,7 +550,7 @@ var charts = {
     lit_rate_rural_gender : {
       container_id : 'lit_rate_rural_gender',
       chart_options : {
-        title : '',
+        title : 'Rural literacy rates by gender',
         legend : {
           position : 'none',
         },
@@ -864,7 +857,7 @@ var chartconfig = {
       religion : {
         container_id : 'religion_chart',
         chart_options : {
-          title : 'Religion'
+          title : 'Religions'
         },
         chart_type : 'donut',
         columns : {
@@ -901,7 +894,7 @@ var chartconfig = {
       pop_over_year : {
         container_id : 'pop_over_year',
         chart_options : {
-          title : 'Population in 1973, 1983 and 2014'
+          title : 'Population growth 1973-2014'
         },
         chart_type : 'line',
         columns : {
@@ -1085,7 +1078,7 @@ var chartconfig = {
       mortality_rate : {
         container_id : 'health_mortality_rate',
         chart_options : {
-          title : 'Mortality rate',
+          title : 'Mortality rate of infants vs. children under five years old',
           vAxis : {
             minValue : 0,
             title : 'Number of death per 1,000 live births'
