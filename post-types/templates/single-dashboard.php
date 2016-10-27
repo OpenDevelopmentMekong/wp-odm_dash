@@ -20,7 +20,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="four columns" style="margin-left: 0px;">
-				<h1 id="region_name">Myanmar</h1>			
+				<h1 id="region_name" class="region_name_container">Myanmar</h1>			
 			</div>
 			<div class="ten columns">
 				<div id="dash_search_box"></div>
@@ -42,6 +42,7 @@
 		</div>
 		<span id="overlayregion"></span>
 		<div class="general_info">
+			<h3 class="region_name_container">Myanmar</h3>
 			<h5 id="total_population"></h5>
 			<h5 id="total_population_non_enumerated"></h5>
 			<h5 id="region_area"></h5>

@@ -13,7 +13,7 @@ jQuery( document ).ready(function() {
     }
   }
 
-  var regionNameArea = jQuery('#region_name');
+  var regionNameArea = jQuery('.region_name_container');
 
   var stpcodeArea = jQuery('#st_pcode');
 
