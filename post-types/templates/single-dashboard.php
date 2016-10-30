@@ -149,7 +149,7 @@
 					<img src="<?php echo plugins_url(); ?>/wp-odm_dash/images/UnionAmyoTha2015.svg" alt="2015 AmyoTha Hluttaw" style="width:80%">
 					<div class="seating_legend">
 						<div class="single_legend">
-							<span class="circle" style="background:#E6E6E6;"></span>
+							<span class="circle" style="background:#1DE9B6;"></span>
 							Military : 56 seats
 						</div>
 						<div class="single_legend">
@@ -202,7 +202,7 @@
 					<img src="<?php echo plugins_url(); ?>/wp-odm_dash/images/UnionPyiThu2015.svg" alt="2015 PyiThu Hluttaw" style="width:80%">
 					<div class="seating_legend">
 						<div class="single_legend">
-							<span class="circle" style="background:#E6E6E6;"></span>
+							<span class="circle" style="background:#1DE9B6;"></span>
 							Military : 110 seats
 						</div>
 						<div class="single_legend">
