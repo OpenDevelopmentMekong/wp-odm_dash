@@ -21,7 +21,9 @@ jQuery( document ).ready(function() {
 
   var tspcodeArea = jQuery('#ts_pcode');
 
-  var totalPopulation = jQuery('#total_population')
+  var totalPopulation = jQuery('#total_population');
+
+  var currentRegionProperties = 'Myanmar';
 
   //Data Objects
   var chartData = {
@@ -247,6 +249,8 @@ jQuery( document ).ready(function() {
     jQuery('#living').removeClass('even');
     parentRegionArea.html('');
 
+    currentRegionProperties = 'Myanmar';
+
     regionNameArea.text("Myanmar");
     stpcodeArea.text("MMR");
     assignLastClickLayer('', '');
@@ -281,6 +285,9 @@ jQuery( document ).ready(function() {
 
     var regionName = obj.feature.properties.ST;
     regionNameArea.text(regionName);
+
+    currentRegionProperties = regionName;
+
     var ST_PCODE = obj.feature.properties.ST_PCODE;
     mymap.addLayer(tsLayer);
     stpcodeArea.text(ST_PCODE);
@@ -321,6 +328,9 @@ jQuery( document ).ready(function() {
 
     var TSName = obj.feature.properties.TS;
     regionNameArea.text(TSName);
+
+    currentRegionProperties = TSName;
+
     parentRegionArea.html("Township in <strong><a class='zoom_out_to_st' data-stpcode='"+ obj.feature.properties.ST_PCODE +"'>" + obj.feature.properties.ST + "</a> ,<a class='zoom_out_to_union'>Myanmar</a></strong></strong>");
     
     var ts_pcode = obj.feature.properties.TS_PCODE;
@@ -568,6 +578,7 @@ jQuery( document ).ready(function() {
       var formatter = new google.visualization.NumberFormat({
                       pattern: ';'
                   });
+      p_config.chart_options.title = "Population Pyramid of " + currentRegionProperties;
 
       formatter.format(PopulationPyramidData, 1);
 
