@@ -63,5 +63,17 @@ jQuery(function() {
     var target = jQuery(this).data('target');
     jQuery('#'+target).slideToggle();
   });
+
+  /* ======= LOADING =========== */
+
+  /*jQuery(document).ajaxStart(function() {
+    console.log("ajax start");
+    jQuery.LoadingOverlay("show");
+  });
+
+  jQuery(document).ajaxComplete(function() {
+    console.log("ajax end");
+    jQuery.LoadingOverlay("hide");
+  });*/
   
 });

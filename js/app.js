@@ -667,44 +667,4 @@ jQuery( document ).ready(function() {
     }
   }
 
-
-  /* ======= LOADING =========== */
-
-  /*jQuery( document ).ajaxStart(function() {
-    $.LoadingOverlay("show");
-  });
-
-  jQuery( document ).ajaxComplete(function() {
-    $.LoadingOverlay("hide");
-  });*/
-
-  /*
-  function downloadButton(link) {
-
-    return '<a href="'+ link +'" class="button button-primary data_download"><i class="fa fa-download"> Download Data</a>';
-
-  }
-
-  function showDataButton(link) {
-
-    return '<a href="'+ link +'" class="button button-primary data_download"><i class="fa fa-database"> Show Data</a>';
-
-  }
-
-  jQuery('.show_chart_data').on('click', function(e){
-
-    e.preventDefault();
-    if (jQuery(this).hasClass('showing')) {
-      jQuery(this).removeClass('showing');
-      jQuery(this).parent().siblings('.data_table').hide();
-      jQuery(this).find('span').text('Show Data');
-    } else {
-      jQuery(this).addClass('showing');
-      jQuery(this).parent().siblings('.data_table').show();
-      jQuery(this).find('span').text('Hide Data');
-    }
-
-  });
-  */
-
 });
