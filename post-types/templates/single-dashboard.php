@@ -33,10 +33,14 @@
 </div>
 <section class="container">
 	<div class="row">
-		<p class="pcode_wrapper">
-			ST PCODE : <span id="st_pcode">MMR</span> 
+		<div class="pcode_container">
+			<div class="pcode_info_wrapper">
+				<i class="fa fa-info-circle" id="pcode_info"></i> 
+				<span class="pcode_info_text" style="display:none;">Pcode is an abbreviated term for “Place code”; this is similar to a zip code or postal code, and is a part of a data management system providing unique reference codes to around 67,000 locations across Myanmar. Learn more at about pcode <a href="" target="_blank">here</a></span>
+				ST PCODE : <span id="st_pcode">MMR</span> 
+			</div>
 			<span class="ts_chart" style="margin-left:30px;">TS PCODE : <span id="ts_pcode"></span></span>
-		</p>
+		</div>
 		<!-- <div class="map_instruction">Double click to zoom in to township level and Click on <i class="fa fa-map-marker"></i> to go back to union level.</div> -->
 		<div id="dash_map_wrapper">
 			<div id="mymap"></div>	

@@ -53,6 +53,10 @@ jQuery(function() {
     jQuery('#mymap').css("pointer-events", "none"); 
   });
 
+  jQuery('.pcode_info_wrapper').on('hover', function(){
+    jQuery('.pcode_info_text').fadeToggle();
+  });
+
 
   jQuery(document).on('click', '.data_source_btn', function(e){
     e.preventDefault();
