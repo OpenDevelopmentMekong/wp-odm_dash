@@ -37,12 +37,15 @@
 			ST PCODE : <span id="st_pcode">MMR</span> 
 			<span class="ts_chart" style="margin-left:30px;">TS PCODE : <span id="ts_pcode"></span></span>
 		</p>
+		<!-- <div class="map_instruction">Double click to zoom in to township level and Click on <i class="fa fa-map-marker"></i> to go back to union level.</div> -->
 		<div id="dash_map_wrapper">
 			<div id="mymap"></div>	
 		</div>
 		<span id="overlayregion"></span>
+		<div id="search_by_stpcode" style="display:none;"></div>
 		<div class="general_info">
 			<h3 class="region_name_container">Myanmar</h3>
+			<span class="parent_region_container"></span>
 			<h5 id="total_population"></h5>
 			<h5 id="total_population_non_enumerated"></h5>
 			<h5 id="region_area"></h5>
@@ -50,7 +53,6 @@
 			<h5 id="village_tracts_num"></h5>
 			<h5 id="villages_num"></h5>	
 		</div>
-		<div class="map_instruction">Double click to zoom in to township level and Click on <i class="fa fa-map-marker"></i> to go back to union level.</div>
 	</div>
 </section>
 <!-- Navigation -->

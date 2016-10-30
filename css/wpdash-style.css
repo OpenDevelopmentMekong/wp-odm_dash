@@ -62,12 +62,8 @@
 }
 
 .map_instruction {
-	position: absolute;
-    bottom: 10px;
-    left: 0;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    padding: 3px 7px;
+	font-weight: bold;
+	margin-bottom: 10px;
 }
 
 #region_name_wrapper {
@@ -251,14 +247,18 @@
 	z-index:1000;
 	box-shadow: 0 1px 7px rgba(0,0,0,0.65);
 	cursor: pointer;
-	padding: 8px 15px;
+	padding: 16px 20px;
+	background-image: url('../images/myanmar.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .leaflet-setview-control::before {
 	content: '\f041';
 	font-family: FontAwesome;
     font-style: normal;
-    font-size: 28px;
+    font-size: 0px;
     color: #505050;
 }
 
