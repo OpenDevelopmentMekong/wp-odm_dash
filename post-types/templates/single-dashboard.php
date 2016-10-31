@@ -20,7 +20,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="four columns" style="margin-left: 0px;">
-				<h1 id="region_name">Myanmar</h1>			
+				<h1 id="region_name" class="region_name_container">Myanmar</h1>			
 			</div>
 			<div class="ten columns">
 				<div id="dash_search_box"></div>
@@ -33,15 +33,23 @@
 </div>
 <section class="container">
 	<div class="row">
-		<p class="pcode_wrapper">
-			ST PCODE : <span id="st_pcode">MMR</span> 
+		<div class="pcode_container">
+			<div class="pcode_info_wrapper">
+				<i class="fa fa-info-circle" id="pcode_info"></i> 
+				<span class="pcode_info_text" style="display:none;">Pcode is an abbreviated term for “Place code”; this is similar to a zip code or postal code, and is a part of a data management system providing unique reference codes to around 67,000 locations across Myanmar. Learn more at about pcode <a href="" target="_blank">here</a></span>
+				ST PCODE : <span id="st_pcode">MMR</span> 
+			</div>
 			<span class="ts_chart" style="margin-left:30px;">TS PCODE : <span id="ts_pcode"></span></span>
-		</p>
+		</div>
+		<!-- <div class="map_instruction">Double click to zoom in to township level and Click on <i class="fa fa-map-marker"></i> to go back to union level.</div> -->
 		<div id="dash_map_wrapper">
 			<div id="mymap"></div>	
 		</div>
 		<span id="overlayregion"></span>
+		<div id="search_by_stpcode" style="display:none;"></div>
 		<div class="general_info">
+			<h3 class="region_name_container">Myanmar</h3>
+			<span class="parent_region_container"></span>
 			<h5 id="total_population"></h5>
 			<h5 id="total_population_non_enumerated"></h5>
 			<h5 id="region_area"></h5>
@@ -49,7 +57,6 @@
 			<h5 id="village_tracts_num"></h5>
 			<h5 id="villages_num"></h5>	
 		</div>
-		<div class="map_instruction">Double click to zoom in to township level and Click on <i class="fa fa-map-marker"></i> to go back to union level.</div>
 	</div>
 </section>
 <!-- Navigation -->
@@ -146,7 +153,7 @@
 					<img src="<?php echo plugins_url(); ?>/wp-odm_dash/images/UnionAmyoTha2015.svg" alt="2015 AmyoTha Hluttaw" style="width:80%">
 					<div class="seating_legend">
 						<div class="single_legend">
-							<span class="circle" style="background:#E6E6E6;"></span>
+							<span class="circle" style="background:#1DE9B6;"></span>
 							Military : 56 seats
 						</div>
 						<div class="single_legend">
@@ -199,7 +206,7 @@
 					<img src="<?php echo plugins_url(); ?>/wp-odm_dash/images/UnionPyiThu2015.svg" alt="2015 PyiThu Hluttaw" style="width:80%">
 					<div class="seating_legend">
 						<div class="single_legend">
-							<span class="circle" style="background:#E6E6E6;"></span>
+							<span class="circle" style="background:#1DE9B6;"></span>
 							Military : 110 seats
 						</div>
 						<div class="single_legend">

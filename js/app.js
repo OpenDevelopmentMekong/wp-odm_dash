@@ -13,13 +13,17 @@ jQuery( document ).ready(function() {
     }
   }
 
-  var regionNameArea = jQuery('#region_name');
+  var regionNameArea = jQuery('.region_name_container');
+
+  var parentRegionArea = jQuery('.parent_region_container');
 
   var stpcodeArea = jQuery('#st_pcode');
 
   var tspcodeArea = jQuery('#ts_pcode');
 
-  var totalPopulation = jQuery('#total_population')
+  var totalPopulation = jQuery('#total_population');
+
+  var currentRegionProperties = 'Myanmar';
 
   //Data Objects
   var chartData = {
@@ -32,6 +36,8 @@ jQuery( document ).ready(function() {
 
   var lastClickLayer;
   var lastClickLayerType;
+
+  var pcodeSearchControl;
 
   /* ================ Map Init Callbacks ==================== */
 
@@ -59,8 +65,7 @@ jQuery( document ).ready(function() {
       var container = L.DomUtil.create('i', 'leaflet-control leaflet-setview-control');
       //container.innerHTML('<i class="fa fa-map-maker"></i>');
       container.onclick = function(){
-        mymap.setView(config.init_map_view, config.init_zoom_view);
-        MapReset();
+        backToUnionLevel();
       }
       return container;
     }
@@ -71,7 +76,11 @@ jQuery( document ).ready(function() {
   /* ======================== Initiate Map ========================================== */
 
   //Init
-  var mymap = L.map('mymap').setView(config.init_map_view, config.init_zoom_view);
+  var mymap = L.map('mymap', {
+                scrollWheelZoom : 'center',
+                center : config.init_map_view,
+                zoom : config.init_zoom_view
+              });
 
   mymap.addControl(new setViewControl());
 
@@ -103,6 +112,69 @@ jQuery( document ).ready(function() {
     addSearchControl(tsLayer, 'TS');
     StateRegionLayer.bringToFront();
 
+    //Add Search by STPcode Hidden Search box
+    addSTPcodeSearchControl();
+
+  });
+
+  function addSTPcodeSearchControl() {
+
+    pcodeSearchControl = new L.Control.Search({
+      container: 'search_by_stpcode',
+      layer: StateRegionLayer,
+      propertyName: 'ST_PCODE',
+      circleLocation: false,
+      collapsed: false,
+      moveToLocation: function(latlng, title, map) {
+          mymap.setView(config.init_map_view, config.init_zoom_view); // access the zoom
+      }
+    });
+
+    pcodeSearchControl.on('search_locationfound', function(e) {
+
+      e.layer.setStyle({
+        fillOpacity:0.7
+      });
+
+      actionOnSTLayer(e.layer);
+
+      resetClickStyles();
+      
+      assignLastClickLayer(e.layer, 'ST');
+      
+
+    }).on('search_collapsed', function(e) {
+
+      StateRegionLayer.eachLayer(function(layer) { //restore feature color
+        StateRegionLayer.resetStyle(layer);
+      });
+
+    });
+
+     mymap.addControl(pcodeSearchControl);
+
+  }
+
+  function backToUnionLevel() {
+    mymap.setView(config.init_map_view, config.init_zoom_view);
+    MapReset();
+  }
+
+  jQuery(document).on('click', '.zoom_out_to_union', function(e){
+    backToUnionLevel();
+  });
+
+  jQuery(document).on('click', '.zoom_out_to_st', function(e){
+
+    var pcode = jQuery(this).data('stpcode');
+    if (pcode == 'MMR015' || pcode == 'MMR014') { //Shan
+      pcode = 'MMR222';
+    } else if(pcode == 'MMR007' || pcode == 'MMR008') { //Bago
+      pcode = 'MMR111';
+    }
+    pcodeSearchControl.searchText(pcode);
+    pcodeSearchControl._handleSubmit();
+
   });
 
   /* ============================= Layer Styling Callbacks ========================== */
@@ -117,7 +189,7 @@ jQuery( document ).ready(function() {
 
     layer.on({
       click: onStateRegionClick,
-      dblclick : onSTdbClick,
+      //dblclick : onSTdbClick,
       mouseover: enterSTLayer,
       mouseout: leaveSTLayer
     });
@@ -175,6 +247,9 @@ jQuery( document ).ready(function() {
     jQuery('#environment_nav').show();
     jQuery('#environment').show();
     jQuery('#living').removeClass('even');
+    parentRegionArea.html('');
+
+    currentRegionProperties = 'Myanmar';
 
     regionNameArea.text("Myanmar");
     stpcodeArea.text("MMR");
@@ -186,30 +261,42 @@ jQuery( document ).ready(function() {
 
   function onStateRegionClick(e) {
 
-      jQuery('.ts_chart').hide();
-      jQuery('.st_chart').show();
-      jQuery('.only_union').hide();
-
-      jQuery('#environment_nav').show();
-      jQuery('#environment').show();
-      jQuery('#living').removeClass('even');
+      mymap.setView(e.latlng, 7);
 
       resetClickStyles();
-      this.setStyle({weight:3});
-
-      var regionName = this.feature.properties.ST;
-      regionNameArea.text(regionName);
-      var ST_PCODE = this.feature.properties.ST_PCODE;
-      mymap.addLayer(tsLayer);
-      stpcodeArea.text(ST_PCODE);
-
-      jQuery('#pcode_wrapper').show();
-
+      actionOnSTLayer(this);
       assignLastClickLayer(e.target, 'ST');
 
-      setTimeout(function(){
-        stLevelCharts(ST_PCODE);
-      }, 300);
+  }
+
+  function actionOnSTLayer(obj) {
+
+    jQuery('.ts_chart').hide();
+    jQuery('.st_chart').show();
+    jQuery('.only_union').hide();
+
+    jQuery('#environment_nav').show();
+    jQuery('#environment').show();
+    jQuery('#living').removeClass('even');
+
+    obj.setStyle({
+      fillOpacity: 0.7
+    });
+
+    var regionName = obj.feature.properties.ST;
+    regionNameArea.text(regionName);
+
+    currentRegionProperties = regionName;
+
+    var ST_PCODE = obj.feature.properties.ST_PCODE;
+    mymap.addLayer(tsLayer);
+    stpcodeArea.text(ST_PCODE);
+
+    jQuery('#pcode_wrapper').show();
+    parentRegionArea.html(obj.feature.properties.ST_RG + " in <strong><a class='zoom_out_to_union'>Myanmar</a></strong>");
+
+    stLevelCharts(ST_PCODE);
+
   }
 
   function onSTdbClick(e) {
@@ -240,8 +327,11 @@ jQuery( document ).ready(function() {
     obj.setStyle({fillColor: '#000', fillOpacity: 0.3, color: '#000'});
 
     var TSName = obj.feature.properties.TS;
-    regionNameArea.text(TSName).append(" (" + obj.feature.properties.ST + ")");
+    regionNameArea.text(TSName);
 
+    currentRegionProperties = TSName;
+
+    parentRegionArea.html("Township in <strong><a class='zoom_out_to_st' data-stpcode='"+ obj.feature.properties.ST_PCODE +"'>" + obj.feature.properties.ST + "</a> ,<a class='zoom_out_to_union'>Myanmar</a></strong></strong>");
     
     var ts_pcode = obj.feature.properties.TS_PCODE;
     tspcodeArea.text(ts_pcode);
@@ -282,26 +372,33 @@ jQuery( document ).ready(function() {
 
   function enterSTLayer(e){
     var regionName = this.feature.properties.ST;
-    $tooltip.text(regionName).show();
+    showTooltip(regionName);
 
     this.setStyle({
-      fillOpacity: 0.7
+      weight: 3
     });
 
     /*this.bringToFront();
     */
   }
 
+  function showTooltip(regionName) {
+    $tooltip.text(regionName).show();
+    $tooltip.css('left', event.pageX - 150);      // <<< use pageX and pageY
+    $tooltip.css('top', event.pageY - 400);
+    $tooltip.css('display','inline');     
+  }
+
   function leaveSTLayer(e){
     leaveLayer();
     this.setStyle({
-      fillOpacity: 0.3
+      weight: 1
     });
   }
 
   function enterTSLayer(e){
     var regionName = this.feature.properties.TS;
-    $tooltip.text(regionName).show();
+    showTooltip(regionName);
 
     this.setStyle({
       fillOpacity:0
@@ -363,6 +460,7 @@ jQuery( document ).ready(function() {
     mymap.addControl(searchControl);
 
     jQuery('#dash_search_box input.search-input').attr("placeholder","Search for Township...");
+
   }
 
   /* ============================= GOOGLE CHART ================================== */
@@ -480,6 +578,7 @@ jQuery( document ).ready(function() {
       var formatter = new google.visualization.NumberFormat({
                       pattern: ';'
                   });
+      p_config.chart_options.title = "Population Pyramid of " + currentRegionProperties;
 
       formatter.format(PopulationPyramidData, 1);
 
@@ -578,45 +677,5 @@ jQuery( document ).ready(function() {
 
     }
   }
-
-
-  /* ======= LOADING =========== */
-
-  /*jQuery( document ).ajaxStart(function() {
-    $.LoadingOverlay("show");
-  });
-
-  jQuery( document ).ajaxComplete(function() {
-    $.LoadingOverlay("hide");
-  });*/
-
-  /*
-  function downloadButton(link) {
-
-    return '<a href="'+ link +'" class="button button-primary data_download"><i class="fa fa-download"> Download Data</a>';
-
-  }
-
-  function showDataButton(link) {
-
-    return '<a href="'+ link +'" class="button button-primary data_download"><i class="fa fa-database"> Show Data</a>';
-
-  }
-
-  jQuery('.show_chart_data').on('click', function(e){
-
-    e.preventDefault();
-    if (jQuery(this).hasClass('showing')) {
-      jQuery(this).removeClass('showing');
-      jQuery(this).parent().siblings('.data_table').hide();
-      jQuery(this).find('span').text('Show Data');
-    } else {
-      jQuery(this).addClass('showing');
-      jQuery(this).parent().siblings('.data_table').show();
-      jQuery(this).find('span').text('Hide Data');
-    }
-
-  });
-  */
 
 });
