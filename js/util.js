@@ -17,8 +17,8 @@ jQuery(function() {
   //Sticky Navigation
   var viz_nav = jQuery('#viz_nav_wrapper');
   var region_name = jQuery('#region_name_wrapper');
-  var stickyNavTop = viz_nav.offset().top;
   var regionNameTop = region_name.offset().top;
+  var stickyNavTop = viz_nav.offset().top - region_name.height();
   var stickyNav = function(){
     // Navigation
     var NavscrollTop = jQuery(window).scrollTop() + jQuery('#od-selector').height() + region_name.height();
