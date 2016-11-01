@@ -167,6 +167,11 @@ function ODChart(config) {
 
           jQuery('#' + value.container_id + '_table_wrapper').prepend(self.getDataSourceLinkTemplate(value));
 
+          //Add Title for table if it's in config
+          if (value.chart_type == 'table' && value.chart_options.title != undefined) {
+            jQuery('#' + value.container_id).prepend('<h5>' + value.chart_options.title +'</h5>');
+          }
+
         }
 
       }

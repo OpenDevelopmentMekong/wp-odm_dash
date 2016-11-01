@@ -370,7 +370,8 @@
 				<div id="medical_worker" class="normal_chart"></div>
 			</div>
 			<div class="eight columns">
-				<div id="hospital_healthcenter" class="normal_chart full-width-charts" style="padding-top: 47px;height: 300px;"></div>
+				<div id="hospital_healthcenter" class="normal_chart full-width-charts" style="padding-top: 47px;height: 300px;">
+				</div>
 			</div>
 		</div>
 	</div>
