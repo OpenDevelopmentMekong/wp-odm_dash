@@ -23,6 +23,8 @@
 
 #dash_map_wrapper {
 	overflow: hidden;
+	clear:both;
+	margin-top: 15px;
 }
 
 #mymap {
@@ -40,13 +42,11 @@
 #overlayregion {
 	position: absolute;
     z-index:6;
-    right: 40px;
-    top: 240px;
     background:rgba(0,0,0,.75);
     color:white;
     padding:.5em .75em;
     font-size:1em;
-    display:none;
+    display: none;
 }
 
 #pcode_wrapper {
@@ -64,12 +64,8 @@
 }
 
 .map_instruction {
-	position: absolute;
-    bottom: 10px;
-    left: 0;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    padding: 3px 7px;
+	font-weight: bold;
+	margin-bottom: 10px;
 }
 
 #region_name_wrapper {
@@ -253,14 +249,18 @@
 	z-index:1000;
 	box-shadow: 0 1px 7px rgba(0,0,0,0.65);
 	cursor: pointer;
-	padding: 8px 15px;
+	padding: 16px 20px;
+	background-image: url('../images/myanmar.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .leaflet-setview-control::before {
 	content: '\f041';
 	font-family: FontAwesome;
     font-style: normal;
-    font-size: 28px;
+    font-size: 0px;
     color: #505050;
 }
 
@@ -349,4 +349,21 @@
 
 .hide {
 	display:none;
+}
+
+//Pcode Info tooltip
+.pcode_info_wrapper {
+	float:left;
+	position: relative;
+}
+
+.pcode_info_text {
+	width: 500px;
+    float: left;
+    position: absolute;
+    top: -90px;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 5px;
+    left: 0;
 }

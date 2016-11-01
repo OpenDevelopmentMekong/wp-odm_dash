@@ -1,4 +1,3 @@
-
 <?php get_header(); ?>
 
 <?php	if (have_posts()) : ?>
@@ -10,7 +9,6 @@
 	  </div>
 	</div>
 </section>
-
 <section class="container">
 	<div class="row">
 		<h1><?php the_title(); ?></h1>
@@ -20,7 +18,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="four columns" style="margin-left: 0px;">
-				<h1 id="region_name">Myanmar</h1>			
+				<h1 id="region_name" class="region_name_container">Myanmar</h1>			
 			</div>
 			<div class="ten columns">
 				<div id="dash_search_box"></div>
@@ -33,15 +31,23 @@
 </div>
 <section class="container">
 	<div class="row">
-		<p class="pcode_wrapper">
-			ST PCODE : <span id="st_pcode">MMR</span> 
+		<div class="pcode_container">
+			<div class="pcode_info_wrapper">
+				<i class="fa fa-info-circle" id="pcode_info"></i> 
+				<span class="pcode_info_text" style="display:none;">Pcode is an abbreviated term for “Place code”; this is similar to a zip code or postal code, and is a part of a data management system providing unique reference codes to around 67,000 locations across Myanmar. Learn more at about pcode <a href="" target="_blank">here</a></span>
+				ST PCODE : <span id="st_pcode">MMR</span> 
+			</div>
 			<span class="ts_chart" style="margin-left:30px;">TS PCODE : <span id="ts_pcode"></span></span>
-		</p>
+		</div>
+		<!-- <div class="map_instruction">Double click to zoom in to township level and Click on <i class="fa fa-map-marker"></i> to go back to union level.</div> -->
 		<div id="dash_map_wrapper">
 			<div id="mymap"></div>	
 		</div>
 		<span id="overlayregion"></span>
+		<div id="search_by_stpcode" style="display:none;"></div>
 		<div class="general_info">
+			<h3 class="region_name_container">Myanmar</h3>
+			<span class="parent_region_container"></span>
 			<h5 id="total_population"></h5>
 			<h5 id="total_population_non_enumerated"></h5>
 			<h5 id="region_area"></h5>
@@ -49,7 +55,6 @@
 			<h5 id="village_tracts_num"></h5>
 			<h5 id="villages_num"></h5>	
 		</div>
-		<div class="map_instruction">Double click to zoom in to township level and Click on <i class="fa fa-map-marker"></i> to go back to union level.</div>
 	</div>
 </section>
 <!-- Navigation -->
@@ -71,7 +76,7 @@
 			<li>
 				<a href="#economy">
 				<i class="fa fa-briefcase"></i>
-				<span class="sec_title">Economy & Industries</span>
+				<span class="sec_title">Economy and industry</span>
 				</a>
 			</li>
 			<li>
@@ -95,7 +100,7 @@
 			<li>
 				<a href="#living">
 				<i class="fa fa-home"></i>
-				<span class="sec_title">Households & Living</span>
+				<span class="sec_title">Households and living</span>
 				</a>
 			</li>
 		</ul>
@@ -146,7 +151,7 @@
 					<img src="<?php echo plugins_url(); ?>/wp-odm_dash/images/UnionAmyoTha2015.svg" alt="2015 AmyoTha Hluttaw" style="width:80%">
 					<div class="seating_legend">
 						<div class="single_legend">
-							<span class="circle" style="background:#E6E6E6;"></span>
+							<span class="circle" style="background:#1DE9B6;"></span>
 							Military : 56 seats
 						</div>
 						<div class="single_legend">
@@ -199,7 +204,7 @@
 					<img src="<?php echo plugins_url(); ?>/wp-odm_dash/images/UnionPyiThu2015.svg" alt="2015 PyiThu Hluttaw" style="width:80%">
 					<div class="seating_legend">
 						<div class="single_legend">
-							<span class="circle" style="background:#E6E6E6;"></span>
+							<span class="circle" style="background:#1DE9B6;"></span>
 							Military : 110 seats
 						</div>
 						<div class="single_legend">
@@ -263,8 +268,8 @@
 			<h5 style="font-size:20px;margin:20px 0px;text-align:center;">Adminstration</h5>
 			<div id="adminstration_list"></div>
 			<div class="resource_link" style="clear:both;">
-				Data Source : 
-				<a href="https://myanmar.opendevelopmentmekong.net/dataset/?id=ministers-in-myanmar" target="_blank">Myanmar President Office website, Open Myanmar Initiative</a>
+				Data source : 
+				<a href="https://myanmar.opendevelopmentmekong.net/dataset/?id=ministers-in-myanmar" target="_blank">Myanmar president office website, Open Myanmar Initiative</a>
 			</div>
 		</div>
 
@@ -279,7 +284,7 @@
 <!-- ECONOMY AND INDUSTRIES -->
 <div class="row" id="economy">
 	<div class="container">
-		<h4 class="section_title">Economy & Industries</h4>
+		<h4 class="section_title">Economy and industry</h4>
 		<div class="row chart_wrapper st_chart union_chart">
 			<div id="revenue_expenditure" class="normal_chart"></div>
 		</div>
@@ -345,12 +350,12 @@
 		<div class="row chart_wrapper st_chart union_chart">
 			<div class="four columns">
 				<div class="text_container">
-					<h5 class="label">Crude Birth Rate</h5>
+					<h5 class="label">Crude birth rate</h5>
 					<div class="value"><span id="health_cbr"></span> </div>	
 					<span>per 1,000 population</span>
 				</div>
 				<div class="text_container">
-					<h5 class="label">Life Expectancy At Birth</h5>	
+					<h5 class="label">Life expectancy at birth</h5>	
 					<div class="value"><span id="health_life_expectancy"></span> years</div>
 				</div>
 			</div>
@@ -376,7 +381,7 @@
 		<div class="row chart_wrapper st_chart union_chart">
 			<div class="four columns">
 				<div class="text_container">
-					<h5 class="label">Percent Tree Cover</h5>	
+					<h5 class="label">Percent tree cover</h5>	
 					<div class="value" style="color:#4CAF50;"><span id="tree_cover_percent"></span> %</div>
 				</div>
 				<div class="text_container">
@@ -384,7 +389,7 @@
 					<div class="value" style="color:#4CAF50;"><span id="tree_cover_area"></span> Ha</div>
 				</div>
 				<div class="text_container">
-					<h5 class="label">Tree Cover Gain (2001 - 2012)</h5>
+					<h5 class="label">Tree cover gain (2001 - 2012)</h5>
 					<div class="value" style="color:#2196F3;"><span id="tree_cover_gain_2001_2012"></span> Ha</div>
 				</div>
 			</div>
@@ -398,11 +403,11 @@
 <!-- HOUSEHOLD AND LIVING -->
 <div class="row viz-section" id="living">
 	<div class="container">
-		<h4 class="section_title">Households & Living</h4>
+		<h4 class="section_title">Households and living</h4>
 		<div class="row chart_wrapper">
 			<div class="four columns">
 				<div class="text_container">
-					<h5 class="label">Mean Household Size</h5>
+					<h5 class="label">Mean household size</h5>
 					<div class="value"><span id="mean_household_size"></span></div>
 				</div>
 			</div>
@@ -438,14 +443,19 @@
 	wp_register_script('wpdash-loading-overlay', plugins_url().'/wp-odm_dash/bower_components/jquery-loading-overlay/src/loadingoverlay.min.js', array('jquery'));
 	wp_enqueue_script('wpdash-loading-overlay');
 
-	wp_register_script('wpdash-app', plugins_url().'/wp-odm_dash/js/static/app.js', array('jquery'));
+	wp_register_script('wpdash-app', plugins_url().'/wp-odm_dash/js/app.js', array('jquery'));
 	wp_enqueue_script('wpdash-app');
-	wp_register_script('wpdash-chart-config', plugins_url().'/wp-odm_dash/js/static/chart-config.js', array('jquery'));
+	wp_register_script('wpdash-chart-config', plugins_url().'/wp-odm_dash/js/chart-config.js', array('jquery'));
 	wp_enqueue_script('wpdash-chart-config');
-	wp_register_script('wpdash-chart-class', plugins_url().'/wp-odm_dash/js/static/chartClass.js', array('jquery'));
+	wp_register_script('wpdash-chart-class', plugins_url().'/wp-odm_dash/js/chartClass.js', array('jquery'));
 	wp_enqueue_script('wpdash-chart-class');
-	wp_register_script('wpdash-util', plugins_url().'/wp-odm_dash/js/static/util.js', array('jquery'));
+	wp_register_script('wpdash-util', plugins_url().'/wp-odm_dash/js/util.js', array('jquery'));
+	wp_localize_script('wpdash-util','dashboard', array(
+		'ajax_url' => admin_url('admin-ajax.php')
+	));
 	wp_enqueue_script('wpdash-util');
+
+
 
 ?>
 

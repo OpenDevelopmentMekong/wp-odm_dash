@@ -53,11 +53,27 @@ jQuery(function() {
     jQuery('#mymap').css("pointer-events", "none"); 
   });
 
+  jQuery('.pcode_info_wrapper').on('hover', function(){
+    jQuery('.pcode_info_text').fadeToggle();
+  });
+
 
   jQuery(document).on('click', '.data_source_btn', function(e){
     e.preventDefault();
     var target = jQuery(this).data('target');
     jQuery('#'+target).slideToggle();
   });
+
+  /* ======= LOADING =========== */
+
+  /*jQuery(document).ajaxStart(function() {
+    console.log("ajax start");
+    jQuery.LoadingOverlay("show");
+  });
+
+  jQuery(document).ajaxComplete(function() {
+    console.log("ajax end");
+    jQuery.LoadingOverlay("hide");
+  });*/
   
 });
