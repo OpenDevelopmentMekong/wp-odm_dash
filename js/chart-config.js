@@ -196,7 +196,8 @@ var charts = {
         'station_hos' : 'Station hospitals',
         'mch_center' : 'Maternal and child health centers',
         'rhc' : 'Rural health centers',
-        'srhc' : 'Sub rural health centers'
+        'srhc' : 'Sub rural health centers',
+        'total_health_fac' : 'Total health care facilities'
       }
     },
     medical_worker : {
