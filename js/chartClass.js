@@ -161,6 +161,26 @@ function ODChart(config) {
 
           self.prepareDataSourceModal(value);
 
+          if (value.chart_type == 'treemap') {
+            var treechartdata = value.ChartData;
+            value.chart_options.generateTooltip = function(row, size, value) {
+              if (treechartdata.getValue(row, 2) > 0) {
+                return '<div class="treemap_tooltip">' + 
+                        '<h5>' +
+                        treechartdata.getValue(row, 0) + 
+                        '</h5>' + 
+                        self.formatNumber(treechartdata.getValue(row, 2)) + '<br>' + 
+                      '</div>';
+              } else {
+                return '<div class="treemap_tooltip">' +
+                        '<h5>' +
+                        treechartdata.getValue(row, 0) + 
+                        '</h5>' + 
+                      '</div>';
+              }
+            };
+          }
+
           googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
 
           googleChart.draw('table', document.getElementById(value.container_id + '_table_wrapper'), value.ChartData);
@@ -580,3 +600,4 @@ var googleChart = {
   }
 
 };
+
