@@ -100,9 +100,13 @@
 	text-align:center;
 }
 
-#viz_nav li .fa {
+#viz_nav li .fa, #viz_nav li .fa-stack {
 	display: block;
 	text-align: center;
+}
+
+#viz_nav li .fa-stack {
+	margin: auto;
 }
 
 #viz_nav li a {

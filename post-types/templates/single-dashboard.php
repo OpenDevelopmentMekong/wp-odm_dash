@@ -65,43 +65,64 @@
 		<ul id="viz_nav">
 			<li>
 				<a href="#demographic">
-				<i class="fa fa-globe"></i>
+				<span class="fa-stack fa-lg">
+  					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-globe fa-stack-1x fa-inverse"></i>
+				</span>
 				<span class="sec_title">Demographics</span>
 				</a>
 			</li>
 			<li>
 				<a href="#goverment">
-				<i class="fa fa-institution"></i>
+				<span class="fa-stack fa-lg">
+  					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-institution fa-stack-1x fa-inverse"></i>
+				</span>
 				<span class="sec_title">Government</span>
 				</a>
 			</li>
 			<li>
 				<a href="#economy">
-				<i class="fa fa-briefcase"></i>
+				<span class="fa-stack fa-lg">
+  					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-briefcase fa-stack-1x fa-inverse"></i>
+				</span>
 				<span class="sec_title">Economy and industry</span>
 				</a>
 			</li>
 			<li>
 				<a href="#education">
-				<i class="fa fa-graduation-cap"></i>
+				<span class="fa-stack fa-lg">
+  					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i>
+				</span>
 				<span class="sec_title">Education</span>
 				</a>
 			</li>
 			<li>
 				<a href="#health">
-				<i class="fa fa-medkit"></i>
+				<span class="fa-stack fa-lg">
+  					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-medkit fa-stack-1x fa-inverse"></i>
+				</span>
 				<span class="sec_title">Health</span>
 				</a>
 			</li>
 			<li id="environment_nav">
 				<a href="#environment">
-				<i class="fa fa-tree"></i>
+				<span class="fa-stack fa-lg">
+  					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-tree fa-stack-1x fa-inverse"></i>
+				</span>
 				<span class="sec_title">Environment</span>
 				</a>
 			</li>
 			<li>
 				<a href="#living">
-				<i class="fa fa-home"></i>
+				<span class="fa-stack fa-lg">
+  					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-home fa-stack-1x fa-inverse"></i>
+				</span>
 				<span class="sec_title">Households and living</span>
 				</a>
 			</li>
