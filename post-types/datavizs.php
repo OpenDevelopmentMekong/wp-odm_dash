@@ -8,6 +8,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
         {
           add_action('init', array($this, 'register_post_type'));
           add_action('init', array($this, 'register_dataviz_taxonomy'));
+          add_action('add_meta_boxes', array($this, 'register_metaboxs'));
           add_action('save_post', array($this, 'save_post_data'));
           add_filter('single_template', array($this, 'get_dataviz_template'));
         }
@@ -50,13 +51,13 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
               'show_in_menu'       => true,
   			      'menu_icon'          => 'dashicons-chart-pie',
               'query_var'          => true,
-              'rewrite'            => array( 'slug' => 'dataviz' ),
+              'rewrite'            => array('slug' => 'dataviz', 'with_front' => false),
               'capability_type'    => 'page',
               'has_archive'        => true,
               'hierarchical'       => true,
               'menu_position'      => 5,
               'taxonomies'         => array('dataviz_sections'),
-              'supports' => array('title', 'editor', 'page-attributes', 'revisions', 'author', 'thumbnail')
+              'supports' => array('title', 'editor', 'revisions', 'author')
             );
 
             register_post_type('dataviz', $args);
@@ -92,6 +93,257 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
 
         }
 
+        public function register_metaboxs() {
+          add_meta_box(
+            'dataviz_dataset_info',
+            __('Ckan Dataset Info', 'wpdash'),
+            array($this, 'dataviz_dataset_info_callback'),
+            'dataviz',
+            'advanced',
+            'high'
+          );
+
+          add_meta_box(
+            'dataviz_options',
+            __('Data Visualization Options', 'wpdash'),
+            array($this, 'dataviz_options_callback'),
+            'dataviz',
+            'advanced',
+            'high'
+          );
+
+          add_meta_box(
+            'dataviz_style',
+            __('Data Visualization Styles', 'wpdash'),
+            array($this, 'dataviz_styles_callback'),
+            'dataviz',
+            'side'
+          );
+
+          //select dashboard metabox
+        }
+
+        public function dataviz_dataset_info_callback($post) {
+
+          $resource_id_fieldname = '_ckan_resource_id';
+          $resource_download_fieldname = '_ckan_resource_download_link';
+
+          wp_nonce_field( plugin_basename( __FILE__ ), 'honeypot_content_nonce' );
+
+          echo '<style>
+             .form-table td {
+              vertical-align: top;
+             }
+          </style>
+          <div id="resource_settings_box">
+                  <div class="resource_settings">
+                    <table class="form-table resource_settings_box">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <label for="'.$resource_id_fieldname.'">Ckan Resource ID :</label>
+                          </td>
+                          <td>
+                            <input type="text" id="'.$resource_id_fieldname.'" name="'.$resource_id_fieldname.'" placeholder="fe0a5815-b58d-423b-816a-8347ec85b2bb" value="'.get_post_meta( $post->ID, $resource_id_fieldname, true ).'" style="width:100%;" />
+                            <p class="description">
+                              Ckan resource_id : d646bd1e-f377-4152-a4a7-8785e2b39fc5 <br>
+                              Example : 
+                              https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/<strong>d646bd1e-f377-4152-a4a7-8785e2b39fc5<strong>
+                              <br> ** bolded uri is where you can find resource_id in a resource url **
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label for="'.$resource_download_fieldname.'">Resource Download Link : </label>                  
+                          </td>
+                          <td>
+                            <input type="text" id="'.$resource_download_fieldname.'" name="'.$resource_download_fieldname.'" placeholder="https://data.opendevelopmentmekong.net/dataset/dataset_id/resource/resource_id/download/Resource.csv" value="'.get_post_meta( $post->ID, $resource_download_fieldname, true ).'" style="width:100%;" />
+                              <p class="description">
+                                Ckan resource download url <br>
+                                Example : https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5/download/HouseholdspopulationBasedDatasetSRUnion.csv
+                              </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label for"_ckan_resource_filter">Resource Filter</label>
+                          </td>
+                          <td>
+                            <textarea id="_ckan_resource_filter" name="_ckan_resource_filter" style="width:100%;" rows="5">'.get_post_meta($post->ID, '_ckan_resource_filter', true).'</textarea>
+                            <p class="description">
+                              Query filter for ckan datstore API in json format <br>
+                              Example : 
+                              <pre>
+{
+  pcode : "MMR001"
+}
+                              </pre>
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>';
+
+        }
+
+        public function dataviz_options_callback ($post) {
+
+          //wp_nonce_field( plugin_basename( __FILE__ ), 'honeypot_content_nonce' );
+
+          echo '<div id="resource_settings_box">
+                  <div class="resource_settings">
+                    <table class="form-table resource_settings_box">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <label for="_viz_type">Visualization Type :</label>
+                          </td>
+                          <td>
+                            <select name="_viz_type" id="viz_type">
+                              <option value="">-- Select Visualization Type --</option>'
+                            .
+                              $this->get_viz_type_options(get_post_meta($post->ID, '_viz_type', true))
+                            .'</select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label for="_viz_options">Visualization Options :</label>
+                          </td>
+                          <td>
+                            <textarea id="_viz_options" name="_viz_options" style="width:100%;" rows="10">'.get_post_meta($post->ID, '_viz_options', true).'</textarea>
+                            <p class="description">
+                              Customize visualization options in json format <br>
+                              Check avaliable options <a href="https://developers.google.com/chart/interactive/docs/" target=" _blank">here</a> <br>
+                              Examples : 
+                              <pre>
+{
+  hAxis : {
+    title : \'Communication and amenities type\',
+    slantedText : true,
+    slantedTextAngle: 45
+  },
+  vAxis : {
+    title : \'Number of households with access\'
+  }
+}
+                              </pre>
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label for="_viz_field_ids">Field IDs :</label>
+                          </td>
+                          <td>
+                            <textarea id="_viz_field_ids" name="_viz_field_ids" style="width:100%;" rows="10">'.get_post_meta($post->ID, '_viz_field_ids', true).'</textarea>
+                            <p class="description">
+                              Column names from resource needed for visualization and labels to show on frontend in json format <br>
+                              <pre>
+{
+  column_id : "Label"
+}
+                              </pre>
+                              Example : 
+                              <pre>
+{
+  "pri_school" : "Primary school",
+  "mid_school" : "Middle school",
+  "high_school" : "High school"
+}
+                              </pre>
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label for="_viz_columns">Column Names :</label>
+                          </td>
+                          <td>
+                            <textarea id="_viz_columns" name="_viz_columns" style="width:100%;" rows="10">'.get_post_meta($post->ID, '_viz_columns', true).'</textarea>
+                            <p class="description">
+                            Columns for visualization Data Table in json format <br>
+                            Check <a href="https://developers.google.com/chart/interactive/docs/datatables_dataviews#creating-and-populating-a-datatable" target="_blank">here</a> for more info.
+<pre>
+{
+   "Column Name" : "data_format"
+}
+</pre>
+Example : 
+<pre>
+{
+  "School" : "string",
+  "Number of School" : "number"
+}
+</pre>
+
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>';
+        }
+
+        public function dataviz_styles_callback($post) 
+        {
+          echo '<div id="resource_settings_box">
+                  <div class="resource_settings">
+                    <table class="form-table resource_settings_box">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <label for="_viz_width">Width</label>
+                          </td>
+                          <td>
+                            <input type="text" name="_viz_width" id="_viz_width" value="'.get_post_meta( $post->ID, '_viz_width', true ).'">
+                            <p class="description">
+                              Width of Visualization in pixel (px) or percent (%)
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label for="_viz_height">Height</label>
+                          </td>
+                          <td>
+                            <input type="text" name="_viz_height" id="_viz_height" value="'.get_post_meta( $post->ID, '_viz_height', true ).'">
+                            <p class="description">
+                              Height of Visualization in pixel (px) or percent (%)
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>';
+        }
+
+        public function get_viz_type_options($selected_val) 
+        {
+          $viz_type_options = array(
+            'pie' => 'Pie Chart',
+            'donut' => 'Donut Chart',
+            'bar' => 'Bar Chart',
+            'line' => 'Line Chart',
+            'column' => 'Column Chart',
+            'table' => 'Table',
+            'treemap' => 'Tree Map'
+          );
+
+          $template = '';
+          foreach ($viz_type_options as $value => $name) {
+            $selected = ($value == $selected_val) ? ' selected' : '';
+            $template .= '<option value="'.$value.'"'.$selected.'>'.$name.'</option>';
+          }
+
+          return $template;
+        }
+
         public function save_post_data($post_id)
         {
             global $post;
@@ -113,6 +365,21 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                     return;
                 }
 
+                $field_list = ['_ckan_resource_id', 
+                              '_ckan_resource_download_link',
+                              '_ckan_resource_filter',
+                              '_viz_type',
+                              '_viz_options',
+                              '_viz_field_ids',
+                              '_viz_columns',
+                              '_viz_width',
+                              '_viz_height'];
+
+                foreach ($field_list as $field_name) {
+                  if (isset($_POST[$field_name])) {
+                    update_post_meta($post_id, $field_name, $_POST[$field_name]);
+                  }
+                }
             }
 
           }
