@@ -35,7 +35,7 @@
 		<div class="pcode_container">
 			<div class="pcode_info_wrapper">
 				<i class="fa fa-info-circle" id="pcode_info"></i> 
-				<span class="pcode_info_text" style="display:none;">Pcode is an abbreviated term for “Place code”; this is similar to a zip code or postal code, and is a part of a data management system providing unique reference codes to around 67,000 locations across Myanmar. Learn more at about pcode <a href="" target="_blank">here</a></span>
+				<span class="pcode_info_text" style="display:none;">Pcode is an abbreviated term for “Place code”; this is similar to a zip code or postal code, and is a part of a data management system providing unique reference codes to around 67,000 locations across Myanmar. Learn more at about pcode <a href="http://themimu.info/place-codes" target="_blank">here</a></span>
 				ST PCODE : <span id="st_pcode">MMR</span> 
 			</div>
 			<span class="ts_chart" style="margin-left:30px;">TS PCODE : <span id="ts_pcode"></span></span>
@@ -47,7 +47,7 @@
 		<span id="overlayregion"></span>
 		<div id="search_by_stpcode" style="display:none;"></div>
 		<div class="general_info">
-			<h3 class="region_name_container">Myanmar</h3>
+			<h2 class="region_name_container">Myanmar</h2>
 			<span class="parent_region_container"></span>
 			<h5 id="total_population"></h5>
 			<h5 id="total_population_non_enumerated"></h5>
@@ -64,43 +64,64 @@
 		<ul id="viz_nav">
 			<li>
 				<a href="#demographic">
-				<i class="fa fa-globe"></i>
+				<span class="fa-stack fa-lg">
+  					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-globe fa-stack-1x fa-inverse"></i>
+				</span>
 				<span class="sec_title">Demographics</span>
 				</a>
 			</li>
 			<li>
 				<a href="#goverment">
-				<i class="fa fa-institution"></i>
+				<span class="fa-stack fa-lg">
+  					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-institution fa-stack-1x fa-inverse"></i>
+				</span>
 				<span class="sec_title">Government</span>
 				</a>
 			</li>
 			<li>
 				<a href="#economy">
-				<i class="fa fa-briefcase"></i>
+				<span class="fa-stack fa-lg">
+  					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-briefcase fa-stack-1x fa-inverse"></i>
+				</span>
 				<span class="sec_title">Economy and industry</span>
 				</a>
 			</li>
 			<li>
 				<a href="#education">
-				<i class="fa fa-graduation-cap"></i>
+				<span class="fa-stack fa-lg">
+  					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i>
+				</span>
 				<span class="sec_title">Education</span>
 				</a>
 			</li>
 			<li>
 				<a href="#health">
-				<i class="fa fa-medkit"></i>
+				<span class="fa-stack fa-lg">
+  					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-medkit fa-stack-1x fa-inverse"></i>
+				</span>
 				<span class="sec_title">Health</span>
 				</a>
 			</li>
 			<li id="environment_nav">
 				<a href="#environment">
-				<i class="fa fa-tree"></i>
+				<span class="fa-stack fa-lg">
+  					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-tree fa-stack-1x fa-inverse"></i>
+				</span>
 				<span class="sec_title">Environment</span>
 				</a>
 			</li>
 			<li>
 				<a href="#living">
-				<i class="fa fa-home"></i>
+				<span class="fa-stack fa-lg">
+  					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-home fa-stack-1x fa-inverse"></i>
+				</span>
 				<span class="sec_title">Households and living</span>
 				</a>
 			</li>
@@ -148,52 +169,52 @@
 		<div class="row chart_wrapper union_chart only_union">
 			<div class="row chart_wrapper">
 				<div class="eight columns">
-					<h3>Amyotha Hluttaw (Upper House), 2015 Election</h3>
+					<h3>Amyotha Hluttaw (Upper House), 2015 Election (Breakdown by seat)</h3>
 					<img src="<?php echo plugins_url(); ?>/wp-odm_dash/images/UnionAmyoTha2015.svg" alt="2015 AmyoTha Hluttaw" style="width:80%">
 					<div class="seating_legend">
 						<div class="single_legend">
 							<span class="circle" style="background:#1DE9B6;"></span>
-							Military : 56 seats
+							56 seats : Military
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#CA0A0A;"></span>
-							National League for Democracy : 135 seats
+							135 seats : National League for Democracy
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#119134"></span>
-							Union Solidatory and Development Party: 12 seats
+							12 seats : Union Solidatory and Development Party
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#48F000"></span>
-							Shan Nationalities League for Democracy: 3 seats
+							3 seats : Shan Nationalities League for Democracy
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#179AFF"></span>
-							Arakan National Party: 10 seats
+							10 seats : Arakan National Party
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#EE7137"></span>
-							Ta'Arng (Palaung) National Party: 1 seat
+							1 seat : Ta'Arng (Palaung) National Party
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#801CE6"></span>
-							Pao National Organization: 1 seat
+							1 seat : Pao National Organization
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#CD42CD"></span>
-							Zomi Congress for Democracy: 2 seats
+							2 seats : Zomi Congress for Democracy
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#D1C680"></span>
-							Mon National Party: 1 seat
+							1 seat : Mon National Party
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#DFBB8E"></span>
-							National Unity Party: 1 seat
+							1 seat : National Unity Party
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#F5B1F6"></span>
-							Independent: 2 seats
+							2 seats : Independent
 						</div>
 					</div>
 					<div class="resource_link">
@@ -201,60 +222,60 @@
 					</div>
 				</div>
 				<div class="eight columns">
-					<h3>Pyithu Hluttaw (Lower House), 2015 Election</h3>
+					<h3>Pyithu Hluttaw (Lower House), 2015 Election (Breakdown by seat)</h3>
 					<img src="<?php echo plugins_url(); ?>/wp-odm_dash/images/UnionPyiThu2015.svg" alt="2015 PyiThu Hluttaw" style="width:80%">
 					<div class="seating_legend">
 						<div class="single_legend">
 							<span class="circle" style="background:#1DE9B6;"></span>
-							Military : 110 seats
+							110 seats : Military
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#CA0A0A;"></span>
-							National League for Democracy : 255 seats
+							255 seats : National League for Democracy
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#119134"></span>
-							Union Solidatory and Development Party: 30 seats
+							30 seats : Union Solidatory and Development Party
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#48F000"></span>
-							Shan Nationalities League for Democracy: 12 seats
+							12 seats : Shan Nationalities League for Democracy
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#179AFF"></span>
-							Arakan National Party: 12 seats
+							12 seats : Arakan National Party
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#EE7137"></span>
-							Ta'Arng (Palaung) National Party: 3 seat
+							3 seats : Ta'Arng (Palaung) National Party
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#801CE6"></span>
-							Pao National Organization: 3 seat
+							3 seats : Pao National Organization
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#CD42CD"></span>
-							Zomi Congress for Democracy: 2 seats
+							2 seats : Zomi Congress for Democracy
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#171EBA"></span>
-							Lisu National Development Party: 2 seats
+							2 seats : Lisu National Development Party
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#D0E483"></span>
-							Kachin State Democracy Party: 1 seat
+							1 seat : Kachin State Democracy Party
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#46AE94"></span>
-							Wa Democratic Party: 1 seat
+							1 seat : Wa Democratic Party
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#B79F8E"></span>
-							Independent: 1 seat
+							1 seat : Independent
 						</div>
 						<div class="single_legend">
 							<span class="circle" style="background:#84C666"></span>
-							Cancelled: 7 seats
+							7 seats : Cancelled
 						</div>
 					</div>
 					<div class="resource_link">
@@ -351,9 +372,11 @@
 		<div class="row chart_wrapper st_chart union_chart">
 			<div class="four columns">
 				<div class="text_container">
-					<h5 class="label">Crude birth rate</h5>
+					<h5 class="label">
+						Crude birth rate <br>
+						<span>per 1,000 population</span>
+					</h5>
 					<div class="value"><span id="health_cbr"></span> </div>	
-					<span>per 1,000 population</span>
 				</div>
 				<div class="text_container">
 					<h5 class="label">Life expectancy at birth</h5>	
@@ -369,7 +392,8 @@
 				<div id="medical_worker" class="normal_chart"></div>
 			</div>
 			<div class="eight columns">
-				<div id="hospital_healthcenter" class="normal_chart full-width-charts" style="padding-top: 47px;height: 300px;"></div>
+				<div id="hospital_healthcenter" class="normal_chart full-width-charts" style="padding-top: 47px;height: 300px;">
+				</div>
 			</div>
 		</div>
 	</div>

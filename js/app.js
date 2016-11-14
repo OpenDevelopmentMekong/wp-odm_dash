@@ -385,7 +385,7 @@ jQuery( document ).ready(function() {
   function showTooltip(regionName) {
     $tooltip.text(regionName).show();
     $tooltip.css('left', event.pageX - 150);      // <<< use pageX and pageY
-    $tooltip.css('top', event.pageY - 400);
+    $tooltip.css('top', event.pageY - 450);
     $tooltip.css('display','inline');     
   }
 
