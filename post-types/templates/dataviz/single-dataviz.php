@@ -3,12 +3,9 @@
 <?php if (have_posts()) : the_post(); ?>
 
 	<section class="container">
+		<?php $post = get_post(); ?>
 		<?php include 'dataviz-single-template.php'; ?>
 	</section>
-
-	<!-- Google Chart -->
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
 
 <?php endif; ?>
 

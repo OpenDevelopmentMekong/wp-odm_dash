@@ -70,6 +70,9 @@ if (!class_exists('Odm_Dashboards_Plugin')) {
 
             wp_register_script('wpdash-plugin-util', plugins_url().'/wp-odm_dash/js/plugin-js/util.js');
             wp_enqueue_script('wpdash-plugin-util');
+
+            wp_register_script('wpdash-google-chart', 'https://www.gstatic.com/charts/loader.js');
+            wp_enqueue_script('wpdash-google-chart');
         }
 
         // public function register_scripts()
@@ -162,7 +165,7 @@ if (class_exists('Odm_Dashboards_Plugin')) {
 
   $plugin = plugin_basename(__FILE__);
   add_filter("plugin_action_links_$plugin", 'wpdash_plugin_settings_link');
-  }
+}
 
 
 add_action('plugins_loaded', array('Odm_Dashboards_Plugin', 'get_instance'));

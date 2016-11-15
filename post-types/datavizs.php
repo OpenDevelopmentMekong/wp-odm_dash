@@ -11,6 +11,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
           add_action('add_meta_boxes', array($this, 'register_metaboxs'));
           add_action('save_post', array($this, 'save_post_data'));
           add_filter('single_template', array($this, 'get_dataviz_template'));
+          add_shortcode('wpdash_dataviz', array($this, 'dataviz_shortcode_callback'));
         }
 
         public function get_dataviz_template($single_template)
@@ -382,9 +383,56 @@ Example :
                 }
             }
 
-          }
 
-    }
+        } // end of save_post_data
+
+        public function dataviz_shortcode_callback($atts, $content) 
+        {
+            if (isset($atts['id'])) {
+                $atts['p'] = $atts['id'];
+                unset($atts['id']);
+            }
+
+            $atts = shortcode_atts(
+                        array( 
+                           'posts_per_page' => '1',
+                           'post_type' => 'dataviz',
+                           'ignore_sticky_posts' => 1,
+                           'p' => '',
+                           'name' => '',
+                           'width' => '100%',
+                           'height' => '300px',
+                           'hide_description' => false), $atts);
+
+            global $post;
+
+            $posts = new WP_Query($atts);
+
+            $output = '';
+
+            if ($posts->have_posts()) {
+
+                return $this->get_dataviz_shortcode_template(plugin_dir_path(__FILE__).'templates/dataviz/dataviz-single-template.php', $posts->posts[0] , $atts);
+                
+            } else {
+                return; // no posts found\
+            }
+
+            wp_reset_query();
+
+        }
+
+        public function get_dataviz_shortcode_template($template_url, $post, $atts) {
+
+            ob_start();
+            require $template_url;
+            $output = ob_get_contents(); 
+            ob_end_clean();
+            return $output;
+
+        }
+
+    } // end of Class
 }
 
 ?>
