@@ -58,7 +58,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
               'hierarchical'       => true,
               'menu_position'      => 5,
               'taxonomies'         => array('dataviz_sections'),
-              'supports' => array('title', 'editor', 'revisions', 'author')
+              'supports' => array('title', 'editor', 'revisions', 'author', 'custom-fields')
             );
 
             register_post_type('datavizs', $args);
@@ -108,7 +108,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
             'dataviz_options',
             __('Data Visualization Options', 'wp-odm_dash'),
             array($this, 'dataviz_options_callback'),
-            'dataviz',
+            'datavizs',
             'advanced',
             'high'
           );
@@ -121,7 +121,6 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
             'side'
           );
 
-          //select dashboard metabox
         }
 
         public function dataviz_dataset_info_callback($post) {
@@ -137,62 +136,60 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
              }
           </style>
           <div id="resource_settings_box">
-                  <div class="resource_settings">
-                    <table class="form-table resource_settings_box">
-                      <tbody>
-                        <tr>
-                          <td>
-                            <label for="'.$resource_id_fieldname.'">Ckan Resource ID :</label>
-                          </td>
-                          <td>
-                            <input type="text" id="'.$resource_id_fieldname.'" name="'.$resource_id_fieldname.'" placeholder="fe0a5815-b58d-423b-816a-8347ec85b2bb" value="'.get_post_meta( $post->ID, $resource_id_fieldname, true ).'" style="width:100%;" />
-                            <p class="description">
-                              Ckan resource_id : d646bd1e-f377-4152-a4a7-8785e2b39fc5 <br>
-                              Example : 
-                              https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/<strong>d646bd1e-f377-4152-a4a7-8785e2b39fc5<strong>
-                              <br> ** bolded uri is where you can find resource_id in a resource url **
-                            </p>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <label for="'.$resource_download_fieldname.'">Resource Download Link : </label>                  
-                          </td>
-                          <td>
-                            <input type="text" id="'.$resource_download_fieldname.'" name="'.$resource_download_fieldname.'" placeholder="https://data.opendevelopmentmekong.net/dataset/dataset_id/resource/resource_id/download/Resource.csv" value="'.get_post_meta( $post->ID, $resource_download_fieldname, true ).'" style="width:100%;" />
-                              <p class="description">
-                                Ckan resource download url <br>
-                                Example : https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5/download/HouseholdspopulationBasedDatasetSRUnion.csv
-                              </p>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <label for"_ckan_resource_filter">Resource Filter</label>
-                          </td>
-                          <td>
-                            <textarea id="_ckan_resource_filter" name="_ckan_resource_filter" style="width:100%;" rows="5">'.get_post_meta($post->ID, '_ckan_resource_filter', true).'</textarea>
-                            <p class="description">
-                              Query filter for ckan datstore API in json format <br>
-                              Example : 
-                              <pre>
-{
-  pcode : "MMR001"
-}
-                              </pre>
-                            </p>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>';
+            <div class="resource_settings">
+              <table class="form-table resource_settings_box">
+                <tbody>
+                  <tr>
+                    <td>
+                      <label for="'.$resource_id_fieldname.'">Ckan Resource ID :</label>
+                    </td>
+                    <td>
+                      <input type="text" id="'.$resource_id_fieldname.'" name="'.$resource_id_fieldname.'" placeholder="fe0a5815-b58d-423b-816a-8347ec85b2bb" value="'.get_post_meta( $post->ID, $resource_id_fieldname, true ).'" style="width:100%;" />
+                      <p class="description">
+                        Ckan resource_id : d646bd1e-f377-4152-a4a7-8785e2b39fc5 <br>
+                        Example : 
+                        https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/<strong>d646bd1e-f377-4152-a4a7-8785e2b39fc5<strong>
+                        <br> ** bolded uri is where you can find resource_id in a resource url **
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="'.$resource_download_fieldname.'">Resource Download Link : </label>                  
+                    </td>
+                    <td>
+                      <input type="text" id="'.$resource_download_fieldname.'" name="'.$resource_download_fieldname.'" placeholder="https://data.opendevelopmentmekong.net/dataset/dataset_id/resource/resource_id/download/Resource.csv" value="'.get_post_meta( $post->ID, $resource_download_fieldname, true ).'" style="width:100%;" />
+                        <p class="description">
+                          Ckan resource download url <br>
+                          Example : https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5/download/HouseholdspopulationBasedDatasetSRUnion.csv
+                        </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for"_ckan_resource_filter">Resource Filter</label>
+                    </td>
+                    <td>
+                      <textarea id="_ckan_resource_filter" name="_ckan_resource_filter" style="width:100%;" rows="5">'.get_post_meta($post->ID, '_ckan_resource_filter', true).'</textarea>
+                      <p class="description">
+                        Query filter for ckan datstore API in json format <br>
+                        Example : 
+                        <pre>
+                        {
+                          pcode : "MMR001"
+                        }
+                        </pre>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>';
 
         }
 
         public function dataviz_options_callback ($post) {
-
-          //wp_nonce_field( plugin_basename( __FILE__ ), 'honeypot_content_nonce' );
 
           echo '<div id="resource_settings_box">
                   <div class="resource_settings">
@@ -221,16 +218,16 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                               Check avaliable options <a href="https://developers.google.com/chart/interactive/docs/" target=" _blank">here</a> <br>
                               Examples : 
                               <pre>
-{
-  hAxis : {
-    title : \'Communication and amenities type\',
-    slantedText : true,
-    slantedTextAngle: 45
-  },
-  vAxis : {
-    title : \'Number of households with access\'
-  }
-}
+                              {
+                                hAxis : {
+                                  title : \'Communication and amenities type\',
+                                  slantedText : true,
+                                  slantedTextAngle: 45
+                                },
+                                vAxis : {
+                                  title : \'Number of households with access\'
+                                }
+                              }
                               </pre>
                             </p>
                           </td>
@@ -244,17 +241,17 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                             <p class="description">
                               Column names from resource needed for visualization and labels to show on frontend in json format <br>
                               <pre>
-{
-  column_id : "Label"
-}
+                                {
+                                  column_id : "Label"
+                                }
                               </pre>
                               Example : 
                               <pre>
-{
-  "pri_school" : "Primary school",
-  "mid_school" : "Middle school",
-  "high_school" : "High school"
-}
+                                {
+                                  "pri_school" : "Primary school",
+                                  "mid_school" : "Middle school",
+                                  "high_school" : "High school"
+                                }
                               </pre>
                             </p>
                           </td>
@@ -268,19 +265,18 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                             <p class="description">
                             Columns for visualization Data Table in json format <br>
                             Check <a href="https://developers.google.com/chart/interactive/docs/datatables_dataviews#creating-and-populating-a-datatable" target="_blank">here</a> for more info.
-<pre>
-{
-   "Column Name" : "data_format"
-}
-</pre>
-Example : 
-<pre>
-{
-  "School" : "string",
-  "Number of School" : "number"
-}
-</pre>
-
+                              <pre>
+                              {
+                                 "Column Name" : "data_format"
+                              }
+                              </pre>
+                              Example : 
+                              <pre>
+                              {
+                                "School" : "string",
+                                "Number of School" : "number"
+                              }
+                              </pre>
                             </p>
                           </td>
                         </tr>

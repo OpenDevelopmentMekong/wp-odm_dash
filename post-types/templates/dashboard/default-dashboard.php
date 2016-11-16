@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="sixteen columns">
 	    
-			<!-- list datavizs here -->
+			<!-- list $datavizs here -->
 			
 	  </div>
 	</div>

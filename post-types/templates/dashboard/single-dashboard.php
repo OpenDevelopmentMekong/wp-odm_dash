@@ -3,6 +3,7 @@
 
 <?php 
 	$template = get_post_meta($post->ID, '_attributes_template_layout', true);
+	$datavizs = get_post_meta($post->ID, '_attributes_dashboard_datavizs', true);
  ?>
 
 <?php	if (have_posts()) : ?>
@@ -32,7 +33,6 @@
     endif;
   ?>
 </section>
-
 
 <?php endif; ?>
 
