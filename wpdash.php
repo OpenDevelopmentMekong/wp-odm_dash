@@ -123,7 +123,7 @@ if (!class_exists('Odm_Dashboards_Plugin')) {
          */
         public function wpdash_add_menu()
         {
-            add_options_page('WPDash Settings', 'wpdash', 'manage_options', 'wpdash', array(&$this, 'plugin_settings_page'));
+            add_options_page('WPDash Settings', 'wp-odm_dash', 'manage_options', 'wp-odm_dash', array(&$this, 'plugin_settings_page'));
         }
 
         /**

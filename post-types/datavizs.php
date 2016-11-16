@@ -18,7 +18,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
         {
             global $post;
 
-            if ($post->post_type == 'dataviz') {
+            if ($post->post_type == 'datavizs') {
                 $single_template = plugin_dir_path(__FILE__).'templates/dataviz/single-dataviz.php';  
             }
 
@@ -28,20 +28,20 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
         public function register_post_type()
         {
             $labels = array(
-            'name' => __('Data Visualizations', 'post type general name', 'wpdash'),
-            'singular_name' => __('Data Visualization', 'post type singular name', 'wpdash'),
-            'menu_name' => __('Visualizations', 'admin menu for dashboard', 'wpdash'),
-            'name_admin_bar' => __('Data Visualization', 'add new on admin bar', 'wpdash'),
-            'add_new' => __('Add new', 'dashboard', 'wpdash'),
-            'add_new_item' => __('Add new visualization', 'wpdash'),
-            'new_item' => __('New visualization', 'wpdash'),
-            'edit_item' => __('Edit visualization', 'wpdash'),
-            'view_item' => __('View visualization', 'wpdash'),
-            'all_items' => __('All visualizations', 'wpdash'),
-            'search_items' => __('Search visualization', 'wpdash'),
-            'parent_item_colon' => __('Parent visualization:', 'wpdash'),
-            'not_found' => __('No visualization found.', 'wpdash'),
-            'not_found_in_trash' => __('No visualization found in trash.', 'wpdash'),
+            'name' => __('Data Visualizations', 'post type general name', 'wp-odm_dash'),
+            'singular_name' => __('Data Visualization', 'post type singular name', 'wp-odm_dash'),
+            'menu_name' => __('Visualizations', 'admin menu for dashboard', 'wp-odm_dash'),
+            'name_admin_bar' => __('Data Visualization', 'add new on admin bar', 'wp-odm_dash'),
+            'add_new' => __('Add new', 'dashboard', 'wp-odm_dash'),
+            'add_new_item' => __('Add new visualization', 'wp-odm_dash'),
+            'new_item' => __('New visualization', 'wp-odm_dash'),
+            'edit_item' => __('Edit visualization', 'wp-odm_dash'),
+            'view_item' => __('View visualization', 'wp-odm_dash'),
+            'all_items' => __('All visualizations', 'wp-odm_dash'),
+            'search_items' => __('Search visualization', 'wp-odm_dash'),
+            'parent_item_colon' => __('Parent visualization:', 'wp-odm_dash'),
+            'not_found' => __('No visualization found.', 'wp-odm_dash'),
+            'not_found_in_trash' => __('No visualization found in trash.', 'wp-odm_dash'),
             );
 
             $args = array(
@@ -52,7 +52,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
               'show_in_menu'       => true,
   			      'menu_icon'          => 'dashicons-chart-pie',
               'query_var'          => true,
-              'rewrite'            => array('slug' => 'dataviz', 'with_front' => false),
+              'rewrite'            => array('slug' => 'datavizs', 'with_front' => false),
               'capability_type'    => 'page',
               'has_archive'        => true,
               'hierarchical'       => true,
@@ -61,24 +61,24 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
               'supports' => array('title', 'editor', 'revisions', 'author')
             );
 
-            register_post_type('dataviz', $args);
+            register_post_type('datavizs', $args);
         }
 
         public function register_dataviz_taxonomy()
         {
 
           $labels = array(
-              'name'              => _x( 'Dataviz sections', 'taxonomy general name', 'wpdash' ),
-              'singular_name'     => _x( 'Dataviz section', 'taxonomy singular name', 'wpdash' ),
-              'search_items'      => __( 'Search section', 'wpdash' ),
-              'all_items'         => __( 'All Sections', 'wpdash' ),
-              'parent_item'       => __( 'Parent Section', 'wpdash' ),
-              'parent_item_colon' => __( 'Parent Section:', 'wpdash' ),
-              'edit_item'         => __( 'Edit Section', 'wpdash' ),
-              'update_item'       => __( 'Update Section', 'wpdash' ),
-              'add_new_item'      => __( 'Add New Section', 'wpdash' ),
-              'new_item_name'     => __( 'New Section Name', 'wpdash' ),
-              'menu_name'         => __( 'Dataviz Section', 'wpdash' ),
+              'name'              => _x( 'Dataviz sections', 'taxonomy general name', 'wp-odm_dash' ),
+              'singular_name'     => _x( 'Dataviz section', 'taxonomy singular name', 'wp-odm_dash' ),
+              'search_items'      => __( 'Search section', 'wp-odm_dash' ),
+              'all_items'         => __( 'All Sections', 'wp-odm_dash' ),
+              'parent_item'       => __( 'Parent Section', 'wp-odm_dash' ),
+              'parent_item_colon' => __( 'Parent Section:', 'wp-odm_dash' ),
+              'edit_item'         => __( 'Edit Section', 'wp-odm_dash' ),
+              'update_item'       => __( 'Update Section', 'wp-odm_dash' ),
+              'add_new_item'      => __( 'Add New Section', 'wp-odm_dash' ),
+              'new_item_name'     => __( 'New Section Name', 'wp-odm_dash' ),
+              'menu_name'         => __( 'Dataviz Section', 'wp-odm_dash' ),
             );
 
             $args = array(
@@ -97,16 +97,16 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
         public function register_metaboxs() {
           add_meta_box(
             'dataviz_dataset_info',
-            __('Ckan Dataset Info', 'wpdash'),
+            __('Ckan Dataset Info', 'wp-odm_dash'),
             array($this, 'dataviz_dataset_info_callback'),
-            'dataviz',
+            'datavizs',
             'advanced',
             'high'
           );
 
           add_meta_box(
             'dataviz_options',
-            __('Data Visualization Options', 'wpdash'),
+            __('Data Visualization Options', 'wp-odm_dash'),
             array($this, 'dataviz_options_callback'),
             'dataviz',
             'advanced',
@@ -115,9 +115,9 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
 
           add_meta_box(
             'dataviz_style',
-            __('Data Visualization Styles', 'wpdash'),
+            __('Data Visualization Styles', 'wp-odm_dash'),
             array($this, 'dataviz_styles_callback'),
-            'dataviz',
+            'datavizs',
             'side'
           );
 
@@ -348,7 +348,7 @@ Example :
         public function save_post_data($post_id)
         {
             global $post;
-            if (isset($post->ID) && get_post_type($post->ID) == 'dataviz') {
+            if (isset($post->ID) && get_post_type($post->ID) == 'datavizs') {
 
                 if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
                     return;
@@ -396,7 +396,7 @@ Example :
             $atts = shortcode_atts(
                         array( 
                            'posts_per_page' => '1',
-                           'post_type' => 'dataviz',
+                           'post_type' => 'datavizs',
                            'ignore_sticky_posts' => 1,
                            'p' => '',
                            'name' => '',

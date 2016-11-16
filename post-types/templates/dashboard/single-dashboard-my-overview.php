@@ -1,20 +1,3 @@
-
-<?php get_header(); ?>
-
-<?php	if (have_posts()) : ?>
-
-<section class="container">
-	<div class="row">
-		  <div class="eleven columns">
-	    <?php the_content(); ?>
-	  </div>
-	</div>
-</section>
-<section class="container">
-	<div class="row">
-		<h1><?php the_title(); ?></h1>
-	</div>
-</section>
 <div id="region_name_wrapper">
 	<div class="container">
 		<div class="row">
@@ -30,7 +13,8 @@
 		</div>
 	</div>
 </div>
-<section class="container">
+
+<section id="content" class="container single-post">
 	<div class="row">
 		<div class="pcode_container">
 			<div class="pcode_info_wrapper">
@@ -486,9 +470,4 @@
 
 <!-- JS -->
 <script src="https://d3js.org/topojson.v1.min.js"></script>
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBWFsA9Qk3_-_FiwWT3d38WHbXkIZ9EkE&callback=initMap"></script>
-<script src="leaflet-google.js"></script> -->
 
-<?php endif; ?>
-
-<?php get_footer(); ?>
