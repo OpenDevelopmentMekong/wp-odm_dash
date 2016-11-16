@@ -468,13 +468,13 @@
 	wp_register_script('wpdash-loading-overlay', plugins_url().'/wp-odm_dash/bower_components/jquery-loading-overlay/src/loadingoverlay.min.js', array('jquery'));
 	wp_enqueue_script('wpdash-loading-overlay');
 
-	wp_register_script('wpdash-app', plugins_url().'/wp-odm_dash/js/app.js', array('jquery'));
+	wp_register_script('wpdash-app', plugins_url().'/wp-odm_dash/js/my-overview/app.js', array('jquery'));
 	wp_enqueue_script('wpdash-app');
-	wp_register_script('wpdash-chart-config', plugins_url().'/wp-odm_dash/js/chart-config.js', array('jquery'));
+	wp_register_script('wpdash-chart-config', plugins_url().'/wp-odm_dash/js/my-overview/chart-config.js', array('jquery'));
 	wp_enqueue_script('wpdash-chart-config');
-	wp_register_script('wpdash-chart-class', plugins_url().'/wp-odm_dash/js/chartClass.js', array('jquery'));
+	wp_register_script('wpdash-chart-class', plugins_url().'/wp-odm_dash/js/my-overview/chartClass.js', array('jquery'));
 	wp_enqueue_script('wpdash-chart-class');
-	wp_register_script('wpdash-util', plugins_url().'/wp-odm_dash/js/util.js', array('jquery'));
+	wp_register_script('wpdash-util', plugins_url().'/wp-odm_dash/js/my-overview/util.js', array('jquery'));
 	wp_localize_script('wpdash-util','dashboard', array(
 		'ajax_url' => admin_url('admin-ajax.php')
 	));
@@ -488,9 +488,6 @@
 <script src="https://d3js.org/topojson.v1.min.js"></script>
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBWFsA9Qk3_-_FiwWT3d38WHbXkIZ9EkE&callback=initMap"></script>
 <script src="leaflet-google.js"></script> -->
-
-<!-- Google Chart -->
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <?php endif; ?>
 
