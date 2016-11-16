@@ -161,11 +161,36 @@ function ODChart(config) {
 
           self.prepareDataSourceModal(value);
 
+          if (value.chart_type == 'treemap') {
+            var treechartdata = value.ChartData;
+            value.chart_options.generateTooltip = function(row, size, value) {
+              if (treechartdata.getValue(row, 2) > 0) {
+                return '<div class="treemap_tooltip">' + 
+                        '<h5>' +
+                        treechartdata.getValue(row, 0) + 
+                        '</h5>' + 
+                        self.formatNumber(treechartdata.getValue(row, 2)) + '<br>' + 
+                      '</div>';
+              } else {
+                return '<div class="treemap_tooltip">' +
+                        '<h5>' +
+                        treechartdata.getValue(row, 0) + 
+                        '</h5>' + 
+                      '</div>';
+              }
+            };
+          }
+
           googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
 
           googleChart.draw('table', document.getElementById(value.container_id + '_table_wrapper'), value.ChartData);
 
           jQuery('#' + value.container_id + '_table_wrapper').prepend(self.getDataSourceLinkTemplate(value));
+
+          //Add Title for table if it's in config
+          if (value.chart_type == 'table' && value.chart_options.title != undefined) {
+            jQuery('#' + value.container_id).prepend('<h5>' + value.chart_options.title +'</h5>');
+          }
 
         }
 
@@ -485,7 +510,9 @@ var googleChart = {
   },
 
   options : {
-    pie : {},
+    pie : {
+      sliceVisibilityThreshold: 0
+    },
     bar : {
       legend : {
         position : 'bottom'
@@ -498,7 +525,8 @@ var googleChart = {
       backgroundColor : {
         fill : 'transparent'
       },
-      pieHole: 0.4
+      pieHole: 0.4,
+      sliceVisibilityThreshold: 0
     },
     line : {
       backgroundColor : {
@@ -572,3 +600,4 @@ var googleChart = {
   }
 
 };
+

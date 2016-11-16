@@ -45,7 +45,7 @@ if (!class_exists('Odm_Dashboards_Plugin')) {
         private function __construct()
         {
             add_action('init', array($this, 'register_styles'));
-            //add_action('init', array($this, 'register_scripts'));
+            add_action('init', array($this, 'register_scripts'));
             add_action('admin_init', array(&$this, 'wpdash_admin_init'));
             add_action('admin_menu', array(&$this, 'wpdash_add_menu'));
             add_action('admin_notices', array($this, 'check_requirements'));
@@ -55,6 +55,24 @@ if (!class_exists('Odm_Dashboards_Plugin')) {
         {
             wp_enqueue_style('leaflet-search', plugin_dir_url(__FILE__).'bower_components/leaflet-search/dist/leaflet-search.min.css');
             wp_enqueue_style('wpdash-style',  plugin_dir_url(__FILE__).'css/wpdash-style.css');
+        }
+
+        public function register_scripts()
+        {
+            wp_register_script('wpdash-plugin-googlechart', plugins_url().'/wp-odm_dash/js/plugin-js/google-charts.js', array('jquery'));
+            wp_enqueue_script('wpdash-plugin-googlechart');
+
+            wp_register_script('wpdash-plugin-chartclass', plugins_url().'/wp-odm_dash/js/plugin-js/chart-class.js');
+            wp_localize_script('wpdash-plugin-chartclass','dashboard', array(
+              'ckan_url' => wpckan_get_ckan_domain()
+            ));
+            wp_enqueue_script('wpdash-plugin-chartclass');
+
+            wp_register_script('wpdash-plugin-util', plugins_url().'/wp-odm_dash/js/plugin-js/util.js');
+            wp_enqueue_script('wpdash-plugin-util');
+
+            wp_register_script('wpdash-google-chart', 'https://www.gstatic.com/charts/loader.js');
+            wp_enqueue_script('wpdash-google-chart');
         }
 
         // public function register_scripts()
@@ -147,7 +165,7 @@ if (class_exists('Odm_Dashboards_Plugin')) {
 
   $plugin = plugin_basename(__FILE__);
   add_filter("plugin_action_links_$plugin", 'wpdash_plugin_settings_link');
-  }
+}
 
 
 add_action('plugins_loaded', array('Odm_Dashboards_Plugin', 'get_instance'));

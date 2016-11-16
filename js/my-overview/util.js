@@ -17,8 +17,8 @@ jQuery(function() {
   //Sticky Navigation
   var viz_nav = jQuery('#viz_nav_wrapper');
   var region_name = jQuery('#region_name_wrapper');
-  var stickyNavTop = viz_nav.offset().top;
   var regionNameTop = region_name.offset().top;
+  var stickyNavTop = viz_nav.offset().top - region_name.height();
   var stickyNav = function(){
     // Navigation
     var NavscrollTop = jQuery(window).scrollTop() + jQuery('#od-selector').height() + region_name.height();
@@ -53,11 +53,27 @@ jQuery(function() {
     jQuery('#mymap').css("pointer-events", "none"); 
   });
 
+  jQuery('.pcode_info_wrapper').on('hover', function(){
+    jQuery('.pcode_info_text').fadeToggle();
+  });
 
-  jQuery(document).on('click', '.data_source_btn', function(e){
+
+  /*jQuery(document).on('click', '.data_source_btn', function(e){
     e.preventDefault();
     var target = jQuery(this).data('target');
     jQuery('#'+target).slideToggle();
+  });*/
+
+  /* ======= LOADING =========== */
+
+  /*jQuery(document).ajaxStart(function() {
+    console.log("ajax start");
+    jQuery.LoadingOverlay("show");
   });
+
+  jQuery(document).ajaxComplete(function() {
+    console.log("ajax end");
+    jQuery.LoadingOverlay("hide");
+  });*/
   
 });
