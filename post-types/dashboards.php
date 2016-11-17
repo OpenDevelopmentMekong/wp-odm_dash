@@ -144,16 +144,16 @@ if (!class_exists('Odm_Dashboards_Post_Type')) {
         function post_datavizs_box($post = false) 
         {
 
-          $dataviz_query = new WP_Query(array('post_type' => 'datavizs', 'posts_per_page' => -1));
+          $dataviz_query = new WP_Query(array('post_type' => 'dataviz', 'posts_per_page' => -1));
           $datavizs = array();
           $post_datavizs = $post ? $this->get_dashboard_datavizs($post->ID) : false;
           ?>
 
           <p>
            <?php
-            printf(__('Add and manage <a href="%s" target="_blank">Data visualizations</a> on your dashboard.', 'wp-odm_dash'), admin_url('edit.php?post_type=datavizs'));
+            printf(__('Add and manage <a href="%s" target="_blank">Data visualizations</a> on your dashboard.', 'wp-odm_dash'), admin_url('edit.php?post_type=dataviz'));
             if(!$dataviz_query->have_posts()):
-              printf(__(' You haven\'t created any data visualizations yet, <a href="%s" target="_blank">click here</a> to create your first!'), admin_url('post-new.php?post_type=datavizs'));
+              printf(__(' You haven\'t created any data visualizations yet, <a href="%s" target="_blank">click here</a> to create your first!'), admin_url('post-new.php?post_type=dataviz'));
             endif;
            ?>
           </p>
