@@ -3,7 +3,7 @@
  * Plugin Name: ODM Dashboards
  * Plugin URI: http://github.com/OpenDevelopmentMekong/wpdash
  * Description: Internal wordpress plugin for exposing widgets with data visualizations.
- * Version: 0.9.0
+ * Version: 1.0.0
  * Author: Alex Corbi (mail@lifeformapps.com)
  * Author URI: http://www.lifeformapps.com
  * License: GPLv3.
