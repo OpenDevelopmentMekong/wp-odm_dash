@@ -12,6 +12,7 @@
 
 // Require utils
 require_once plugin_dir_path(__FILE__).'utils/wpdash-utils.php';
+require_once plugin_dir_path(__FILE__).'utils/wpdash-ckan-utils.php';
 
 // Require post types
 require_once plugin_dir_path(__FILE__).'post-types/dashboards.php';
