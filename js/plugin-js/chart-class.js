@@ -10,19 +10,15 @@ function ODChart(config) {
 
     var value = self.chart;
 
-    //$.map(this.charts, function(value, index){
-      if (value.chart_type != 'text' || (value.prepare_data_from_array != undefined && value.prepare_data_from_array == true)) {
-        self.chart['ChartData'] = self.makeDataTable(value.columns);
-        if (value.colors != undefined) {
-          value.ChartData.addColumn({type: 'string', role: 'style' });
-        }
+    if (value.chart_type !== 'text' || (value.prepare_data_from_array !== undefined && value.prepare_data_from_array === true)) {
+      self.chart['ChartData'] = self.makeDataTable(value.columns);
+      if (value.colors !== undefined) {
+        value.ChartData.addColumn({type: 'string', role: 'style' });
       }
-    //});
-
+    }
+    
   	this.getData().done(function(data){
-
       self.processAfterData(data);
-
   	});
 
   };
@@ -37,7 +33,7 @@ function ODChart(config) {
       },
       dataType: 'json'
     };
-
+    
     //Assign Authorization Header if resource is Private
     if(config.resource.private) {
       ajax_opt.headers = {
@@ -74,7 +70,7 @@ function ODChart(config) {
 
       if(value.chart_type == 'text') {
 
-        if ((self.data[value.field] == undefined || self.data[value.field] == null) || (self.data[value.field] == 0 && value.ignore_zero == true)) {
+        if ((self.data[value.field] === undefined || self.data[value.field] === null) || (self.data[value.field] === 0 && value.ignore_zero === true)) {
 
           $('#'+value.container_id).hide();
 
@@ -82,16 +78,16 @@ function ODChart(config) {
 
           // Format Number
           var f_val = self.data[value.field];
-          if (value.numberformat == true) {
+          if (value.numberformat === true) {
             f_val = self.formatNumber(self.data[value.field]);
           }
 
           // Check if there *title* field option
-          if (value.title != undefined && value.title != '') {
+          if (value.title !== undefined && value.title !== '') {
             f_val = value.title + ' : ' + f_val;
           }
 
-          if (value.unit != undefined && value.unit != '') {
+          if (value.unit !== undefined && value.unit !== '') {
             f_val += ' ' + value.unit;
           }
 
@@ -110,11 +106,11 @@ function ODChart(config) {
         var c_data = self.prepareData(value);
         if(value.chart_type == 'treemap') {
           c_data = self.prepareDataForTreeMap(value);
-        } else if (value.fixed_structure == true) {
+        } else if (value.fixed_structure === true) {
           c_data = self.prepareDataFromFixStructure(value);
         }
 
-        if (c_data == false) {
+        if (c_data === false) {
 
           $("#"+value.container_id).parent('div').hide();
 
@@ -131,7 +127,7 @@ function ODChart(config) {
           jQuery('#' + value.container_id + '_table_wrapper').prepend(self.getDataSourceLinkTemplate(value));
 
           //Add Title for table if it's in config
-          if (value.chart_type == 'table' && value.chart_options.title != undefined) {
+          if (value.chart_type == 'table' && value.chart_options.title !== undefined) {
             jQuery('#' + value.container_id).prepend('<h5>' + value.chart_options.title +'</h5>');
           }
 
@@ -161,7 +157,7 @@ function ODChart(config) {
 
     var resource_container = jQuery('<div>').addClass('resource_link');
 
-    if (self.resource.dataset_id != undefined) {
+    if (self.resource.dataset_id !== undefined) {
 
       var dataset_url = data_source_url + '?id=' + self.resource.dataset_id;
 
@@ -172,7 +168,7 @@ function ODChart(config) {
       );
     }
 
-    if (self.resource.download_link != undefined) {
+    if (self.resource.download_link !== undefined) {
 
       resource_container.append(
         jQuery('<a>').attr('href', self.resource.download_link)
@@ -229,16 +225,16 @@ function ODChart(config) {
         num_value = num_value.replace(/,/g, '');
       }
 
-      if (num_value == null || num_value == '') {
+      if (num_value === null || num_value === '') {
         num_value = 0;
       }
 
-      if (num_value == 0) {
+      if (num_value === 0) {
         zero_count++;
       }
 
       var row_data = [value, parseInt(num_value, 10)];
-      if(chart.colors != undefined) {
+      if(chart.colors !== undefined) {
         row_data.push(chart.colors[index]);
       }
       result.push(row_data);
@@ -259,7 +255,7 @@ function ODChart(config) {
     $.map(chart.fields, function(value, index){
 
       var res = $.map(value, function(value, index){
-        if (index == 0) {
+        if (index === 0) {
           return value;
         } else {
           return parseInt(self.data[value]);

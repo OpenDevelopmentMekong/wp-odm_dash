@@ -53,12 +53,12 @@ if (isset($atts["height"])) {
 	}
 
 	var chart_<?php echo $post_id; ?> = new ODChart(config);
-
+	
 	jQuery(document).ready(function(){
 		google.charts.load('current', {'packages':['corechart', 'table', 'treemap']});
 		google.charts.setOnLoadCallback(initChart<?php echo $post_id; ?>);
 	});
-
+	
 	function initChart<?php echo $post_id; ?>()
 	{
 		chart_<?php echo $post_id; ?>.init();
