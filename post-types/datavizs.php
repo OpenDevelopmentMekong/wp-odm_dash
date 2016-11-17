@@ -18,7 +18,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
         {
             global $post;
 
-            if ($post->post_type == 'datavizs') {
+            if ($post->post_type == 'dataviz') {
                 $single_template = plugin_dir_path(__FILE__).'templates/dataviz/single-dataviz.php';
             }
 
@@ -61,7 +61,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
               'supports' => array('title', 'editor', 'revisions', 'author', 'custom-fields')
             );
 
-            register_post_type('datavizs', $args);
+            register_post_type('dataviz', $args);
         }
 
         public function register_dataviz_taxonomy()
@@ -99,7 +99,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
             'dataviz_dataset_info',
             __('Ckan Dataset Info', 'wp-odm_dash'),
             array($this, 'dataviz_dataset_info_callback'),
-            'datavizs',
+            'dataviz',
             'advanced',
             'high'
           );
@@ -108,7 +108,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
             'dataviz_options',
             __('Data Visualization Options', 'wp-odm_dash'),
             array($this, 'dataviz_options_callback'),
-            'datavizs',
+            'dataviz',
             'advanced',
             'high'
           );
@@ -117,7 +117,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
             'dataviz_style',
             __('Data Visualization Styles', 'wp-odm_dash'),
             array($this, 'dataviz_styles_callback'),
-            'datavizs',
+            'dataviz',
             'side'
           );
 
@@ -344,7 +344,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
         public function save_post_data($post_id)
         {
             global $post;
-            if (isset($post->ID) && get_post_type($post->ID) == 'datavizs') {
+            if (isset($post->ID) && get_post_type($post->ID) == 'dataviz') {
 
                 if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
                     return;
@@ -391,7 +391,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
 
             $atts = shortcode_atts(array(
                    'posts_per_page' => '1',
-                   'post_type' => 'datavizs',
+                   'post_type' => 'dataviz',
                    'ignore_sticky_posts' => 1,
                    'p' => '',
                    'name' => '',

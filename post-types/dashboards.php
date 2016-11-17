@@ -14,7 +14,7 @@ if (!class_exists('Odm_Dashboards_Post_Type')) {
         
         public function get_custom_page_template($template){
               $template_slug = basename($template);
-            if ( is_archive() && $template_slug == "archive-dashboards.php") {
+            if ( is_archive() && $template_slug == "archive-dashboard.php") {
                 return $template;
             }else if(is_single() && $template_slug =="single.php") {
                 $single_template = $this->get_profile_pages_template($template);
@@ -22,7 +22,7 @@ if (!class_exists('Odm_Dashboards_Post_Type')) {
             }else if (!is_archive()) {
                 return $template;
             }else {
-              if (!is_post_type_archive("dashboards")):
+              if (!is_post_type_archive("dashboard")):
                 return $template;
               endif;
             }
@@ -31,7 +31,7 @@ if (!class_exists('Odm_Dashboards_Post_Type')) {
         public function get_profile_pages_template($single_template)
         {
           global $post;
-          if ($post->post_type == 'dashboards') {
+          if ($post->post_type == 'dashboard') {
               $single_template = plugin_dir_path(__FILE__).'templates/dashboard/single-dashboard.php';
           }
             return $single_template;
@@ -43,7 +43,7 @@ if (!class_exists('Odm_Dashboards_Post_Type')) {
            'dashboards_template_layout',
            __('Template layout', 'wp-odm_dash'),
            array($this, 'template_layout_settings_box'),
-           'dashboards',
+           'dashboard',
            'advanced',
            'high'
           );
@@ -52,7 +52,7 @@ if (!class_exists('Odm_Dashboards_Post_Type')) {
            'post-datavizs',
            __('Data visualizations', 'wp-odm_dash'),
            array($this, 'post_datavizs_box'),
-           'dashboards',
+           'dashboard',
            'advanced',
            'high'
           );
@@ -107,13 +107,13 @@ if (!class_exists('Odm_Dashboards_Post_Type')) {
               'supports' => array('title', 'editor', 'page-attributes', 'revisions', 'author', 'thumbnail', 'custom-fields')
             );
 
-            register_post_type('dashboards', $args);
+            register_post_type('dashboard', $args);
         }
 
         public function save_post_data($post_id)
         {
           global $post;
-          if (isset($post->ID) && get_post_type($post->ID) == 'dashboards') {
+          if (isset($post->ID) && get_post_type($post->ID) == 'dashboard') {
             
             if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
                 return;
