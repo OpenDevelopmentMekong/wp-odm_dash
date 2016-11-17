@@ -13,7 +13,7 @@ Wordpress plugin for exposing widgets with data visualizations
 
 ### wpdash_dataviz
 
-This plugin exposes a shortcode to allow editors placing showing data visualizations in the content of wordpress posts. It can receive following parameters:
+This plugin exposes a shortcode to allow editors placing data visualizations in the content of wordpress posts. It can receive following parameters:
 
 **id**: the id of the data visualization to show.
 **name**: alternatively to **id**, the name (slug) of the dataviz can be specified.
