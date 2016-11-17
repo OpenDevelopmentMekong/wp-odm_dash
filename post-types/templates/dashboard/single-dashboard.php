@@ -1,7 +1,7 @@
 
 <?php get_header(); ?>
 
-<?php 
+<?php
 	$template = get_post_meta($post->ID, '_attributes_template_layout', true);
 	$datavizs = get_post_meta($post->ID, '_attributes_dashboard_datavizs', true);
  ?>
@@ -25,9 +25,9 @@
 </section>
 
 <section id="content" class="single-post">
-  <?php 
+  <?php
     if ($template == 'my-overview'):
-      include 'single-dashboard-my-overview.php';    
+      include 'single-dashboard-my-overview.php';
     else:
       include 'default-dashboard.php';
     endif;

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $post_id = $post->ID;
 
@@ -13,8 +13,8 @@ $viz_columns = get_post_meta($post_id, '_viz_columns', true);
 if (isset($atts["width"])) {
 	$viz_width = $atts["width"];
 } else {
-	$viz_width = get_post_meta($post_id, '_viz_width', true);	
-} 
+	$viz_width = get_post_meta($post_id, '_viz_width', true);
+}
 
 if (isset($atts["height"])) {
 	$viz_height = $atts["height"];
@@ -26,7 +26,7 @@ if (isset($atts["height"])) {
 
 <div class="chart_wrapper" style="width:<?php echo $viz_width; ?>;">
 	<h2><?php echo $post->post_title; ?></h2>
-	<?php 
+	<?php
 		if (isset($atts["hide_description"]) && $atts["hide_description"] == true) {
 			echo "";
 		} else {
@@ -56,10 +56,10 @@ if (isset($atts["height"])) {
 
 	jQuery(document).ready(function(){
 		google.charts.load('current', {'packages':['corechart', 'table', 'treemap']});
-		google.charts.setOnLoadCallback(initChart<?php echo $post_id; ?>);	
+		google.charts.setOnLoadCallback(initChart<?php echo $post_id; ?>);
 	});
 
-	function initChart<?php echo $post_id; ?>() 
+	function initChart<?php echo $post_id; ?>()
 	{
 		chart_<?php echo $post_id; ?>.init();
 	}

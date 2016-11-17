@@ -25,7 +25,7 @@ function ODChart(config) {
 
   	});
 
-  }
+  };
 
   this.getData = function() {
 
@@ -55,7 +55,7 @@ function ODChart(config) {
   	$.map(columns, function(value, index){
   	  dataTable.addColumn(value, index);
   	});
-  	
+
   	return dataTable;
 
   };
@@ -65,7 +65,7 @@ function ODChart(config) {
     if (self.resource.singlerow || data.result.records.length == 1) {
       self.data = data.result.records[0];
     } else {
-      self.data = data.result.records;  
+      self.data = data.result.records;
     }
 
     var value = self.chart;
@@ -81,10 +81,9 @@ function ODChart(config) {
         } else {
 
           // Format Number
+          var f_val = self.data[value.field];
           if (value.numberformat == true) {
-            var f_val = self.formatNumber(self.data[value.field]);
-          } else {
-            var f_val = self.data[value.field];
+            f_val = self.formatNumber(self.data[value.field]);
           }
 
           // Check if there *title* field option
@@ -100,20 +99,19 @@ function ODChart(config) {
           $('#'+value.container_id).show();
 
         }
-  
+
       } else {
-    
+
         var row_count = value.ChartData.getNumberOfRows();
         if (row_count > 0) {
           value.ChartData.removeRows(0, row_count);
         }
 
+        var c_data = self.prepareData(value);
         if(value.chart_type == 'treemap') {
-          var c_data = self.prepareDataForTreeMap(value);
+          c_data = self.prepareDataForTreeMap(value);
         } else if (value.fixed_structure == true) {
-          var c_data = self.prepareDataFromFixStructure(value);
-        } else {
-          var c_data = self.prepareData(value);  
+          c_data = self.prepareDataFromFixStructure(value);
         }
 
         if (c_data == false) {
@@ -157,7 +155,7 @@ function ODChart(config) {
 
     container.after(self.getTableContainerTemplate(value));
 
-  }
+  };
 
   this.getDataSourceLinkTemplate = function(value) {
 
@@ -203,7 +201,7 @@ function ODChart(config) {
                   )
               );
 
-  }
+  };
 
   this.getTableContainerTemplate = function(value) {
 
@@ -257,7 +255,7 @@ function ODChart(config) {
   this.prepareDataFromFixStructure = function(chart) {
 
     var result = [];
-    
+
     $.map(chart.fields, function(value, index){
 
       var res = $.map(value, function(value, index){
@@ -296,5 +294,6 @@ function ODChart(config) {
 
   this.formatNumber = function(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  }
+  };
+  
 }
