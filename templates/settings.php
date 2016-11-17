@@ -9,12 +9,12 @@
         ?>
 
         <table class="form-table">
-          <th scope="row"><label><h3><?php _e('Section','wpdash') ?></h3></label></th>
+          <th scope="row"><label><h3><?php _e('Section','wp-odm_dash') ?></h3></label></th>
           <tr valign="top">
-              <th scope="row"><label for="wpdash_setting_1"><?php _e('Dummy setting','wpdash') ?></label></th>
+              <th scope="row"><label for="wpdash_setting_1"><?php _e('Dummy setting','wp-odm_dash') ?></label></th>
               <td>
                 <input class="full-width" type="text" name="wpdash_setting_1" id="wpdash_setting_1" value="<?php echo $setting_1 ?>"/>
-                <p class="description"><?php _e('Modify according to needs','wpdash') ?>.</p>
+                <p class="description"><?php _e('Modify according to needs','wp-odm_dash') ?>.</p>
               </td>
           </tr>
         </table>
