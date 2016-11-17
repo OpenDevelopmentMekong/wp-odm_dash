@@ -19,7 +19,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
             global $post;
 
             if ($post->post_type == 'datavizs') {
-                $single_template = plugin_dir_path(__FILE__).'templates/dataviz/single-dataviz.php';  
+                $single_template = plugin_dir_path(__FILE__).'templates/dataviz/single-dataviz.php';
             }
 
             return $single_template;
@@ -147,7 +147,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                       <input type="text" id="'.$resource_id_fieldname.'" name="'.$resource_id_fieldname.'" placeholder="fe0a5815-b58d-423b-816a-8347ec85b2bb" value="'.get_post_meta( $post->ID, $resource_id_fieldname, true ).'" style="width:100%;" />
                       <p class="description">
                         Ckan resource_id : d646bd1e-f377-4152-a4a7-8785e2b39fc5 <br>
-                        Example : 
+                        Example :
                         https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/<strong>d646bd1e-f377-4152-a4a7-8785e2b39fc5<strong>
                         <br> ** bolded uri is where you can find resource_id in a resource url **
                       </p>
@@ -155,7 +155,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                   </tr>
                   <tr>
                     <td>
-                      <label for="'.$resource_download_fieldname.'">Resource Download Link : </label>                  
+                      <label for="'.$resource_download_fieldname.'">Resource Download Link : </label>
                     </td>
                     <td>
                       <input type="text" id="'.$resource_download_fieldname.'" name="'.$resource_download_fieldname.'" placeholder="https://data.opendevelopmentmekong.net/dataset/dataset_id/resource/resource_id/download/Resource.csv" value="'.get_post_meta( $post->ID, $resource_download_fieldname, true ).'" style="width:100%;" />
@@ -173,7 +173,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                       <textarea id="_ckan_resource_filter" name="_ckan_resource_filter" style="width:100%;" rows="5">'.get_post_meta($post->ID, '_ckan_resource_filter', true).'</textarea>
                       <p class="description">
                         Query filter for ckan datstore API in json format <br>
-                        Example : 
+                        Example :
                         <pre>
                         {
                           pcode : "MMR001"
@@ -216,7 +216,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                             <p class="description">
                               Customize visualization options in json format <br>
                               Check avaliable options <a href="https://developers.google.com/chart/interactive/docs/" target=" _blank">here</a> <br>
-                              Examples : 
+                              Examples :
                               <pre>
                               {
                                 hAxis : {
@@ -245,7 +245,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                                   column_id : "Label"
                                 }
                               </pre>
-                              Example : 
+                              Example :
                               <pre>
                                 {
                                   "pri_school" : "Primary school",
@@ -270,7 +270,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                                  "Column Name" : "data_format"
                               }
                               </pre>
-                              Example : 
+                              Example :
                               <pre>
                               {
                                 "School" : "string",
@@ -286,7 +286,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                 </div>';
         }
 
-        public function dataviz_styles_callback($post) 
+        public function dataviz_styles_callback($post)
         {
           echo '<div id="resource_settings_box">
                   <div class="resource_settings">
@@ -320,7 +320,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                 </div>';
         }
 
-        public function get_viz_type_options($selected_val) 
+        public function get_viz_type_options($selected_val)
         {
           $viz_type_options = array(
             'pie' => 'Pie Chart',
@@ -362,7 +362,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                     return;
                 }
 
-                $field_list = ['_ckan_resource_id', 
+                $field_list = ['_ckan_resource_id',
                               '_ckan_resource_download_link',
                               '_ckan_resource_filter',
                               '_viz_type',
@@ -382,23 +382,23 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
 
         } // end of save_post_data
 
-        public function dataviz_shortcode_callback($atts, $content) 
+        public function dataviz_shortcode_callback($atts, $content)
         {
             if (isset($atts['id'])) {
                 $atts['p'] = $atts['id'];
                 unset($atts['id']);
             }
 
-            $atts = shortcode_atts(
-                        array( 
-                           'posts_per_page' => '1',
-                           'post_type' => 'datavizs',
-                           'ignore_sticky_posts' => 1,
-                           'p' => '',
-                           'name' => '',
-                           'width' => '100%',
-                           'height' => '300px',
-                           'hide_description' => false), $atts);
+            $atts = shortcode_atts(array(
+                   'posts_per_page' => '1',
+                   'post_type' => 'datavizs',
+                   'ignore_sticky_posts' => 1,
+                   'p' => '',
+                   'name' => '',
+                   'width' => '100%',
+                   'height' => '300px',
+                   'hide_description' => false),
+                $atts);
 
             global $post;
 
@@ -407,9 +407,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
             $output = '';
 
             if ($posts->have_posts()) {
-
                 return $this->get_dataviz_shortcode_template(plugin_dir_path(__FILE__).'templates/dataviz/dataviz-single-template.php', $posts->posts[0] , $atts);
-                
             } else {
                 return; // no posts found\
             }
@@ -420,11 +418,11 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
 
         public function get_dataviz_shortcode_template($template_url, $post, $atts) {
 
-            ob_start();
-            require $template_url;
-            $output = ob_get_contents(); 
-            ob_end_clean();
-            return $output;
+          ob_start();
+          require $template_url;
+          $output = ob_get_contents();
+          ob_end_clean();
+          return $output;
 
         }
 
