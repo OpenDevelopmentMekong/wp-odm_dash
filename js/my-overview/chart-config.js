@@ -12,7 +12,7 @@ var data_resources = {
   adminstration_list : {
     id : 'fe0a5815-b58d-423b-816a-8347ec85b2bb'
   }
-}
+};
 
 var ckan_api_url = 'https://data.opendevelopmentmekong.net/api/action/datastore_search';
 var ckan_api_key = '';
@@ -457,7 +457,7 @@ var charts = {
       },
       chart_type : 'donut',
       columns : {
-        'Literate or Illiterate' : 'string',  
+        'Literate or Illiterate' : 'string',
         'Percentage' : 'number'
       },
       fields : {
@@ -498,7 +498,7 @@ var charts = {
       },
       chart_type : 'donut',
       columns : {
-        'Literate or illiterate' : 'string',  
+        'Literate or illiterate' : 'string',
         'Percentage' : 'number'
       },
       fields : {
@@ -540,7 +540,7 @@ var charts = {
       },
       chart_type : 'donut',
       columns : {
-        'Literate or illiterate' : 'string',  
+        'Literate or illiterate' : 'string',
         'Percentage' : 'number'
       },
       fields : {
@@ -743,12 +743,12 @@ var charts = {
         'Y-axis' : 'Year',
         'Y-value' : '2015'
       }
-    }  
+    }
   },
   // ================= END OF ELECTION RESULT =================== //
-  
+
   // ================= REVENUE & EXPENDITURE ================== //
-  
+
   revenue_expenditure : {
     revenue_expenditure : {
       chart_options : {
@@ -768,11 +768,11 @@ var charts = {
         ['Expenditure', 'exp_adm', 'exp_min_dept', 'exp_state_ent'],
         ['Revenue', 'rev_adm', 'rev_min_dept', 'rev_state_ent']
       ]
-    }    
+    }
   }
 
   // ================= END OF REVENUE & EXPENDITURE ================ //
-  
+
 };
 
 
@@ -1014,7 +1014,7 @@ var chartconfig = {
         field : 'tce_hectares',
         numberformat : true
       },
-      tree_cover_gain_2001_2012 : { 
+      tree_cover_gain_2001_2012 : {
         container_id : 'tree_cover_gain_2001_2012',
         chart_type : 'text',
         field : 'tcg_hectares',

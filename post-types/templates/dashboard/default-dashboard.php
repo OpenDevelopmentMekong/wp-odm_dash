@@ -1,11 +1,16 @@
 
 <section id="content" class="container single-post">
 	<div class="row">
-		<div class="sixteen columns">
-	    
 			<!-- list $datavizs here -->
-			
-	  </div>
+			<?php
+				foreach ($datavizs as $dataviz): ?>
+          <div class="four columns">
+					<?php
+            echo do_shortcode('[wpdash_dataviz id="' . $dataviz['ID'] . '"]');
+          ?>
+          </div>
+			<?php
+    	  endforeach;
+			?>
 	</div>
 </section>
-
