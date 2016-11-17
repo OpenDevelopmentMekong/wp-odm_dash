@@ -9,6 +9,31 @@ Wordpress plugin for exposing widgets with data visualizations
 
 ## widgets
 
+## Shortcodes
+
+### wpdash_dataviz
+
+This plugin exposes a shortcode to allow editors placing showing data visualizations in the content of wordpress posts. It can receive following parameters:
+
+**id**: the id of the data visualization to show.
+**name**: alternatively to **id**, the name (slug) of the dataviz can be specified.
+**width**: The width in % or px. Default: 100%
+**height**: The height in % or px. Default: 300px
+**hide_description**: Set to true if no description should be shown along with the data visualization.
+
+Examples:
+```php
+[wpdash_dataviz id="123456"]
+[wpdash_dataviz name="some-dataviz"]
+[wpdash_dataviz id="123456" width="100%" height="300px"]
+```
+
+### WPDASH Show dataviz
+
+This widget allows editors to place a certain Data visualization on the front-end by adding it to a widget area.
+
+In order to configure it, it suffices with specifying its id on the configuration box under **Appearance > Widgets**
+
 # Installation
 
 1. Either download the files as zip or clone <code>git clone https://github.com/OpenDevelopmentMekong/wpdash.git</code> into the Wordpress plugins folder.

@@ -18,6 +18,8 @@ require_once plugin_dir_path(__FILE__).'post-types/dashboards.php';
 require_once plugin_dir_path(__FILE__).'post-types/datavizs.php';
 
 include_once plugin_dir_path(__FILE__).'utils/wpdash-options.php';
+include_once plugin_dir_path(__FILE__).'widgets/show-dataviz-widget.php';
+
 $GLOBALS['wpdash_options'] = new Wpdash_Options();
 
 if (!class_exists('Odm_Dashboards_Plugin')) {
