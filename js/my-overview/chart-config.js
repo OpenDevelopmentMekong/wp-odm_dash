@@ -579,7 +579,7 @@ var charts = {
     usual_activity_10ab : {
       chart_options : {
         title : '10 Years and over by Usual Activity Status',
-        maxDepth: 2,
+        maxDepth: 1,
         maxPostDepth: 1,
         minColor: '#c42a2a',
         maxColor: '#2a84c4',
@@ -590,6 +590,22 @@ var charts = {
       chart_type : 'treemap',
       container_id : 'labour_usual_activity_10ab',
       fields : {
+        'usuact_10ab_t' : {
+          parent : null,
+          data_dictionary : 'Economy'
+        },
+        'usuact_10ab_eco_act_t' : {
+          parent : 'Economy',
+          data_dictionary : 'Economically active'
+        },
+        'usuact_10ab_eco_inact_t' : {
+          parent : 'Economy',
+          data_dictionary : 'Economically inactive'
+        },
+        'emp_t' : {
+          parent : 'Economically active',
+          data_dictionary : 'Employed'
+        },
         'usuact_10ab_govemp_t' : {
           parent : 'Employed',
           data_dictionary : 'Goverment employee'
@@ -645,10 +661,6 @@ var charts = {
         'Population' : 'number'
       },
       parents : [
-        ['Economy', null, 0],
-        ['Economically active', 'Economy', 0],
-        ['Economically inactive', 'Economy', 0],
-        ['Employed', 'Economically active', 0],
         ['UnEmployed', 'Economically active', 0]
       ]
     }
