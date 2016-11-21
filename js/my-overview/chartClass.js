@@ -49,7 +49,9 @@ function ODChart(config) {
     
     $.map(this.charts, function(value, index){
       if (value.chart_type !== 'text' || (value.prepare_data_from_array !== undefined && value.prepare_data_from_array === true)) {
+
         self.charts[index]['ChartData'] = self.makeDataTable(value.columns);
+        self.charts[index]['SourceTableData'] = self.makeDataTable(value.columns);
         if (value.colors !== undefined) {
           value.ChartData.addColumn({type: 'string', role: 'style' });
         }
@@ -141,10 +143,14 @@ function ODChart(config) {
         }
         
         var c_data = self.prepareData(value); 
+        var s_data = self.prepareData(value, 'source_table');
+
         if(value.chart_type == 'treemap') {
           c_data = self.prepareDataForTreeMap(value);
+          s_data = c_data;
         } else if (value.fixed_structure === true) {
           c_data = self.prepareDataFromFixStructure(value);
+          s_data = c_data;
         }
 
         if (c_data === false) {
@@ -154,6 +160,8 @@ function ODChart(config) {
         } else {
 
           value.ChartData.addRows(c_data);
+
+          value.SourceTableData.addRows(s_data);
 
           self.prepareDataSourceModal(value);
 
@@ -179,7 +187,7 @@ function ODChart(config) {
 
           googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
 
-          googleChart.draw('table', document.getElementById(value.container_id + '_table_wrapper'), value.ChartData);
+          googleChart.draw('table', document.getElementById(value.container_id + '_table_wrapper'), value.SourceTableData);
 
           jQuery('#' + value.container_id + '_table_wrapper').prepend(self.getDataSourceLinkTemplate(value));
 
@@ -270,7 +278,7 @@ function ODChart(config) {
 
   };
 
-  this.prepareData = function(chart) {
+  this.prepareData = function(chart, type = 'chart') {
 
     var result = [];
 
@@ -291,7 +299,8 @@ function ODChart(config) {
       }
 
       var row_data = [value, parseInt(num_value, 10)];
-      if(chart.colors !== undefined) {
+
+      if(chart.colors !== undefined && type !== 'source_table') {
         row_data.push(chart.colors[index]);
       }
       result.push(row_data);
