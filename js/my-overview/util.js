@@ -58,11 +58,11 @@ jQuery(function() {
   });
 
 
-  jQuery(document).on('click', '.data_source_btn', function(e){
+  /*jQuery(document).on('click', '.data_source_btn', function(e){
     e.preventDefault();
     var target = jQuery(this).data('target');
     jQuery('#'+target).slideToggle();
-  });
+  });*/
 
   /* ======= LOADING =========== */
 

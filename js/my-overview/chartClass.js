@@ -46,23 +46,21 @@ function ODChart(config) {
   this.charts = this.config.charts;
 
   this.init = function(pcode) {
-
+    
     $.map(this.charts, function(value, index){
-      if (value.chart_type != 'text' || (value.prepare_data_from_array != undefined && value.prepare_data_from_array == true)) {
+      if (value.chart_type !== 'text' || (value.prepare_data_from_array !== undefined && value.prepare_data_from_array === true)) {
         self.charts[index]['ChartData'] = self.makeDataTable(value.columns);
-        if (value.colors != undefined) {
+        if (value.colors !== undefined) {
           value.ChartData.addColumn({type: 'string', role: 'style' });
         }
       }
     });
-
-  	this.getData(pcode).done(function(data){
-
+    
+  	this.getData(pcode).done(function(data){    
       self.processAfterData(data);
-
   	});
 
-  }
+  };
 
   this.getData = function(pcode) {
 
@@ -109,25 +107,24 @@ function ODChart(config) {
 
       if(value.chart_type == 'text') {
 
-        if ((self.data[value.field] == undefined || self.data[value.field] == null) || (self.data[value.field] == 0 && value.ignore_zero == true)) {
+        if ((self.data[value.field] === undefined || self.data[value.field] === null) || (self.data[value.field] === 0 && value.ignore_zero === true)) {
 
           $('#'+value.container_id).hide();
 
         } else {
 
           // Format Number
-          if (value.numberformat == true) {
-            var f_val = self.formatNumber(self.data[value.field]);
-          } else {
-            var f_val = self.data[value.field];
+          var f_val = self.data[value.field];
+          if (value.numberformat === true) {
+            f_val = self.formatNumber(self.data[value.field]);
           }
 
           // Check if there *title* field option
-          if (value.title != undefined && value.title != '') {
+          if (value.title !== undefined && value.title !== '') {
             f_val = value.title + ' : ' + f_val;
           }
 
-          if (value.unit != undefined && value.unit != '') {
+          if (value.unit !== undefined && value.unit !== '') {
             f_val += ' ' + value.unit;
           }
 
@@ -142,16 +139,15 @@ function ODChart(config) {
         if (row_count > 0) {
           value.ChartData.removeRows(0, row_count);
         }
-
+        
+        var c_data = self.prepareData(value); 
         if(value.chart_type == 'treemap') {
-          var c_data = self.prepareDataForTreeMap(value);
-        } else if (value.fixed_structure == true) {
-          var c_data = self.prepareDataFromFixStructure(value);
-        } else {
-          var c_data = self.prepareData(value);  
+          c_data = self.prepareDataForTreeMap(value);
+        } else if (value.fixed_structure === true) {
+          c_data = self.prepareDataFromFixStructure(value);
         }
 
-        if (c_data == false) {
+        if (c_data === false) {
 
           $("#"+value.container_id).parent('div').hide();
 
@@ -188,7 +184,7 @@ function ODChart(config) {
           jQuery('#' + value.container_id + '_table_wrapper').prepend(self.getDataSourceLinkTemplate(value));
 
           //Add Title for table if it's in config
-          if (value.chart_type == 'table' && value.chart_options.title != undefined) {
+          if (value.chart_type == 'table' && value.chart_options.title !== undefined) {
             jQuery('#' + value.container_id).prepend('<h5>' + value.chart_options.title +'</h5>');
           }
 
@@ -212,13 +208,13 @@ function ODChart(config) {
 
     container.after(self.getTableContainerTemplate(value));
 
-  }
+  };
 
   this.getDataSourceLinkTemplate = function(value) {
 
     var resource_container = jQuery('<div>').addClass('resource_link');
 
-    if (self.resource.dataset_id != undefined) {
+    if (self.resource.dataset_id !== undefined) {
 
       var dataset_url = data_source_url + '?id=' + self.resource.dataset_id;
 
@@ -229,7 +225,7 @@ function ODChart(config) {
       );
     }
 
-    if (self.resource.download_link != undefined) {
+    if (self.resource.download_link !== undefined) {
 
       resource_container.append(
         jQuery('<a>').attr('href', self.resource.download_link)
@@ -258,7 +254,7 @@ function ODChart(config) {
                   )
               );
 
-  }
+  };
 
   this.getTableContainerTemplate = function(value) {
 
@@ -286,16 +282,16 @@ function ODChart(config) {
         num_value = num_value.replace(/,/g, '');
       }
 
-      if (num_value == null || num_value == '') {
+      if (num_value === null || num_value === '') {
         num_value = 0;
       }
 
-      if (num_value == 0) {
+      if (num_value === 0) {
         zero_count++;
       }
 
       var row_data = [value, parseInt(num_value, 10)];
-      if(chart.colors != undefined) {
+      if(chart.colors !== undefined) {
         row_data.push(chart.colors[index]);
       }
       result.push(row_data);
@@ -316,7 +312,7 @@ function ODChart(config) {
     $.map(chart.fields, function(value, index){
 
       var res = $.map(value, function(value, index){
-        if (index == 0) {
+        if (index === 0) {
           return value;
         } else {
           return parseInt(self.data[value]);
@@ -351,7 +347,7 @@ function ODChart(config) {
 
   this.formatNumber = function(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  }
+  };
 }
 
 // ============================== Election Class ==================== //
@@ -417,14 +413,14 @@ function ElectionPartyChart(config) {
 
       }); 
 
-  }
+  };
 
   this.addDataSourceLink = function(value) {
-    if (self.resource.dataset_id != undefined) {
+    if (self.resource.dataset_id !== undefined) {
       var dataset_url = data_source_url + '?id=' + self.resource.dataset_id;
       jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ dataset_url +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
     }
-  }
+  };
 
   this.prepareChart = function(data, chart_conf) {
 
@@ -504,7 +500,7 @@ var googleChart = {
   draw : function(type, object, data, options) {
 
     var chart = eval("googleChart." + type + "(object)");
-    var opts = jQuery.extend(true, {}, eval("this.options." + type))
+    var opts = jQuery.extend(true, {}, eval("this.options." + type));
     jQuery.extend(true, opts, options);
     chart.draw(data, opts);
   },
