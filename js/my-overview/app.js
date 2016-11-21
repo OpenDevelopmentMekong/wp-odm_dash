@@ -652,21 +652,27 @@ jQuery( document ).ready(function() {
 
         jQuery.map(data.result.records, function(value, index){
 
-          var minister_info = '<div class="ministry_val">'+ value.ministry +'</div>' +
-                              '<div class="minister_name">'+ value.name +'</div>' + 
-                              '<div class="minister_pos">'+ value.position +'</div>'; 
-
-          if (value['More Info'].length > 0) {
-            var f_info = jQuery('<a>').attr('href', value['More Info'])
-                          .append(minister_info);
-
+          //Ministry Name
+          if (value['website'].length > 0) {
+            var minsitry_name = '<a href="http://'+ value['website'] +'" target="_blank">'+ value.ministry +'</a>'; 
           } else {
-            var f_info = minister_info;
+            var minsitry_name = value.ministry;
           }
+
+          //Minister Name
+          if (value['more_info'].length > 0) {
+            var minister_name = '<a href="'+ value['more_info'] +'" target="_blank"><strong>'+ value.name +'</strong></a>'; 
+          } else {
+            var minister_name = value.name;
+          }
+
+          var minister_info = '<div class="ministry_val">'+ minsitry_name +'</div>' +
+                              '<div class="minister_name" style="font-weight:bold;">'+ minister_name +'</div>' + 
+                              '<div class="minister_pos">'+ value.position +'</div>'; 
 
           var minister_item = jQuery('<li>')
                   .addClass('four columns')
-                  .append(f_info);
+                  .append(minister_info);
 
           list.append(minister_item);
 
