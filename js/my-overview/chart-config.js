@@ -10,7 +10,7 @@ var data_resources = {
     download_link : 'https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5/download/HouseholdspopulationBasedDatasetSRUnion.csv'
   },
   adminstration_list : {
-    id : 'fe0a5815-b58d-423b-816a-8347ec85b2bb'
+    id : '72f86e64-c434-4217-b002-bf439367b34d'
   }
 };
 
