@@ -31,6 +31,11 @@ function get_ckan_datastore_filter()
   die();
 }
 
+function wpdash_get_ckan_stats_dataviz()
+{
+  echo get_dataviz_shortcode_template(dirname(plugin_dir_path(__FILE__)).'/post-types/templates/dataviz/dataviz-ckan-stats-template.php', null , null);
+}
+
 add_action( 'wp_ajax_ckan_datastore_filter', 'get_ckan_datastore_filter' );
 add_action( 'wp_ajax_nopriv_ckan_datastore_filter', 'get_ckan_datastore_filter' );
 

@@ -407,7 +407,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
             $output = '';
 
             if ($posts->have_posts()) {
-                return $this->get_dataviz_shortcode_template(plugin_dir_path(__FILE__).'templates/dataviz/dataviz-single-template.php', $posts->posts[0] , $atts);
+                return get_dataviz_shortcode_template(plugin_dir_path(__FILE__).'templates/dataviz/dataviz-single-template.php', $posts->posts[0] , $atts);
             } else {
                 return; // no posts found\
             }
@@ -416,15 +416,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
 
         }
 
-        public function get_dataviz_shortcode_template($template_url, $post, $atts) {
-
-          ob_start();
-          require $template_url;
-          $output = ob_get_contents();
-          ob_end_clean();
-          return $output;
-
-        }
+        
 
     } // end of Class
 }
