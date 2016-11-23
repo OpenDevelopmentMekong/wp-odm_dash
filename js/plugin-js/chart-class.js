@@ -120,7 +120,7 @@ function ODChart(config) {
 
           googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
 
-          if (value.data_source_table == true) {
+          if (value.data_source_table === true) {
 
             self.prepareDataSourceModal(value);
 
