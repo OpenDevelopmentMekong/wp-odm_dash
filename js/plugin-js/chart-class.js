@@ -118,11 +118,15 @@ function ODChart(config) {
 
           value.ChartData.addRows(c_data);
 
-          self.prepareDataSourceModal(value);
-
           googleChart.draw(value.chart_type, document.getElementById(value.container_id), value.ChartData, value.chart_options);
 
-          googleChart.draw('table', document.getElementById(value.container_id + '_table_wrapper'), value.ChartData);
+          if (value.data_source_table == true) {
+
+            self.prepareDataSourceModal(value);
+
+            googleChart.draw('table', document.getElementById(value.container_id + '_table_wrapper'), value.ChartData);
+
+          }
 
           jQuery('#' + value.container_id + '_table_wrapper').prepend(self.getDataSourceLinkTemplate(value));
 

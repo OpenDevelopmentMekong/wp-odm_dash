@@ -27,11 +27,14 @@ if (isset($atts["height"])) {
 <div class="chart_wrapper" style="width:<?php echo $viz_width; ?>;">
 	<h2><?php echo $post->post_title; ?></h2>
 	<?php
-		if (isset($atts["hide_description"]) && $atts["hide_description"] == true) {
+		if (isset($atts["hide_description"]) && $atts["hide_description"] == "true") {
 			echo "";
 		} else {
 			echo $post->post_content;
 		}
+
+		$data_source_table = (isset($atts["data_source_table"]) ? $atts["data_source_table"] : true);
+
 	 ?>
 	<div id="wpdash_dataviz_<?php echo $post_id; ?>" style="height:<?php echo $viz_height; ?>;"></div>
 </div>
@@ -48,7 +51,8 @@ if (isset($atts["height"])) {
 			chart_type : '<?php echo $viz_type; ?>',
 			chart_options : <?php echo $viz_options; ?>,
 			columns : <?php echo $viz_columns; ?>,
-			fields : <?php echo $viz_field_ids; ?>
+			fields : <?php echo $viz_field_ids; ?>,
+			data_source_table : <?php echo $data_source_table; ?>
 		}
 	}
 

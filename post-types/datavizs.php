@@ -397,7 +397,8 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                    'name' => '',
                    'width' => '100%',
                    'height' => '300px',
-                   'hide_description' => false),
+                   'hide_description' => false,
+                   'data_source_table' => true),
                 $atts);
 
             global $post;
