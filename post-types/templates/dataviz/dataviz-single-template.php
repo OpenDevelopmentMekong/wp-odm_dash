@@ -25,7 +25,12 @@ if (isset($atts["height"])) {
 ?>
 
 <div class="chart_wrapper" style="width:<?php echo $viz_width; ?>;">
-	<h2><?php echo $post->post_title; ?></h2>
+	<?php if (is_single($post_id)): ?>
+		<h2><?php echo $post->post_title; ?></h2>
+	<?php else: ?>	
+		<h2><a href="<?php echo get_permalink($post_id); ?>"><?php echo $post->post_title; ?></a></h2>
+	<?php endif ?>
+	
 	<?php
 		if (isset($atts["hide_description"]) && $atts["hide_description"] == true) {
 			echo "";
