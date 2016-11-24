@@ -1,5 +1,5 @@
 
-<div id="ckan-stats-taxonomy" data-ckan-domain="<?php echo wpckan_get_ckan_domain(); ?>" style="width: 100%; height: 200px;"></div>
+<div id="ckan-stats-taxonomy" data-current-country-code="<?php echo odm_country_manager()->get_current_country_code(); ?>" data-ckan-domain="<?php echo wpckan_get_ckan_domain(); ?>" style="width: 100%; height: 200px;"></div>
 
 <script type="text/javascript">
 	google.charts.load("current", {packages:["corechart"]});
@@ -7,8 +7,14 @@
 
 	function getNumberOfRecordsByTaxonomy(taxonomy){
 		var ckan_domain = $('#ckan-stats-taxonomy').data('ckan-domain');
+    var current_country_code = $('#ckan-stats-taxonomy').data('current-country-code');
 		var request_url = 'https://data.opendevelopmentmekong.net' + '/api/3/action/package_search?fq=extras_taxonomy:"' + taxonomy + '"';
 
+    if (current_country_code !== 'mekong'){
+      request_url = 'https://data.opendevelopmentmekong.net' + '/api/3/action/package_search?fq=extras_taxonomy:"' + taxonomy + '"+extras_odm_spatial_range:' + current_country_code;
+    }
+
+  console.log(request_url);
 		var request = new XMLHttpRequest();
 		request.open('GET', request_url, false);  // `false` makes the request synchronous
 		request.send(null);
