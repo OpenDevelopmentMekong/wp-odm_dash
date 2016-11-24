@@ -27,24 +27,24 @@
 	function drawChart() {
 
 		var data = google.visualization.arrayToDataTable([
-			['Topic', 'Number of records'],
-			['Agriculture and fishing',     						getNumberOfRecordsByTaxonomy('Agriculture and fishing')],
-			['Aid and development',     								getNumberOfRecordsByTaxonomy('Aid and development')],
-			['Disasters and emergency response',     		getNumberOfRecordsByTaxonomy('Disasters and emergency response')],
-			['Economy and commerce',     								getNumberOfRecordsByTaxonomy('Economy and commerce')],
-			['Energy',     															getNumberOfRecordsByTaxonomy('Energy')],
-			['Environment and natural resources',     	getNumberOfRecordsByTaxonomy('Environment and natural resources')],
-			['Extractive industries',     							getNumberOfRecordsByTaxonomy('Extractive industries')],
-			['Government',     													getNumberOfRecordsByTaxonomy('Government')],
-			['Industries',     													getNumberOfRecordsByTaxonomy('Industries')],
-			['Infrastructure',     											getNumberOfRecordsByTaxonomy('Infrastructure')],
-			['Labor',     															getNumberOfRecordsByTaxonomy('Labor')],
-			['Land',     																getNumberOfRecordsByTaxonomy('Land')],
-			['Law and judiciary',     									getNumberOfRecordsByTaxonomy('Law and judiciary')],
-			['Population and censuses',     						getNumberOfRecordsByTaxonomy('Population and censuses')],
-			['Social development',     									getNumberOfRecordsByTaxonomy('Social development')],
-			['Urban administration and development',    getNumberOfRecordsByTaxonomy('Urban administration and development')],
-			['Science and technology',     							getNumberOfRecordsByTaxonomy('Science and technology')]
+			['Topic', 'Number of records', { role: 'style' }],
+			['Agriculture and fishing',     						getNumberOfRecordsByTaxonomy('Agriculture and fishing'), 'color: #c8c8c8'],
+			['Aid and development',     								getNumberOfRecordsByTaxonomy('Aid and development'), 'color: #c8c8c8'],
+			['Disasters and emergency response',     		getNumberOfRecordsByTaxonomy('Disasters and emergency response'), 'color: #c8c8c8'],
+			['Economy and commerce',     								getNumberOfRecordsByTaxonomy('Economy and commerce'), 'color: #c8c8c8'],
+			['Energy',     															getNumberOfRecordsByTaxonomy('Energy'), 'color: #c8c8c8'],
+			['Environment and natural resources',     	getNumberOfRecordsByTaxonomy('Environment and natural resources'), 'color: #c8c8c8'],
+			['Extractive industries',     							getNumberOfRecordsByTaxonomy('Extractive industries'), 'color: #c8c8c8'],
+			['Government',     													getNumberOfRecordsByTaxonomy('Government'), 'color: #c8c8c8'],
+			['Industries',     													getNumberOfRecordsByTaxonomy('Industries'), 'color: #c8c8c8'],
+			['Infrastructure',     											getNumberOfRecordsByTaxonomy('Infrastructure'), 'color: #c8c8c8'],
+			['Labor',     															getNumberOfRecordsByTaxonomy('Labor'), 'color: #c8c8c8'],
+			['Land',     																getNumberOfRecordsByTaxonomy('Land'), 'color: #c8c8c8'],
+			['Law and judiciary',     									getNumberOfRecordsByTaxonomy('Law and judiciary'), 'color: #c8c8c8'],
+			['Population and censuses',     						getNumberOfRecordsByTaxonomy('Population and censuses'), 'color: #c8c8c8'],
+			['Social development',     									getNumberOfRecordsByTaxonomy('Social development'), 'color: #c8c8c8'],
+			['Urban administration and development',    getNumberOfRecordsByTaxonomy('Urban administration and development'), 'color: #c8c8c8'],
+			['Science and technology',     							getNumberOfRecordsByTaxonomy('Science and technology'), 'color: #c8c8c8']
 		]);
 
 		var options = {

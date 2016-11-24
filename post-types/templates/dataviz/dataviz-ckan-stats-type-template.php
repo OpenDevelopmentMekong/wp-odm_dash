@@ -27,10 +27,10 @@
 	function drawChart() {
 
 		var data = google.visualization.arrayToDataTable([
-			['Dataset type', 'Number of records'],
-			['Datasets',     		getNumberOfRecordsByType('dataset')],
-			['Library records',	getNumberOfRecordsByType('library_record')],
-			['Laws records',  	getNumberOfRecordsByType('laws_record')]
+			['Dataset type', 'Number of records', { role: 'style' }],
+			['Datasets',     		getNumberOfRecordsByType('dataset'), 'color: #c8c8c8'],
+			['Library records',	getNumberOfRecordsByType('library_record'), 'color: #c8c8c8'],
+			['Laws records',  	getNumberOfRecordsByType('laws_record'), 'color: #c8c8c8']
 		]);
 
 		var options = {
