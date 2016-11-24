@@ -27,7 +27,7 @@ if (isset($atts["height"])) {
 <div class="chart_wrapper" style="width:<?php echo $viz_width; ?>;">
 	<h2><?php echo $post->post_title; ?></h2>
 	<?php
-		if (isset($atts["hide_description"]) && $atts["hide_description"] === "true") {
+		if (isset($atts["hide_description"]) && filter_var($atts["hide_description"], FILTER_VALIDATE_BOOLEAN) === true) {
 			echo "";
 		} else {
 			echo $post->post_content;
