@@ -21,7 +21,7 @@ class wpdash_show_dataviz_Widget extends WP_Widget
 
   global $post;
 
-  $shortcode = '[wpdash_dataviz id="' . $instance['id'] . '"]';
+  $shortcode = '[wpdash_dataviz id="' . $instance['id'] . '" hide_description='. var_export($instance['hide_description'], true) .' data_source_table='. var_export($instance['data_source_table'], true) .']';
 
   $output = do_shortcode($shortcode);
 
@@ -48,11 +48,18 @@ class wpdash_show_dataviz_Widget extends WP_Widget
  public function form( $instance ) {
   // outputs the options form on admin
   $id = ! empty( $instance['id'] ) ? __( $instance['id'], 'wp-odm_dash') : null;
-
+  $hide_desc = ! empty( $instance['hide_description'] ) ? __( $instance['hide_description'], 'wp-odm_dash') : false;
+  $data_source_table = ! empty( $instance['data_source_table'] ) ? __( $instance['data_source_table'], 'wp-odm_dash') : false;
   ?>
   <p>
    <label for="<?php echo $this->get_field_id( 'id' ); ?>"><?php _e( 'Id:' ); ?></label>
    <input class="widefat" id="<?php echo $this->get_field_id( 'id' ); ?>" name="<?php echo $this->get_field_name( 'id' ); ?>" type="text" value="<?php echo esc_attr( $id ); ?>">
+  </p>
+  <p>
+    <input type="checkbox" name="<?php echo $this->get_field_name( 'hide_description' ); ?>" id="<?php echo $this->get_field_id( 'hide_description' ); ?>" value=true<?php echo ($hide_desc == true) ? " checked" : "" ?>> <?php _e('Hide Description'); ?>
+  </p>
+  <p>
+    <input type="checkbox" name="<?php echo $this->get_field_name( 'data_source_table' ); ?>" id="<?php echo $this->get_field_id( 'data_source_table' ); ?>" value=true<?php echo ($data_source_table == true) ? " checked" : "" ?>> <?php _e('Include data source table'); ?>
   </p>
   <?php
  }
@@ -67,6 +74,8 @@ class wpdash_show_dataviz_Widget extends WP_Widget
 
   $instance = array();
   $instance['id'] = ( ! empty( $new_instance['id'] ) ) ? strip_tags( $new_instance['id'] ) : '';
+  $instance['hide_description'] = ( ! empty( $new_instance['hide_description'] ) ) ? strip_tags( $new_instance['hide_description'] ) : false;
+  $instance['data_source_table'] = ( ! empty( $new_instance['data_source_table'] ) ) ? strip_tags( $new_instance['data_source_table'] ) : false;
 
   return $instance;
  }
