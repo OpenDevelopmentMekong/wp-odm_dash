@@ -1,5 +1,13 @@
 
-<div id="ckan-stats-taxonomy" data-current-country-code="<?php echo odm_country_manager()->get_current_country_code(); ?>" data-ckan-domain="<?php echo wpckan_get_ckan_domain(); ?>" style="width: 100%; height: 200px;"></div>
+<div id="ckan-stats-taxonomy"
+  <?php
+  if (isset($atts['type'])):
+    echo 'data-type="' . $atts['type'] . '"';
+  endif; ?>
+  data-current-country-code="<?php echo odm_country_manager()->get_current_country_code(); ?>"
+  data-ckan-domain="<?php echo wpckan_get_ckan_domain(); ?>" style="width: 100%; height: 200px;"
+  style="width: 100%; height: 200px;">
+</div>
 
 <script type="text/javascript">
 	google.charts.load("current", {packages:["corechart"]});
@@ -9,11 +17,18 @@
 		var ckan_domain = $('#ckan-stats-taxonomy').data('ckan-domain');
     var current_country_code = $('#ckan-stats-taxonomy').data('current-country-code');
 		var request_url = 'https://data.opendevelopmentmekong.net' + '/api/3/action/package_search?fq=extras_taxonomy:"' + taxonomy + '"';
+    var type = $('#ckan-stats-taxonomy').data('type');
 
     if (current_country_code !== 'mekong'){
-      request_url = 'https://data.opendevelopmentmekong.net' + '/api/3/action/package_search?fq=extras_taxonomy:"' + taxonomy + '"+extras_odm_spatial_range:' + current_country_code;
+      request_url = request_url + '+extras_odm_spatial_range:' + current_country_code;
     }
 
+    if (type){
+      request_url = request_url + '+type:' + type;
+    }
+
+    console.log(request_url);
+    
 		var request = new XMLHttpRequest();
 		request.open('GET', request_url, false);  // `false` makes the request synchronous
 		request.send(null);
@@ -48,7 +63,7 @@
 		]);
 
 		var options = {
-      title: "Number of datasets by topic",
+      title: "Number of records by topic",
       legend: { position: "none" }
     };
 

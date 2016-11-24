@@ -1,5 +1,9 @@
 
-<div id="ckan-stats-type" data-current-country-code="<?php echo odm_country_manager()->get_current_country_code(); ?>" data-ckan-domain="<?php echo wpckan_get_ckan_domain(); ?>" style="width: 100%; height: 200px;"></div>
+<div id="ckan-stats-type"
+  data-current-country-code="<?php echo odm_country_manager()->get_current_country_code(); ?>"
+  data-ckan-domain="<?php echo wpckan_get_ckan_domain(); ?>"
+  style="width: 100%; height: 200px;">
+</div>
 
 <script type="text/javascript">
 	google.charts.load("current", {packages:["corechart"]});
@@ -11,7 +15,7 @@
 		var request_url = 'https://data.opendevelopmentmekong.net' + '/api/3/action/package_search?fq=type:' + type;
 
     if (current_country_code !== 'mekong'){
-      request_url = 'https://data.opendevelopmentmekong.net' + '/api/3/action/package_search?fq=type:' + type + '+extras_odm_spatial_range:' + current_country_code;
+      request_url = request_url + '+extras_odm_spatial_range:' + current_country_code;
     }
 
 		var request = new XMLHttpRequest();
@@ -34,7 +38,7 @@
 		]);
 
 		var options = {
-      title: "Number of datasets by type",
+      title: "Number of records by type",
       legend: { position: "none" }
     };
 
