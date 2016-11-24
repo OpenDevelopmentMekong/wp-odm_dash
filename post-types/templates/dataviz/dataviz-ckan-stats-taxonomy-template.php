@@ -14,7 +14,6 @@
       request_url = 'https://data.opendevelopmentmekong.net' + '/api/3/action/package_search?fq=extras_taxonomy:"' + taxonomy + '"+extras_odm_spatial_range:' + current_country_code;
     }
 
-  console.log(request_url);
 		var request = new XMLHttpRequest();
 		request.open('GET', request_url, false);  // `false` makes the request synchronous
 		request.send(null);
