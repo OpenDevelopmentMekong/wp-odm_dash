@@ -16,7 +16,7 @@
 	function getNumberOfRecordsByLanguage(language){
 		var ckan_domain = $('#ckan-stats-language').data('ckan-domain');
     var current_country_code = $('#ckan-stats-language').data('current-country-code');
-		var request_url = 'https://data.opendevelopmentmekong.net' + '/api/3/action/package_search?fq=extras_odm_language:' + language;
+		var request_url = ckan_domain + '/api/3/action/package_search?fq=extras_odm_language:' + language;
     var type = $('#ckan-stats-language').data('type');
 
     if (current_country_code !== 'mekong'){

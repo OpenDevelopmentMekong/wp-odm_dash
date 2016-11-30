@@ -16,7 +16,7 @@
 	function getNumberOfRecordsByTaxonomy(taxonomy){
 		var ckan_domain = $('#ckan-stats-taxonomy').data('ckan-domain');
     var current_country_code = $('#ckan-stats-taxonomy').data('current-country-code');
-		var request_url = 'https://data.opendevelopmentmekong.net' + '/api/3/action/package_search?fq=extras_taxonomy:"' + taxonomy + '"';
+		var request_url = ckan_domain + '/api/3/action/package_search?fq=extras_taxonomy:"' + taxonomy + '"';
     var type = $('#ckan-stats-taxonomy').data('type');
 
     if (current_country_code !== 'mekong'){
@@ -28,7 +28,7 @@
     }
 
     console.log(request_url);
-    
+
 		var request = new XMLHttpRequest();
 		request.open('GET', request_url, false);  // `false` makes the request synchronous
 		request.send(null);

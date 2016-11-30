@@ -12,7 +12,7 @@
 	function getNumberOfRecordsByType(type){
 		var ckan_domain = $('#ckan-stats-type').data('ckan-domain');
     var current_country_code = $('#ckan-stats-type').data('current-country-code');
-		var request_url = 'https://data.opendevelopmentmekong.net' + '/api/3/action/package_search?fq=type:' + type;
+		var request_url = ckan_domain + '/api/3/action/package_search?fq=type:' + type;
 
     if (current_country_code !== 'mekong'){
       request_url = request_url + '+extras_odm_spatial_range:' + current_country_code;
