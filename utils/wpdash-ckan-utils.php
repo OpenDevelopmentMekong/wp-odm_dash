@@ -31,6 +31,21 @@ function get_ckan_datastore_filter()
   die();
 }
 
+function wpdash_get_ckan_stats_dataviz_by_type()
+{
+  echo get_dataviz_shortcode_template(dirname(plugin_dir_path(__FILE__)).'/post-types/templates/dataviz/dataviz-ckan-stats-type-template.php', null , null);
+}
+
+function wpdash_get_ckan_stats_dataviz_by_taxonomy($atts)
+{
+  echo get_dataviz_shortcode_template(dirname(plugin_dir_path(__FILE__)).'/post-types/templates/dataviz/dataviz-ckan-stats-taxonomy-template.php', null , $atts);
+}
+
+function wpdash_get_ckan_stats_dataviz_by_language($atts)
+{
+  echo get_dataviz_shortcode_template(dirname(plugin_dir_path(__FILE__)).'/post-types/templates/dataviz/dataviz-ckan-stats-odm_language-template.php', null , $atts);
+}
+
 add_action( 'wp_ajax_ckan_datastore_filter', 'get_ckan_datastore_filter' );
 add_action( 'wp_ajax_nopriv_ckan_datastore_filter', 'get_ckan_datastore_filter' );
 
