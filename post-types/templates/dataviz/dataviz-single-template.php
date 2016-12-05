@@ -6,9 +6,9 @@ $resource_id = get_post_meta($post_id, '_ckan_resource_id', true);
 $resource_link = get_post_meta($post_id, '_ckan_resource_download_link', true);
 $resource_filter = get_post_meta($post_id, '_ckan_resource_filter', true);
 $viz_type = get_post_meta($post_id, '_viz_type', true);
-$viz_options = odm_language_manager()->get_the_language_by_site() !== "English" ? get_post_meta($post_id, '_viz_options_localization', true) : get_post_meta($post_id, '_viz_options', true);
-$viz_field_ids = odm_language_manager()->get_the_language_by_site() !== "English" ? get_post_meta($post_id, '_viz_field_ids_localization', true) : get_post_meta($post_id, '_viz_field_ids', true);
-$viz_columns = odm_language_manager()->get_the_language_by_site() !== "English" ? get_post_meta($post_id, '_viz_columns_localization', true) : get_post_meta($post_id, '_viz_columns', true);
+$viz_options = odm_language_manager()->get_current_language() !== "English" ? get_post_meta($post_id, '_viz_options_localization', true) : get_post_meta($post_id, '_viz_options', true);
+$viz_field_ids = odm_language_manager()->get_current_language() !== "English" ? get_post_meta($post_id, '_viz_field_ids_localization', true) : get_post_meta($post_id, '_viz_field_ids', true);
+$viz_columns = odm_language_manager()->get_current_language() !== "English" ? get_post_meta($post_id, '_viz_columns_localization', true) : get_post_meta($post_id, '_viz_columns', true);
 
 if (isset($atts["width"])) {
 	$viz_width = $atts["width"];
