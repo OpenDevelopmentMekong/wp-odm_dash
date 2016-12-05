@@ -316,7 +316,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                       <label for="_viz_options_localization">Visualization Options :</label>
                     </td>
                     <td>
-                      <textarea id="_viz_options_localization" name="_viz_options_localization" style="width:100%;" rows="10"><?php echo $visualization_options ?></textarea>
+                      <textarea id="_viz_options_localization" name="_viz_options_localization" style="width:100%;" rows="10"><?php echo $visualization_options_localization ?></textarea>
                       <p class="description">
                         Customize visualization options in json format <br>
                         Check avaliable options <a href="https://developers.google.com/chart/interactive/docs/" target=" _blank">here</a> <br>
@@ -341,7 +341,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                       <label for="_viz_field_ids_localization">Field IDs :</label>
                     </td>
                     <td>
-                      <textarea id="_viz_field_ids_localization" name="_viz_field_ids_localization" style="width:100%;" rows="10"><?php echo $field_ids ?></textarea>
+                      <textarea id="_viz_field_ids_localization" name="_viz_field_ids_localization" style="width:100%;" rows="10"><?php echo $field_ids_localization ?></textarea>
                       <p class="description">
                         Column names from resource needed for visualization and labels to show on frontend in json format <br>
                         <pre>
@@ -365,7 +365,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                       <label for="_viz_columns_localization">Column Names :</label>
                     </td>
                     <td>
-                      <textarea id="_viz_columns_localization" name="_viz_columns_localization" style="width:100%;" rows="10"><?php echo $columns ?></textarea>
+                      <textarea id="_viz_columns_localization" name="_viz_columns_localization" style="width:100%;" rows="10"><?php echo $columns_localization ?></textarea>
                       <p class="description">
                       Columns for visualization Data Table in json format <br>
                       Check <a href="https://developers.google.com/chart/interactive/docs/datatables_dataviews#creating-and-populating-a-datatable" target="_blank">here</a> for more info.
