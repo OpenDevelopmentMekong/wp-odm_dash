@@ -124,13 +124,12 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
         }
 
         public function dataviz_dataset_info_callback($post) {
+          $resource_id = get_post_meta( $post->ID, '_ckan_resource_id', true );
+          $resource_download = get_post_meta( $post->ID, '_ckan_resource_download_link', true );
+          $ckan_resource_filter = get_post_meta($post->ID, '_ckan_resource_filter', true);
+          wp_nonce_field( plugin_basename( __FILE__ ), 'honeypot_content_nonce' ); ?>
 
-          $resource_id_fieldname = '_ckan_resource_id';
-          $resource_download_fieldname = '_ckan_resource_download_link';
-
-          wp_nonce_field( plugin_basename( __FILE__ ), 'honeypot_content_nonce' );
-
-          echo '<style>
+          <style>
              .form-table td {
               vertical-align: top;
              }
@@ -141,10 +140,10 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                 <tbody>
                   <tr>
                     <td>
-                      <label for="'.$resource_id_fieldname.'">Ckan Resource ID :</label>
+                      <label for="_ckan_resource_id">Ckan Resource ID :</label>
                     </td>
                     <td>
-                      <input type="text" id="'.$resource_id_fieldname.'" name="'.$resource_id_fieldname.'" placeholder="fe0a5815-b58d-423b-816a-8347ec85b2bb" value="'.get_post_meta( $post->ID, $resource_id_fieldname, true ).'" style="width:100%;" />
+                      <input type="text" id="_ckan_resource_id" name="_ckan_resource_id" placeholder="fe0a5815-b58d-423b-816a-8347ec85b2bb" value="<?php echo $resource_id ?>" style="width:100%;" />
                       <p class="description">
                         Ckan resource_id : d646bd1e-f377-4152-a4a7-8785e2b39fc5 <br>
                         Example :
@@ -155,10 +154,10 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                   </tr>
                   <tr>
                     <td>
-                      <label for="'.$resource_download_fieldname.'">Resource Download Link : </label>
+                      <label for="_ckan_resource_download_link">Resource Download Link : </label>
                     </td>
                     <td>
-                      <input type="text" id="'.$resource_download_fieldname.'" name="'.$resource_download_fieldname.'" placeholder="https://data.opendevelopmentmekong.net/dataset/dataset_id/resource/resource_id/download/Resource.csv" value="'.get_post_meta( $post->ID, $resource_download_fieldname, true ).'" style="width:100%;" />
+                      <input type="text" id="_ckan_resource_download_link" name="_ckan_resource_download_link" placeholder="https://data.opendevelopmentmekong.net/dataset/dataset_id/resource/resource_id/download/Resource.csv" value="<?php echo $resource_download ?>" style="width:100%;" />
                         <p class="description">
                           Ckan resource download url <br>
                           Example : https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5/download/HouseholdspopulationBasedDatasetSRUnion.csv
@@ -170,7 +169,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                       <label for"_ckan_resource_filter">Resource Filter</label>
                     </td>
                     <td>
-                      <textarea id="_ckan_resource_filter" name="_ckan_resource_filter" style="width:100%;" rows="5">'.get_post_meta($post->ID, '_ckan_resource_filter', true).'</textarea>
+                      <textarea id="_ckan_resource_filter" name="_ckan_resource_filter" style="width:100%;" rows="5"><?php echo $ckan_resource_filter; ?></textarea>
                       <p class="description">
                         Query filter for ckan datstore API in json format <br>
                         Example :
@@ -185,139 +184,266 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                 </tbody>
               </table>
             </div>
-          </div>';
+          </div>
 
+        <?php
         }
 
         public function dataviz_options_callback ($post) {
+          $visualization_options = get_post_meta($post->ID, '_viz_options', true);
+          $visualization_options_localization = get_post_meta($post->ID, '_viz_options_localization', true);
+          $field_ids = get_post_meta($post->ID, '_viz_field_ids', true);
+          $field_ids_localization = get_post_meta($post->ID, '_viz_field_ids_localization', true);
+          $columns = get_post_meta($post->ID, '_viz_columns', true);
+          $columns_localization = get_post_meta($post->ID, '_viz_columns_localization', true);
+          ?>
 
-          echo '<div id="resource_settings_box">
-                  <div class="resource_settings">
-                    <table class="form-table resource_settings_box">
-                      <tbody>
-                        <tr>
-                          <td>
-                            <label for="_viz_type">Visualization Type :</label>
-                          </td>
-                          <td>
-                            <select name="_viz_type" id="viz_type">
-                              <option value="">-- Select Visualization Type --</option>'
-                            .
-                              $this->get_viz_type_options(get_post_meta($post->ID, '_viz_type', true))
-                            .'</select>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <label for="_viz_options">Visualization Options :</label>
-                          </td>
-                          <td>
-                            <textarea id="_viz_options" name="_viz_options" style="width:100%;" rows="10">'.get_post_meta($post->ID, '_viz_options', true).'</textarea>
-                            <p class="description">
-                              Customize visualization options in json format <br>
-                              Check avaliable options <a href="https://developers.google.com/chart/interactive/docs/" target=" _blank">here</a> <br>
-                              Examples :
-                              <pre>
-                              {
-                                hAxis : {
-                                  title : \'Communication and amenities type\',
-                                  slantedText : true,
-                                  slantedTextAngle: 45
-                                },
-                                vAxis : {
-                                  title : \'Number of households with access\'
-                                }
-                              }
-                              </pre>
-                            </p>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <label for="_viz_field_ids">Field IDs :</label>
-                          </td>
-                          <td>
-                            <textarea id="_viz_field_ids" name="_viz_field_ids" style="width:100%;" rows="10">'.get_post_meta($post->ID, '_viz_field_ids', true).'</textarea>
-                            <p class="description">
-                              Column names from resource needed for visualization and labels to show on frontend in json format <br>
-                              <pre>
-                                {
-                                  column_id : "Label"
-                                }
-                              </pre>
-                              Example :
-                              <pre>
-                                {
-                                  "pri_school" : "Primary school",
-                                  "mid_school" : "Middle school",
-                                  "high_school" : "High school"
-                                }
-                              </pre>
-                            </p>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <label for="_viz_columns">Column Names :</label>
-                          </td>
-                          <td>
-                            <textarea id="_viz_columns" name="_viz_columns" style="width:100%;" rows="10">'.get_post_meta($post->ID, '_viz_columns', true).'</textarea>
-                            <p class="description">
-                            Columns for visualization Data Table in json format <br>
-                            Check <a href="https://developers.google.com/chart/interactive/docs/datatables_dataviews#creating-and-populating-a-datatable" target="_blank">here</a> for more info.
-                              <pre>
-                              {
-                                 "Column Name" : "data_format"
-                              }
-                              </pre>
-                              Example :
-                              <pre>
-                              {
-                                "School" : "string",
-                                "Number of School" : "number"
-                              }
-                              </pre>
-                            </p>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>';
+          <div id="multiple-site">
+      			<input type="radio" id="en" class="en" name="language_site" value="en" checked />
+      			<label for="en"><?php _e('ENGLISH', 'wp-odm_dash');?></label> &nbsp;
+              <?php if (odm_language_manager()->get_the_language_by_site() != 'English'): ?>
+                <input type="radio" id="localization" class="localization" name="language_site" value="localization" />
+          			<label for="localization"><?php _e(odm_language_manager()->get_the_language_by_site(), 'wp-odm_dash');?></label>
+              <?php endif; ?>
+      		</div>
+          <div id="resource_settings_box">
+
+            <div class="resource_settings">
+              <table class="form-table resource_settings_box">
+                <tbody>
+                  <tr>
+                    <td>
+                      <label for="_viz_type">Visualization Type :</label>
+                    </td>
+                    <td>
+                      <select name="_viz_type" id="viz_type">
+                        <option value="">-- Select Visualization Type --</option><?php echo $this->get_viz_type_options(get_post_meta($post->ID, '_viz_type', true)) ?></select>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="language_settings language-en">
+              <table class="form-table resource_settings_box">
+                <tbody>
+                  <tr>
+                    <td>
+                      <label for="_viz_options">Visualization Options :</label>
+                    </td>
+                    <td>
+                      <textarea id="_viz_options" name="_viz_options" style="width:100%;" rows="10"><?php echo $visualization_options ?></textarea>
+                      <p class="description">
+                        Customize visualization options in json format <br>
+                        Check avaliable options <a href="https://developers.google.com/chart/interactive/docs/" target=" _blank">here</a> <br>
+                        Examples :
+                        <pre>
+                        {
+                          hAxis : {
+                            title : \'Communication and amenities type\',
+                            slantedText : true,
+                            slantedTextAngle: 45
+                          },
+                          vAxis : {
+                            title : \'Number of households with access\'
+                          }
+                        }
+                        </pre>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="_viz_field_ids">Field IDs :</label>
+                    </td>
+                    <td>
+                      <textarea id="_viz_field_ids" name="_viz_field_ids" style="width:100%;" rows="10"><?php echo $field_ids ?></textarea>
+                      <p class="description">
+                        Column names from resource needed for visualization and labels to show on frontend in json format <br>
+                        <pre>
+                          {
+                            column_id : "Label"
+                          }
+                        </pre>
+                        Example :
+                        <pre>
+                          {
+                            "pri_school" : "Primary school",
+                            "mid_school" : "Middle school",
+                            "high_school" : "High school"
+                          }
+                        </pre>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="_viz_columns">Column Names :</label>
+                    </td>
+                    <td>
+                      <textarea id="_viz_columns" name="_viz_columns" style="width:100%;" rows="10"><?php echo $columns ?></textarea>
+                      <p class="description">
+                      Columns for visualization Data Table in json format <br>
+                      Check <a href="https://developers.google.com/chart/interactive/docs/datatables_dataviews#creating-and-populating-a-datatable" target="_blank">here</a> for more info.
+                        <pre>
+                        {
+                           "Column Name" : "data_format"
+                        }
+                        </pre>
+                        Example :
+                        <pre>
+                        {
+                          "School" : "string",
+                          "Number of School" : "number"
+                        }
+                        </pre>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="language_settings language-localization">
+              <table class="form-table resource_settings_box">
+                <tbody>
+                  <tr>
+                    <td>
+                      <label for="_viz_options_localization">Visualization Options :</label>
+                    </td>
+                    <td>
+                      <textarea id="_viz_options_localization" name="_viz_options_localization" style="width:100%;" rows="10"><?php echo $visualization_options_localization ?></textarea>
+                      <p class="description">
+                        Customize visualization options in json format <br>
+                        Check avaliable options <a href="https://developers.google.com/chart/interactive/docs/" target=" _blank">here</a> <br>
+                        Examples :
+                        <pre>
+                        {
+                          hAxis : {
+                            title : \'Communication and amenities type\',
+                            slantedText : true,
+                            slantedTextAngle: 45
+                          },
+                          vAxis : {
+                            title : \'Number of households with access\'
+                          }
+                        }
+                        </pre>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="_viz_field_ids_localization">Field IDs :</label>
+                    </td>
+                    <td>
+                      <textarea id="_viz_field_ids_localization" name="_viz_field_ids_localization" style="width:100%;" rows="10"><?php echo $field_ids_localization ?></textarea>
+                      <p class="description">
+                        Column names from resource needed for visualization and labels to show on frontend in json format <br>
+                        <pre>
+                          {
+                            column_id : "Label"
+                          }
+                        </pre>
+                        Example :
+                        <pre>
+                          {
+                            "pri_school" : "Primary school",
+                            "mid_school" : "Middle school",
+                            "high_school" : "High school"
+                          }
+                        </pre>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="_viz_columns_localization">Column Names :</label>
+                    </td>
+                    <td>
+                      <textarea id="_viz_columns_localization" name="_viz_columns_localization" style="width:100%;" rows="10"><?php echo $columns_localization ?></textarea>
+                      <p class="description">
+                      Columns for visualization Data Table in json format <br>
+                      Check <a href="https://developers.google.com/chart/interactive/docs/datatables_dataviews#creating-and-populating-a-datatable" target="_blank">here</a> for more info.
+                        <pre>
+                        {
+                           "Column Name" : "data_format"
+                        }
+                        </pre>
+                        Example :
+                        <pre>
+                        {
+                          "School" : "string",
+                          "Number of School" : "number"
+                        }
+                        </pre>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+          <script type="text/javascript">
+      		 jQuery(document).ready(function($) {
+      			var $container = $('#multiple-site');
+      			var $languageSelection = $('input[type="radio"]');
+      			var $forms = $('.language_settings');
+      			var showForms = function() {
+      				  $forms.hide();
+      					var selected = $('input[type="radio"][name=language_site]').filter(':checked').val();
+      					$('.language-' + selected).show();
+      			}
+      			$languageSelection.on('change', function() {
+      					$('.' + this.className).prop('checked', this.checked);
+      			 	showForms();
+      			});
+
+      			showForms();
+           });
+          </script>
+        <?php
         }
 
         public function dataviz_styles_callback($post)
         {
-          echo '<div id="resource_settings_box">
-                  <div class="resource_settings">
-                    <table class="form-table resource_settings_box">
-                      <tbody>
-                        <tr>
-                          <td>
-                            <label for="_viz_width">Width</label>
-                          </td>
-                          <td>
-                            <input type="text" name="_viz_width" id="_viz_width" value="'.get_post_meta( $post->ID, '_viz_width', true ).'">
-                            <p class="description">
-                              Width of Visualization in pixel (px) or percent (%)
-                            </p>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <label for="_viz_height">Height</label>
-                          </td>
-                          <td>
-                            <input type="text" name="_viz_height" id="_viz_height" value="'.get_post_meta( $post->ID, '_viz_height', true ).'">
-                            <p class="description">
-                              Height of Visualization in pixel (px) or percent (%)
-                            </p>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>';
+          $viz_height = get_post_meta( $post->ID, '_viz_height', true );
+          $viz_width = get_post_meta( $post->ID, '_viz_width', true );
+          ?>
+
+          <div id="resource_settings_box">
+            <div class="resource_settings">
+              <table class="form-table resource_settings_box">
+                <tbody>
+                  <tr>
+                    <td>
+                      <label for="_viz_width">Width</label>
+                    </td>
+                    <td>
+                      <input type="text" name="_viz_width" id="_viz_width" value="<?php echo $viz_width ?>">
+                      <p class="description">
+                        Width of Visualization in pixel (px) or percent (%)
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="_viz_height">Height</label>
+                    </td>
+                    <td>
+                      <input type="text" name="_viz_height" id="_viz_height" value="<?php echo $viz_height ?>">
+                      <p class="description">
+                        Height of Visualization in pixel (px) or percent (%)
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        <?php
         }
 
         public function get_viz_type_options($selected_val)
@@ -367,8 +493,11 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                               '_ckan_resource_filter',
                               '_viz_type',
                               '_viz_options',
+                              '_viz_options_localization',
                               '_viz_field_ids',
+                              '_viz_field_ids_localization',
                               '_viz_columns',
+                              '_viz_columns_localization',
                               '_viz_width',
                               '_viz_height'];
 
@@ -416,8 +545,6 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
             wp_reset_query();
 
         }
-
-        
 
     } // end of Class
 }
