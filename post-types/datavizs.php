@@ -124,10 +124,8 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
         }
 
         public function dataviz_dataset_info_callback($post) {
-
           $resource_id = get_post_meta( $post->ID, '_ckan_resource_id', true );
           $resource_download = get_post_meta( $post->ID, '_ckan_resource_download_link', true );
-
           wp_nonce_field( plugin_basename( __FILE__ ), 'honeypot_content_nonce' ); ?>
 
           <style>
@@ -191,21 +189,18 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
         }
 
         public function dataviz_options_callback ($post) {
-
-
           $visualization_options = get_post_meta($post->ID, '_viz_options', true);
           $visualization_options_localization = get_post_meta($post->ID, '_viz_options_localization', true);
           $field_ids = get_post_meta($post->ID, '_viz_field_ids', true);
           $field_ids_localization = get_post_meta($post->ID, '_viz_field_ids_localization', true);
           $columns = get_post_meta($post->ID, '_viz_columns', true);
           $columns_localization = get_post_meta($post->ID, '_viz_columns_localization', true);
-
           ?>
 
           <div id="multiple-site">
       			<input type="radio" id="en" class="en" name="language_site" value="en" checked />
       			<label for="en"><?php _e('ENGLISH', 'wp-odm_dash');?></label> &nbsp;
-              <?php if (odm_language_manager()->get_the_language_by_site() != "English"): ?>
+              <?php if (odm_language_manager()->get_the_language_by_site() != 'English'): ?>
                 <input type="radio" id="localization" class="localization" name="language_site" value="localization" />
           			<label for="localization"><?php _e(odm_language_manager()->get_the_language_by_site(), 'wp-odm_dash');?></label>
               <?php endif; ?>
@@ -412,7 +407,6 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
 
         public function dataviz_styles_callback($post)
         {
-
           $viz_height = get_post_meta( $post->ID, '_viz_height', true );
           $viz_width = get_post_meta( $post->ID, '_viz_width', true );
           ?>
@@ -550,8 +544,6 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
             wp_reset_query();
 
         }
-
-
 
     } // end of Class
 }
