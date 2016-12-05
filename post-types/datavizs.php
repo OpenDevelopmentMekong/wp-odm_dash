@@ -126,6 +126,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
         public function dataviz_dataset_info_callback($post) {
           $resource_id = get_post_meta( $post->ID, '_ckan_resource_id', true );
           $resource_download = get_post_meta( $post->ID, '_ckan_resource_download_link', true );
+          $ckan_resource_filter = get_post_meta($post->ID, '_ckan_resource_filter', true);
           wp_nonce_field( plugin_basename( __FILE__ ), 'honeypot_content_nonce' ); ?>
 
           <style>
@@ -168,7 +169,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                       <label for"_ckan_resource_filter">Resource Filter</label>
                     </td>
                     <td>
-                      <textarea id="_ckan_resource_filter" name="_ckan_resource_filter" style="width:100%;" rows="5"><?php echo get_post_meta($post->ID, '_ckan_resource_filter', true) ?></textarea>
+                      <textarea id="_ckan_resource_filter" name="_ckan_resource_filter" style="width:100%;" rows="5"><?php echo $ckan_resource_filter; ?></textarea>
                       <p class="description">
                         Query filter for ckan datstore API in json format <br>
                         Example :
