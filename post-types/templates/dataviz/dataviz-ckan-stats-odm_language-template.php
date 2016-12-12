@@ -12,12 +12,14 @@
 <script type="text/javascript">
 	google.charts.load("current", {packages:["corechart"]});
 	google.charts.setOnLoadCallback(drawChart);
-
+  
+  var ckan_domain = $('#ckan-stats-language').data('ckan-domain');
+  var current_country_code = $('#ckan-stats-language').data('current-country-code');
+  var type = $('#ckan-stats-language').data('type');
+  
 	function getNumberOfRecordsByLanguage(language){
-		var ckan_domain = $('#ckan-stats-language').data('ckan-domain');
-    var current_country_code = $('#ckan-stats-language').data('current-country-code');
-		var request_url = ckan_domain + '/api/3/action/package_search?fq=extras_odm_language:' + language;
-    var type = $('#ckan-stats-language').data('type');
+		
+		var request_url = ckan_domain + '/api/3/action/package_search?fq=extras_odm_language:' + language;    
 
     if (current_country_code !== 'mekong'){
       request_url = request_url + '+extras_odm_spatial_range:' + current_country_code;
