@@ -62,7 +62,7 @@
     if (countryCode == "kh" || countryCode == "mekong"){
       columns.push(['Khmer',	          getNumberOfRecordsByLanguage('km'), 'color: #c8c8c8'])
     }
-    if (countryCode == "vi" || countryCode == "mekong"){
+    if (countryCode == "vn" || countryCode == "mekong"){
       columns.push(['Vietnamese',  	  getNumberOfRecordsByLanguage('vi'), 'color: #c8c8c8']);
     }
     if (countryCode == "la" || countryCode == "mekong"){
