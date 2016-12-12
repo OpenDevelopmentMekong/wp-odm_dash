@@ -27,8 +27,6 @@
       request_url = request_url + '+type:' + type;
     }
 
-    console.log(request_url);
-
 		var request = new XMLHttpRequest();
 		request.open('GET', request_url, false);  // `false` makes the request synchronous
 		request.send(null);
@@ -41,15 +39,7 @@
 
 	function drawChart() {
 
-		var data = google.visualization.arrayToDataTable([
-			['Dataset language', 'Number of records', { role: 'style' }],
-			['English',     		getNumberOfRecordsByLanguage('en'), 'color: #c8c8c8'],
-			['Khmer',	          getNumberOfRecordsByLanguage('km'), 'color: #c8c8c8'],
-			['Vietnamese',  	  getNumberOfRecordsByLanguage('vi'), 'color: #c8c8c8'],
-			['Lao',  	          getNumberOfRecordsByLanguage('la'), 'color: #c8c8c8'],
-			['Burmese',  	      getNumberOfRecordsByLanguage('mm'), 'color: #c8c8c8'],
-			['Thai',  	        getNumberOfRecordsByLanguage('th'), 'color: #c8c8c8']
-		]);
+		var data = google.visualization.arrayToDataTable(generateColumns(current_country_code));
 
 		var options = {
       title: "Number of records by language",
@@ -59,5 +49,31 @@
 		var chart = new google.visualization.BarChart(document.getElementById('ckan-stats-language'));
 		chart.draw(data, options);
 	};
+  
+  function generateColumns(countryCode){
+    
+    var columns = [
+			['Dataset language', 'Number of records', { role: 'style' }],
+			['English',     		getNumberOfRecordsByLanguage('en'), 'color: #c8c8c8']
+		];
+    
+    if (countryCode == "Cambodia" || countryCode == "Mekong"){
+      columns.push(['Khmer',	          getNumberOfRecordsByLanguage('km'), 'color: #c8c8c8'])
+    }
+    if (countryCode == "Vietnam" || countryCode == "Mekong"){
+      columns.push(['Vietnamese',  	  getNumberOfRecordsByLanguage('vi'), 'color: #c8c8c8']);
+    }
+    if (countryCode == "Laos" || countryCode == "Mekong"){
+      columns.push(['Lao',  	          getNumberOfRecordsByLanguage('la'), 'color: #c8c8c8']);
+    }
+    if (countryCode == "Myanmar" || countryCode == "Mekong"){
+      columns.push(['Burmese',  	      getNumberOfRecordsByLanguage('mm'), 'color: #c8c8c8'])
+    }
+    if (countryCode == "Thailand" || countryCode == "Mekong"){
+      columns.push(['Thai',  	        getNumberOfRecordsByLanguage('th'), 'color: #c8c8c8'])
+    }
+    
+    return columns;
+  }
 
 </script>
