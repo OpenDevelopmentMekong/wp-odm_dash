@@ -59,19 +59,19 @@
 			['English',     		getNumberOfRecordsByLanguage('en'), 'color: #c8c8c8']
 		];
     
-    if (countryCode == "cambodia" || countryCode == "mekong"){
+    if (countryCode == "kh" || countryCode == "mekong"){
       columns.push(['Khmer',	          getNumberOfRecordsByLanguage('km'), 'color: #c8c8c8'])
     }
-    if (countryCode == "vietnam" || countryCode == "mekong"){
+    if (countryCode == "vi" || countryCode == "mekong"){
       columns.push(['Vietnamese',  	  getNumberOfRecordsByLanguage('vi'), 'color: #c8c8c8']);
     }
-    if (countryCode == "laos" || countryCode == "mekong"){
+    if (countryCode == "la" || countryCode == "mekong"){
       columns.push(['Lao',  	          getNumberOfRecordsByLanguage('la'), 'color: #c8c8c8']);
     }
-    if (countryCode == "myanmar" || countryCode == "mekong"){
+    if (countryCode == "mm" || countryCode == "mekong"){
       columns.push(['Burmese',  	      getNumberOfRecordsByLanguage('mm'), 'color: #c8c8c8'])
     }
-    if (countryCode == "thailand" || countryCode == "mekong"){
+    if (countryCode == "th" || countryCode == "mekong"){
       columns.push(['Thai',  	        getNumberOfRecordsByLanguage('th'), 'color: #c8c8c8'])
     }
     
