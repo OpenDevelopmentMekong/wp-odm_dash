@@ -27,8 +27,6 @@
       request_url = request_url + '+type:' + type;
     }
 
-    console.log(request_url);
-
 		var request = new XMLHttpRequest();
 		request.open('GET', request_url, false);  // `false` makes the request synchronous
 		request.send(null);
