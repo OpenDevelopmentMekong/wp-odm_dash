@@ -12,13 +12,11 @@
 <div id="ckan-stats-filter"></div>
 
 <script type="text/javascript">
-  
-	google.charts.load("current", {packages:["treemap"]});
-	google.charts.setOnLoadCallback(drawChart);
-  
+  	
 	function drawChart() {
     
-    var taxonomy_definition_url = "stats/records_by_taxonomy.json";  
+    var country_code = $('#ckan-stats-taxonomy').data('current-country-code')
+    var taxonomy_definition_url = "stats/records_by_taxonomy_" + country_code + ".json";  
         
     $.ajax({
        type: 'GET',
@@ -56,6 +54,11 @@
        },
        async: false
    }); 
+   
+   $(document).ready(function() {
+     google.charts.load("current", {packages:["treemap"]});
+     google.charts.setOnLoadCallback(drawChart);
+    });
   	
 	};
 
