@@ -55,11 +55,11 @@
        async: false
    }); 
    
-   $(document).ready(function() {
-     google.charts.load("current", {packages:["treemap"]});
-     google.charts.setOnLoadCallback(drawChart);
-    });
-  	
 	};
+  
+  $(document).ready(function() {
+    google.charts.load("current", {packages:["treemap"]});
+    google.charts.setOnLoadCallback(drawChart);
+  });
 
 </script>
