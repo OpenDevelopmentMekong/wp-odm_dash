@@ -43,7 +43,7 @@
           var selectedItem = chart.getSelection()[0];
           if (selectedItem) {
             var value = chartData.getValue(selectedItem.row, 0);            
-            $('#ckan-stats-filter').html('<a href="?query=&taxonomy=' + encodeURIComponent(value) + '">Filter only records about ' + value + '</a>')
+            $('#ckan-stats-filter').html('<p>Filter only records about  <a href="?query=&taxonomy=' + encodeURIComponent(value) + '">' + value + '</a></p>')
           }
         }
         
