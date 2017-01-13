@@ -8,7 +8,7 @@
 				<div id="dash_search_box"></div>
 			</div>
 			<div class="two columns" id="back_to_map">
-				<a href="#mymap"><i class="fa fa-angle-up"></i> back to map</a>
+				<a href="#mymap"><i class="fa fa-angle-up"></i> <span class="text">back to map</span></a>
 			</div>
 		</div>
 	</div>
@@ -30,7 +30,7 @@
 		</div>
 		<span id="overlayregion"></span>
 		<div id="search_by_stpcode" style="display:none;"></div>
-		<div class="general_info">
+		<div class="general_info show-desktop">
 			<h2 class="region_name_container">Myanmar</h2>
 			<span class="parent_region_container"></span>
 			<h5 id="total_population"></h5>
