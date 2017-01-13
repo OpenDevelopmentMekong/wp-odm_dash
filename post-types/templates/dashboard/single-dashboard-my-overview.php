@@ -8,7 +8,7 @@
 				<div id="dash_search_box"></div>
 			</div>
 			<div class="two columns" id="back_to_map">
-				<a href="#mymap"><i class="fa fa-angle-up"></i> back to map</a>
+				<a href="#mymap"><i class="fa fa-angle-up"></i> <span class="text">back to map</span></a>
 			</div>
 		</div>
 	</div>
@@ -30,15 +30,17 @@
 		</div>
 		<span id="overlayregion"></span>
 		<div id="search_by_stpcode" style="display:none;"></div>
-		<div class="general_info">
-			<h2 class="region_name_container">Myanmar</h2>
-			<span class="parent_region_container"></span>
-			<h5 id="total_population"></h5>
-			<h5 id="total_population_non_enumerated"></h5>
-			<h5 id="region_area"></h5>
-			<h5 id="wards_num"></h5>
-			<h5 id="village_tracts_num"></h5>
-			<h5 id="villages_num"></h5>	
+		<div class="general_info show-desktop" id="general_info_overlay_box">
+			<div id="general_info_box">
+				<h2 class="region_name_container">Myanmar</h2>
+				<span class="parent_region_container"></span>
+				<h5 id="total_population"></h5>
+				<h5 id="total_population_non_enumerated"></h5>
+				<h5 id="region_area"></h5>
+				<h5 id="wards_num"></h5>
+				<h5 id="village_tracts_num"></h5>
+				<h5 id="villages_num"></h5>	
+			</div>
 		</div>
 	</div>
 </section>
@@ -112,6 +114,12 @@
 		</ul>
 	</div>
 </div> <!-- end of Navigation -->
+
+<section class="row show-tablet show-mobile">
+	<div class="container" id="general_info_mobile_box">
+		
+	</div>
+</section>
 
 <section class="row viz-section" id="demographic">
 	<div class="container">
@@ -471,3 +479,12 @@
 <!-- JS -->
 <script src="https://d3js.org/topojson.v1.min.js"></script>
 
+<script>
+	jQuery(function(){
+
+		if (jQuery(window).width() <= 750){	
+			jQuery('#general_info_box').detach().appendTo('#general_info_mobile_box');
+		}
+
+	});
+</script>

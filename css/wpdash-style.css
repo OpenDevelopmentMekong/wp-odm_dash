@@ -193,7 +193,7 @@
 }
 
 #region_name_wrapper.sticky {
-	top: 37px;
+	top: 33px;
 }
 
 .admin-bar #region_name_wrapper.sticky {
@@ -379,4 +379,65 @@
 	text-align: center;
 	border: 1px solid #ccc;
 	box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.show-tablet, .show-mobile {
+	display:none;
+}
+
+/*Styling for Mobile */
+
+@media(max-width: 1000px) {
+	.show-desktop, .show-mobile {
+		display: none;
+	}
+	.show-tablet {
+		display: block;
+	}
+}
+
+@media(max-width: 750px) {
+	#viz_nav_wrapper.sticky {
+		top: 77px;
+	}
+
+	#region_name_wrapper .four {
+		width: 40%; 
+	}
+
+	#region_name_wrapper .ten {
+		width: 55%;
+	}
+
+	#region_name_wrapper .two {
+		width: 5%;
+	}
+
+	#region_name {
+		font-size: 20px;
+	}
+
+	#back_to_map span.text {
+		display:none;
+	}
+}
+
+@media (max-width: 500px) {
+	.show-tablet, .show-desktop {
+		display: none;
+	}
+	.show-mobile {
+		display: block;
+	}
+	#content ul {
+		margin-left: 0px !important;
+	}
+
+	#viz_nav li a .sec_title {
+		display:none;
+	}
+
+	#viz_nav li a {
+		padding: 10px 5px;
+	}
 }
