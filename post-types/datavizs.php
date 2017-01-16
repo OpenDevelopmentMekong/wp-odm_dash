@@ -124,8 +124,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
         }
 
         public function dataviz_dataset_info_callback($post) {
-          $resource_id = get_post_meta( $post->ID, '_ckan_resource_id', true );
-          $resource_download = get_post_meta( $post->ID, '_ckan_resource_download_link', true );
+          $resource_url = get_post_meta($post->ID, '_ckan_resource_url', true);
           $ckan_resource_filter = get_post_meta($post->ID, '_ckan_resource_filter', true);
           wp_nonce_field( plugin_basename( __FILE__ ), 'honeypot_content_nonce' ); ?>
 
@@ -140,10 +139,23 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                 <tbody>
                   <tr>
                     <td>
+                      <label for="_ckan_resource_url">Ckan Resource URL :</label>
+                    </td>
+                    <td>
+                      <input type="text" id="_ckan_resource_url" name="_ckan_resource_url" placeholder="https://data.opendevelopmentmekong.net/dataset/dataset_id/resource/resource_id" value="<?php echo $resource_url ?>" style="width:100%;" />
+                      <p class="description">
+                        Ckan resource_id : d646bd1e-f377-4152-a4a7-8785e2b39fc5 <br>
+                        Example :
+                        https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5<strong>
+                      </p>
+                    </td>
+                  </tr>
+                  <!-- <tr>
+                    <td>
                       <label for="_ckan_resource_id">Ckan Resource ID :</label>
                     </td>
                     <td>
-                      <input type="text" id="_ckan_resource_id" name="_ckan_resource_id" placeholder="fe0a5815-b58d-423b-816a-8347ec85b2bb" value="<?php echo $resource_id ?>" style="width:100%;" />
+                      <input type="text" id="_ckan_resource_id" name="_ckan_resource_id" placeholder="fe0a5815-b58d-423b-816a-8347ec85b2bb" value="<?php //echo $resource_id ?>" style="width:100%;" />
                       <p class="description">
                         Ckan resource_id : d646bd1e-f377-4152-a4a7-8785e2b39fc5 <br>
                         Example :
@@ -157,13 +169,13 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                       <label for="_ckan_resource_download_link">Resource Download Link : </label>
                     </td>
                     <td>
-                      <input type="text" id="_ckan_resource_download_link" name="_ckan_resource_download_link" placeholder="https://data.opendevelopmentmekong.net/dataset/dataset_id/resource/resource_id/download/Resource.csv" value="<?php echo $resource_download ?>" style="width:100%;" />
+                      <input type="text" id="_ckan_resource_download_link" name="_ckan_resource_download_link" placeholder="https://data.opendevelopmentmekong.net/dataset/dataset_id/resource/resource_id/download/Resource.csv" value="<?php //echo $resource_download ?>" style="width:100%;" />
                         <p class="description">
                           Ckan resource download url <br>
                           Example : https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5/download/HouseholdspopulationBasedDatasetSRUnion.csv
                         </p>
                     </td>
-                  </tr>
+                  </tr> -->
                   <tr>
                     <td>
                       <label for"_ckan_resource_filter">Resource Filter</label>
@@ -488,8 +500,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                     return;
                 }
 
-                $field_list = ['_ckan_resource_id',
-                              '_ckan_resource_download_link',
+                $field_list = ['_ckan_resource_url',
                               '_ckan_resource_filter',
                               '_viz_type',
                               '_viz_options',
