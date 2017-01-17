@@ -150,32 +150,6 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                       </p>
                     </td>
                   </tr>
-                  <!-- <tr>
-                    <td>
-                      <label for="_ckan_resource_id">Ckan Resource ID :</label>
-                    </td>
-                    <td>
-                      <input type="text" id="_ckan_resource_id" name="_ckan_resource_id" placeholder="fe0a5815-b58d-423b-816a-8347ec85b2bb" value="<?php //echo $resource_id ?>" style="width:100%;" />
-                      <p class="description">
-                        Ckan resource_id : d646bd1e-f377-4152-a4a7-8785e2b39fc5 <br>
-                        Example :
-                        https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/<strong>d646bd1e-f377-4152-a4a7-8785e2b39fc5<strong>
-                        <br> ** bolded uri is where you can find resource_id in a resource url **
-                      </p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <label for="_ckan_resource_download_link">Resource Download Link : </label>
-                    </td>
-                    <td>
-                      <input type="text" id="_ckan_resource_download_link" name="_ckan_resource_download_link" placeholder="https://data.opendevelopmentmekong.net/dataset/dataset_id/resource/resource_id/download/Resource.csv" value="<?php //echo $resource_download ?>" style="width:100%;" />
-                        <p class="description">
-                          Ckan resource download url <br>
-                          Example : https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5/download/HouseholdspopulationBasedDatasetSRUnion.csv
-                        </p>
-                    </td>
-                  </tr> -->
                   <tr>
                     <td>
                       <label for"_ckan_resource_filter">Resource Filter</label>
