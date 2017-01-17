@@ -41,6 +41,7 @@ if (isset($atts["height"])) {
 		$data_source_table = (isset($atts["data_source_table"]) ? $atts["data_source_table"] : true);
 
 	 ?>
+	<div id="chart_js_error" class="chart_config_error" style="display:none;"></div>
 	<div id="wpdash_dataviz_<?php echo $post_id; ?>" style="height:<?php echo $viz_height; ?>;"></div>
 </div>
 
