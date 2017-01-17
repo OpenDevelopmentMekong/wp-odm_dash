@@ -2,8 +2,21 @@
 
 $post_id = $post->ID;
 
-$resource_id = get_post_meta($post_id, '_ckan_resource_id', true);
-$resource_link = get_post_meta($post_id, '_ckan_resource_download_link', true);
+$resource_url = get_post_meta($post_id, '_ckan_resource_url', true);
+
+//For backward compatibility
+if(empty($resource_url)) {
+	$resource_id = get_post_meta($post_id, '_ckan_resource_id', true);
+	$download_link = get_post_meta($post_id, '_ckan_resource_download_link', true);
+} else {
+	$explode_by_dataset = explode('/dataset/', $resource_url );
+	$explode_by_resource = explode('/resource/', $explode_by_dataset[1]);
+
+	$resource_id = $explode_by_resource[1];
+	$download_link = site_url('/dataset/?id='.$explode_by_resource[0]);
+
+}
+
 $resource_filter = get_post_meta($post_id, '_ckan_resource_filter', true);
 $viz_type = get_post_meta($post_id, '_viz_type', true);
 $viz_options = odm_language_manager()->get_current_language() !== "en" ? get_post_meta($post_id, '_viz_options_localization', true) : get_post_meta($post_id, '_viz_options', true);
@@ -48,7 +61,7 @@ if (isset($atts["height"])) {
 	var config = {
 		resource : {
 			id : '<?php echo $resource_id; ?>',
-			download_link : '<?php echo $resource_link; ?>',
+			download_link : '<?php echo $download_link; ?>',
 			filters : JSON.stringify(<?php echo $resource_filter; ?>)
 		},
 		chart : {
