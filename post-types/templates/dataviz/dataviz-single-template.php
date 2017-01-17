@@ -4,14 +4,14 @@ $post_id = $post->ID;
 
 $resource_url = get_post_meta($post_id, '_ckan_resource_url', true);
 
-//For backward compactability
+//For backward compatibility
 if(empty($resource_url)) {
 	$resource_id = get_post_meta($post_id, '_ckan_resource_id', true);
 	$download_link = get_post_meta($post_id, '_ckan_resource_download_link', true);
 } else {
 	$explode_by_dataset = explode('/dataset/', $resource_url );
 	$explode_by_resource = explode('/resource/', $explode_by_dataset[1]);
-	
+
 	$resource_id = $explode_by_resource[1];
 	$download_link = site_url('/dataset/?id='.$explode_by_resource[0]);
 
