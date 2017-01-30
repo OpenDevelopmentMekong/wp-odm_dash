@@ -59,6 +59,7 @@ if (isset($atts["height"])) {
 </div>
 
 <script>
+	
 	var config = {
 		resource : {
 			id : '<?php echo $resource_id; ?>',
@@ -68,9 +69,9 @@ if (isset($atts["height"])) {
 		chart : {
 			container_id : 'wpdash_dataviz_<?php echo $post_id; ?>',
 			chart_type : '<?php echo $viz_type; ?>',
-			chart_options : <?php echo $viz_options; ?>,
-			columns : <?php echo $viz_columns; ?>,
-			fields : <?php echo $viz_field_ids; ?>,
+			chart_options : validateJson(<?php echo json_encode($viz_options); ?>, 'Visualization Options'),
+			columns : validateJson(<?php echo json_encode($viz_columns); ?>, 'Column Names'),
+			fields : validateJson(<?php echo json_encode($viz_field_ids); ?>, 'Field IDs'),
 			data_source_table : <?php echo $data_source_table; ?>
 		}
 	}
@@ -85,6 +86,15 @@ if (isset($atts["height"])) {
 	function initChart<?php echo $post_id; ?>()
 	{
 		chart_<?php echo $post_id; ?>.init();
+	}
+
+	function validateJson(jsonString, fieldname) 
+	{
+		try {
+			return jQuery.parseJSON(jsonString);
+		} catch(e) {
+			jQuery('#chart_js_error').append('Invalid Json in configuration of "'+ fieldname +'" :' + e.message + '<br>').show();
+		}	
 	}
 
 </script>
