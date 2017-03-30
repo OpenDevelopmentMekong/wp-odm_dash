@@ -28,20 +28,20 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
         public function register_post_type()
         {
             $labels = array(
-            'name' => __('Data Visualizations', 'post type general name', 'wp-odm_dash'),
-            'singular_name' => __('Data Visualization', 'post type singular name', 'wp-odm_dash'),
-            'menu_name' => __('Visualizations', 'admin menu for dashboard', 'wp-odm_dash'),
-            'name_admin_bar' => __('Data Visualization', 'add new on admin bar', 'wp-odm_dash'),
-            'add_new' => __('Add new', 'dashboard', 'wp-odm_dash'),
-            'add_new_item' => __('Add new visualization', 'wp-odm_dash'),
-            'new_item' => __('New visualization', 'wp-odm_dash'),
-            'edit_item' => __('Edit visualization', 'wp-odm_dash'),
-            'view_item' => __('View visualization', 'wp-odm_dash'),
-            'all_items' => __('All visualizations', 'wp-odm_dash'),
-            'search_items' => __('Search visualization', 'wp-odm_dash'),
-            'parent_item_colon' => __('Parent visualization:', 'wp-odm_dash'),
-            'not_found' => __('No visualization found.', 'wp-odm_dash'),
-            'not_found_in_trash' => __('No visualization found in trash.', 'wp-odm_dash'),
+            'name' => __('Data Visualizations', 'post type general name', 'odi'),
+            'singular_name' => __('Data Visualization', 'post type singular name', 'odi'),
+            'menu_name' => __('Visualizations', 'admin menu for dashboard', 'odi'),
+            'name_admin_bar' => __('Data Visualization', 'add new on admin bar', 'odi'),
+            'add_new' => __('Add new', 'dashboard', 'odi'),
+            'add_new_item' => __('Add new visualization', 'odi'),
+            'new_item' => __('New visualization', 'odi'),
+            'edit_item' => __('Edit visualization', 'odi'),
+            'view_item' => __('View visualization', 'odi'),
+            'all_items' => __('All visualizations', 'odi'),
+            'search_items' => __('Search visualization', 'odi'),
+            'parent_item_colon' => __('Parent visualization:', 'odi'),
+            'not_found' => __('No visualization found.', 'odi'),
+            'not_found_in_trash' => __('No visualization found in trash.', 'odi'),
             );
 
             $args = array(
@@ -68,17 +68,17 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
         {
 
           $labels = array(
-              'name'              => _x( 'Dataviz sections', 'taxonomy general name', 'wp-odm_dash' ),
-              'singular_name'     => _x( 'Dataviz section', 'taxonomy singular name', 'wp-odm_dash' ),
-              'search_items'      => __( 'Search section', 'wp-odm_dash' ),
-              'all_items'         => __( 'All Sections', 'wp-odm_dash' ),
-              'parent_item'       => __( 'Parent Section', 'wp-odm_dash' ),
-              'parent_item_colon' => __( 'Parent Section:', 'wp-odm_dash' ),
-              'edit_item'         => __( 'Edit Section', 'wp-odm_dash' ),
-              'update_item'       => __( 'Update Section', 'wp-odm_dash' ),
-              'add_new_item'      => __( 'Add New Section', 'wp-odm_dash' ),
-              'new_item_name'     => __( 'New Section Name', 'wp-odm_dash' ),
-              'menu_name'         => __( 'Dataviz Section', 'wp-odm_dash' ),
+              'name'              => _x( 'Dataviz sections', 'taxonomy general name', 'odi' ),
+              'singular_name'     => _x( 'Dataviz section', 'taxonomy singular name', 'odi' ),
+              'search_items'      => __( 'Search section', 'odi' ),
+              'all_items'         => __( 'All Sections', 'odi' ),
+              'parent_item'       => __( 'Parent Section', 'odi' ),
+              'parent_item_colon' => __( 'Parent Section:', 'odi' ),
+              'edit_item'         => __( 'Edit Section', 'odi' ),
+              'update_item'       => __( 'Update Section', 'odi' ),
+              'add_new_item'      => __( 'Add New Section', 'odi' ),
+              'new_item_name'     => __( 'New Section Name', 'odi' ),
+              'menu_name'         => __( 'Dataviz Section', 'odi' ),
             );
 
             $args = array(
@@ -97,7 +97,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
         public function register_metaboxs() {
           add_meta_box(
             'dataviz_dataset_info',
-            __('Ckan Dataset Info', 'wp-odm_dash'),
+            __('Ckan Dataset Info', 'odi'),
             array($this, 'dataviz_dataset_info_callback'),
             'dataviz',
             'advanced',
@@ -106,7 +106,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
 
           add_meta_box(
             'dataviz_options',
-            __('Data Visualization Options', 'wp-odm_dash'),
+            __('Data Visualization Options', 'odi'),
             array($this, 'dataviz_options_callback'),
             'dataviz',
             'advanced',
@@ -115,7 +115,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
 
           add_meta_box(
             'dataviz_style',
-            __('Data Visualization Styles', 'wp-odm_dash'),
+            __('Data Visualization Styles', 'odi'),
             array($this, 'dataviz_styles_callback'),
             'dataviz',
             'side'
@@ -186,10 +186,10 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
 
           <div id="multiple-site">
       			<input type="radio" id="en" class="en" name="language_site" value="en" checked />
-      			<label for="en"><?php _e('ENGLISH', 'wp-odm_dash');?></label> &nbsp;
+      			<label for="en"><?php _e('ENGLISH', 'odi');?></label> &nbsp;
               <?php if (odm_language_manager()->get_the_language_by_site() != 'English'): ?>
                 <input type="radio" id="localization" class="localization" name="language_site" value="localization" />
-          			<label for="localization"><?php _e(odm_language_manager()->get_the_language_by_site(), 'wp-odm_dash');?></label>
+          			<label for="localization"><?php _e(odm_language_manager()->get_the_language_by_site(), 'odi');?></label>
               <?php endif; ?>
       		</div>
           <div id="resource_settings_box">

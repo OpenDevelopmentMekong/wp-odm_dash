@@ -49,9 +49,15 @@ if (!class_exists('Odm_Dashboards_Plugin')) {
         {
             add_action('init', array($this, 'register_styles'));
             add_action('init', array($this, 'register_scripts'));
+            add_action('init', array($this, 'load_text_domain'));
             add_action('admin_init', array(&$this, 'wpdash_admin_init'));
             add_action('admin_menu', array(&$this, 'wpdash_add_menu'));
             add_action('admin_notices', array($this, 'check_requirements'));
+        }
+
+        public function load_text_domain() {
+          $locale = apply_filters( 'plugin_locale', get_locale(), 'odi' );
+          load_textdomain( 'odi', trailingslashit( WP_LANG_DIR ) . '-' . $locale . '.mo' );
         }
 
         public function register_styles()

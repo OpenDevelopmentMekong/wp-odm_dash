@@ -6,8 +6,8 @@ class wpdash_show_dataviz_Widget extends WP_Widget
  public function __construct() {
   parent::__construct(
    'wpdash_show_dataviz_widget',
-   __('WPDASH Show dataviz', 'wp-odm_dash'),
-   array('description' => __('Integrate a data visualization on a widget area', 'wp-odm_dash'))
+   __('WPDASH Show dataviz', 'odi'),
+   array('description' => __('Integrate a data visualization on a widget area', 'odi'))
   );
  }
 
@@ -29,7 +29,7 @@ class wpdash_show_dataviz_Widget extends WP_Widget
 
     echo $args['before_widget'];
     if ( ! empty( $instance['title'] ) ) :
-      echo $args['before_title'] . apply_filters( 'widget_title', __( $instance['title'], 'wp-odm_dash')). $args['after_title'];
+      echo $args['before_title'] . apply_filters( 'widget_title', __( $instance['title'], 'odi')). $args['after_title'];
     endif;
 
     echo $output;
@@ -47,9 +47,9 @@ class wpdash_show_dataviz_Widget extends WP_Widget
   */
  public function form( $instance ) {
   // outputs the options form on admin
-  $id = ! empty( $instance['id'] ) ? __( $instance['id'], 'wp-odm_dash') : null;
-  $hide_desc = ! empty( $instance['hide_description'] ) ? __( $instance['hide_description'], 'wp-odm_dash') : false;
-  $data_source_table = ! empty( $instance['data_source_table'] ) ? __( $instance['data_source_table'], 'wp-odm_dash') : false;
+  $id = ! empty( $instance['id'] ) ? __( $instance['id'], 'odi') : null;
+  $hide_desc = ! empty( $instance['hide_description'] ) ? __( $instance['hide_description'], 'odi') : false;
+  $data_source_table = ! empty( $instance['data_source_table'] ) ? __( $instance['data_source_table'], 'odi') : false;
   ?>
   <p>
    <label for="<?php echo $this->get_field_id( 'id' ); ?>"><?php _e( 'Id:' ); ?></label>
