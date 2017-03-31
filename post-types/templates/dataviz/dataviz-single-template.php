@@ -2,8 +2,21 @@
 
 $post_id = $post->ID;
 
-$resource_id = get_post_meta($post_id, '_ckan_resource_id', true);
-$resource_link = get_post_meta($post_id, '_ckan_resource_download_link', true);
+$resource_url = get_post_meta($post_id, '_ckan_resource_url', true);
+
+//For backward compatibility
+if(empty($resource_url)) {
+	$resource_id = get_post_meta($post_id, '_ckan_resource_id', true);
+	$download_link = get_post_meta($post_id, '_ckan_resource_download_link', true);
+} else {
+	$explode_by_dataset = explode('/dataset/', $resource_url );
+	$explode_by_resource = explode('/resource/', $explode_by_dataset[1]);
+
+	$resource_id = $explode_by_resource[1];
+	$download_link = site_url('/dataset/?id='.$explode_by_resource[0]);
+
+}
+
 $resource_filter = get_post_meta($post_id, '_ckan_resource_filter', true);
 $viz_type = get_post_meta($post_id, '_viz_type', true);
 $viz_options = odm_language_manager()->get_current_language() !== "en" ? get_post_meta($post_id, '_viz_options_localization', true) : get_post_meta($post_id, '_viz_options', true);
@@ -41,22 +54,24 @@ if (isset($atts["height"])) {
 		$data_source_table = (isset($atts["data_source_table"]) ? $atts["data_source_table"] : true);
 
 	 ?>
+	<div id="chart_js_error" class="chart_config_error" style="display:none;"></div>
 	<div id="wpdash_dataviz_<?php echo $post_id; ?>" style="height:<?php echo $viz_height; ?>;"></div>
 </div>
 
 <script>
+	
 	var config = {
 		resource : {
 			id : '<?php echo $resource_id; ?>',
-			download_link : '<?php echo $resource_link; ?>',
+			download_link : '<?php echo $download_link; ?>',
 			filters : JSON.stringify(<?php echo $resource_filter; ?>)
 		},
 		chart : {
 			container_id : 'wpdash_dataviz_<?php echo $post_id; ?>',
 			chart_type : '<?php echo $viz_type; ?>',
-			chart_options : <?php echo $viz_options; ?>,
-			columns : <?php echo $viz_columns; ?>,
-			fields : <?php echo $viz_field_ids; ?>,
+			chart_options : validateJson(<?php echo json_encode($viz_options); ?>, 'Visualization Options'),
+			columns : validateJson(<?php echo json_encode($viz_columns); ?>, 'Column Names'),
+			fields : validateJson(<?php echo json_encode($viz_field_ids); ?>, 'Field IDs'),
 			data_source_table : <?php echo $data_source_table; ?>
 		}
 	}
@@ -71,6 +86,15 @@ if (isset($atts["height"])) {
 	function initChart<?php echo $post_id; ?>()
 	{
 		chart_<?php echo $post_id; ?>.init();
+	}
+
+	function validateJson(jsonString, fieldname) 
+	{
+		try {
+			return jQuery.parseJSON(jsonString);
+		} catch(e) {
+			jQuery('#chart_js_error').append('Invalid Json in configuration of "'+ fieldname +'" :' + e.message + '<br>').show();
+		}	
 	}
 
 </script>

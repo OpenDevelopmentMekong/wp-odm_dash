@@ -18,8 +18,33 @@ function ODChart(config) {
     }
     
   	this.getData().done(function(data){
-      self.processAfterData(data);
-  	});
+
+      //Show Error if there's no data record return
+      if (data.result.records.length >= 1) {
+        self.processAfterData(data);  
+      } else {
+        $('#chart_js_error').html(
+          "There's something wrong with configuration.<br> <span class='error_msg'> No data records found.</span>"
+        ).show();
+        $('#'+self.chart.container_id).hide();
+      }
+      
+  	})
+    .fail(function( jqXHR, textStatus, errorThrown ) {
+      
+      var responseText =  JSON.parse(jqXHR.responseText);
+
+      if (responseText.error.message) {
+        var errorMsg = responseText.error.message;
+      } else {
+        var errorMsg = JSON.stringify(responseText.error);
+      }
+
+      $('#chart_js_error').html(
+                "There's something wrong with configuration.<br> Error Message :<span class='error_msg'>" 
+                + errorMsg + "</span>" //Errors are not same need to check all possible ways. 
+                ).show();
+    });
 
   };
 
