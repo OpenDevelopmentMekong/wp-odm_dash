@@ -44,8 +44,11 @@ function ODChart(config) {
   this.config = config; // Chart Resources and Config
   this.resource = this.config.resource;
   this.charts = this.config.charts;
+  this.pcode = 'MMR';
 
   this.init = function(pcode) {
+
+    self.pcode = pcode;
     
     $.map(this.charts, function(value, index){
       if (value.chart_type !== 'text' || (value.prepare_data_from_array !== undefined && value.prepare_data_from_array === true)) {
@@ -236,11 +239,13 @@ function ODChart(config) {
     if (self.resource.download_link !== undefined) {
 
       resource_container.append(
-        jQuery('<a>').attr('href', self.resource.download_link)
+        jQuery('<a>')
           .addClass('resource_download')
-          .attr('target', '_blank')
           .text(' Download')
           .prepend(jQuery('<i>').addClass('fa fa-download'))
+          .on('click', function(){
+            self.downloadCSV(value.ChartData, value.container_id + '_' + self.pcode);
+          })
       );
 
     }
@@ -357,4 +362,57 @@ function ODChart(config) {
   this.formatNumber = function(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
   };
+
+
+  /* Download DataTable as CSV File 
+
+     Code from : https://gist.github.com/pilate/1477368
+     Credit to : pilate(https://github.com/pilate) and olmomp(https://github.com/olmomp)
+
+  */
+  this.downloadCSV = function(ChartData, filename) {
+
+    //DataTable to CSV
+    var dt_cols = ChartData.getNumberOfColumns();
+    var dt_rows = ChartData.getNumberOfRows();
+    
+    var csv_cols = [];
+    var csv_out;
+    
+    // Iterate columns
+    for (var i=0; i<dt_cols; i++) {
+        // Replace any commas in column labels
+        csv_cols.push(ChartData.getColumnLabel(i).replace(/,/g,""));
+    }
+    
+    // Create column row of CSV
+    csv_out = csv_cols.join(",")+"\r\n";
+    
+    // Iterate rows
+    for (i=0; i<dt_rows; i++) {
+        var raw_col = [];
+        for (var j=0; j<dt_cols; j++) {
+            // Replace any commas in row values
+            raw_col.push(ChartData.getFormattedValue(i, j).replace(/,/g,""));
+        }
+
+        // Add row to CSV text
+        csv_out += raw_col.join(",")+"\r\n";
+    }
+
+
+
+    //Download CSV
+    var blob = new Blob([csv_out], {type: 'text/csv;charset=utf-8'});
+    var url  = window.URL || window.webkitURL;
+    var link = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
+    link.href = url.createObjectURL(blob);
+    link.download = filename;
+
+    var event = document.createEvent("MouseEvents");
+    event.initEvent("click", true, false);
+    link.dispatchEvent(event); 
+
+  }
+
 }
