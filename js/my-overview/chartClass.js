@@ -261,7 +261,7 @@ function ODChart(config) {
               .append(
                 jQuery('<a>').addClass('data_source_btn')
                   .attr('data-target', value.container_id + "_table")
-                  .text(' Show Data')
+                  .html(' <span class="data_source_btn_text">Show Data<span>')
                   .prepend(
                     jQuery('<i>').addClass('fa fa-gear')
                   )
