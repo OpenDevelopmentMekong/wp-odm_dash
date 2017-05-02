@@ -62,16 +62,26 @@ if (!class_exists('Odm_Dashboards_Plugin')) {
 
         public function register_scripts()
         {
+
+            $i18n_params = array(
+              'ckan_url' => wpckan_get_ckan_domain(),
+              'config_error_msg' => __("There's something wrong with configuration.", 'wp-odm_dash'),
+              'no_data_error' => __("No data records found.", 'wp-odm_dash'),
+              'error_msg' => __("Error message :", 'wp-odm_dash'),
+              'data_source' => __("Data source", 'wp-odm_dash'),
+              'download' => __("Download", 'wp-odm_dash'),
+              'show_data' =>  __("Show data", 'wp-odm_dash'),
+              'hide_data' => __("Hide data", 'wp-odm_dash')
+            );
             wp_register_script('wpdash-plugin-googlechart', plugins_url().'/wp-odm_dash/js/plugin-js/google-charts.js', array('jquery'));
             wp_enqueue_script('wpdash-plugin-googlechart');
 
             wp_register_script('wpdash-plugin-chartclass', plugins_url().'/wp-odm_dash/js/plugin-js/chart-class.js');
-            wp_localize_script('wpdash-plugin-chartclass','dashboard', array(
-              'ckan_url' => wpckan_get_ckan_domain()
-            ));
+            wp_localize_script('wpdash-plugin-chartclass','dashboard', $i18n_params);
             wp_enqueue_script('wpdash-plugin-chartclass');
 
             wp_register_script('wpdash-plugin-util', plugins_url().'/wp-odm_dash/js/plugin-js/util.js');
+            wp_localize_script('wpdash-plugin-util', 'dashboard', $i18n_params);
             wp_enqueue_script('wpdash-plugin-util');
 
             wp_register_script('wpdash-google-chart', 'https://www.gstatic.com/charts/loader.js');
