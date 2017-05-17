@@ -385,6 +385,17 @@
 	display:none;
 }
 
+.chart_config_error {
+	background: #f00;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+}
+
+.chart_config_error .error_msg {
+	font-weight: bold;
+}
+
 /*Styling for Mobile */
 
 @media(max-width: 1000px) {

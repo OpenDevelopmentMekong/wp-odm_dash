@@ -18,8 +18,33 @@ function ODChart(config) {
     }
     
   	this.getData().done(function(data){
-      self.processAfterData(data);
-  	});
+
+      //Show Error if there's no data record return
+      if (data.result.records.length >= 1) {
+        self.processAfterData(data);  
+      } else {
+        $('#chart_js_error').html(
+          "There's something wrong with configuration.<br> <span class='error_msg'> No data records found.</span>"
+        ).show();
+        $('#'+self.chart.container_id).hide();
+      }
+      
+  	})
+    .fail(function( jqXHR, textStatus, errorThrown ) {
+      
+      var responseText =  JSON.parse(jqXHR.responseText);
+
+      if (responseText.error.message) {
+        var errorMsg = responseText.error.message;
+      } else {
+        var errorMsg = JSON.stringify(responseText.error);
+      }
+
+      $('#chart_js_error').html(
+                "There's something wrong with configuration.<br> Error Message :<span class='error_msg'>" 
+                + errorMsg + "</span>" //Errors are not same need to check all possible ways. 
+                ).show();
+    });
 
   };
 
@@ -175,11 +200,13 @@ function ODChart(config) {
     if (self.resource.download_link !== undefined) {
 
       resource_container.append(
-        jQuery('<a>').attr('href', self.resource.download_link)
+        jQuery('<a>')
           .addClass('resource_download')
-          .attr('target', '_blank')
           .text(' Download')
           .prepend(jQuery('<i>').addClass('fa fa-download'))
+          .on('click', function(){
+            self.downloadCSV(value.ChartData, value.container_id);
+          })
       );
 
     }
@@ -295,5 +322,56 @@ function ODChart(config) {
   this.formatNumber = function(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
   };
+
+
+  /* Download DataTable as CSV File 
+
+     Code from : https://gist.github.com/pilate/1477368
+     Credit to : pilate(https://github.com/pilate) and olmomp(https://github.com/olmomp)
+
+  */
+  this.downloadCSV = function(ChartData, filename) {
+
+    //DataTable to CSV
+    var dt_cols = ChartData.getNumberOfColumns();
+    var dt_rows = ChartData.getNumberOfRows();
+    
+    var csv_cols = [];
+    var csv_out;
+    
+    // Iterate columns
+    for (var i=0; i<dt_cols; i++) {
+        // Replace any commas in column labels
+        csv_cols.push(ChartData.getColumnLabel(i).replace(/,/g,""));
+    }
+    
+    // Create column row of CSV
+    csv_out = csv_cols.join(",")+"\r\n";
+    
+    // Iterate rows
+    for (i=0; i<dt_rows; i++) {
+        var raw_col = [];
+        for (var j=0; j<dt_cols; j++) {
+            // Replace any commas in row values
+            raw_col.push(ChartData.getFormattedValue(i, j, 'label').replace(/,/g,""));
+        }
+        // Add row to CSV text
+        csv_out += raw_col.join(",")+"\r\n";
+    }
+
+
+
+    //Download CSV
+    var blob = new Blob([csv_out], {type: 'text/csv;charset=utf-8'});
+    var url  = window.URL || window.webkitURL;
+    var link = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
+    link.href = url.createObjectURL(blob);
+    link.download = filename;
+
+    var event = document.createEvent("MouseEvents");
+    event.initEvent("click", true, false);
+    link.dispatchEvent(event); 
+
+  }
   
 }

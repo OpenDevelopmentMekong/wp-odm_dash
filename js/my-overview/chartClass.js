@@ -44,8 +44,11 @@ function ODChart(config) {
   this.config = config; // Chart Resources and Config
   this.resource = this.config.resource;
   this.charts = this.config.charts;
+  this.pcode = 'MMR';
 
   this.init = function(pcode) {
+
+    self.pcode = pcode;
     
     $.map(this.charts, function(value, index){
       if (value.chart_type !== 'text' || (value.prepare_data_from_array !== undefined && value.prepare_data_from_array === true)) {
@@ -236,11 +239,13 @@ function ODChart(config) {
     if (self.resource.download_link !== undefined) {
 
       resource_container.append(
-        jQuery('<a>').attr('href', self.resource.download_link)
+        jQuery('<a>')
           .addClass('resource_download')
-          .attr('target', '_blank')
           .text(' Download')
           .prepend(jQuery('<i>').addClass('fa fa-download'))
+          .on('click', function(){
+            self.downloadCSV(value.ChartData, value.container_id + '_' + self.pcode);
+          })
       );
 
     }
@@ -256,7 +261,7 @@ function ODChart(config) {
               .append(
                 jQuery('<a>').addClass('data_source_btn')
                   .attr('data-target', value.container_id + "_table")
-                  .text(' Show Data')
+                  .html(' <span class="data_source_btn_text">Show Data<span>')
                   .prepend(
                     jQuery('<i>').addClass('fa fa-gear')
                   )
@@ -357,252 +362,57 @@ function ODChart(config) {
   this.formatNumber = function(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
   };
-}
 
-// ============================== Election Class ==================== //
-// *** Later need to extend from ODChart **** 
 
-function ElectionPartyChart(config) {
+  /* Download DataTable as CSV File 
 
-  var self = this;
-  this.config = config; // Chart Resources and Config
-  this.resource = this.config.resource;
-  this.charts = this.config.charts;
+     Code from : https://gist.github.com/pilate/1477368
+     Credit to : pilate(https://github.com/pilate) and olmomp(https://github.com/olmomp)
 
-  this.init = function(pcode) {
+  */
+  this.downloadCSV = function(ChartData, filename) {
 
-    this.getData(pcode).done(function(data){
-
-      self.processAfterData(data);
-
-    });
-  };
-
-  this.getData = function(pcode) {
-    var ajax_opt = {
-      url: ckan_api_url,
-      data: {
-        resource_id : this.resource.id,
-        filters : '{"'+ this.resource.filters.pcode +'":"'+ pcode +'"}',
-        sort : this.resource.sort_by
-      },
-      dataType: 'json'
-    };
-
-    //Assign Authorization Header if resource is Private
-    if(config.resource.private) {
-      ajax_opt.headers = {
-        Authorization : ckan_api_key
-      };
+    //DataTable to CSV
+    var dt_cols = ChartData.getNumberOfColumns();
+    var dt_rows = ChartData.getNumberOfRows();
+    
+    var csv_cols = [];
+    var csv_out;
+    
+    // Iterate columns
+    for (var i=0; i<dt_cols; i++) {
+        // Replace any commas in column labels
+        csv_cols.push(ChartData.getColumnLabel(i).replace(/,/g,""));
     }
-
-    return $.ajax(ajax_opt);
-
-  };
-
-  this.processAfterData = function(data) {
-
-      $.map(self.charts, function(value, index){
-
-        if (data.result.records.length > 0) {
-
-          $('#'+value.container_id).show();
-
-          var sorted = self.sortResults(data.result.records, self.resource.sort_by);
-
-          self.prepareChart(sorted, value);
-
-          self.addDataSourceLink(value);
-
-        } else {
-
-          $('#'+value.container_id).hide();
-
+    
+    // Create column row of CSV
+    csv_out = csv_cols.join(",")+"\r\n";
+    
+    // Iterate rows
+    for (i=0; i<dt_rows; i++) {
+        var raw_col = [];
+        for (var j=0; j<dt_cols; j++) {
+            // Replace any commas in row values
+            raw_col.push(ChartData.getFormattedValue(i, j).replace(/,/g,""));
         }
 
-      }); 
-
-  };
-
-  this.addDataSourceLink = function(value) {
-    if (self.resource.dataset_id !== undefined) {
-      var dataset_url = data_source_url + '?id=' + self.resource.dataset_id;
-      jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ dataset_url +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
-    }
-  };
-
-  this.prepareChart = function(data, chart_conf) {
-
-    var columns = ['Year'];
-    var values = [chart_conf.columns['Y-value']];
-    var colors = [];
-
-    $.map(data, function(value, index){
-      if (value[chart_conf.fields.value] > 0) {
-        columns.push(value[chart_conf.fields.party]);
-        values.push(parseInt(value[chart_conf.fields.value]));
-        colors.push(self.getPartyColor(value[chart_conf.fields.party]));  
-      }
-    });
-
-    if (columns.length > 1) {
-      var f_data = [columns, values];
-
-      chart_conf.chart_options.colors = colors;
-      
-      chart_conf.ChartData = new google.visualization.arrayToDataTable(f_data);
-
-      googleChart.draw(chart_conf.chart_type, document.getElementById(chart_conf.container_id), chart_conf.ChartData, chart_conf.chart_options);
+        // Add row to CSV text
+        csv_out += raw_col.join(",")+"\r\n";
     }
 
-  };
 
-  this.sortResults = function(data, prop, asc) {
 
-    return data.sort(function(a, b) {
-        var x = parseInt(b[prop]);
-        var y = parseInt(a[prop]);
-        if (asc) {
-            return (y > x) ? 1 : ((y < x) ? -1 : 0);
-        } else {
-            return (x > y) ? 1 : ((x < y) ? -1 : 0);
-        }
-    });
+    //Download CSV
+    var blob = new Blob([csv_out], {type: 'text/csv;charset=utf-8'});
+    var url  = window.URL || window.webkitURL;
+    var link = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
+    link.href = url.createObjectURL(blob);
+    link.download = filename;
 
-  };
-
-  this.getPartyColor = function(partyname) {
-
-    colors = ['#E91E63', 
-              '#9C27B0', 
-              '#673AB7', 
-              '#2196F3',
-              '#03A9F4',
-              '#607D8B',
-              '#009688',
-              '#8BC34A',
-              '#CDDC39',
-              '#00BCD4',
-              '#FFC107',
-              '#FF9800',
-              '#FF5722',
-              '#795548'
-              ];
-    return partyname == 'National League for Democracy' ? '#F44336' : 
-           partyname == 'Union Solidarity And Development Party' ? 'green'  :
-           partyname == 'Union Solidarity and Development Party' ? 'green' :
-           partyname == 'Shan Nationalities Democratic Party' ? '#4CAF50' :
-           partyname == 'National Democratic Force' ? '#3F51B5' :
-           partyname == 'National Unity Party' ? '#FFEB3B' :
-           partyname == 'National Unity Party (NUP)' ? '#FFEB3B' :
-           partyname == 'Rakhine Nationals Development Party' ? '#9E9E9E' : 
-           partyname == 'Arakan National Party' ? '#0288D1' :
-          colors[Math.floor(Math.random() * colors.length)];
-  };
-
-}
-
-// ================================ Draw Google Chart Functions ==================== //
-
-var googleChart = {
-
-  draw : function(type, object, data, options) {
-
-    var chart = eval("googleChart." + type + "(object)");
-    var opts = jQuery.extend(true, {}, eval("this.options." + type));
-    jQuery.extend(true, opts, options);
-    chart.draw(data, opts);
-  },
-
-  options : {
-    pie : {
-      sliceVisibilityThreshold: 0
-    },
-    bar : {
-      legend : {
-        position : 'bottom'
-      },
-      backgroundColor : {
-        fill : 'transparent'
-      }
-    },
-    donut : {
-      backgroundColor : {
-        fill : 'transparent'
-      },
-      pieHole: 0.4,
-      sliceVisibilityThreshold: 0
-    },
-    line : {
-      backgroundColor : {
-        fill : 'transparent'
-      }
-    },
-    column : {
-      backgroundColor : {
-        fill : 'transparent'
-      },
-      animation:{
-        duration: 1000,
-        easing: 'linear',
-        startup : true
-      },
-      legend : {
-        position : 'bottom'
-      },
-    },
-    table : {
-      width: '100%'
-    },
-    treemap : {
-      textStyle : {
-        fontSize : 15
-      }
-    }
-  },
-
-  //Pie Chart
-  pie : function(object) {
-
-    return new google.visualization.PieChart(object);
-
-  },
-
-  bar : function(object) {
-
-    return new google.visualization.BarChart(object);
-
-  },
-
-  donut : function(object) {
-
-    return new google.visualization.PieChart(object);
-
-  },
-
-  line : function(object) {
-
-    return new google.visualization.LineChart(object);
-
-  },
-
-  column : function(object) {
-
-    return new google.visualization.ColumnChart(object);
-
-  },  
-
-  table : function(object) {
-
-    return new google.visualization.Table(object);
-
-  },
-
-  treemap : function(object) {
-
-    return new google.visualization.TreeMap(object);
+    var event = document.createEvent("MouseEvents");
+    event.initEvent("click", true, false);
+    link.dispatchEvent(event); 
 
   }
 
-};
-
+}
