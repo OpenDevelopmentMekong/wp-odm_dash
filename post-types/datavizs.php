@@ -427,7 +427,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
          			var showFormsSourceSelection = function() {
          				  $souceForms.hide();
          					var selected = $('input[type="radio"][name=_data_source]').filter(':checked').val();
-         					$('.data_source_ckan_resource_' + selected).show();
+         					$('.data_source_' + selected).show();
          			}
          			$sourceSelection.on('change', function() {
          					$('#' + this.className).prop('checked', this.checked);
