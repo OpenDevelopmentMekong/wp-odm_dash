@@ -137,9 +137,9 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
           </style>
           <div id="resource_settings_box">
             <div id="data-source-select">
-        			<input type="radio" id="ckan_resource" class="ckan_resource" name="_data_source" value="ckan_resource" <?php if ($data_source == 'ckan_resource'): echo "checked" ?> />
+        			<input type="radio" id="ckan_resource" class="ckan_resource" name="_data_source" value="ckan_resource" <?php if ($data_source == 'ckan_resource'): echo "checked"; endif;?> />
         			<label for="data_source"><?php _e('CKan Resource', 'wp-odm_dash');?></label> &nbsp;                
-              <input type="radio" id="custom_data" class="custom_data" name="_data_source" value="custom_data"  <?php if ($data_source == 'custom_data'): echo "checked" ?> />
+              <input type="radio" id="custom_data" class="custom_data" name="_data_source" value="custom_data"  <?php if ($data_source == 'custom_data'): echo "checked"; endif; ?> />
         			<label for="custom_data"><?php _e('Custom Data', 'wp-odm_dash');?></label>
         		</div>
             <div class="resource_settings">
@@ -539,7 +539,10 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                     return;
                 }
 
-                $field_list = ['_ckan_resource_url',
+                $field_list = [
+                              '_data_source',
+                              '_custom_data'
+                              '_ckan_resource_url',                  
                               '_ckan_resource_filter',
                               '_viz_type',
                               '_viz_options',
