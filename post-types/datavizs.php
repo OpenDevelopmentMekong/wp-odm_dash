@@ -186,7 +186,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                       <label for="_custom_data">Custom data :</label>
                     </td>
                     <td>
-                      <textarea id="_custom_data" name="_custom_data" placeholder="Enter data in proper format here" value="<?php echo $custom_data; ?>" style="width:100%;" />
+                      <textarea id="_custom_data" name="_custom_data" placeholder="Enter data in proper format here" value="<?php echo $custom_data; ?>" style="width:100%;"></textarea>
                       <p class="description">
                         Read guide on https://developers.google.com/chart/interactive/docs/basic_preparing_data</br>
                         Example : [
