@@ -142,7 +142,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
               <input type="radio" id="custom_data" class="data_source_select" name="_data_source" value="custom_data"  <?php if ($data_source == 'custom_data'): echo "checked"; endif; ?> />
         			<label for="custom_data"><?php _e('Custom Data', 'wp-odm_dash');?></label>
         		</div>
-            <div class="data_source_ckan_resource">
+            <div class="data_source_selection data_source_ckan_resource">
               <table class="form-table resource_settings_box">
                 <tbody>
                   <tr>
@@ -178,7 +178,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                 </tbody>
               </table>
             </div>
-            <div class="data_source_custom_data">
+            <div class="data_source_selection data_source_custom_data">
               <table class="form-table resource_settings_box">
                 <tbody>
                   <tr>
@@ -423,7 +423,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
             function init_data_source_select(){
               var $container = $('#data-source-select');
          			var $sourceSelection = $('input[type="radio"][class^=data_source_select]');
-         			var $souceForms = $('.language_settings');
+         			var $souceForms = $('.data_source_selection');
          			var showFormsSourceSelection = function() {
          				  $souceForms.hide();
          					var selected = $('input[type="radio"][name=_data_source]').filter(':checked').val();
