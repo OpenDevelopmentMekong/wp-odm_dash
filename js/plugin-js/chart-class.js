@@ -22,20 +22,21 @@ function ODChart(config) {
       
       try {
         jsonData = JSON.parse(this.resource.custom_data);
+        
+        var preprocessedData = {
+          result: {
+            records: jsonData
+          }
+        }
+        self.processAfterData(preprocessedData);   
+        
       } catch(e) {
         $('#chart_js_error').html(
           "There's something wrong with the custom data.<br> <span class='error_msg'> Please check the custom data you have entered and make sure it is in valid json format.</span>"
         ).show();
         $('#'+self.chart.container_id).hide();
       }
-      
-      var preprocessedData = {
-        result: {
-          records: jsonData
-        }
-      }
-      self.processAfterData(preprocessedData);     
-       
+
     }else{
       
       this.getData().done(function(data){
