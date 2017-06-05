@@ -419,39 +419,47 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
 
           </div>
           <script type="text/javascript">
-      		 jQuery(document).ready(function($) {
-             
-            var $container = $('#data-source-select');
-       			var $sourceSelection = $('input[type="radio"][class^=data_source_select]');
-       			var $forms = $('.language_settings');
-       			var showFormsSourceSelection = function() {
-       				  $forms.hide();
-       					var selected = $('input[type="radio"][name=_data_source]').filter(':checked').val();
-       					$('.data_source_ckan_resource_' + selected).show();
-       			}
-       			$sourceSelection.on('change', function() {
-       					$('.' + this.className).prop('checked', this.checked);
-       			 	showFormsSourceSelection();
-       			});
+          
+            function init_data_source_select(){
+              var $container = $('#data-source-select');
+         			var $sourceSelection = $('input[type="radio"][class^=data_source_select]');
+         			var $forms = $('.language_settings');
+         			var showFormsSourceSelection = function() {
+         				  $forms.hide();
+         					var selected = $('input[type="radio"][name=_data_source]').filter(':checked').val();
+         					$('.data_source_ckan_resource_' + selected).show();
+         			}
+         			$sourceSelection.on('change', function() {
+         					$('.' + this.className).prop('checked', this.checked);
+         			 	showFormsSourceSelection();
+         			});
 
-       			showFormsSourceSelection();
-            });
+         			showFormsSourceSelection();
+            }
             
-      			var $container = $('#multiple-site');
-      			var $languageSelection = $('input[type="radio"][class^=language_select]');
-      			var $forms = $('.language_settings');
-      			var showForms = function() {
-      				  $forms.hide();
-      					var selected = $('input[type="radio"][name=language_site]').filter(':checked').val();
-      					$('.language-' + selected).show();
-      			}
-      			$languageSelection.on('change', function() {
-      					$('.' + this.className).prop('checked', this.checked);
-      			 	showForms();
-      			});
+            function init_language_select(){
+              var $container = $('#multiple-site');
+        			var $languageSelection = $('input[type="radio"][class^=language_select]');
+        			var $forms = $('.language_settings');
+        			var showForms = function() {
+        				  $forms.hide();
+        					var selected = $('input[type="radio"][name=language_site]').filter(':checked').val();
+        					$('.language-' + selected).show();
+        			}
+        			$languageSelection.on('change', function() {
+        					$('.' + this.className).prop('checked', this.checked);
+        			 	showForms();
+        			});
 
-      			showForms();
-           });
+        			showForms();
+            }
+            
+      		  jQuery(document).ready(function($) {
+             
+              init_data_source_select();
+              init_language_select();
+                  			
+            });
           </script>
         <?php
         }
