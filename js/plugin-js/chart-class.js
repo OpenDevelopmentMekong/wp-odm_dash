@@ -25,14 +25,15 @@ function ODChart(config) {
           "There's something wrong with the custom data.<br> <span class='error_msg'> Please check the custom data you have entered and make sure it is in valid json format.</span>"
         ).show();
         $('#'+self.chart.container_id).hide();
-      }
-      
-      var preprocessedData = {
-        result: {
-          records: jsonData
+      }else{
+        var preprocessedData = {
+          result: {
+            records: jsonData
+          }
         }
-      }
-      self.processAfterData(preprocessedData);  
+        self.processAfterData(preprocessedData); 
+      }      
+       
     }else{
       
       this.getData().done(function(data){
@@ -105,7 +106,7 @@ function ODChart(config) {
 
   this.processAfterData = function(data) {
     
-    console.log("Initializing graph with data:" + data);
+    console.log(data);
 
     if (self.resource.singlerow || data.result.records.length == 1) {
       self.data = data.result.records[0];
