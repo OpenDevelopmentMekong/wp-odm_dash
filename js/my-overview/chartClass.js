@@ -62,7 +62,7 @@ function ODChart(config) {
     });
     
   	this.getData(pcode).done(function(data){    
-      self.processAfterData(data);
+      self.processAfterData(data,false);
   	});
 
   };
