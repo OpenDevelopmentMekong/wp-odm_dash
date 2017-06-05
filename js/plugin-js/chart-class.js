@@ -50,6 +50,8 @@ function ODChart(config) {
 
   this.getData = function() {
     
+    console.log(this.resource);
+    
     if (this.resource.data_source == "custom_data"){
       return JSON.parse(this.resource.custom_data);
     }
