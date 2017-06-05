@@ -18,9 +18,18 @@ function ODChart(config) {
     }
     
     if (this.resource.data_source == "custom_data"){
+      var jsonData = JSON.parse(this.resource.custom_data);
+      
+      if (!jsonData) {
+        $('#chart_js_error').html(
+          "There's something wrong with the custom data.<br> <span class='error_msg'> Please check the custom data you have entered and make sure it is in valid json format.</span>"
+        ).show();
+        $('#'+self.chart.container_id).hide();
+      }
+      
       var preprocessedData = {
         result: {
-          records: JSON.parse(this.resource.custom_data);
+          records: jsonData
         }
       }
       self.processAfterData(preprocessedData);  
