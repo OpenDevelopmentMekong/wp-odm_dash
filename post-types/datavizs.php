@@ -541,7 +541,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
 
                 $field_list = [
                               '_data_source',
-                              '_custom_data'
+                              '_custom_data',
                               '_ckan_resource_url',                  
                               '_ckan_resource_filter',
                               '_viz_type',
