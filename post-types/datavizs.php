@@ -137,12 +137,12 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
           </style>
           <div id="resource_settings_box">
             <div id="data-source-select">
-        			<input type="radio" id="ckan_resource" class="ckan_resource" name="_data_source" value="ckan_resource" <?php if (!isset($data_source) || $data_source == 'ckan_resource'): echo "checked"; endif;?> />
+        			<input type="radio" id="ckan_resource" class="data_source_select" name="_data_source" value="ckan_resource" <?php if (!isset($data_source) || $data_source == 'ckan_resource'): echo "checked"; endif;?> />
         			<label for="data_source"><?php _e('Ckan Resource', 'wp-odm_dash');?></label> &nbsp;                
-              <input type="radio" id="custom_data" class="custom_data" name="_data_source" value="custom_data"  <?php if ($data_source == 'custom_data'): echo "checked"; endif; ?> />
+              <input type="radio" id="custom_data" class="data_source_select" name="_data_source" value="custom_data"  <?php if ($data_source == 'custom_data'): echo "checked"; endif; ?> />
         			<label for="custom_data"><?php _e('Custom Data', 'wp-odm_dash');?></label>
         		</div>
-            <div class="resource_settings">
+            <div class="data_source_ckan_resource">
               <table class="form-table resource_settings_box">
                 <tbody>
                   <tr>
@@ -178,7 +178,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                 </tbody>
               </table>
             </div>
-            <div class="resource_settings">
+            <div class="data_source_custom_data">
               <table class="form-table resource_settings_box">
                 <tbody>
                   <tr>
@@ -198,24 +198,7 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                         ]
                       </p>
                     </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <label for"_ckan_resource_filter">Resource Filter</label>
-                    </td>
-                    <td>
-                      <textarea id="_ckan_resource_filter" name="_ckan_resource_filter" style="width:100%;" rows="5"><?php echo $ckan_resource_filter; ?></textarea>
-                      <p class="description">
-                        Query filter for ckan datstore API in json format <br>
-                        Example :
-                        <pre>
-                          {
-                          	"pcode_st": "MMR001"
-                          }
-                        </pre>
-                      </p>
-                    </td>
-                  </tr>
+                  </tr>                  
                 </tbody>
               </table>
             </div>
@@ -234,10 +217,10 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
           ?>
 
           <div id="multiple-site">
-      			<input type="radio" id="en" class="en" name="language_site" value="en" checked />
+      			<input type="radio" id="en" class="language_select" name="language_site" value="en" checked />
       			<label for="en"><?php _e('ENGLISH', 'wp-odm_dash');?></label> &nbsp;
               <?php if (odm_language_manager()->get_the_language_by_site() != 'English'): ?>
-                <input type="radio" id="localization" class="localization" name="language_site" value="localization" />
+                <input type="radio" id="localization" class="language_select" name="language_site" value="localization" />
           			<label for="localization"><?php _e(odm_language_manager()->get_the_language_by_site(), 'wp-odm_dash');?></label>
               <?php endif; ?>
       		</div>
@@ -438,8 +421,25 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
           </div>
           <script type="text/javascript">
       		 jQuery(document).ready(function($) {
+             
+            var $container = $('#data-source-select');
+       			var $sourceSelection = $('input[type="radio"][class^=data_source_select]');
+       			var $forms = $('.language_settings');
+       			var showFormsSourceSelection = function() {
+       				  $forms.hide();
+       					var selected = $('input[type="radio"][name=_data_source]').filter(':checked').val();
+       					$('.data_source_ckan_resource_' + selected).show();
+       			}
+       			$sourceSelection.on('change', function() {
+       					$('.' + this.className).prop('checked', this.checked);
+       			 	showFormsSourceSelection();
+       			});
+
+       			showFormsSourceSelection();
+            });
+            
       			var $container = $('#multiple-site');
-      			var $languageSelection = $('input[type="radio"]');
+      			var $languageSelection = $('input[type="radio"][class^=language_select]');
       			var $forms = $('.language_settings');
       			var showForms = function() {
       				  $forms.hide();
