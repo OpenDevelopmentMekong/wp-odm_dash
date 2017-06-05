@@ -188,14 +188,8 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                     <td>
                       <textarea id="_custom_data" name="_custom_data" placeholder="Enter data in proper format here" style="width:100%;"><?php echo $custom_data; ?></textarea>
                       <p class="description">
-                        Read guide on https://developers.google.com/chart/interactive/docs/basic_preparing_data</br>
-                        Example : [
-                          ['Mushrooms', 3],
-                          ['Onions', 1],
-                          ['Olives', 1], 
-                          ['Zucchini', 1],
-                          ['Pepperoni', 2]
-                        ]
+                        Provide a list of JSON objects with the values for each of the specified fields
+                        Example : [{"Mushrooms": "3","Onions": "1","Olives": "1","Pepperoni": 2}]
                       </p>
                     </td>
                   </tr>
