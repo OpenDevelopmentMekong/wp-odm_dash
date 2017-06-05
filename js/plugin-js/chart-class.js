@@ -17,44 +17,46 @@ function ODChart(config) {
       }
     }
     
-  	this.getData().done(function(data){
+    if (this.resource.data_source == "custom_data"){
+      self.processAfterData(this.resource.custom_data);  
+    }else{
+      
+      this.getData().done(function(data){
 
-      //Show Error if there's no data record return
-      if (data.result.records.length >= 1) {
-        self.processAfterData(data);  
-      } else {
+        //Show Error if there's no data record return
+        if (data.result.records.length >= 1) {
+          self.processAfterData(data);  
+        } else {
+          $('#chart_js_error').html(
+            "There's something wrong with configuration.<br> <span class='error_msg'> No data records found.</span>"
+          ).show();
+          $('#'+self.chart.container_id).hide();
+        }
+        
+    	})
+      .fail(function( jqXHR, textStatus, errorThrown ) {
+        
+        var responseText =  JSON.parse(jqXHR.responseText);
+
+        if (responseText.error.message) {
+          var errorMsg = responseText.error.message;
+        } else {
+          var errorMsg = JSON.stringify(responseText.error);
+        }
+
         $('#chart_js_error').html(
-          "There's something wrong with configuration.<br> <span class='error_msg'> No data records found.</span>"
-        ).show();
-        $('#'+self.chart.container_id).hide();
-      }
+                  "There's something wrong with configuration.<br> Error Message :<span class='error_msg'>" 
+                  + errorMsg + "</span>" //Errors are not same need to check all possible ways. 
+                  ).show();
+      });
       
-  	})
-    .fail(function( jqXHR, textStatus, errorThrown ) {
-      
-      var responseText =  JSON.parse(jqXHR.responseText);
-
-      if (responseText.error.message) {
-        var errorMsg = responseText.error.message;
-      } else {
-        var errorMsg = JSON.stringify(responseText.error);
-      }
-
-      $('#chart_js_error').html(
-                "There's something wrong with configuration.<br> Error Message :<span class='error_msg'>" 
-                + errorMsg + "</span>" //Errors are not same need to check all possible ways. 
-                ).show();
-    });
+    }
+    
+  	
 
   };
 
   this.getData = function() {
-    
-    console.log(this.resource);
-    
-    if (this.resource.data_source == "custom_data"){
-      return JSON.parse(this.resource.custom_data);
-    }
 
     var ajax_opt = {
       url: dashboard.ckan_url + '/api/action/datastore_search',
