@@ -20,7 +20,7 @@ function ODChart(config) {
     if (this.resource.data_source == "custom_data"){
       var preprocessedData = {
         result: {
-          records: this.resource.custom_data
+          records: JSON.parse(this.resource.custom_data);
         }
       }
       self.processAfterData(preprocessedData);  
@@ -96,7 +96,7 @@ function ODChart(config) {
 
   this.processAfterData = function(data) {
     
-    console.log(data);
+    console.log("Initializing graph with data:" + data);
 
     if (self.resource.singlerow || data.result.records.length == 1) {
       self.data = data.result.records[0];
