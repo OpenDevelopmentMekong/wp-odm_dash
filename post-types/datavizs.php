@@ -125,7 +125,9 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
 
         public function dataviz_dataset_info_callback($post) {
           $resource_url = get_post_meta($post->ID, '_ckan_resource_url', true);
-          $ckan_resource_filter = get_post_meta($post->ID, '_ckan_resource_filter', true);
+          $data_source = get_post_meta($post->ID, '_ckan_resource_url', true);
+          $ckan_resource_filter = get_post_meta($post->ID, '_data_source', true);
+          $custom_data = get_post_meta($post->ID,'_custom_data', true);
           wp_nonce_field( plugin_basename( __FILE__ ), 'honeypot_content_nonce' ); ?>
 
           <style>
@@ -134,6 +136,12 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
              }
           </style>
           <div id="resource_settings_box">
+            <div id="data-source-select">
+        			<input type="radio" id="ckan_resource" class="ckan_resource" name="_data_source" value="ckan_resource" <?php if ($data_source == 'ckan_resource'): echo "checked" ?> />
+        			<label for="data_source"><?php _e('CKan Resource', 'wp-odm_dash');?></label> &nbsp;                
+              <input type="radio" id="custom_data" class="custom_data" name="_data_source" value="custom_data"  <?php if ($data_source == 'custom_data'): echo "checked" ?> />
+        			<label for="custom_data"><?php _e('Custom Data', 'wp-odm_dash');?></label>
+        		</div>
             <div class="resource_settings">
               <table class="form-table resource_settings_box">
                 <tbody>
@@ -147,6 +155,47 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                         Ckan resource_id : d646bd1e-f377-4152-a4a7-8785e2b39fc5 <br>
                         Example :
                         https://data.opendevelopmentmekong.net/dataset/7bc0cabc-3c01-44fe-ba30-943a360c56fb/resource/d646bd1e-f377-4152-a4a7-8785e2b39fc5<strong>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for"_ckan_resource_filter">Resource Filter</label>
+                    </td>
+                    <td>
+                      <textarea id="_ckan_resource_filter" name="_ckan_resource_filter" style="width:100%;" rows="5"><?php echo $ckan_resource_filter; ?></textarea>
+                      <p class="description">
+                        Query filter for ckan datstore API in json format <br>
+                        Example :
+                        <pre>
+                          {
+                          	"pcode_st": "MMR001"
+                          }
+                        </pre>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="resource_settings">
+              <table class="form-table resource_settings_box">
+                <tbody>
+                  <tr>
+                    <td>
+                      <label for="_custom_data">Custom data :</label>
+                    </td>
+                    <td>
+                      <textarea id="_custom_data" name="_custom_data" placeholder="Enter data in proper format here" value="<?php echo $custom_data ?>" style="width:100%;" />
+                      <p class="description">
+                        Read guide on https://developers.google.com/chart/interactive/docs/basic_preparing_data</br>
+                        Example : [
+                          ['Mushrooms', 3],
+                          ['Onions', 1],
+                          ['Olives', 1], 
+                          ['Zucchini', 1],
+                          ['Pepperoni', 2]
+                        ]
                       </p>
                     </td>
                   </tr>
