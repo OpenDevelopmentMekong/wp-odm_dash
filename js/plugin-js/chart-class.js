@@ -18,21 +18,23 @@ function ODChart(config) {
     }
     
     if (this.resource.data_source == "custom_data"){
-      var jsonData = JSON.parse(this.resource.custom_data);
+      var jsonData = null;
       
-      if (!jsonData) {
+      try {
+        jsonData = JSON.parse(this.resource.custom_data);
+      } catch(e) {
         $('#chart_js_error').html(
           "There's something wrong with the custom data.<br> <span class='error_msg'> Please check the custom data you have entered and make sure it is in valid json format.</span>"
         ).show();
         $('#'+self.chart.container_id).hide();
-      }else{
-        var preprocessedData = {
-          result: {
-            records: jsonData
-          }
+      }
+      
+      var preprocessedData = {
+        result: {
+          records: jsonData
         }
-        self.processAfterData(preprocessedData); 
-      }      
+      }
+      self.processAfterData(preprocessedData);     
        
     }else{
       
