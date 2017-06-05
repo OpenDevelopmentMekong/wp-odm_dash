@@ -49,6 +49,10 @@ function ODChart(config) {
   };
 
   this.getData = function() {
+    
+    if (this.resource.data_source == "custom_data"){
+      return JSON.parse(this.resource.custom_data);
+    }
 
     var ajax_opt = {
       url: dashboard.ckan_url + '/api/action/datastore_search',

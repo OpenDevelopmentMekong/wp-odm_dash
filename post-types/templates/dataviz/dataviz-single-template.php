@@ -2,7 +2,9 @@
 
 $post_id = $post->ID;
 
+$data_source = get_post_meta($post_id, '_data_source', true);
 $resource_url = get_post_meta($post_id, '_ckan_resource_url', true);
+$custom_data = get_post_meta($post_id, '_custom_data', true);
 
 //For backward compatibility
 if(empty($resource_url)) {
@@ -62,7 +64,9 @@ if (isset($atts["height"])) {
 	
 	var config = {
 		resource : {
+			data_source: '<?php echo $data_source; ?>',
 			id : '<?php echo $resource_id; ?>',
+			custom_data: '<?php echo $custom_data; ?>',
 			download_link : '<?php echo $download_link; ?>',
 			filters : JSON.stringify(<?php echo $resource_filter; ?>)
 		},
