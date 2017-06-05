@@ -95,6 +95,8 @@ function ODChart(config) {
   };
 
   this.processAfterData = function(data) {
+    
+    console.log(data);
 
     if (self.resource.singlerow || data.result.records.length == 1) {
       self.data = data.result.records[0];
