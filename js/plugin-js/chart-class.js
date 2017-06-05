@@ -18,7 +18,12 @@ function ODChart(config) {
     }
     
     if (this.resource.data_source == "custom_data"){
-      self.processAfterData(this.resource.custom_data);  
+      var preprocessedData = {
+        result: {
+          records: this.resource.custom_data
+        }
+      }
+      self.processAfterData(preprocessedData);  
     }else{
       
       this.getData().done(function(data){
