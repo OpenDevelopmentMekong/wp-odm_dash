@@ -28,7 +28,7 @@ function ODChart(config) {
             records: jsonData
           }
         }
-        self.processAfterData(preprocessedData,true);   
+        self.processAfterData(preprocessedData);   
         
       } catch(e) {
         $('#chart_js_error').html(
@@ -43,7 +43,7 @@ function ODChart(config) {
 
         //Show Error if there's no data record return
         if (data.result.records.length >= 1) {
-          self.processAfterData(data,false);  
+          self.processAfterData(data);  
         } else {
           $('#chart_js_error').html(
             "There's something wrong with configuration.<br> <span class='error_msg'> No data records found.</span>"
@@ -107,18 +107,12 @@ function ODChart(config) {
 
   };
 
-  this.processAfterData = function(data,customData) {
-    
-    console.log(data);
-    
-    if (customData){
+  this.processAfterData = function(data) {
+
+    if (self.resource.singlerow || data.result.records.length == 1) {
       self.data = data.result.records[0];
-    }else{
-      if (self.resource.singlerow || data.result.records.length == 1) {
-        self.data = data.result.records[0];
-      } else {
-        self.data = data.result.records;
-      }
+    } else {
+      self.data = data.result.records;
     }
     
     var value = self.chart;

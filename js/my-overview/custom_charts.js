@@ -12,7 +12,7 @@ function ElectionPartyChart(config) {
 
     this.getData(pcode).done(function(data){
 
-      self.processAfterData(data,false);
+      self.processAfterData(data);
 
     });
   };
@@ -151,7 +151,7 @@ var PopulationPyramid = {
     PopulationPyramidData = prepareDataTable(charts.st_population.columns);
 
     PopulationPyramid.getData(pcode).done(function(data){
-      PopulationPyramid.processAfterData(data.result.records,false);
+      PopulationPyramid.processAfterData(data.result.records);
     });
   },
   getData : function (pcode) {
