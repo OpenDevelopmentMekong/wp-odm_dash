@@ -125,8 +125,8 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
 
         public function dataviz_dataset_info_callback($post) {
           $resource_url = get_post_meta($post->ID, '_ckan_resource_url', true);
-          $data_source = get_post_meta($post->ID, '_ckan_resource_url', true);
-          $ckan_resource_filter = get_post_meta($post->ID, '_data_source', true);
+          $data_source = get_post_meta($post->ID, '_data_source', true);
+          $ckan_resource_filter = get_post_meta($post->ID, '_ckan_resource_filter', true);
           $custom_data = get_post_meta($post->ID,'_custom_data', true);
           wp_nonce_field( plugin_basename( __FILE__ ), 'honeypot_content_nonce' ); ?>
 
