@@ -6,7 +6,7 @@ jQuery(function(){
 	  jQuery('#'+target).slideToggle();
 	  var btn_text = $(this).find('.data_source_btn_text');
 	  btn_text.text( 
-	  	btn_text.text() == 'Show Data' ? 'Hide Data' : 'Show Data'
+	  	btn_text.text() == dashboard.show_data ? dashboard.hide_data : dashboard.show_data
 	  );
 	});
 	
