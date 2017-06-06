@@ -54,7 +54,7 @@ if (!class_exists('Odm_Dashboards_Plugin')) {
             add_action('admin_notices', array($this, 'check_requirements'));
             add_action('init', array($this, 'load_text_domain'));
         }
-        
+
         public function load_text_domain()
         {
           load_plugin_textdomain( 'wp-odm_dash', false,  dirname( plugin_basename( __FILE__ ) ) . '/i18n' );
@@ -73,6 +73,7 @@ if (!class_exists('Odm_Dashboards_Plugin')) {
               'ckan_url' => wpckan_get_ckan_domain(),
               'config_error_msg' => __("There's something wrong with configuration.", 'wp-odm_dash'),
               'no_data_error' => __("No data records found.", 'wp-odm_dash'),
+              'invalid_json_custom_data_error' => __("Invalid JSON string in custom data configuration.", 'wp-odm_dash'),
               'error_msg' => __("Error message :", 'wp-odm_dash'),
               'data_source' => __("Data source", 'wp-odm_dash'),
               'download' => __("Download", 'wp-odm_dash'),
