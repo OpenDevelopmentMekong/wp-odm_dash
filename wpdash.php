@@ -3,7 +3,7 @@
  * Plugin Name: ODM Dashboards
  * Plugin URI: http://github.com/OpenDevelopmentMekong/wpdash
  * Description: Internal wordpress plugin for exposing widgets with data visualizations.
- * Version: 2.1.2
+ * Version: 2.1.3
  * Author: Alex Corbi (mail@lifeformapps.com)
  * Author URI: http://www.lifeformapps.com
  * License: GPLv3.
@@ -87,26 +87,6 @@ if (!class_exists('Odm_Dashboards_Plugin')) {
             wp_register_script('wpdash-google-chart', 'https://www.gstatic.com/charts/loader.js');
             wp_enqueue_script('wpdash-google-chart');
         }
-
-        // public function register_scripts()
-        // {
-        //
-        //   wp_register_script('wpdash-leaflet', plugin_dir_url(__FILE__).'bower_components/leaflet/dist/leaflet.js', array('jquery'));
-        //   wp_enqueue_script('wpdash-leaflet');
-        //   wp_register_script('wpdash-leaflet-search', plugin_dir_url(__FILE__).'bower_components/leaflet-search/dist/leaflet-search.min.js', array('jquery'));
-        //   wp_enqueue_script('wpdash-leaflet-search');
-        //   wp_register_script('wpdash-loading-overlay', plugin_dir_url(__FILE__).'bower_components/jquery-loading-overlay/src/loadingoverlay.min.js', array('jquery'));
-        //   wp_enqueue_script('wpdash-loading-overlay');
-        //
-        //   wp_register_script('wpdash-app', plugin_dir_url(__FILE__).'js/app.js', array('jquery'));
-        //   wp_enqueue_script('wpdash-app');
-        //   wp_register_script('wpdash-chart-config', plugin_dir_url(__FILE__).'js/chart-config.js', array('jquery'));
-        //   wp_enqueue_script('wpdash-chart-config');
-        //   wp_register_script('wpdash-chart-class', plugin_dir_url(__FILE__).'js/chartClass.js', array('jquery'));
-        //   wp_enqueue_script('wpdash-chart-class');
-        //   wp_register_script('wpdash-util', plugin_dir_url(__FILE__).'js/util.js', array('jquery'));
-        //   wp_enqueue_script('wpdash-util');
-        // }
 
         public function check_requirements()
         {
