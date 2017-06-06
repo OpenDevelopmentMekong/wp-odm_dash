@@ -32,7 +32,7 @@ function ODChart(config) {
         
       } catch(e) {
         $('#chart_js_error').html(
-          "There's something wrong with the custom data.<br> <span class='error_msg'> Please check the custom data you have entered and make sure it is in valid json format.</span>"
+          dashboard.config_error_msg + "<br> <span class='error_msg'> " + dashboard.no_data_error + "</span>"
         ).show();
         $('#'+self.chart.container_id).hide();
       }
@@ -62,15 +62,11 @@ function ODChart(config) {
           var errorMsg = JSON.stringify(responseText.error);
         }
 
-        $('#chart_js_error').html(
-                  "There's something wrong with configuration.<br> Error Message :<span class='error_msg'>" 
-                  + errorMsg + "</span>" //Errors are not same need to check all possible ways. 
-                  ).show();
-      });
-      
-    }
-    
-  	
+      $('#chart_js_error').html(
+                dashboard.config_error_msg + "<br> "+ dashboard.error_msg +"<span class='error_msg'>" 
+                + errorMsg + "</span>" //Errors are not same need to check all possible ways. 
+                ).show();
+    });
 
   };
 
@@ -219,7 +215,7 @@ function ODChart(config) {
       resource_container.append(
         jQuery('<a>').attr('href', dataset_url)
           .attr('target', '_blank')
-          .text('Data Source : ' + self.resource.resource_title)
+          .text( dashboard.data_source + ': ' + self.resource.resource_title)
       );
     }
 
@@ -228,7 +224,7 @@ function ODChart(config) {
       resource_container.append(
         jQuery('<a>')
           .addClass('resource_download')
-          .text(' Download')
+          .text(' ' + dashboard.download)
           .prepend(jQuery('<i>').addClass('fa fa-download'))
           .on('click', function(){
             self.downloadCSV(value.ChartData, value.container_id);
@@ -248,7 +244,7 @@ function ODChart(config) {
               .append(
                 jQuery('<a>').addClass('data_source_btn')
                   .attr('data-target', value.container_id + "_table")
-                  .html(' <span class="data_source_btn_text">Show Data<span>')
+                  .html(' <span class="data_source_btn_text">'+ dashboard.show_data +'<span>')
                   .prepend(
                     jQuery('<i>').addClass('fa fa-gear')
                   )
