@@ -160,9 +160,9 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                         Query filter for ckan datstore API in json format <br>
                         Example :
                         <pre>
-                        {
-                          pcode : "MMR001"
-                        }
+                          {
+                          	"pcode_st": "MMR001"
+                          }
                         </pre>
                       </p>
                     </td>
@@ -224,16 +224,18 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                         Check avaliable options <a href="https://developers.google.com/chart/interactive/docs/" target=" _blank">here</a> <br>
                         Examples :
                         <pre>
-                        {
-                          hAxis : {
-                            title : \'Communication and amenities type\',
-                            slantedText : true,
-                            slantedTextAngle: 45
-                          },
-                          vAxis : {
-                            title : \'Number of households with access\'
+                          {
+                          	"title": "Number of persons per household",
+                          	"hAxis": {
+                          		"title": "Number of persons"
+                          	},
+                          	"vAxis": {
+                          		"title": "Number of households"
+                          	},
+                          	"legend": {
+                          		"position": "none"
+                          	}
                           }
-                        }
                         </pre>
                       </p>
                     </td>
@@ -248,15 +250,21 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                         Column names from resource needed for visualization and labels to show on frontend in json format <br>
                         <pre>
                           {
-                            column_id : "Label"
+                            "column_id" : "Label"
                           }
                         </pre>
                         Example :
                         <pre>
                           {
-                            "pri_school" : "Primary school",
-                            "mid_school" : "Middle school",
-                            "high_school" : "High school"
+                          	"hh_1": "1",
+                          	"hh_2": "2",
+                          	"hh_3": "3",
+                          	"hh_4": "4",
+                          	"hh_5": "5",
+                          	"hh_6": "6",
+                          	"hh_7": "7",
+                          	"hh_8": "8",
+                          	"hh_9": ">9"
                           }
                         </pre>
                       </p>
@@ -278,10 +286,10 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                         </pre>
                         Example :
                         <pre>
-                        {
-                          "School" : "string",
-                          "Number of School" : "number"
-                        }
+                          {
+                          	"Household size": "string",
+                          	"Number of household": "number"
+                          }
                         </pre>
                       </p>
                     </td>
@@ -304,16 +312,18 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                         Check avaliable options <a href="https://developers.google.com/chart/interactive/docs/" target=" _blank">here</a> <br>
                         Examples :
                         <pre>
-                        {
-                          hAxis : {
-                            title : \'Communication and amenities type\',
-                            slantedText : true,
-                            slantedTextAngle: 45
-                          },
-                          vAxis : {
-                            title : \'Number of households with access\'
+                          {
+                          	"title": "Number of persons per household",
+                          	"hAxis": {
+                          		"title": "Number of persons"
+                          	},
+                          	"vAxis": {
+                          		"title": "Number of households"
+                          	},
+                          	"legend": {
+                          		"position": "none"
+                          	}
                           }
-                        }
                         </pre>
                       </p>
                     </td>
@@ -328,15 +338,21 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                         Column names from resource needed for visualization and labels to show on frontend in json format <br>
                         <pre>
                           {
-                            column_id : "Label"
+                            "column_id" : "Label"
                           }
                         </pre>
                         Example :
                         <pre>
                           {
-                            "pri_school" : "Primary school",
-                            "mid_school" : "Middle school",
-                            "high_school" : "High school"
+                          	"hh_1": "1",
+                          	"hh_2": "2",
+                          	"hh_3": "3",
+                          	"hh_4": "4",
+                          	"hh_5": "5",
+                          	"hh_6": "6",
+                          	"hh_7": "7",
+                          	"hh_8": "8",
+                          	"hh_9": ">9"
                           }
                         </pre>
                       </p>
@@ -358,10 +374,10 @@ if (!class_exists('Odm_DataViz_Post_Type')) {
                         </pre>
                         Example :
                         <pre>
-                        {
-                          "School" : "string",
-                          "Number of School" : "number"
-                        }
+                          {
+                          	"Household size": "string",
+                          	"Number of household": "number"
+                          }
                         </pre>
                       </p>
                     </td>
