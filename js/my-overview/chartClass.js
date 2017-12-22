@@ -1,8 +1,8 @@
 /* Chart Class */
 function ODChart(config) {
 
-  /* =========== Config Structure =========== 
-    
+  /* =========== Config Structure ===========
+
   var config = {
     resource : {
       id : 'resource_id',
@@ -49,7 +49,7 @@ function ODChart(config) {
   this.init = function(pcode) {
 
     self.pcode = pcode;
-    
+
     $.map(this.charts, function(value, index){
       if (value.chart_type !== 'text' || (value.prepare_data_from_array !== undefined && value.prepare_data_from_array === true)) {
 
@@ -60,8 +60,8 @@ function ODChart(config) {
         }
       }
     });
-    
-  	this.getData(pcode).done(function(data){    
+
+  	this.getData(pcode).done(function(data){
       self.processAfterData(data);
   	});
 
@@ -75,7 +75,10 @@ function ODChart(config) {
         resource_id : this.resource.id,
         filters : '{"'+ this.resource.filters.pcode +'":"'+ pcode +'"}'
       },
-      dataType: 'json'
+      dataType: 'json',
+      xhrFields: {
+         withCredentials: true
+      }
     };
 
     //Assign Authorization Header if resource is Private
@@ -95,7 +98,7 @@ function ODChart(config) {
   	$.map(columns, function(value, index){
   	  dataTable.addColumn(value, index);
   	});
-  	
+
   	return dataTable;
 
   };
@@ -105,7 +108,7 @@ function ODChart(config) {
     if (self.resource.singlerow) {
       self.data = data.result.records[0];
     } else {
-      self.data = data.result.records;  
+      self.data = data.result.records;
     }
 
     $.map(self.charts, function(value, index){
@@ -137,15 +140,15 @@ function ODChart(config) {
           $('#'+value.container_id).show();
 
         }
-  
+
       } else {
-    
+
         var row_count = value.ChartData.getNumberOfRows();
         if (row_count > 0) {
           value.ChartData.removeRows(0, row_count);
         }
-        
-        var c_data = self.prepareData(value); 
+
+        var c_data = self.prepareData(value);
         var s_data = self.prepareData(value, 'source_table');
 
         if(value.chart_type == 'treemap') {
@@ -172,17 +175,17 @@ function ODChart(config) {
             var treechartdata = value.ChartData;
             value.chart_options.generateTooltip = function(row, size, value) {
               if (treechartdata.getValue(row, 2) > 0) {
-                return '<div class="treemap_tooltip">' + 
+                return '<div class="treemap_tooltip">' +
                         '<h5>' +
-                        treechartdata.getValue(row, 0) + 
-                        '</h5>' + 
-                        self.formatNumber(treechartdata.getValue(row, 2)) + '<br>' + 
+                        treechartdata.getValue(row, 0) +
+                        '</h5>' +
+                        self.formatNumber(treechartdata.getValue(row, 2)) + '<br>' +
                       '</div>';
               } else {
                 return '<div class="treemap_tooltip">' +
                         '<h5>' +
-                        treechartdata.getValue(row, 0) + 
-                        '</h5>' + 
+                        treechartdata.getValue(row, 0) +
+                        '</h5>' +
                       '</div>';
               }
             };
@@ -322,7 +325,7 @@ function ODChart(config) {
   this.prepareDataFromFixStructure = function(chart) {
 
     var result = [];
-    
+
     $.map(chart.fields, function(value, index){
 
       var res = $.map(value, function(value, index){
@@ -364,7 +367,7 @@ function ODChart(config) {
   };
 
 
-  /* Download DataTable as CSV File 
+  /* Download DataTable as CSV File
 
      Code from : https://gist.github.com/pilate/1477368
      Credit to : pilate(https://github.com/pilate) and olmomp(https://github.com/olmomp)
@@ -375,19 +378,19 @@ function ODChart(config) {
     //DataTable to CSV
     var dt_cols = ChartData.getNumberOfColumns();
     var dt_rows = ChartData.getNumberOfRows();
-    
+
     var csv_cols = [];
     var csv_out;
-    
+
     // Iterate columns
     for (var i=0; i<dt_cols; i++) {
         // Replace any commas in column labels
         csv_cols.push(ChartData.getColumnLabel(i).replace(/,/g,""));
     }
-    
+
     // Create column row of CSV
     csv_out = csv_cols.join(",")+"\r\n";
-    
+
     // Iterate rows
     for (i=0; i<dt_rows; i++) {
         var raw_col = [];
@@ -411,7 +414,7 @@ function ODChart(config) {
 
     var event = document.createEvent("MouseEvents");
     event.initEvent("click", true, false);
-    link.dispatchEvent(event); 
+    link.dispatchEvent(event);
 
   }
 
