@@ -16,22 +16,22 @@ function ODChart(config) {
         value.ChartData.addColumn({type: 'string', role: 'style' });
       }
     }
-    
+
   	this.getData().done(function(data){
 
       //Show Error if there's no data record return
       if (data.result.records.length >= 1) {
-        self.processAfterData(data);  
+        self.processAfterData(data);
       } else {
         $('#chart_js_error').html(
           dashboard.config_error_msg + "<br> <span class='error_msg'> " + dashboard.no_data_error + "</span>"
         ).show();
         $('#'+self.chart.container_id).hide();
       }
-      
+
   	})
     .fail(function( jqXHR, textStatus, errorThrown ) {
-      
+
       var responseText =  JSON.parse(jqXHR.responseText);
 
       if (responseText.error.message) {
@@ -41,8 +41,8 @@ function ODChart(config) {
       }
 
       $('#chart_js_error').html(
-                dashboard.config_error_msg + "<br> "+ dashboard.error_msg +"<span class='error_msg'>" 
-                + errorMsg + "</span>" //Errors are not same need to check all possible ways. 
+                dashboard.config_error_msg + "<br> "+ dashboard.error_msg +"<span class='error_msg'>"
+                + errorMsg + "</span>" //Errors are not same need to check all possible ways.
                 ).show();
     });
 
@@ -58,11 +58,11 @@ function ODChart(config) {
       },
       dataType: 'json'
     };
-    
+
     //Assign Authorization Header if resource is Private
     if(config.resource.private) {
       ajax_opt.headers = {
-        Authorization : ckan_api_key
+        'Authorization' : ckan_api_key
       };
     }
 
@@ -324,7 +324,7 @@ function ODChart(config) {
   };
 
 
-  /* Download DataTable as CSV File 
+  /* Download DataTable as CSV File
 
      Code from : https://gist.github.com/pilate/1477368
      Credit to : pilate(https://github.com/pilate) and olmomp(https://github.com/olmomp)
@@ -335,19 +335,19 @@ function ODChart(config) {
     //DataTable to CSV
     var dt_cols = ChartData.getNumberOfColumns();
     var dt_rows = ChartData.getNumberOfRows();
-    
+
     var csv_cols = [];
     var csv_out;
-    
+
     // Iterate columns
     for (var i=0; i<dt_cols; i++) {
         // Replace any commas in column labels
         csv_cols.push(ChartData.getColumnLabel(i).replace(/,/g,""));
     }
-    
+
     // Create column row of CSV
     csv_out = csv_cols.join(",")+"\r\n";
-    
+
     // Iterate rows
     for (i=0; i<dt_rows; i++) {
         var raw_col = [];
@@ -370,8 +370,8 @@ function ODChart(config) {
 
     var event = document.createEvent("MouseEvents");
     event.initEvent("click", true, false);
-    link.dispatchEvent(event); 
+    link.dispatchEvent(event);
 
   }
-  
+
 }
