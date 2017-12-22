@@ -25,10 +25,7 @@ function ElectionPartyChart(config) {
         filters : '{"'+ this.resource.filters.pcode +'":"'+ pcode +'"}',
         sort : this.resource.sort_by
       },
-      dataType: 'json',
-      xhrFields: {
-         withCredentials: true
-      }
+      dataType: 'json'
     };
 
     //Assign Authorization Header if resource is Private
@@ -167,10 +164,7 @@ var PopulationPyramid = {
         resource_id : data_resources.state_region_pop_age_gp.id,
         filters : '{"pop_type" : "Total_population", "State_Region Pcode" : "'+ pcode +'"}'
       },
-      dataType : 'json',
-      xhrFields: {
-         withCredentials: true
-      }
+      dataType : 'json'
     })
   },
   processAfterData : function(data) {
@@ -253,10 +247,7 @@ var MinisterList = {
         filters : '{"pcode_st" : "'+ pcode +'"}',
         sort : 'order'
       },
-      dataType : 'json',
-      xhrFields: {
-         withCredentials: true
-      }
+      dataType : 'json'
     }).done(function(data){
 
       var container = jQuery('#adminstration_list');

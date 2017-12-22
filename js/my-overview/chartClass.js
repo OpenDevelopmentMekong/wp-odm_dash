@@ -75,10 +75,7 @@ function ODChart(config) {
         resource_id : this.resource.id,
         filters : '{"'+ this.resource.filters.pcode +'":"'+ pcode +'"}'
       },
-      dataType: 'json',
-      xhrFields: {
-         withCredentials: true
-      }
+      dataType: 'json'
     };
 
     //Assign Authorization Header if resource is Private
