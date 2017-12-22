@@ -1,5 +1,5 @@
 // ============================== Election Class ==================== //
-// *** Later need to extend from ODChart **** 
+// *** Later need to extend from ODChart ****
 
 function ElectionPartyChart(config) {
 
@@ -25,7 +25,10 @@ function ElectionPartyChart(config) {
         filters : '{"'+ this.resource.filters.pcode +'":"'+ pcode +'"}',
         sort : this.resource.sort_by
       },
-      dataType: 'json'
+      dataType: 'json',
+      xhrFields: {
+         withCredentials: true
+      }
     };
 
     //Assign Authorization Header if resource is Private
@@ -59,7 +62,7 @@ function ElectionPartyChart(config) {
 
         }
 
-      }); 
+      });
 
   };
 
@@ -80,7 +83,7 @@ function ElectionPartyChart(config) {
       if (value[chart_conf.fields.value] > 0) {
         columns.push(value[chart_conf.fields.party]);
         values.push(parseInt(value[chart_conf.fields.value]));
-        colors.push(self.getPartyColor(value[chart_conf.fields.party]));  
+        colors.push(self.getPartyColor(value[chart_conf.fields.party]));
       }
     });
 
@@ -88,7 +91,7 @@ function ElectionPartyChart(config) {
       var f_data = [columns, values];
 
       chart_conf.chart_options.colors = colors;
-      
+
       chart_conf.ChartData = new google.visualization.arrayToDataTable(f_data);
 
       googleChart.draw(chart_conf.chart_type, document.getElementById(chart_conf.container_id), chart_conf.ChartData, chart_conf.chart_options);
@@ -112,9 +115,9 @@ function ElectionPartyChart(config) {
 
   this.getPartyColor = function(partyname) {
 
-    colors = ['#E91E63', 
-              '#9C27B0', 
-              '#673AB7', 
+    colors = ['#E91E63',
+              '#9C27B0',
+              '#673AB7',
               '#2196F3',
               '#03A9F4',
               '#607D8B',
@@ -127,14 +130,14 @@ function ElectionPartyChart(config) {
               '#FF5722',
               '#795548'
               ];
-    return partyname == 'National League for Democracy' ? '#F44336' : 
+    return partyname == 'National League for Democracy' ? '#F44336' :
            partyname == 'Union Solidarity And Development Party' ? 'green'  :
            partyname == 'Union Solidarity and Development Party' ? 'green' :
            partyname == 'Shan Nationalities Democratic Party' ? '#4CAF50' :
            partyname == 'National Democratic Force' ? '#3F51B5' :
            partyname == 'National Unity Party' ? '#FFEB3B' :
            partyname == 'National Unity Party (NUP)' ? '#FFEB3B' :
-           partyname == 'Rakhine Nationals Development Party' ? '#9E9E9E' : 
+           partyname == 'Rakhine Nationals Development Party' ? '#9E9E9E' :
            partyname == 'Arakan National Party' ? '#0288D1' :
           colors[Math.floor(Math.random() * colors.length)];
   };
@@ -164,7 +167,10 @@ var PopulationPyramid = {
         resource_id : data_resources.state_region_pop_age_gp.id,
         filters : '{"pop_type" : "Total_population", "State_Region Pcode" : "'+ pcode +'"}'
       },
-      dataType : 'json'
+      dataType : 'json',
+      xhrFields: {
+         withCredentials: true
+      }
     })
   },
   processAfterData : function(data) {
@@ -172,7 +178,7 @@ var PopulationPyramid = {
     var f_data = PopulationPyramid.processData(data);
 
     //PopulationPyramidData.addRows(f_data);
-    
+
     var pp_region_name = (data[0].name == 'Union') ? 'Myanmar' : data[0].name;
 
     var p_config = charts.st_population;
@@ -247,7 +253,10 @@ var MinisterList = {
         filters : '{"pcode_st" : "'+ pcode +'"}',
         sort : 'order'
       },
-      dataType : 'json'
+      dataType : 'json',
+      xhrFields: {
+         withCredentials: true
+      }
     }).done(function(data){
 
       var container = jQuery('#adminstration_list');
@@ -258,21 +267,21 @@ var MinisterList = {
 
         //Ministry Name
         if (value['website'].length > 0) {
-          var minsitry_name = '<a href="http://'+ value['website'] +'" target="_blank">'+ value.ministry +'</a>'; 
+          var minsitry_name = '<a href="http://'+ value['website'] +'" target="_blank">'+ value.ministry +'</a>';
         } else {
           var minsitry_name = value.ministry;
         }
 
         //Minister Name
         if (value['more_info'].length > 0) {
-          var minister_name = '<a href="'+ value['more_info'] +'" target="_blank"><strong>'+ value.name +'</strong></a>'; 
+          var minister_name = '<a href="'+ value['more_info'] +'" target="_blank"><strong>'+ value.name +'</strong></a>';
         } else {
           var minister_name = value.name;
         }
 
         var minister_info = '<div class="ministry_val">'+ minsitry_name +'</div>' +
-                            '<div class="minister_name" style="font-weight:bold;">'+ minister_name +'</div>' + 
-                            '<div class="minister_pos">'+ value.position +'</div>'; 
+                            '<div class="minister_name" style="font-weight:bold;">'+ minister_name +'</div>' +
+                            '<div class="minister_pos">'+ value.position +'</div>';
 
         var minister_item = jQuery('<li>')
                 .addClass('four columns')
