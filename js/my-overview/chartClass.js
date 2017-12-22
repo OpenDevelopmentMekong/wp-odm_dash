@@ -84,7 +84,7 @@ function ODChart(config) {
     //Assign Authorization Header if resource is Private
     if(config.resource.private) {
       ajax_opt.headers = {
-        Authorization : ckan_api_key
+        'Authorization' : ckan_api_key
       };
     }
 
