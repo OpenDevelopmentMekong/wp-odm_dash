@@ -22,8 +22,11 @@
        type: 'GET',
        url: taxonomy_definition_url,
        dataType:'jsonp',
-       success: function(data) { 
-                
+       jsonpCallback: function(data) {
+        
+        console.log("success");
+        console.log(data);
+        
         var chartData = new google.visualization.DataTable();
         chartData.addColumn('string', 'Topic');
         chartData.addColumn('string', 'Parent');
