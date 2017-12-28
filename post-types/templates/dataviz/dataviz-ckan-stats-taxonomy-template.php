@@ -21,7 +21,7 @@
     $.ajax({
        type: 'GET',
        url: taxonomy_definition_url,
-       dataType:'json',
+       dataType:'jsonp',
        success: function(data) { 
                 
         var chartData = new google.visualization.DataTable();
