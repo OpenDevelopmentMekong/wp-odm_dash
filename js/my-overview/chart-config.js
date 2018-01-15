@@ -794,7 +794,6 @@ var chartconfig = {
   st_health_education : {
     resource : {
       id : 'bc5b9344-10de-45eb-8e15-af4aa33c1255',
-      private : true,
       singlerow : true,
       download_link : 'https://data.opendevelopmentmekong.net/dataset/1b8b8832-0b56-4a93-8d6e-4293edff2ad5/resource/bc5b9344-10de-45eb-8e15-af4aa33c1255/download/Demo-Health-Edu-MIMUBLUnionStateRegion.csv',
       resource_link : 'https://data.opendevelopmentmekong.net/dataset/1b8b8832-0b56-4a93-8d6e-4293edff2ad5/resource/bc5b9344-10de-45eb-8e15-af4aa33c1255',
@@ -898,7 +897,6 @@ var chartconfig = {
       filename : 'Area-and-Populatin-density-by-State-and-Region.csv',
       resource_title : '2014 Myanmar population and housing census main report',
       singlerow : true,
-      private : true,
       filters : {
         pcode : 'Pcode'
       }
