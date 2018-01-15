@@ -157,9 +157,6 @@ var PopulationPyramid = {
   getData : function (pcode) {
     return $.ajax({
       url : data_resources.base_url,
-      headers : {
-        Authorization : data_resources.api_key
-      },
       data : {
         resource_id : data_resources.state_region_pop_age_gp.id,
         filters : '{"pop_type" : "Total_population", "State_Region Pcode" : "'+ pcode +'"}'
