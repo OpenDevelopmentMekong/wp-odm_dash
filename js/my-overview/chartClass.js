@@ -291,13 +291,14 @@ function ODChart(config) {
 
     $.map(chart.fields, function(value, index){
       var num_value = self.data[index];
-      if (num_value && num_value.match(/,/g)) {
-        num_value = num_value.replace(/,/g, '');
-      }
-
-      if (num_value === null || num_value === '') {
+      
+      if (num_value === undefined || num_value === null || num_value === '') {
         num_value = 0;
-      }
+      } 
+
+      /*if (num_value && num_value.match(/,/g)) {
+        num_value = num_value.replace(/,/g, '');
+      }*/
 
       if (num_value === 0) {
         zero_count++;
