@@ -1,0 +1,146 @@
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: wpdash\n"
+"POT-Creation-Date: 2016-09-07 11:50+0200\n"
+"PO-Revision-Date: 2016-09-07 11:50+0200\n"
+"Language-Team: Lao (https://www.transifex.com/open-development-mekong/teams/27158/lo/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lo\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: _;_e;__;_n:1,2;_x:1,2c;_ex:1,2c\n"
+"X-Poedit-SearchPath-0: i18n\n"
+"X-Poedit-SearchPath-1: .\n"
+"X-Poedit-SearchPathExcluded-0: components\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: post-types/dashboards.php:28 post-types/dashboards.php:30
+#: post-types/dashboards.php:31
+msgid "Dashboards"
+msgstr ""
+
+#: post-types/dashboards.php:29
+msgid "Dashboard"
+msgstr ""
+
+#: post-types/dashboards.php:32
+msgid "Add new"
+msgstr ""
+
+#: post-types/dashboards.php:33
+msgid "Add new dashboard"
+msgstr ""
+
+#: post-types/dashboards.php:34
+msgid "New dashboard"
+msgstr ""
+
+#: post-types/dashboards.php:35
+msgid "Edit dashboard"
+msgstr ""
+
+#: post-types/dashboards.php:36
+msgid "View dashboard"
+msgstr ""
+
+#: post-types/dashboards.php:37
+msgid "All dashboard"
+msgstr ""
+
+#: post-types/dashboards.php:38
+msgid "Search dashboard"
+msgstr ""
+
+#: post-types/dashboards.php:39
+msgid "Parent dashboard:"
+msgstr ""
+
+#: post-types/dashboards.php:40
+msgid "No dashboard found."
+msgstr ""
+
+#: post-types/dashboards.php:41
+msgid "No dashboard found in trash."
+msgstr ""
+
+#: templates/settings.php:12
+msgid "Section"
+msgstr ""
+
+#: templates/settings.php:14
+msgid "Dummy setting"
+msgstr ""
+
+#: templates/settings.php:17
+msgid "Modify according to needs"
+msgstr ""
+
+#: widgets/query-resources-widget.php:9
+msgid "wpdash Query Datasets"
+msgstr ""
+
+#: widgets/query-resources-widget.php:10
+msgid "Query resources and displays them in a post or page."
+msgstr ""
+
+#: widgets/query-resources-widget.php:75
+msgid "Related datasets"
+msgstr ""
+
+#: widgets/query-resources-widget.php:103
+msgid "Title:"
+msgstr ""
+
+#: widgets/query-resources-widget.php:105
+msgid "Query:"
+msgstr ""
+
+#: widgets/query-resources-widget.php:107
+msgid "CKAN Organization:"
+msgstr ""
+
+#: widgets/query-resources-widget.php:109
+#: widgets/query-resources-widget.php:116
+msgid "All"
+msgstr ""
+
+#: widgets/query-resources-widget.php:114
+msgid "CKAN Group:"
+msgstr ""
+
+#: widgets/query-resources-widget.php:121
+msgid "Additional filtering:"
+msgstr ""
+
+#: widgets/query-resources-widget.php:122
+msgid "Specify valid JSON, otherwise not saved"
+msgstr ""
+
+#: widgets/query-resources-widget.php:123
+msgid "Dataset type:"
+msgstr ""
+
+#: widgets/query-resources-widget.php:124
+msgid "dataset, library_record, etc.."
+msgstr ""
+
+#: widgets/query-resources-widget.php:125
+msgid "Limit:"
+msgstr ""
+
+#: widgets/query-resources-widget.php:127
+msgid "More dataset: Link label"
+msgstr ""
+
+#: widgets/query-resources-widget.php:129
+msgid "More dataset: Link (URL)"
+msgstr ""
+
+#: wpdash.php:115
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
