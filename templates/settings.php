@@ -2,7 +2,7 @@
     <h2>wpdash -  A wordpress plugin for exposing widgets with data visualizations</h2>
     <form method="post" action="options.php">
         <?php @settings_fields('wpdash-group'); ?>
-        <?php @do_settings_fields('wpdash-group'); ?>
+        <?php @do_settings_fields('wpdash-group','wpdash-group'); ?>
 
         <?php
           $setting_1 = $GLOBALS['wpdash_options']->get_option('wpdash_setting_1');
