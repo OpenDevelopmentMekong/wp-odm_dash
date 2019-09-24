@@ -65,7 +65,7 @@ function ElectionPartyChart(config) {
 
   this.addDataSourceLink = function(value) {
     if (self.resource.dataset_id !== undefined) {
-      var dataset_url = data_source_url + '?id=' + self.resource.dataset_id;
+      var dataset_url = data_source_url + '/' + self.resource.dataset_id;
       jQuery('#'+value.container_id).append('<div class="resource_link">Data Source : <a href="'+ dataset_url +'" target="_blank">'+ self.resource.resource_title +'</a></div>');
     }
   };
@@ -183,7 +183,7 @@ var PopulationPyramid = {
 
     googleChart.draw(p_config.chart_type, document.getElementById(p_config.container_id), PopulationPyramidData, p_config.chart_options);
 
-    var resource_link = data_source_url + '?id=7bc0cabc-3c01-44fe-ba30-943a360c56fb';
+    var resource_link = data_source_url + '/7bc0cabc-3c01-44fe-ba30-943a360c56fb';
 
     var resource_title = '2014 Myanmar Population and Housing Census';
 

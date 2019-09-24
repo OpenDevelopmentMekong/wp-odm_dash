@@ -19,7 +19,7 @@
 <section class="container">
 	<div class="row">
 		<div class="sixteen columns">
-	    <?php the_content(); ?>
+           <?php if ($template != 'my-overview') {the_content();} ?>
 	  </div>
 	</div>
 </section>

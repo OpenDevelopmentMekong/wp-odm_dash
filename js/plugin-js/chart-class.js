@@ -188,7 +188,7 @@ function ODChart(config) {
 
     if (self.resource.dataset_id !== undefined) {
 
-      var dataset_url = data_source_url + '?id=' + self.resource.dataset_id;
+      var dataset_url = data_source_url + '/' + self.resource.dataset_id;
 
       resource_container.append(
         jQuery('<a>').attr('href', dataset_url)
