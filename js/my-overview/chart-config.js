@@ -1,7 +1,7 @@
 
-var ckan_api_url = 'https://data.odmy.odm-eu.staging.derilinx.com/api/action/datastore_search';
+var ckan_api_url = 'https://data.opendevelopmentmyanmar.net/api/action/datastore_search';
 var ckan_api_key = '';
-var data_source_url = 'https://data.odmy.odm-eu.staging.derilinx.com/dataset';
+var data_source_url = 'https://data.opendevelopmentmyanmar.net/dataset';
 
 var data_resources = {
   base_url : ckan_api_url,
